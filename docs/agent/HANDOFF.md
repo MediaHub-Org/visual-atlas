@@ -13,3 +13,7 @@ dependency vulnerabilities; investigate upgrades before exposing dev tools.
 Next: verify representative records with sources and licensing, design the
 many-to-many PostgreSQL schema (including dated rights and provenance), then
 implement authenticated editorial workflows. Expand views and test usability.
+
+The repository moved to `D:\Workspaces\David7ce-user\David7ce-code\web-app\visual-atlas`.
+`db/schema.sql` is a first proposed PostgreSQL schema, not applied or integrated.
+It needs database-level tests and editorial validation before deployment.

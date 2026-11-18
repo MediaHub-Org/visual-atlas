@@ -15,6 +15,13 @@ function App() {
   const [density,setDensity] = useState(initial.get('density') === 'compact' ? 'compact' : 'comfortable');
   const [selected,setSelected] = useState(initial.get('work') || '');
   useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') setSelected('');
+    }
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+  useEffect(() => {
     const p = new URLSearchParams();
     if(query) p.set('q',query); if(franchise !== 'All') p.set('franchise',franchise);
     if(format !== 'All') p.set('format',format); if(sort !== 'release') p.set('sort',sort);
