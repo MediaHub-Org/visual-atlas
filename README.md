@@ -9,5 +9,6 @@ are implied. This prototype has no backend, database, admin authentication or
 editing. See `docs/agent/HANDOFF.md` for scope and next steps.
 
 `db/schema.sql` contains a proposed data model, not an applied migration. The
-frontend does not yet use a database. The development server is intended for
-local use only; do not expose it publicly.
+frontend does not yet use a database. Its invariants are tested against a real
+PostgreSQL engine with `npm run test:db` (no server needed). The development
+server is intended for local use only; do not expose it publicly.
