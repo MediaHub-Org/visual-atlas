@@ -67,7 +67,8 @@ every 25 works and writes saved, ambiguous and unmatched results to
 `public/posters/manifest.json`. Review the ambiguous list in the app; each work
 also has its own manual search box.
 
-First full run (2026-11-19): 805 posters cached (~77 MB), 103 works left for
+The toolbar has a «No poster yet» toggle for reviewing what the automatic matcher
+left behind. First full run (2026-11-19): 805 posters cached (~77 MB), 103 works left for
 manual review — mostly where TMDB uses a different title («Star Wars» for
 *A New Hope*, «The Fantastic 4» for *Four*) or the search returns several exact
 matches (*Rocky*, *Mad Men*, *Lost*, *Chernobyl*). One premiere entry was

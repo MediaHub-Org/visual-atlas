@@ -31,6 +31,7 @@ function readUrl() {
     view: view && VIEWS.includes(view) ? view : 'cards' as View,
     density: params.get('density') === 'compact' ? 'compact' as const : 'comfortable' as const,
     work: params.get('work') ?? '',
+    needsPoster: params.get('noposter') === '1',
   };
 }
 
@@ -50,6 +51,7 @@ export default function App() {
   const [view, setView] = useState<View>(initial.view);
   const [density, setDensity] = useState<'compact' | 'comfortable'>(initial.density);
   const [selected, setSelected] = useState(initial.work);
+  const [needsPoster, setNeedsPoster] = useState(initial.needsPoster);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [posters, setPosters] = useState<PosterLookup>({ids: new Set(), version: 0});
   const [tmdbConfigured, setTmdbConfigured] = useState(false);
@@ -83,16 +85,17 @@ export default function App() {
     if (view !== 'cards') params.set('view', view);
     if (density !== 'comfortable') params.set('density', density);
     if (selected) params.set('work', selected);
+    if (needsPoster) params.set('noposter', '1');
     const next = `${location.pathname}${params.size ? `?${params}` : ''}`;
     if (next !== `${location.pathname}${location.search}`) history.replaceState(null, '', next);
-  }, [query, franchise, company, tag, format, sort, view, density, selected]);
+  }, [query, franchise, company, tag, format, sort, view, density, selected, needsPoster]);
 
   useEffect(() => {
     const onPop = () => {
       const next = readUrl();
       setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setTag(next.tag);
       setFormat(next.format); setSort(next.sort); setView(next.view);
-      setDensity(next.density); setSelected(next.work);
+      setDensity(next.density); setSelected(next.work); setNeedsPoster(next.needsPoster);
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
@@ -113,6 +116,7 @@ export default function App() {
         (!allowedFranchises || work.memberships.some(m => allowedFranchises.has(m.franchiseId))) &&
         (format === 'All' || (format === 'Anime' ? work.anime : work.format === format)) &&
         (!tag || dataset.workTags.get(work.id)?.includes(tag)) &&
+        (!needsPoster || !posters.ids.has(work.id)) &&
         (!needle || `${work.title} ${work.memberships.map(m => m.franchise).join(' ')}`.toLowerCase().includes(needle)))
       .sort((a, b) => {
         if (sort === 'title') return a.title.localeCompare(b.title);
@@ -121,7 +125,7 @@ export default function App() {
         if (b.year === null) return -1;
         return sort === 'releaseDesc' ? b.year - a.year : a.year - b.year;
       });
-  }, [dataset, query, franchise, allowedFranchises, format, tag, sort]);
+  }, [dataset, query, franchise, allowedFranchises, format, tag, needsPoster, posters, sort]);
 
   const tagOptions = useMemo(() => {
     if (!dataset) return [];
@@ -134,7 +138,7 @@ export default function App() {
   const selectedTags = selectedWork && dataset
     ? dataset.tags.filter(entry => dataset.workTags.get(selectedWork.id)?.includes(entry.id))
     : [];
-  const showHero = view === 'cards' && !query && franchise === 'All' && !company && !tag;
+  const showHero = view === 'cards' && !query && franchise === 'All' && !company && !tag && !needsPoster;
 
   function pickFranchise(name: string) {
     setFranchise(name === franchise ? 'All' : name);
@@ -245,6 +249,9 @@ export default function App() {
                       {SORTS.map(option => <option key={option} value={option}>{t(`sort.${option}`)}</option>)}
                     </select>
                   </label>
+                  <button className={`chip ${needsPoster ? 'active' : ''}`} aria-pressed={needsPoster} onClick={() => setNeedsPoster(value => !value)}>
+                    {t('filter.noPoster')}
+                  </button>
                   <button className="density" onClick={() => setDensity(density === 'compact' ? 'comfortable' : 'compact')}>
                     {t('density.label')}: {t(`density.${density}`)}
                   </button>
