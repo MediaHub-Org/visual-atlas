@@ -69,16 +69,27 @@ type Seed = {
 const COLORS = ['#94674f', '#4b6877', '#a28255', '#707856', '#687481', '#566653', '#706479', '#a36b59'];
 
 type ImportedMetadata = {
-  entries?: Record<string, {year?: number; date?: string; title?: string; origin?: string}>;
+  entries?: Record<string, {year?: number; date?: string; title?: string; origin?: string; expires?: string}>;
 };
 
+/**
+ * The local TMDB years cache, or null. It is optional (ignored by Git, stripped
+ * from builds), and a missing file comes back from the dev server as HTML, so
+ * anything that is not JSON simply means "no imported years".
+ */
+async function loadImportedMetadata(): Promise<ImportedMetadata | null> {
+  try {
+    const response = await fetch('/data/tmdb_metadata.json');
+    if (!response.ok || !response.headers.get('content-type')?.includes('json')) return null;
+    return await response.json() as ImportedMetadata;
+  } catch {
+    return null;
+  }
+}
+
 export async function loadAtlas(url = '/data/media_atlas_seed.json'): Promise<Dataset> {
-  const [seedResponse, metadataResponse] = await Promise.all([
-    fetch(url),
-    fetch('/data/tmdb_metadata.json').catch(() => null),
-  ]);
+  const [seedResponse, metadata] = await Promise.all([fetch(url), loadImportedMetadata()]);
   if (!seedResponse.ok) throw new Error(`Unable to load the atlas dataset (${seedResponse.status}).`);
-  const metadata = metadataResponse?.ok ? await metadataResponse.json() as ImportedMetadata : null;
   return buildDataset(await seedResponse.json() as Seed, metadata);
 }
 
@@ -99,8 +110,11 @@ export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null): Da
   }
 
   const works: Work[] = seed.works.map((work, index) => {
-    const importedYear = metadata?.entries?.[work.id]?.year;
-    const useImported = work.release_year === null && Number.isInteger(importedYear) && importedYear! > 1800 && importedYear! < 2200;
+    const imported = metadata?.entries?.[work.id];
+    const importedYear = imported?.year;
+    // TMDB data past its cache limit is not shown; fetch-metadata.mjs re-fetches it.
+    const fresh = Boolean(imported?.expires) && Date.parse(imported!.expires!) > Date.now();
+    const useImported = work.release_year === null && fresh && Number.isInteger(importedYear) && importedYear! > 1800 && importedYear! < 2200;
     return {
       id: work.id,
       title: work.title,

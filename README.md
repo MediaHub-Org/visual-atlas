@@ -2,11 +2,27 @@
 
 A first, local-only React/Vite prototype of a visual atlas of film and television.
 
-Run `npm install`, then `npm run dev`. `npm run build` checks types and builds.
-The conversation export in `src/media_atlas_seed.json` is **unverified
-demonstration data**, not a publishable catalogue. Artwork is generated locally; no external image licences
-are implied. This prototype has no backend, database, admin authentication or
-editing. See `docs/agent/HANDOFF.md` for scope and next steps.
+Run `npm install`, then `npm run dev`. `npm run build` checks types and builds;
+`npm test` runs the schema tests. The conversation export in
+`public/data/media_atlas_seed.json` is **unverified demonstration data**, not a
+publishable catalogue. Posters and imported years come from a local TMDB cache
+(see below); without it the cards fall back to generated artwork. This prototype
+has no backend, database, admin authentication or editing. See
+`docs/agent/HANDOFF.md` for scope and next steps.
+
+## TMDB terms (what this repo does about them)
+
+- **Non-commercial only.** TMDB's API may not be used commercially without a
+  written agreement.
+- **Attribution.** The TMDB logo and the "not endorsed or certified by TMDB"
+  notice are shown in the app header and the detail panel.
+- **Cache limit.** TMDB content may be cached for at most six months. Posters and
+  imported years expire after 150 days (`scripts/tmdb-cache.mjs`); the app hides
+  expired years and drops expired unchanged posters on start, and the scripts
+  re-fetch them.
+- **No redistribution.** The cache (`public/posters/`,
+  `public/data/tmdb_metadata.json`) is ignored by Git, and `npm run build` strips
+  it from `dist/`, so neither the repo nor a build ever contains TMDB data.
 
 `db/schema.sql` contains a proposed data model, not an applied migration. The
 frontend does not yet use a database. Its invariants are tested against a real
@@ -80,7 +96,8 @@ labels such as «Doctor Who: original series» or «Doraemon: 1979 series».
 ## Imported metadata
 
 `scripts/fetch-metadata.mjs` fills only release years the seed leaves empty and
-writes `public/data/tmdb_metadata.json`. It never overwrites a curated field; the
+writes `public/data/tmdb_metadata.json` (a local cache, ignored by Git; each
+entry expires after 150 days and is re-fetched on the next run). It never overwrites a curated field; the
 UI marks those years with an asterisk and explains the origin in the detail
 panel. Run on 2026-11-19: all 92 year-less series got a first-air year — 69 reused
 the poster cache and the rest came from search with title overrides. Series

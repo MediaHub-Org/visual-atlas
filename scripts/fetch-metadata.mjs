@@ -2,12 +2,15 @@
 // Fills only the release years the seed leaves empty, from TMDB. Everything it
 // writes is imported metadata: the app shows it with a marker and the seed's
 // curated fields are never touched. Resumable; ambiguous titles are skipped.
+// The output is a local TMDB cache (ignored by Git): every entry carries an
+// `expires` date, the app ignores expired entries and this script re-fetches them.
 //
 //   node --env-file-if-exists=.env scripts/fetch-metadata.mjs
 //   node --env-file-if-exists=.env scripts/fetch-metadata.mjs --limit 10
 import {readFile, writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {chooseMatches} from './match.mjs';
+import {tmdbExpiry} from './tmdb-cache.mjs';
 import {titleRules} from './title-rules.mjs';
 
 const args = process.argv.slice(2);
@@ -49,7 +52,8 @@ let filled = 0, skipped = 0;
 
 for (const work of seed.works) {
   if (work.release_year) continue;
-  if (output.entries[work.id]?.year) continue;
+  const cached = output.entries[work.id];
+  if (cached?.year && Date.parse(cached.expires) > Date.now()) continue;
   if (filled + skipped >= limit) break;
 
   // A saved poster already carries TMDB's primary release date.
@@ -67,6 +71,7 @@ for (const work of seed.works) {
       origin: 'poster-cache',
       match: 'exact',
       importedAt: new Date().toISOString(),
+      expires: tmdbExpiry(),
     };
     filled += 1;
     console.log(`${work.title} -> ${sidecarDate} (poster cache)`);
@@ -111,6 +116,7 @@ for (const work of seed.works) {
     query,
     match: rule ? 'rule' : 'title',
     importedAt: new Date().toISOString(),
+    expires: tmdbExpiry(),
   };
   filled += 1;
   console.log(`${work.title} -> ${date} (${match.title ?? match.name})`);

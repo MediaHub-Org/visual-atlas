@@ -2,18 +2,19 @@
 // Local poster backfill for the unverified seed. Deliberately conservative:
 // a work is only matched when the normalised title equals a TMDB result and the
 // year agrees, so nothing is attributed by guesswork. Every download keeps the
-// same 150-day provenance sidecar as the in-app saver.
+// same provenance sidecar and expiry (scripts/tmdb-cache.mjs) as the in-app saver.
 //
-// Usage:
-//   npm run posters:fetch -- --dry-run --limit 20
-//   npm run posters:fetch -- --limit 100
-//   npm run posters:fetch -- --franchise "Star Wars" --force
+// Usage (call node directly: npm swallows flags after `npm run … --`):
+//   node --env-file-if-exists=.env scripts/fetch-posters.mjs --dry-run --limit 20
+//   node --env-file-if-exists=.env scripts/fetch-posters.mjs --limit 100
+//   node --env-file-if-exists=.env scripts/fetch-posters.mjs --franchise "Star Wars" --force
 //
 // Requires TMDB_API_KEY in .env (or the environment). Do not commit the key.
 import {createHash} from 'node:crypto';
 import {mkdir, readFile, writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {chooseMatches, dateOf, normalise, relaxedMatches} from './match.mjs';
+import {TMDB_CACHE_DAYS, tmdbExpiry} from './tmdb-cache.mjs';
 import {titleRules} from './title-rules.mjs';
 
 const args = process.argv.slice(2);
@@ -82,7 +83,7 @@ let saved = 0, skipped = 0, missing = 0;
 
 async function persistManifest() {
   manifest.generatedAt = new Date().toISOString();
-  manifest.note = 'Posters cached from TMDB for at most 150 days. Recheck attribution and terms before distribution.';
+  manifest.note = `Posters cached from TMDB for at most ${TMDB_CACHE_DAYS} days. Recheck attribution and terms before distribution.`;
   await writeFile(manifestPath, JSON.stringify(manifest, null, 2));
 }
 
@@ -174,7 +175,6 @@ for (const work of works.slice(0, limit)) {
     if (bytes.length > 5_000_000) throw new Error('poster too large');
     await writeFile(join(posterDir, `${work.id}.jpg`), bytes);
     const cachedAt = new Date();
-    const expires = new Date(cachedAt.getTime() + 150 * 24 * 60 * 60 * 1000);
     await writeFile(join(posterDir, `${work.id}.jpg.json`), JSON.stringify({
       source: 'TMDB',
       poster: match.poster_path,
@@ -182,7 +182,7 @@ for (const work of works.slice(0, limit)) {
       matchedTitle: match.title ?? match.name,
       releaseDate: match.release_date ?? match.first_air_date ?? null,
       cachedAt: cachedAt.toISOString(),
-      expires: expires.toISOString(),
+      expires: tmdbExpiry(cachedAt),
       sha256: createHash('sha256').update(bytes).digest('hex'),
     }, null, 2));
     manifest.entries[work.id] = {status: 'saved', tmdbId: match.id, poster: match.poster_path};

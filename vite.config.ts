@@ -1,7 +1,8 @@
 import {defineConfig, type Plugin} from 'vite';
-import {mkdir, readdir, readFile, rename, unlink, writeFile} from 'node:fs/promises';
+import {mkdir, readdir, readFile, rename, rm, unlink, writeFile} from 'node:fs/promises';
 import {createHash, randomUUID} from 'node:crypto';
 import {join} from 'node:path';
+import {tmdbExpiry} from './scripts/tmdb-cache.mjs';
 
 // Reading 800+ sidecars on every load is slow; the status scan is cached briefly
 // and invalidated whenever a poster is saved.
@@ -83,9 +84,7 @@ function localPosters(): Plugin {
             const temp = join(dir, `${randomUUID()}.tmp`);
             await writeFile(temp, data, {flag: 'wx'});
             await rename(temp, target);
-            // 150 days is safely shorter than six calendar months.
-            const expires = new Date(Date.now() + 150 * 24 * 60 * 60 * 1000);
-            await writeFile(`${target}.json`, JSON.stringify({source: 'TMDB', poster, cachedAt: new Date().toISOString(), expires: expires.toISOString(), sha256: createHash('sha256').update(data).digest('hex')}, null, 2));
+            await writeFile(`${target}.json`, JSON.stringify({source: 'TMDB', poster, cachedAt: new Date().toISOString(), expires: tmdbExpiry(), sha256: createHash('sha256').update(data).digest('hex')}, null, 2));
             statusCache = null;
             return send(200, {url: `/posters/${workId}.jpg`});
           }
@@ -97,4 +96,19 @@ function localPosters(): Plugin {
     }
   };
 }
-export default defineConfig({plugins: [localPosters()], server: {host: '127.0.0.1'}});
+// Vite copies public/ into the build. The TMDB cache (posters and imported years)
+// is local-only: TMDB's terms forbid redistributing it, so a build never ships it.
+function stripTmdbCache(): Plugin {
+  let outDir = 'dist';
+  return {
+    name: 'strip-tmdb-cache',
+    apply: 'build',
+    configResolved(config) { outDir = config.build.outDir; },
+    async closeBundle() {
+      await rm(join(outDir, 'posters'), {recursive: true, force: true});
+      await rm(join(outDir, 'data', 'tmdb_metadata.json'), {force: true});
+    },
+  };
+}
+
+export default defineConfig({plugins: [localPosters(), stripTmdbCache()], server: {host: '127.0.0.1'}});

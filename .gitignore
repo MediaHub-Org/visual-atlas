@@ -4,3 +4,6 @@ dist/
 .env.*
 !.env.example
 public/posters/
+
+# Local TMDB cache: TMDB terms forbid redistributing it (see README).
+public/data/tmdb_metadata.json
