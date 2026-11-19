@@ -70,6 +70,8 @@ a { color: var(--accent); }
 .side-link:hover { background: var(--panel-2); color: var(--text); }
 .side-link small { margin-left: auto; color: var(--muted); font-size: 9px; }
 .side-link.clear { color: var(--accent); }
+.side-link.current { background: var(--accent-soft); color: var(--accent); }
+.side-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin: 0 1px; }
 .side-company .chevron { flex-shrink: 0; }
 .side-sub { display: grid; padding: 2px 0 6px 24px; }
 .side-sub button {

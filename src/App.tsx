@@ -155,6 +155,9 @@ export default function App() {
       dataset={dataset ?? {works: [], worksById: new Map(), franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, franchises: 0, companies: 0}}}
       t={t}
       franchise={franchise}
+      tag={tag}
+      tags={tagOptions}
+      onTag={id => { setTag(tag === id ? '' : id); setView('cards'); }}
       onFranchise={pickFranchise}
       onCompany={pickCompany}
       onAllCompanies={() => { setView('hierarchy'); setCompany(''); setFranchise('All'); }}

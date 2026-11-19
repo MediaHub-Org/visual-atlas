@@ -16,7 +16,9 @@ server is intended for local use only; do not expose it publicly.
 ## Views, settings and grouping
 
 Five views share one toolbar and URL: cards, list/table, company hierarchy,
-narrative sequences and a vertical release timeline. The timeline can space
+narrative sequences and a vertical release timeline. Editorial collections
+(tags from the seed) appear in the sidebar and as a filter and in the detail
+panel; they are collections, not ownership or verified influence claims. The timeline can space
 years equally, proportionally or logarithmically and uses the full width for
 works released in the same year. Company groups come from the seed's unverified
 parent-company claims; they are labelled as claims, never as verified ownership.

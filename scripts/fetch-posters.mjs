@@ -122,10 +122,12 @@ for (const work of works.slice(0, limit)) {
   const exact = candidates.filter(result => normalise(result.title ?? result.name) === target && yearMatches(result));
   // TMDB prefixes some titles ("Star Wars: Episode I - …"). Accept the seed
   // title as a whole phrase, but only with an exact year and a unique result.
+  // Events and tie-ins reuse a film's title; they are not the film.
+  const eventTitle = /\b(premiere|making of|behind the scenes|documentary|concert|fan event|re-release)\b/i;
   const contained = work.release_year
     ? candidates.filter(result => {
         const other = normalise(result.title ?? result.name);
-        return ` ${other} `.includes(` ${target} `) && yearMatches(result);
+        return ` ${other} `.includes(` ${target} `) && yearMatches(result) && !eventTitle.test(other);
       })
     : [];
   const matches = exact.length ? exact : contained;
