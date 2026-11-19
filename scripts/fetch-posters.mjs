@@ -13,6 +13,8 @@
 import {createHash} from 'node:crypto';
 import {mkdir, readFile, writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
+import {chooseMatches, dateOf, normalise, relaxedMatches} from './match.mjs';
+import {titleRules} from './title-rules.mjs';
 
 const args = process.argv.slice(2);
 const flag = name => args.includes(`--${name}`);
@@ -59,13 +61,6 @@ if (franchiseFilter) {
   works = works.filter(work => (memberships.get(work.id) ?? []).includes(franchiseId));
 }
 
-const normalise = text => (text ?? '')
-  .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-  .toLowerCase()
-  .replace(/^the\s+/, '')
-  .replace(/[^a-z0-9]+/g, ' ')
-  .trim();
-
 async function api(path, params = {}) {
   const url = new URL(`https://api.themoviedb.org/3${path}`);
   for (const [name, entry] of Object.entries(params)) if (entry !== undefined && entry !== '') url.searchParams.set(name, entry);
@@ -93,14 +88,18 @@ async function persistManifest() {
 
 for (const work of works.slice(0, limit)) {
   const entry = manifest.entries[work.id];
-  if (entry?.status === 'saved' && !force) continue;
+  // The file is the source of truth: a manifest entry can outlive a deleted
+  // poster (expired cache, manual removal) and must not block a retry.
   const existing = await readFile(join(posterDir, `${work.id}.jpg`)).catch(() => null);
   if (existing && !force) continue;
 
   const kind = work.format === 'film' ? 'movie' : 'tv';
-  const params = {query: work.title};
-  if (work.release_year) {
-    if (kind === 'movie') params.year = work.release_year; else params.first_air_date_year = work.release_year;
+  const rule = titleRules[work.id];
+  const query = rule?.query ?? work.title;
+  const expectedYear = work.release_year ?? rule?.year;
+  const params = {query};
+  if (expectedYear) {
+    if (kind === 'movie') params.year = expectedYear; else params.first_air_date_year = expectedYear;
   }
   let body;
   try {
@@ -113,31 +112,27 @@ for (const work of works.slice(0, limit)) {
     continue;
   }
 
-  const candidates = (body.results ?? []).filter(result => result.poster_path);
-  const target = normalise(work.title);
+  const target = normalise(query);
   const yearMatches = result => {
-    if (!work.release_year) return true;
-    const date = result.release_date ?? result.first_air_date ?? '';
-    return date.slice(0, 4) === String(work.release_year);
+    if (!expectedYear) return true;
+    return dateOf(result).slice(0, 4) === String(expectedYear);
   };
-  const exact = candidates.filter(result => normalise(result.title ?? result.name) === target && yearMatches(result));
-  // TMDB prefixes some titles ("Star Wars: Episode I - …"). Accept the seed
-  // title as a whole phrase, but only with an exact year and a unique result.
   // Events and tie-ins reuse a film's title; they are not the film.
   const eventTitle = /\b(premiere|making of|behind the scenes|documentary|concert|fan event|re-release)\b/i;
-  const contained = work.release_year
-    ? candidates.filter(result => {
-        const other = normalise(result.title ?? result.name);
-        return ` ${other} `.includes(` ${target} `) && yearMatches(result) && !eventTitle.test(other);
-      })
-    : [];
-  let matches = exact.length ? exact : contained;
+  const candidates = (body.results ?? []).filter(result => result.poster_path && !eventTitle.test(normalise(result.title ?? result.name)));
+  let matches = chooseMatches(candidates.filter(yearMatches), query, rule);
+
+  // Festival and wide releases differ by a year or two in TMDB. Only an exact
+  // title is allowed here, so a sequel or remake cannot slip in.
+  if (!matches.length && work.release_year && !rule) {
+    matches = relaxedMatches(candidates, query, work.release_year);
+  }
 
   // Deep pass: TMDB stores some films under a different title ("A New Hope" is
   // "Star Wars"). Only an exact alternative title with the exact year is
   // accepted, so nothing is matched by resemblance.
   if (!matches.length && deep) {
-    const loose = await api(`/search/${kind}`, {query: work.title});
+    const loose = await api(`/search/${kind}`, {query});
     const looseCandidates = (loose.results ?? []).filter(result => result.poster_path && yearMatches(result)).slice(0, 8);
     for (const candidate of looseCandidates) {
       const alternatives = await api(`/${kind}/${candidate.id}/alternative_titles`).catch(() => null);

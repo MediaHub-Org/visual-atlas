@@ -68,22 +68,24 @@ every 25 works and writes saved, ambiguous and unmatched results to
 also has its own manual search box.
 
 The toolbar has a «No poster yet» toggle for reviewing what the automatic matcher
-left behind. Runs on 2026-11-19 cached **841 of 909 posters (~81 MB)**; 68 works
-remain for manual review, mostly where the seed title is a merged label
-(*Money Heist / La casa de papel*, *One Piece: anime*) or where several exact
-matches exist (*Rocky*, *Mad Men*, *Lost*, *Chernobyl*). A deep pass also accepts
-exact alternative titles with the exact year, which resolved *A New Hope*
-(TMDB: *Star Wars*), *Alien 3* or *Ocean's 11*, and the matcher refuses event and
-premiere titles.
+left behind. Runs on 2026-11-19 cached **871 of 909 posters (~82 MB)**; 38 works
+remain, almost all *Crayon Shin-chan* and *Doraemon* films whose English titles
+differ on TMDB. The matcher accepts an exact title, a contained title with the
+exact year, or an exact alternative title; it allows a ±2 year window only for an
+exact title (festival vs. wide release), prefers the popular entry when two
+catalogue duplicates share title and year, and refuses event/premiere titles.
+`scripts/title-rules.mjs` holds the explicit, reviewable overrides for seed
+labels such as «Doctor Who: original series» or «Doraemon: 1979 series».
 
 ## Imported metadata
 
 `scripts/fetch-metadata.mjs` fills only release years the seed leaves empty and
 writes `public/data/tmdb_metadata.json`. It never overwrites a curated field; the
 UI marks those years with an asterisk and explains the origin in the detail
-panel. Run on 2026-11-19: 69 of the 92 year-less series got a first-air year
-(most reused the poster cache); 23 remain because the title is ambiguous or
-named differently on TMDB.
+panel. Run on 2026-11-19: all 92 year-less series got a first-air year — 69 reused
+the poster cache and the rest came from search with title overrides. Series
+labelled «: anime», «: original series» or «: 1979 series» are resolved through
+`scripts/title-rules.mjs`, never by guessing from the label alone.
 
 ```powershell
 node --env-file-if-exists=.env scripts/fetch-metadata.mjs

@@ -14,22 +14,26 @@ The base calendar is presentation only. The converter refuses year-only data,
 rejects impossible dates and offers Gregorian, Hebrew and three named Islamic
 variants via `Intl`. No year-only release is converted.
 
-Posters: a TMDB key is configured (ignored `.env`) and two passes ran on
-2026-11-19: **841 of 909 posters cached (~81 MB), 68 left manual**. The first
-pass required an exact title (or the seed title contained in TMDB's) with the
-exact year; a deep pass also accepts exact alternative titles with the exact
-year, which fixed *A New Hope* (TMDB: *Star Wars*), *Alien 3*, *Ocean's 11*,
-*The Office: UK/US* and *Star Trek: The Original Series*. Event/premiere titles
-are refused; one such match was downloaded before the rule existed and was
-deleted. Ambiguous titles (*Rocky*, *Mad Men*, *Lost*, *Chernobyl*, merged labels
-such as *Money Heist / La casa de papel*) stay unmatched on purpose. The in-app
-saver was exercised only for search, not for a confirmed save.
+Posters: a TMDB key is configured (ignored `.env`) and several passes ran on
+2026-11-19: **871 of 909 posters cached (~82 MB), 38 left** (almost all *Crayon
+Shin-chan* and *Doraemon* films whose English titles differ on TMDB). Matching
+lives in `scripts/match.mjs`: exact title; contained title with exact year;
+exact alternative title; ±2-year window only for an exact title (festival vs.
+wide release); most popular entry when catalogue duplicates share title and
+year; event/premiere titles refused. `scripts/title-rules.mjs` holds explicit
+overrides for seed labels (*Doctor Who: original series*, *Doraemon: 1979
+series*, *Money Heist / La casa de papel*). One premiere match was downloaded
+before the rule existed and was deleted. The in-app saver was exercised only for
+search, not for a confirmed save.
 
 Imported years: `scripts/fetch-metadata.mjs` wrote `public/data/tmdb_metadata.json`
-with 69 first-air/release years for works the seed left year-less (most reused
-the poster sidecars; 23 series remain unknown). The app treats these as
+with first-air/release years for **all 92** works the seed left year-less (69 from
+poster sidecars, the rest from search with overrides). The app treats these as
 imported: an asterisk on the card and an explicit note in the detail panel. The
-seed's curated fields are never overwritten.
+seed's curated fields are never overwritten. A «Daredevil» rule initially
+matched *Super Dave: Daredevil for Hire*; preference rules now require an exact
+title and a dated result, and that entry was replaced with *Marvel's Daredevil*
+(2015).
 
 Free-text "Skydance → Paramount → Warner Bros." parent claims look wrong to a
 human reader but are what the seed says; they are displayed as unverified claims

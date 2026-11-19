@@ -7,6 +7,8 @@
 //   node --env-file-if-exists=.env scripts/fetch-metadata.mjs --limit 10
 import {readFile, writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
+import {chooseMatches} from './match.mjs';
+import {titleRules} from './title-rules.mjs';
 
 const args = process.argv.slice(2);
 const value = name => { const i = args.indexOf(`--${name}`); return i >= 0 ? args[i + 1] : undefined; };
@@ -27,11 +29,6 @@ const outPath = join(root, 'public', 'data', 'tmdb_metadata.json');
 const output = JSON.parse(await readFile(outPath, 'utf8').catch(() => '{"entries":{}}'));
 output.source = 'TMDB';
 output.note = 'Imported release metadata. Not independently verified; it never overwrites curated seed fields.';
-
-const normalise = text => (text ?? '')
-  .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-  .toLowerCase().replace(/^the\s+/, '')
-  .replace(/[^a-z0-9]+/g, ' ').trim();
 
 async function api(path, params = {}) {
   const url = new URL(`https://api.themoviedb.org/3${path}`);
@@ -78,22 +75,22 @@ for (const work of seed.works) {
   }
 
   const kind = work.format === 'film' ? 'movie' : 'tv';
+  const rule = titleRules[work.id];
+  const query = rule?.query ?? work.title;
   let body;
   try {
-    body = await api(`/search/${kind}`, {query: work.title});
+    const params = {query};
+    if (rule?.year) {
+      if (kind === 'movie') params.year = rule.year; else params.first_air_date_year = rule.year;
+    }
+    body = await api(`/search/${kind}`, params);
   } catch (error) {
     console.error(`${work.title}: ${error.message}`);
     skipped += 1;
     continue;
   }
-  const target = normalise(work.title);
   const candidates = (body.results ?? []).filter(result => (result.release_date ?? result.first_air_date ?? '') !== '');
-  const exact = candidates.filter(result => normalise(result.title ?? result.name) === target);
-  const contained = candidates.filter(result => {
-    const other = normalise(result.title ?? result.name);
-    return ` ${other} `.includes(` ${target} `);
-  });
-  const matches = exact.length ? exact : contained;
+  const matches = chooseMatches(candidates, query, rule);
 
   if (matches.length !== 1) {
     output.entries[work.id] = {status: matches.length ? 'ambiguous' : 'unmatched', title: work.title, checkedAt: new Date().toISOString()};
@@ -111,7 +108,8 @@ for (const work of seed.works) {
     date,
     year: Number(String(date).slice(0, 4)),
     origin: 'search',
-    match: exact.length ? 'exact' : 'contained',
+    query,
+    match: rule ? 'rule' : 'title',
     importedAt: new Date().toISOString(),
   };
   filled += 1;

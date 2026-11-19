@@ -37,9 +37,14 @@
       "importedAt": "2026-11-19T02:19:14.409Z"
     },
     "series--mad-men": {
-      "status": "ambiguous",
+      "tmdbId": 1104,
       "title": "Mad Men",
-      "checkedAt": "2026-11-19T02:19:14.607Z"
+      "date": "2007-07-19",
+      "year": 2007,
+      "origin": "search",
+      "query": "Mad Men",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:17.247Z"
     },
     "series--succession": {
       "tmdbId": 76331,
@@ -60,9 +65,14 @@
       "importedAt": "2026-11-19T02:19:14.876Z"
     },
     "series--lost": {
-      "status": "ambiguous",
+      "tmdbId": 4607,
       "title": "Lost",
-      "checkedAt": "2026-11-19T02:19:14.924Z"
+      "date": "2004-09-22",
+      "year": 2004,
+      "origin": "search",
+      "query": "Lost",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:17.569Z"
     },
     "series--dark": {
       "tmdbId": 70523,
@@ -101,24 +111,43 @@
       "importedAt": "2026-11-19T02:19:15.199Z"
     },
     "series--doctor-who-original-series": {
-      "status": "unmatched",
-      "title": "Doctor Who: original series",
-      "checkedAt": "2026-11-19T02:19:15.246Z"
+      "tmdbId": 121,
+      "title": "Doctor Who",
+      "date": "1963-11-23",
+      "year": 1963,
+      "origin": "search",
+      "query": "Doctor Who",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:18.005Z"
     },
     "series--doctor-who-revived-series": {
-      "status": "unmatched",
-      "title": "Doctor Who: revived series",
-      "checkedAt": "2026-11-19T02:19:15.589Z"
+      "tmdbId": 57243,
+      "title": "Doctor Who",
+      "date": "2005-03-26",
+      "year": 2005,
+      "origin": "search",
+      "query": "Doctor Who",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:18.345Z"
     },
     "series--battlestar-galactica-reimagined-series": {
-      "status": "unmatched",
-      "title": "Battlestar Galactica: reimagined series",
-      "checkedAt": "2026-11-19T02:19:15.895Z"
+      "tmdbId": 1972,
+      "title": "Battlestar Galactica",
+      "date": "2004-10-18",
+      "year": 2004,
+      "origin": "search",
+      "query": "Battlestar Galactica",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:18.771Z"
     },
     "series--the-twilight-zone-original-series": {
-      "status": "unmatched",
-      "title": "The Twilight Zone: original series",
-      "checkedAt": "2026-11-19T02:19:16.207Z"
+      "tmdbId": 6357,
+      "title": "The Twilight Zone",
+      "date": "1959-10-02",
+      "year": 1959,
+      "origin": "poster-cache",
+      "match": "exact",
+      "importedAt": "2026-11-19T02:35:33.793Z"
     },
     "series--black-mirror": {
       "tmdbId": 42009,
@@ -238,9 +267,14 @@
       "importedAt": "2026-11-19T02:19:16.486Z"
     },
     "series--avatar-the-last-airbender": {
-      "status": "ambiguous",
+      "tmdbId": 246,
       "title": "Avatar: The Last Airbender",
-      "checkedAt": "2026-11-19T02:19:16.532Z"
+      "date": "2005-02-21",
+      "year": 2005,
+      "origin": "search",
+      "query": "Avatar: The Last Airbender",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:19.514Z"
     },
     "series--batman-the-animated-series": {
       "tmdbId": 2098,
@@ -279,9 +313,14 @@
       "importedAt": "2026-11-19T02:19:16.798Z"
     },
     "series--astro-boy-original-series": {
-      "status": "unmatched",
-      "title": "Astro Boy: original series",
-      "checkedAt": "2026-11-19T02:19:16.844Z"
+      "tmdbId": 10826,
+      "title": "Astro Boy",
+      "date": "1963-01-01",
+      "year": 1963,
+      "origin": "search",
+      "query": "Astro Boy",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:19.941Z"
     },
     "series--dragon-ball": {
       "tmdbId": 12609,
@@ -302,9 +341,14 @@
       "importedAt": "2026-11-19T02:19:17.116Z"
     },
     "series--sailor-moon-original-series": {
-      "status": "unmatched",
-      "title": "Sailor Moon: original series",
-      "checkedAt": "2026-11-19T02:19:17.162Z"
+      "tmdbId": 3570,
+      "title": "Sailor Moon",
+      "date": "1992-03-07",
+      "year": 1992,
+      "origin": "search",
+      "query": "Sailor Moon",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:20.376Z"
     },
     "series--neon-genesis-evangelion": {
       "tmdbId": 890,
@@ -316,14 +360,24 @@
       "importedAt": "2026-11-19T02:19:17.429Z"
     },
     "series--cowboy-bebop-anime": {
-      "status": "unmatched",
-      "title": "Cowboy Bebop: anime",
-      "checkedAt": "2026-11-19T02:19:17.476Z"
+      "tmdbId": 30991,
+      "title": "Cowboy Bebop",
+      "date": "1998-04-03",
+      "year": 1998,
+      "origin": "search",
+      "query": "Cowboy Bebop",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:20.807Z"
     },
     "series--one-piece-anime": {
-      "status": "unmatched",
-      "title": "One Piece: anime",
-      "checkedAt": "2026-11-19T02:19:17.816Z"
+      "tmdbId": 37854,
+      "title": "One Piece",
+      "date": "1999-10-20",
+      "year": 1999,
+      "origin": "search",
+      "query": "One Piece",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:21.237Z"
     },
     "series--naruto": {
       "tmdbId": 46260,
@@ -344,9 +398,14 @@
       "importedAt": "2026-11-19T02:19:18.082Z"
     },
     "series--pokemon-original-anime-series": {
-      "status": "unmatched",
-      "title": "Pokemon: original anime series",
-      "checkedAt": "2026-11-19T02:19:18.128Z"
+      "tmdbId": 60572,
+      "title": "Pokémon",
+      "date": "1997-04-01",
+      "year": 1997,
+      "origin": "search",
+      "query": "Pokemon",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:21.664Z"
     },
     "series--detective-conan": {
       "tmdbId": 30983,
@@ -367,9 +426,14 @@
       "importedAt": "2026-11-19T02:19:18.391Z"
     },
     "series--death-note-anime": {
-      "status": "unmatched",
-      "title": "Death Note: anime",
-      "checkedAt": "2026-11-19T02:19:18.463Z"
+      "tmdbId": 13916,
+      "title": "Death Note",
+      "date": "2006-10-04",
+      "year": 2006,
+      "origin": "search",
+      "query": "Death Note",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:22.094Z"
     },
     "series--fullmetal-alchemist-brotherhood": {
       "tmdbId": 31911,
@@ -381,9 +445,14 @@
       "importedAt": "2026-11-19T02:19:18.737Z"
     },
     "series--monster-anime": {
-      "status": "unmatched",
-      "title": "Monster: anime",
-      "checkedAt": "2026-11-19T02:19:18.793Z"
+      "tmdbId": 30981,
+      "title": "Monster",
+      "date": "2004-04-07",
+      "year": 2004,
+      "origin": "search",
+      "query": "Monster",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:22.528Z"
     },
     "series--ghost-in-the-shell-stand-alone-complex": {
       "tmdbId": 1095,
@@ -404,9 +473,14 @@
       "importedAt": "2026-11-19T02:19:19.059Z"
     },
     "series--chernobyl": {
-      "status": "ambiguous",
+      "tmdbId": 87108,
       "title": "Chernobyl",
-      "checkedAt": "2026-11-19T02:19:19.106Z"
+      "date": "2019-05-06",
+      "year": 2019,
+      "origin": "search",
+      "query": "Chernobyl",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:22.842Z"
     },
     "series--band-of-brothers": {
       "tmdbId": 4613,
@@ -436,9 +510,14 @@
       "importedAt": "2026-11-19T02:19:19.378Z"
     },
     "series--el-ministerio-del-tiempo": {
-      "status": "unmatched",
-      "title": "El ministerio del tiempo",
-      "checkedAt": "2026-11-19T02:19:19.429Z"
+      "tmdbId": 62099,
+      "title": "The Ministry of Time",
+      "date": "2015-02-24",
+      "year": 2015,
+      "origin": "search",
+      "query": "The Ministry of Time",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:23.277Z"
     },
     "series--aqui-no-hay-quien-viva": {
       "tmdbId": 2282,
@@ -450,14 +529,24 @@
       "importedAt": "2026-11-19T02:19:19.690Z"
     },
     "series--cuentame-como-paso": {
-      "status": "ambiguous",
-      "title": "Cuentame como paso",
-      "checkedAt": "2026-11-19T02:19:19.735Z"
+      "tmdbId": 7897,
+      "title": "Cuéntame cómo pasó",
+      "date": "2001-09-13",
+      "year": 2001,
+      "origin": "search",
+      "query": "Cuentame como paso",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:23.708Z"
     },
     "series--money-heist-la-casa-de-papel": {
-      "status": "unmatched",
-      "title": "Money Heist / La casa de papel",
-      "checkedAt": "2026-11-19T02:19:20.048Z"
+      "tmdbId": 71446,
+      "title": "Money Heist",
+      "date": "2017-05-02",
+      "year": 2017,
+      "origin": "search",
+      "query": "Money Heist",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:24.143Z"
     },
     "series--squid-game": {
       "tmdbId": 93405,
@@ -478,9 +567,14 @@
       "importedAt": "2026-11-19T02:19:20.314Z"
     },
     "series--les-revenants": {
-      "status": "unmatched",
-      "title": "Les Revenants",
-      "checkedAt": "2026-11-19T02:19:20.360Z"
+      "tmdbId": 46616,
+      "title": "The Returned",
+      "date": "2012-11-26",
+      "year": 2012,
+      "origin": "search",
+      "query": "The Returned",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:24.577Z"
     },
     "series--babylon-berlin": {
       "tmdbId": 66980,
@@ -590,11 +684,6 @@
       "match": "exact",
       "importedAt": "2026-11-19T02:19:20.636Z"
     },
-    "series--daredevil": {
-      "status": "ambiguous",
-      "title": "Daredevil",
-      "checkedAt": "2026-11-19T02:19:20.681Z"
-    },
     "series--wandavision": {
       "tmdbId": 85271,
       "title": "WandaVision",
@@ -641,9 +730,14 @@
       "importedAt": "2026-11-19T02:19:20.950Z"
     },
     "series--justice-league-animated-series": {
-      "status": "unmatched",
-      "title": "Justice League: animated series",
-      "checkedAt": "2026-11-19T02:19:20.996Z"
+      "tmdbId": 1618,
+      "title": "Justice League",
+      "date": "2001-11-17",
+      "year": 2001,
+      "origin": "search",
+      "query": "Justice League",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:25.326Z"
     },
     "series--the-penguin": {
       "tmdbId": 194764,
@@ -727,17 +821,37 @@
       "importedAt": "2026-11-19T02:19:21.266Z"
     },
     "series--doraemon-1979-series": {
-      "status": "unmatched",
-      "title": "Doraemon: 1979 series",
-      "checkedAt": "2026-11-19T02:19:21.312Z"
+      "tmdbId": 57911,
+      "title": "Doraemon",
+      "date": "1979-04-02",
+      "year": 1979,
+      "origin": "search",
+      "query": "Doraemon",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:25.756Z"
     },
     "series--doraemon-2005-series": {
-      "status": "unmatched",
-      "title": "Doraemon: 2005 series",
-      "checkedAt": "2026-11-19T02:19:21.629Z"
+      "tmdbId": 65733,
+      "title": "Doraemon",
+      "date": "2005-04-22",
+      "year": 2005,
+      "origin": "search",
+      "query": "Doraemon",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:33:26.140Z"
+    },
+    "series--daredevil": {
+      "tmdbId": 61889,
+      "title": "Marvel's Daredevil",
+      "date": "2015-04-10",
+      "year": 2015,
+      "origin": "search",
+      "query": "Daredevil",
+      "match": "rule",
+      "importedAt": "2026-11-19T02:34:30.292Z"
     }
   },
   "source": "TMDB",
   "note": "Imported release metadata. Not independently verified; it never overwrites curated seed fields.",
-  "generatedAt": "2026-11-19T02:19:21.898Z"
+  "generatedAt": "2026-11-19T02:35:33.796Z"
 }
