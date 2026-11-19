@@ -14,12 +14,22 @@ The base calendar is presentation only. The converter refuses year-only data,
 rejects impossible dates and offers Gregorian, Hebrew and three named Islamic
 variants via `Intl`. No year-only release is converted.
 
-Posters: `scripts/fetch-posters.mjs` (`npm run posters:fetch`) matches a
-normalised title and year, skips ambiguous results and writes a manifest. It has
-**never run**: no TMDB key was provided. The in-app saver is unchanged and also
-untested against the live API. Free-text "Skydance → Paramount → Warner Bros."
-parent claims look wrong to a human reader but are what the seed says; they are
-displayed as unverified claims and should be reviewed before publication.
+Posters: a TMDB key is now configured (ignored `.env`) and the backfill ran on
+2026-11-19: **805 posters cached (~77 MB), 103 skipped** (96 unmatched, 8
+ambiguous, 1 rejected). The matcher needs an exact normalised title or the seed
+title contained in TMDB's with the exact year, a unique result, and refuses
+event titles; `A New Hope` (TMDB: *Star Wars*), `The Fantastic Four` (TMDB uses
+the digit 4), *Rocky*, *Mad Men*, *Lost* and *Chernobyl* remain manual. One
+premiere match was downloaded before the rule existed and was deleted. The
+in-app saver was exercised only for search, not for a confirmed save.
+Free-text "Skydance → Paramount → Warner Bros." parent claims look wrong to a
+human reader but are what the seed says; they are displayed as unverified claims
+and should be reviewed before publication.
+
+The sidebar now lists editorial collections (tags) besides companies, the tag
+filter is in the URL and detail panel, and settings show how many posters are
+stored locally and whether a key is configured. The status endpoint caches its
+scan for 15 s so 800 sidecars are not re-read on every load.
 
 Database: `franchise_companies`, `posters`, `viewer_preferences` and a
 company-cycle trigger were added; `npm run test:db` passes 38/38. Still absent:

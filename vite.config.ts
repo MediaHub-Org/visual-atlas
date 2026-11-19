@@ -3,6 +3,10 @@ import {mkdir, readdir, readFile, rename, unlink, writeFile} from 'node:fs/promi
 import {createHash, randomUUID} from 'node:crypto';
 import {join} from 'node:path';
 
+// Reading 800+ sidecars on every load is slow; the status scan is cached briefly
+// and invalidated whenever a poster is saved.
+let statusCache: {at: number; body: {configured: boolean; posters: string[]}} | null = null;
+
 // Local-only development adapter, not an authenticated production API.
 function localPosters(): Plugin {
   return {
@@ -22,6 +26,9 @@ function localPosters(): Plugin {
         }
         try {
           const url = new URL(req.url ?? '/', `http://${host}`);
+          if (req.method === 'GET' && url.pathname === '/status' && statusCache && Date.now() - statusCache.at < 15000) {
+            return send(200, statusCache.body);
+          }
           if (req.method === 'GET' && url.pathname === '/status') {
             const dir = join(process.cwd(), 'public', 'posters');
             const files = await readdir(dir).catch(() => [] as string[]);
@@ -41,7 +48,8 @@ function localPosters(): Plugin {
               }
               posters.push(file.slice(0, -4));
             }
-            return send(200, {configured: !!process.env.TMDB_API_KEY, posters});
+            statusCache = {at: Date.now(), body: {configured: !!process.env.TMDB_API_KEY, posters}};
+            return send(200, statusCache.body);
           }
           if (req.method === 'GET' && url.pathname === '/search') {
             const query = (url.searchParams.get('q') ?? '').trim();
@@ -78,6 +86,7 @@ function localPosters(): Plugin {
             // 150 days is safely shorter than six calendar months.
             const expires = new Date(Date.now() + 150 * 24 * 60 * 60 * 1000);
             await writeFile(`${target}.json`, JSON.stringify({source: 'TMDB', poster, cachedAt: new Date().toISOString(), expires: expires.toISOString(), sha256: createHash('sha256').update(data).digest('hex')}, null, 2));
+            statusCache = null;
             return send(200, {url: `/posters/${workId}.jpg`});
           }
           return send(404, {error: 'Not found'});

@@ -67,6 +67,12 @@ every 25 works and writes saved, ambiguous and unmatched results to
 `public/posters/manifest.json`. Review the ambiguous list in the app; each work
 also has its own manual search box.
 
+First full run (2026-11-19): 805 posters cached (~77 MB), 103 works left for
+manual review — mostly where TMDB uses a different title («Star Wars» for
+*A New Hope*, «The Fantastic 4» for *Four*) or the search returns several exact
+matches (*Rocky*, *Mad Men*, *Lost*, *Chernobyl*). One premiere entry was
+rejected and deleted; the matcher now refuses event titles.
+
 To use an independently licensed local JPEG instead, place it in
 `public/posters/` using the exact work ID as filename, e.g.
 `film--the-phantom-menace--1999.jpg`, and reload the page. Work IDs appear in
