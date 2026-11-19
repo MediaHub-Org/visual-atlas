@@ -182,11 +182,13 @@ CREATE TABLE companies (
   name text NOT NULL CHECK (btrim(name) <> '')
 );
 
+-- A claim about corporate structure, not a verified ownership fact. Restricting
+-- the vocabulary is what lets the cycle trigger below reason about ancestry.
 CREATE TABLE company_relationships (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   parent_company_id bigint NOT NULL REFERENCES companies(id),
   child_company_id bigint NOT NULL REFERENCES companies(id),
-  relationship text NOT NULL CHECK (btrim(relationship) <> ''),
+  relationship text NOT NULL CHECK (relationship IN ('parent_company', 'division', 'joint_venture')),
   valid_from date,
   valid_until date,
   source_id bigint REFERENCES sources(id),
@@ -195,6 +197,48 @@ CREATE TABLE company_relationships (
 );
 CREATE INDEX company_relationships_parent_idx ON company_relationships (parent_company_id);
 CREATE INDEX company_relationships_child_idx ON company_relationships (child_company_id);
+
+CREATE FUNCTION enforce_company_parent_cycle() RETURNS trigger LANGUAGE plpgsql AS $$
+BEGIN
+  IF NEW.relationship <> 'parent_company' THEN
+    RETURN NEW;
+  END IF;
+  IF EXISTS (
+    WITH RECURSIVE ancestors(company_id) AS (
+      SELECT NEW.parent_company_id
+      UNION
+      SELECT r.parent_company_id
+        FROM company_relationships r
+        JOIN ancestors a ON r.child_company_id = a.company_id
+       WHERE r.relationship = 'parent_company'
+         AND r.id <> COALESCE(NEW.id, -1)
+    )
+    SELECT 1 FROM ancestors WHERE company_id = NEW.child_company_id
+  ) THEN
+    RAISE EXCEPTION 'parent claim would create a corporate cycle'
+      USING ERRCODE = 'check_violation';
+  END IF;
+  RETURN NEW;
+END $$;
+
+CREATE TRIGGER company_relationships_cycle
+  BEFORE INSERT OR UPDATE OF parent_company_id, child_company_id, relationship
+  ON company_relationships FOR EACH ROW EXECUTE FUNCTION enforce_company_parent_cycle();
+
+-- Which company a franchise is catalogued under. Separate from production and
+-- distribution credits on individual works, which live in work_companies.
+CREATE TABLE franchise_companies (
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  franchise_id bigint NOT NULL REFERENCES franchises(id),
+  company_id bigint NOT NULL REFERENCES companies(id),
+  relationship text NOT NULL CHECK (relationship IN ('catalog_association', 'rights_holder', 'production')),
+  valid_from date,
+  valid_until date,
+  source_id bigint REFERENCES sources(id),
+  UNIQUE (franchise_id, company_id, relationship),
+  CHECK (valid_until IS NULL OR valid_from IS NULL OR valid_until >= valid_from)
+);
+CREATE INDEX franchise_companies_company_idx ON franchise_companies (company_id);
 
 CREATE TABLE work_companies (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -340,6 +384,39 @@ CREATE TABLE saved_views (
   state jsonb NOT NULL CHECK (jsonb_typeof(state) = 'object')
 );
 
+-- Presentation preferences. A year-only release date is never converted, so the
+-- calendar here is a display default, not permission to invent precision.
+CREATE TABLE viewer_preferences (
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  viewer_key text NOT NULL UNIQUE CHECK (btrim(viewer_key) <> ''),
+  language text NOT NULL DEFAULT 'en' CHECK (language IN ('en', 'es')),
+  theme text NOT NULL DEFAULT 'dark' CHECK (theme IN ('dark', 'light', 'system')),
+  calendar text NOT NULL DEFAULT 'gregory'
+    CHECK (calendar IN ('gregory', 'hebrew', 'islamic-civil', 'islamic-umalqura', 'islamic-tbla')),
+  timeline_scale text NOT NULL DEFAULT 'proportional'
+    CHECK (timeline_scale IN ('equal', 'proportional', 'log')),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+-- Artwork provenance. An expired provider cache must be removed rather than
+-- silently republished; locally owned images have no provider expiry.
+CREATE TABLE posters (
+  id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  work_id bigint NOT NULL UNIQUE REFERENCES works(id),
+  source text NOT NULL CHECK (source IN ('tmdb', 'local', 'other')),
+  provider_image_path text,
+  file_name text NOT NULL CHECK (btrim(file_name) <> ''),
+  attribution text,
+  license_notes text,
+  cached_at timestamptz,
+  expires_at timestamptz,
+  content_sha256 char(64),
+  source_id bigint REFERENCES sources(id),
+  CHECK (source = 'local' OR expires_at IS NOT NULL),
+  CHECK (expires_at IS NULL OR cached_at IS NULL OR expires_at > cached_at),
+  CHECK ((source = 'tmdb') = (provider_image_path IS NOT NULL))
+);
+
 -- Editorial policy, visible rather than enforced: which claims carry no source.
 CREATE VIEW claims_without_source AS
   SELECT 'credit' AS kind, c.id AS claim_id, c.work_id FROM credits c WHERE c.source_id IS NULL
@@ -367,4 +444,6 @@ CREATE VIEW claims_without_source AS
   UNION ALL
   SELECT 'work_location', NULL::bigint, l.work_id FROM work_locations l WHERE l.source_id IS NULL
   UNION ALL
-  SELECT 'tag', t.id, NULL::bigint FROM tags t WHERE t.source_id IS NULL;
+  SELECT 'tag', t.id, NULL::bigint FROM tags t WHERE t.source_id IS NULL
+  UNION ALL
+  SELECT 'franchise_company', f.id, NULL::bigint FROM franchise_companies f WHERE f.source_id IS NULL;

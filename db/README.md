@@ -14,7 +14,7 @@ that must fail, and a few that must pass. No database server is installed:
 process, so the rules below are checked by the engine and not by a parser. Each
 test starts from an empty database, so no test depends on another's state.
 
-Results on 2026-11-18: 30 tests, 30 pass, 0 fail.
+Results on 2026-11-19: 38 tests, 38 pass, 0 fail.
 
 ## What the schema now enforces
 
@@ -41,6 +41,17 @@ Results on 2026-11-18: 30 tests, 30 pass, 0 fail.
 - **Import payloads.** `(provider, external_id)` is unique; payloads are stored
   verbatim and never promoted to curated facts.
 - **Saved views** must hold a JSON object.
+- **Corporate structure.** `company_relationships` has a fixed vocabulary
+  (`parent_company`, `division`, `joint_venture`) and parent claims cannot form a
+  cycle, checked by a recursive trigger.
+- **Franchise/company claims** live in their own table with a kind and optional
+  validity dates; they are not production or distribution credits, which stay in
+  `work_companies`.
+- **Viewer preferences** accept only the languages, themes, calendars and
+  timeline spacings the UI implements, one row per viewer key.
+- **Posters** record provenance. A TMDB poster must carry a provider path and an
+  expiry after the cache time; a local poster must not expire. One poster per
+  work.
 - **Lookup indexes** on the foreign keys the views will follow.
 
 ## What no constraint can decide
@@ -52,7 +63,8 @@ whether `episode_count` matches the episodes actually recorded. The
 that carries no source — without pretending to enforce it.
 
 Still missing on purpose or pending: users, roles and row-level security; a
-migration tool; an import pipeline that fills `imported_metadata`; and a rule
-for `company_relationships` (its `relationship` is free text, so a cycle cannot
-be judged generically). Nothing here has been applied to a deployed database,
-and no data in this repository is publishable.
+migration tool; an import pipeline that fills `imported_metadata`; and any
+reconciliation between `episode_count` and the episodes actually recorded. The
+poster expiry rule records when a provider cache must be discarded but cannot
+delete the file. Nothing here has been applied to a deployed database, and no
+data in this repository is publishable.

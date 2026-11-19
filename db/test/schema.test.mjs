@@ -548,3 +548,157 @@ describe('editorial detail', () => {
     });
   });
 });
+
+describe('corporate structure and franchise associations', () => {
+  async function company(db, name) {
+    return id(db, 'insert into companies (name) values ($1) returning id', [name]);
+  }
+
+  it('refuses a parent-company cycle', async () => {
+    await withDb(async (db) => {
+      const a = await company(db, 'A');
+      const b = await company(db, 'B');
+      const c = await company(db, 'C');
+      await db.query(
+        "insert into company_relationships (parent_company_id, child_company_id, relationship) values ($1, $2, 'parent_company')",
+        [a, b],
+      );
+      await db.query(
+        "insert into company_relationships (parent_company_id, child_company_id, relationship) values ($1, $2, 'parent_company')",
+        [b, c],
+      );
+      await refuses(
+        db,
+        "insert into company_relationships (parent_company_id, child_company_id, relationship) values ($1, $2, 'parent_company')",
+        '23514',
+        [c, a],
+      );
+      await refuses(
+        db,
+        "insert into company_relationships (parent_company_id, child_company_id, relationship) values ($1, $2, 'parent_company')",
+        '23514',
+        [a, a],
+      );
+    });
+  });
+
+  it('allows non-parent relationships to repeat but refuses an unknown vocabulary', async () => {
+    await withDb(async (db) => {
+      const parent = await company(db, 'Parent');
+      const child = await company(db, 'Child');
+      await db.query(
+        "insert into company_relationships (parent_company_id, child_company_id, relationship) values ($1, $2, 'division')",
+        [parent, child],
+      );
+      await refuses(
+        db,
+        "insert into company_relationships (parent_company_id, child_company_id, relationship) values ($1, $2, 'owns everything')",
+        '23514',
+        [parent, child],
+      );
+    });
+  });
+
+  it('refuses a duplicate franchise/company claim of the same kind', async () => {
+    await withDb(async (db) => {
+      const franchiseId = await id(db, 'insert into franchises (name) values ($1) returning id', ['F']);
+      const companyId = await company(db, 'Studio');
+      await db.query(
+        "insert into franchise_companies (franchise_id, company_id, relationship) values ($1, $2, 'catalog_association')",
+        [franchiseId, companyId],
+      );
+      await refuses(
+        db,
+        "insert into franchise_companies (franchise_id, company_id, relationship) values ($1, $2, 'catalog_association')",
+        '23505',
+        [franchiseId, companyId],
+      );
+      await db.query(
+        "insert into franchise_companies (franchise_id, company_id, relationship) values ($1, $2, 'rights_holder')",
+        [franchiseId, companyId],
+      );
+    });
+  });
+
+  it('lists an unsourced franchise/company association', async () => {
+    await withDb(async (db) => {
+      const franchiseId = await id(db, 'insert into franchises (name) values ($1) returning id', ['F']);
+      const companyId = await company(db, 'Studio');
+      await db.query(
+        "insert into franchise_companies (franchise_id, company_id, relationship) values ($1, $2, 'catalog_association')",
+        [franchiseId, companyId],
+      );
+      const { rows } = await db.query("select kind from claims_without_source where kind = 'franchise_company'");
+      assert.equal(rows.length, 1);
+    });
+  });
+});
+
+describe('presentation preferences and artwork', () => {
+  it('refuses an unknown language, theme or calendar', async () => {
+    await withDb(async (db) => {
+      await db.query("insert into viewer_preferences (viewer_key) values ('local')");
+      await refuses(
+        db,
+        "insert into viewer_preferences (viewer_key, language) values ('a', 'fr')",
+        '23514',
+      );
+      await refuses(
+        db,
+        "insert into viewer_preferences (viewer_key, theme) values ('b', 'sepia')",
+        '23514',
+      );
+      await refuses(
+        db,
+        "insert into viewer_preferences (viewer_key, calendar) values ('c', 'julian')",
+        '23514',
+      );
+      await refuses(
+        db,
+        "insert into viewer_preferences (viewer_key, timeline_scale) values ('d', 'logarithmic')",
+        '23514',
+      );
+    });
+  });
+
+  it('allows one preference row per viewer key', async () => {
+    await withDb(async (db) => {
+      await db.query("insert into viewer_preferences (viewer_key, language) values ('local', 'es')");
+      await refuses(db, "insert into viewer_preferences (viewer_key) values ('local')", '23505');
+    });
+  });
+
+  it('requires a provider poster cache to expire and a local poster not to', async () => {
+    await withDb(async (db) => {
+      const workId = await id(db, "insert into works (title, format) values ('F', 'film') returning id");
+      await refuses(
+        db,
+        "insert into posters (work_id, source, file_name, provider_image_path) values ($1, 'tmdb', 'a.jpg', '/a.jpg')",
+        '23514',
+        [workId],
+      );
+      await db.query(
+        "insert into posters (work_id, source, file_name, provider_image_path, cached_at, expires_at) values ($1, 'tmdb', 'a.jpg', '/a.jpg', now(), now() + interval '150 days')",
+        [workId],
+      );
+      await refuses(
+        db,
+        "insert into posters (work_id, source, file_name) values ($1, 'local', 'b.jpg')",
+        '23505',
+        [workId],
+      );
+    });
+  });
+
+  it('refuses a provider poster without a provider image path', async () => {
+    await withDb(async (db) => {
+      const workId = await id(db, "insert into works (title, format) values ('F', 'film') returning id");
+      await refuses(
+        db,
+        "insert into posters (work_id, source, file_name, cached_at, expires_at) values ($1, 'tmdb', 'a.jpg', now(), now() + interval '10 days')",
+        '23514',
+        [workId],
+      );
+    });
+  });
+});

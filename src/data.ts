@@ -1,26 +1,210 @@
+export type Membership = { franchiseId: string; franchise: string; continuity: string };
 export type Work = {
-  id: string; title: string; year: number; format: 'Film' | 'Series';
-  franchise: string; continuity: string; anime?: boolean; animated?: boolean;
-  creators: string; description: string; color: string; sequence?: number;
+  id: string;
+  title: string;
+  year: number | null;
+  format: 'Film' | 'Series';
+  memberships: Membership[];
+  anime: boolean;
+  animated: boolean;
+  creators: string;
+  description: string;
+  color: string;
+};
+export type Company = {
+  id: string;
+  name: string;
+  parentId: string | null;
+  childIds: string[];
+  franchiseIds: string[];
+  subtreeFranchiseIds: string[];
+  depth: number;
+};
+export type Franchise = { id: string; name: string; companyIds: string[]; workIds: string[] };
+
+export type Dataset = {
+  works: Work[];
+  worksById: Map<string, Work>;
+  franchises: Franchise[];
+  companies: Map<string, Company>;
+  roots: string[];
+  sequences: {
+    id: string;
+    franchise: string;
+    continuity: string;
+    name: string;
+    basis: string;
+    items: { workId: string; position: number }[];
+  }[];
+  stats: { films: number; series: number; franchises: number; companies: number };
 };
 
-// Demonstration only: titles and relationships require independent verification.
-export const works: Work[] = [
-  {id:'sw4',title:'A New Hope',year:1977,format:'Film',franchise:'Star Wars',continuity:'Skywalker saga',creators:'George Lucas',description:'A young farmhand becomes part of a rebellion against the Empire.',color:'#94674f',sequence:4},
-  {id:'sw5',title:'The Empire Strikes Back',year:1980,format:'Film',franchise:'Star Wars',continuity:'Skywalker saga',creators:'Irvin Kershner',description:'The rebels face the Empire as Luke continues his training.',color:'#4b6877',sequence:5},
-  {id:'sw1',title:'The Phantom Menace',year:1999,format:'Film',franchise:'Star Wars',continuity:'Skywalker saga',creators:'George Lucas',description:'Two Jedi become involved in a conflict on Naboo.',color:'#a28255',sequence:1},
-  {id:'andor',title:'Andor',year:2022,format:'Series',franchise:'Star Wars',continuity:'Main continuity',creators:'Tony Gilroy',description:'Cassian Andor becomes involved in the growing rebellion.',color:'#707856'},
-  {id:'xmen',title:'X-Men',year:2000,format:'Film',franchise:'X-Men',continuity:'Original films',creators:'Bryan Singer',description:'Mutants face a world divided by fear and prejudice.',color:'#687481',sequence:1},
-  {id:'first-class',title:'X-Men: First Class',year:2011,format:'Film',franchise:'X-Men',continuity:'Prequel films',creators:'Matthew Vaughn',description:'Charles Xavier and Erik Lehnsherr encounter a new generation of mutants.',color:'#a28158'},
-  {id:'alien',title:'Alien',year:1979,format:'Film',franchise:'Alien',continuity:'Alien',creators:'Ridley Scott',description:'The crew of a commercial spacecraft encounter a deadly organism.',color:'#566653',sequence:1},
-  {id:'aliens',title:'Aliens',year:1986,format:'Film',franchise:'Alien',continuity:'Alien',creators:'James Cameron',description:'Ripley returns with a team to investigate a lost colony.',color:'#526b69',sequence:2},
-  {id:'breaking-bad',title:'Breaking Bad',year:2008,format:'Series',franchise:'Breaking Bad universe',continuity:'Main continuity',creators:'Vince Gilligan',description:'A chemistry teacher enters the illicit drug trade.',color:'#65724e'},
-  {id:'better-call-saul',title:'Better Call Saul',year:2015,format:'Series',franchise:'Breaking Bad universe',continuity:'Main continuity',creators:'Vince Gilligan · Peter Gould',description:'The story of lawyer Jimmy McGill.',color:'#b0835f'},
-  {id:'wire',title:'The Wire',year:2002,format:'Series',franchise:'Standalone',continuity:'Standalone',creators:'David Simon',description:'A portrait of institutions and life in Baltimore.',color:'#77736a'},
-  {id:'dark',title:'Dark',year:2017,format:'Series',franchise:'Standalone',continuity:'Standalone',creators:'Baran bo Odar · Jantje Friese',description:'A disappearance exposes secrets in a German town.',color:'#58665b'},
-  {id:'chernobyl',title:'Chernobyl',year:2019,format:'Series',franchise:'Standalone',continuity:'Standalone',creators:'Craig Mazin',description:'A dramatization of the Chernobyl nuclear disaster.',color:'#777c67'},
-  {id:'dragon-ball',title:'Dragon Ball',year:1986,format:'Series',franchise:'Dragon Ball',continuity:'Dragon Ball',anime:true,animated:true,creators:'Based on the manga by Akira Toriyama',description:'Goku begins a search for the Dragon Balls.',color:'#ad7950'},
-  {id:'one-piece',title:'One Piece',year:1999,format:'Series',franchise:'One Piece',continuity:'Anime series',anime:true,animated:true,creators:'Based on the manga by Eiichiro Oda',description:'Monkey D. Luffy sets out to become King of the Pirates.',color:'#527b80'},
-  {id:'evangelion',title:'Neon Genesis Evangelion',year:1995,format:'Series',franchise:'Evangelion',continuity:'Original series',anime:true,animated:true,creators:'Hideaki Anno',description:'Teenage pilots defend a city against mysterious beings.',color:'#706479'},
-  {id:'cowboy-bebop',title:'Cowboy Bebop',year:1998,format:'Series',franchise:'Cowboy Bebop',continuity:'Original series',anime:true,animated:true,creators:'Shinichirō Watanabe',description:'A crew of bounty hunters travels through space.',color:'#a36b59'}
-];
+type SeedWork = {
+  id: string;
+  title: string;
+  format: string;
+  release_year: number | null;
+  synopsis: string | null;
+  animation_classification: string | null;
+};
+type Seed = {
+  works: SeedWork[];
+  franchises: { id: string; name: string }[];
+  continuities: { id: string; name: string }[];
+  memberships: { work_id: string; franchise_id: string; continuity_id: string | null }[];
+  companies: { id: string; name: string }[];
+  company_relationship_claims: { subject_company_id: string; object_company_id: string; relationship_type: string }[];
+  franchise_company_associations: { franchise_id: string; company_id: string }[];
+  sequences: { id: string; franchise_id: string; continuity_id: string; name: string; sequence_type: string; ordering_basis: string }[];
+  sequence_items: { sequence_id: string; work_id: string; position: number }[];
+};
+
+const COLORS = ['#94674f', '#4b6877', '#a28255', '#707856', '#687481', '#566653', '#706479', '#a36b59'];
+
+export async function loadAtlas(url = '/data/media_atlas_seed.json'): Promise<Dataset> {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Unable to load the atlas dataset (${response.status}).`);
+  return buildDataset(await response.json() as Seed);
+}
+
+export function buildDataset(seed: Seed): Dataset {
+  const franchiseNames = new Map(seed.franchises.map(f => [f.id, f.name]));
+  const continuityNames = new Map(seed.continuities.map(c => [c.id, c.name]));
+
+  const byWork = new Map<string, Membership[]>();
+  for (const membership of seed.memberships) {
+    const franchise = franchiseNames.get(membership.franchise_id);
+    if (!franchise) continue;
+    const list = byWork.get(membership.work_id) ?? [];
+    const continuity = (membership.continuity_id && continuityNames.get(membership.continuity_id)) || 'Continuity not specified';
+    if (!list.some(item => item.franchiseId === membership.franchise_id && item.continuity === continuity)) {
+      list.push({ franchiseId: membership.franchise_id, franchise, continuity });
+    }
+    byWork.set(membership.work_id, list);
+  }
+
+  const works: Work[] = seed.works.map((work, index) => ({
+    id: work.id,
+    title: work.title,
+    year: work.release_year,
+    format: work.format === 'film' ? 'Film' : 'Series',
+    memberships: byWork.get(work.id) ?? [],
+    anime: work.animation_classification === 'anime',
+    animated: work.animation_classification === 'anime' || work.animation_classification === 'animation',
+    creators: 'Not supplied in seed',
+    description: work.synopsis ?? 'Synopsis not supplied in seed.',
+    color: COLORS[index % COLORS.length],
+  }));
+  const worksById = new Map(works.map(work => [work.id, work]));
+
+  const franchises: Franchise[] = seed.franchises.map(franchise => ({
+    id: franchise.id,
+    name: franchise.name,
+    companyIds: seed.franchise_company_associations.filter(a => a.franchise_id === franchise.id).map(a => a.company_id),
+    workIds: [...new Set(seed.memberships.filter(m => m.franchise_id === franchise.id).map(m => m.work_id))],
+  }));
+
+  const parentOf = new Map<string, string>();
+  for (const claim of seed.company_relationship_claims) {
+    if (claim.relationship_type === 'parent_company_claim' && !parentOf.has(claim.object_company_id)) {
+      parentOf.set(claim.object_company_id, claim.subject_company_id);
+    }
+  }
+
+  // Only companies that reach a franchise are part of the browsing tree.
+  const companyNames = new Map(seed.companies.map(c => [c.id, c.name]));
+  const directFranchises = new Map<string, string[]>();
+  for (const franchise of franchises) {
+    for (const companyId of franchise.companyIds) {
+      const list = directFranchises.get(companyId) ?? [];
+      list.push(franchise.id);
+      directFranchises.set(companyId, list);
+    }
+  }
+  const needed = new Set<string>();
+  for (const companyId of directFranchises.keys()) {
+    let current: string | undefined = companyId;
+    const guard = new Set<string>();
+    while (current && !guard.has(current)) {
+      guard.add(current);
+      needed.add(current);
+      current = parentOf.get(current);
+    }
+  }
+
+  const companies = new Map<string, Company>();
+  for (const companyId of needed) {
+    companies.set(companyId, {
+      id: companyId,
+      name: companyNames.get(companyId) ?? companyId,
+      parentId: parentOf.get(companyId) ?? null,
+      childIds: [],
+      franchiseIds: directFranchises.get(companyId) ?? [],
+      subtreeFranchiseIds: [],
+      depth: 0,
+    });
+  }
+  for (const company of companies.values()) {
+    if (company.parentId && companies.has(company.parentId)) companies.get(company.parentId)!.childIds.push(company.id);
+  }
+  for (const company of companies.values()) {
+    company.childIds.sort((a, b) => {
+      const left = companies.get(a)!, right = companies.get(b)!;
+      return right.franchiseIds.length - left.franchiseIds.length || left.name.localeCompare(right.name);
+    });
+  }
+  const collect = (id: string, seen = new Set<string>()): string[] => {
+    const company = companies.get(id);
+    if (!company || seen.has(id)) return [];
+    seen.add(id);
+    const ids = new Set(company.franchiseIds);
+    for (const child of company.childIds) for (const franchiseId of collect(child, seen)) ids.add(franchiseId);
+    company.subtreeFranchiseIds = [...ids];
+    return company.subtreeFranchiseIds;
+  };
+  const roots: string[] = [];
+  for (const company of companies.values()) {
+    if (!company.parentId || !companies.has(company.parentId)) {
+      roots.push(company.id);
+      company.depth = 0;
+      collect(company.id);
+    }
+  }
+  const setDepth = (id: string, depth: number) => {
+    const company = companies.get(id);
+    if (!company || company.depth >= depth) return;
+    company.depth = depth;
+    for (const child of company.childIds) setDepth(child, depth + 1);
+  };
+  for (const root of roots) setDepth(root, 0);
+  roots.sort((a, b) => (companies.get(b)?.subtreeFranchiseIds.length ?? 0) - (companies.get(a)?.subtreeFranchiseIds.length ?? 0) || companies.get(a)!.name.localeCompare(companies.get(b)!.name));
+
+  const sequences = seed.sequences
+    .filter(sequence => sequence.sequence_type === 'narrative')
+    .map(sequence => ({
+      id: sequence.id,
+      franchise: franchiseNames.get(sequence.franchise_id) ?? 'Unknown franchise',
+      continuity: continuityNames.get(sequence.continuity_id) ?? 'Continuity not specified',
+      name: sequence.name,
+      basis: sequence.ordering_basis,
+      items: seed.sequence_items
+        .filter(item => item.sequence_id === sequence.id && worksById.has(item.work_id))
+        .sort((a, b) => a.position - b.position)
+        .map(item => ({ workId: item.work_id, position: item.position })),
+    }));
+
+  return {
+    works,
+    worksById,
+    franchises,
+    companies,
+    roots,
+    sequences,
+    stats: {
+      films: works.filter(work => work.format === 'Film').length,
+      series: works.filter(work => work.format === 'Series').length,
+      franchises: franchises.length,
+      companies: [...companies.keys()].length,
+    },
+  };
+}

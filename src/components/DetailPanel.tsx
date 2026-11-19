@@ -1,0 +1,136 @@
+import {useEffect, useRef, useState} from 'react';
+import type {Work} from '../data';
+import type {TFn} from '../i18n';
+import {posterUrl, type PosterLookup} from './WorkCard';
+
+type Candidate = {id: number; title: string; date?: string; poster: string};
+
+export function DetailPanel({work, t, posters, tmdbConfigured, onPosterSaved, onClose}: {
+  work: Work;
+  t: TFn;
+  posters: PosterLookup;
+  tmdbConfigured: boolean;
+  onPosterSaved: (id: string) => void;
+  onClose: () => void;
+}) {
+  const closeRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const previous = document.activeElement as HTMLElement | null;
+    closeRef.current?.focus();
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+      if (event.key !== 'Tab') return;
+      const panel = closeRef.current?.closest('.detail') as HTMLElement | null;
+      if (!panel) return;
+      const focusable = [...panel.querySelectorAll<HTMLElement>('button, a[href], input, select, [tabindex]:not([tabindex="-1"])')]
+        .filter(element => !element.hasAttribute('disabled'));
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    };
+    document.addEventListener('keydown', onKey);
+    document.body.classList.add('locked');
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.classList.remove('locked');
+      previous?.focus();
+    };
+  }, [onClose]);
+
+  const poster = posterUrl(work.id, posters);
+  return <div className="overlay" onClick={onClose}>
+    <aside className="detail" role="dialog" aria-modal="true" aria-labelledby="detail-title" onClick={event => event.stopPropagation()}>
+      <button ref={closeRef} className="close" aria-label={t('detail.close')} onClick={onClose}>✕</button>
+      <div className="detail-art" style={{'--poster': work.color} as React.CSSProperties}>
+        {poster && <img className="detail-poster" src={poster} alt=""/>}
+        <span>FRAME / {work.format.toUpperCase()}</span>
+        <strong>{work.title}</strong>
+      </div>
+      <div className="detail-body">
+        <span className="eyebrow">{t('detail.collection')} / {t('detail.seed')}</span>
+        <h2 id="detail-title">{work.title}</h2>
+        <p className="detail-meta">
+          {work.year ?? t('detail.yearUnknown')} · {t(`format.${work.format}`)}{work.anime && ` · ${t('format.Anime')}`}
+        </p>
+        {work.memberships.map(membership => <p key={`${membership.franchise}/${membership.continuity}`}>
+          <span className="badge">{membership.franchise} / {membership.continuity}</span>
+        </p>)}
+        <h3>{t('detail.story')}</h3>
+        <p>{work.description}</p>
+        <h3>{t('detail.credits')}</h3>
+        <p>{work.creators}</p>
+        <PosterEditor work={work} t={t} configured={tmdbConfigured} onSaved={onPosterSaved}/>
+        <h3>{t('detail.note')}</h3>
+        <p>{t('detail.noteBody')}</p>
+      </div>
+    </aside>
+  </div>;
+}
+
+function PosterEditor({work, t, configured, onSaved}: {work: Work; t: TFn; configured: boolean; onSaved: (id: string) => void}) {
+  const [query, setQuery] = useState(work.title);
+  const [results, setResults] = useState<Candidate[]>([]);
+  const [message, setMessage] = useState('');
+  const [busy, setBusy] = useState(false);
+
+  async function search() {
+    setBusy(true);
+    setMessage(t('poster.searching'));
+    setResults([]);
+    try {
+      const params = new URLSearchParams({q: query, kind: work.format === 'Film' ? 'movie' : 'tv'});
+      const response = await fetch(`/api/posters/search?${params}`);
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error);
+      setResults(data.results);
+      setMessage(data.results.length ? t('poster.choose') : t('poster.none'));
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : t('poster.none'));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function save(candidate: Candidate) {
+    if (!window.confirm(t('poster.confirm', {
+      title: candidate.title,
+      date: candidate.date || t('poster.dateUnknown'),
+      work: work.title,
+    }))) return;
+    setBusy(true);
+    setMessage(t('poster.saving'));
+    try {
+      const response = await fetch('/api/posters/save', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({workId: work.id, poster: candidate.poster}),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error);
+      onSaved(work.id);
+      setMessage(t('poster.saved'));
+      setResults([]);
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : t('poster.none'));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return <section className="poster-editor">
+    <h3>{t('poster.title')}</h3>
+    <p>{t('poster.note')}</p>
+    {!configured && <p>{t('poster.noKey')}</p>}
+    <div className="poster-search">
+      <input aria-label={t('poster.search')} value={query} onChange={event => setQuery(event.target.value)}/>
+      <button disabled={!configured || busy || !query.trim()} onClick={search}>{t('poster.search')}</button>
+    </div>
+    <p aria-live="polite">{message}</p>
+    <div className="poster-results">{results.map(result => <button key={result.id} onClick={() => save(result)} disabled={busy}>
+      <img src={`https://image.tmdb.org/t/p/w92${result.poster}`} alt="" loading="lazy"/>
+      <span>{result.title}<small>{result.date || t('poster.dateUnknown')} · TMDB #{result.id}</small></span>
+    </button>)}</div>
+    <p className="poster-attribution"><a href="https://www.themoviedb.org/" target="_blank" rel="noreferrer">TMDB</a> · {t('poster.attribution')}</p>
+  </section>;
+}

@@ -1,0 +1,67 @@
+import {useState} from 'react';
+import type {Dataset, Work} from '../data';
+import type {TFn} from '../i18n';
+import {CompanyTree} from './CompanyTree';
+
+export function TableView({works, t, onSelect}: {works: Work[]; t: TFn; onSelect: (id: string) => void}) {
+  return <div className="table-wrap"><table>
+    <thead><tr><th>{t('common.work')}</th><th>{t('common.year')}</th><th>{t('filter.format')}</th><th>{t('common.continuity')}</th></tr></thead>
+    <tbody>{works.map(work => <tr key={work.id}>
+      <td><button onClick={() => onSelect(work.id)}>{work.title}</button></td>
+      <td>{work.year ?? '—'}</td>
+      <td>{t(`format.${work.format}`)}</td>
+      <td>{work.memberships.map(m => `${m.franchise} / ${m.continuity}`).join('; ') || '—'}</td>
+    </tr>)}</tbody>
+  </table></div>;
+}
+
+export function SequenceView({dataset, works, t, onSelect}: {
+  dataset: Dataset;
+  works: Work[];
+  t: TFn;
+  onSelect: (id: string) => void;
+}) {
+  const visible = new Set(works.map(work => work.id));
+  const sequences = dataset.sequences
+    .map(sequence => ({...sequence, items: sequence.items.filter(item => visible.has(item.workId))}))
+    .filter(sequence => sequence.items.length > 0);
+  const placed = new Set(sequences.flatMap(sequence => sequence.items.map(item => item.workId)));
+  const unplaced = works.filter(work => !placed.has(work.id));
+  return <div className="groups">
+    <p>{t('sequence.note')}</p>
+    {sequences.map(sequence => <details key={sequence.id} open>
+      <summary>{sequence.franchise} / {sequence.continuity}</summary>
+      <div className="group-items">{sequence.items.map(item => {
+        const work = dataset.worksById.get(item.workId);
+        return work && <button key={work.id} onClick={() => onSelect(work.id)}>
+          <span>{item.position}</span>{work.title} <small>({work.year ?? t('detail.yearUnknown')}) · {t('sequence.review')}</small>
+        </button>;
+      })}</div>
+    </details>)}
+    {unplaced.length > 0 && <details>
+      <summary>{t('sequence.unpositioned')}</summary>
+      <div className="group-items">{unplaced.map(work => <button key={work.id} onClick={() => onSelect(work.id)}>
+        {work.title} <small>· {t('sequence.positionUnknown')}</small>
+      </button>)}</div>
+    </details>}
+  </div>;
+}
+
+export function HierarchyView({dataset, t, onFranchise}: {
+  dataset: Dataset;
+  t: TFn;
+  onFranchise: (name: string) => void;
+}) {
+  const [mode, setMode] = useState<'corporate' | 'studio'>('corporate');
+  return <section className="hierarchy">
+    <div className="hierarchy-head">
+      <div className="segmented" role="group" aria-label={t('hierarchy.groupBy')}>
+        <button className={mode === 'corporate' ? 'selected' : ''} aria-pressed={mode === 'corporate'} onClick={() => setMode('corporate')}>{t('hierarchy.corporate')}</button>
+        <button className={mode === 'studio' ? 'selected' : ''} aria-pressed={mode === 'studio'} onClick={() => setMode('studio')}>{t('hierarchy.studioAssociations')}</button>
+      </div>
+      <p>{t('hierarchy.note')}</p>
+      {mode === 'studio' && <p>{t('hierarchy.modeNote')}</p>}
+    </div>
+    <CompanyTree dataset={dataset} mode={mode} t={t} onFranchise={onFranchise}/>
+  </section>;
+}
