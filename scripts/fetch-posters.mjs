@@ -23,6 +23,7 @@ const value = name => {
 
 const dryRun = flag('dry-run');
 const force = flag('force');
+const deep = flag('deep');
 const limit = Number(value('limit') ?? 100);
 const franchiseFilter = value('franchise');
 const delayMs = Number(value('delay') ?? 260);
@@ -65,7 +66,7 @@ const normalise = text => (text ?? '')
   .replace(/[^a-z0-9]+/g, ' ')
   .trim();
 
-async function api(path, params) {
+async function api(path, params = {}) {
   const url = new URL(`https://api.themoviedb.org/3${path}`);
   for (const [name, entry] of Object.entries(params)) if (entry !== undefined && entry !== '') url.searchParams.set(name, entry);
   if (!bearer) url.searchParams.set('api_key', key);
@@ -130,7 +131,22 @@ for (const work of works.slice(0, limit)) {
         return ` ${other} `.includes(` ${target} `) && yearMatches(result) && !eventTitle.test(other);
       })
     : [];
-  const matches = exact.length ? exact : contained;
+  let matches = exact.length ? exact : contained;
+
+  // Deep pass: TMDB stores some films under a different title ("A New Hope" is
+  // "Star Wars"). Only an exact alternative title with the exact year is
+  // accepted, so nothing is matched by resemblance.
+  if (!matches.length && deep) {
+    const loose = await api(`/search/${kind}`, {query: work.title});
+    const looseCandidates = (loose.results ?? []).filter(result => result.poster_path && yearMatches(result)).slice(0, 8);
+    for (const candidate of looseCandidates) {
+      const alternatives = await api(`/${kind}/${candidate.id}/alternative_titles`).catch(() => null);
+      const titles = (alternatives?.titles ?? alternatives?.results ?? []).map(entry => entry.title ?? '');
+      const targetPhrase = ` ${target} `;
+      if (titles.some(title => { const other = normalise(title); return other === target || ` ${other} `.includes(targetPhrase); })) matches.push(candidate);
+      await new Promise(resolve => setTimeout(resolve, delayMs));
+    }
+  }
 
   if (matches.length !== 1) {
     manifest.entries[work.id] = {

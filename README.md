@@ -68,11 +68,26 @@ every 25 works and writes saved, ambiguous and unmatched results to
 also has its own manual search box.
 
 The toolbar has a «No poster yet» toggle for reviewing what the automatic matcher
-left behind. First full run (2026-11-19): 805 posters cached (~77 MB), 103 works left for
-manual review — mostly where TMDB uses a different title («Star Wars» for
-*A New Hope*, «The Fantastic 4» for *Four*) or the search returns several exact
-matches (*Rocky*, *Mad Men*, *Lost*, *Chernobyl*). One premiere entry was
-rejected and deleted; the matcher now refuses event titles.
+left behind. Runs on 2026-11-19 cached **841 of 909 posters (~81 MB)**; 68 works
+remain for manual review, mostly where the seed title is a merged label
+(*Money Heist / La casa de papel*, *One Piece: anime*) or where several exact
+matches exist (*Rocky*, *Mad Men*, *Lost*, *Chernobyl*). A deep pass also accepts
+exact alternative titles with the exact year, which resolved *A New Hope*
+(TMDB: *Star Wars*), *Alien 3* or *Ocean's 11*, and the matcher refuses event and
+premiere titles.
+
+## Imported metadata
+
+`scripts/fetch-metadata.mjs` fills only release years the seed leaves empty and
+writes `public/data/tmdb_metadata.json`. It never overwrites a curated field; the
+UI marks those years with an asterisk and explains the origin in the detail
+panel. Run on 2026-11-19: 69 of the 92 year-less series got a first-air year
+(most reused the poster cache); 23 remain because the title is ambiguous or
+named differently on TMDB.
+
+```powershell
+node --env-file-if-exists=.env scripts/fetch-metadata.mjs
+```
 
 To use an independently licensed local JPEG instead, place it in
 `public/posters/` using the exact work ID as filename, e.g.

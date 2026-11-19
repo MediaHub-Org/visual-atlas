@@ -191,6 +191,7 @@ select { padding: 0 26px 0 11px; font-size: 11px; max-width: 190px; }
 .poster:has(.local-poster) .poster-bottom { display: none; }
 .card-title { display: block; font-size: 12px; font-weight: 600; margin: 10px 0 6px; }
 .card-title span { color: var(--muted); font-weight: 400; }
+.imported-mark { color: var(--accent); cursor: help; }
 .badge {
   display: inline-block; border: 1px solid var(--line-strong); color: var(--accent);
   background: var(--accent-soft); border-radius: 3px; padding: 3px 6px; font-size: 9px;

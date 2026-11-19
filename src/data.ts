@@ -3,6 +3,8 @@ export type Work = {
   id: string;
   title: string;
   year: number | null;
+  /** True when the year came from imported TMDB metadata, not the curated seed. */
+  yearImported?: boolean;
   format: 'Film' | 'Series';
   memberships: Membership[];
   anime: boolean;
@@ -66,13 +68,21 @@ type Seed = {
 
 const COLORS = ['#94674f', '#4b6877', '#a28255', '#707856', '#687481', '#566653', '#706479', '#a36b59'];
 
+type ImportedMetadata = {
+  entries?: Record<string, {year?: number; date?: string; title?: string; origin?: string}>;
+};
+
 export async function loadAtlas(url = '/data/media_atlas_seed.json'): Promise<Dataset> {
-  const response = await fetch(url);
-  if (!response.ok) throw new Error(`Unable to load the atlas dataset (${response.status}).`);
-  return buildDataset(await response.json() as Seed);
+  const [seedResponse, metadataResponse] = await Promise.all([
+    fetch(url),
+    fetch('/data/tmdb_metadata.json').catch(() => null),
+  ]);
+  if (!seedResponse.ok) throw new Error(`Unable to load the atlas dataset (${seedResponse.status}).`);
+  const metadata = metadataResponse?.ok ? await metadataResponse.json() as ImportedMetadata : null;
+  return buildDataset(await seedResponse.json() as Seed, metadata);
 }
 
-export function buildDataset(seed: Seed): Dataset {
+export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null): Dataset {
   const franchiseNames = new Map(seed.franchises.map(f => [f.id, f.name]));
   const continuityNames = new Map(seed.continuities.map(c => [c.id, c.name]));
 
@@ -88,18 +98,23 @@ export function buildDataset(seed: Seed): Dataset {
     byWork.set(membership.work_id, list);
   }
 
-  const works: Work[] = seed.works.map((work, index) => ({
-    id: work.id,
-    title: work.title,
-    year: work.release_year,
-    format: work.format === 'film' ? 'Film' : 'Series',
-    memberships: byWork.get(work.id) ?? [],
-    anime: work.animation_classification === 'anime',
-    animated: work.animation_classification === 'anime' || work.animation_classification === 'animation',
-    creators: 'Not supplied in seed',
-    description: work.synopsis ?? 'Synopsis not supplied in seed.',
-    color: COLORS[index % COLORS.length],
-  }));
+  const works: Work[] = seed.works.map((work, index) => {
+    const importedYear = metadata?.entries?.[work.id]?.year;
+    const useImported = work.release_year === null && Number.isInteger(importedYear) && importedYear! > 1800 && importedYear! < 2200;
+    return {
+      id: work.id,
+      title: work.title,
+      year: useImported ? importedYear! : work.release_year,
+      yearImported: useImported || undefined,
+      format: work.format === 'film' ? 'Film' : 'Series',
+      memberships: byWork.get(work.id) ?? [],
+      anime: work.animation_classification === 'anime',
+      animated: work.animation_classification === 'anime' || work.animation_classification === 'animation',
+      creators: 'Not supplied in seed',
+      description: work.synopsis ?? 'Synopsis not supplied in seed.',
+      color: COLORS[index % COLORS.length],
+    };
+  });
   const worksById = new Map(works.map(work => [work.id, work]));
 
   const franchises: Franchise[] = seed.franchises.map(franchise => ({

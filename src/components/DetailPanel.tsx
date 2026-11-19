@@ -54,6 +54,7 @@ export function DetailPanel({work, t, tags, posters, tmdbConfigured, onPosterSav
         <p className="detail-meta">
           {work.year ?? t('detail.yearUnknown')} · {t(`format.${work.format}`)}{work.anime && ` · ${t('format.Anime')}`}
         </p>
+        {work.yearImported && <p className="muted">{t('detail.yearImported')}</p>}
         {work.memberships.map(membership => <p key={`${membership.franchise}/${membership.continuity}`}>
           <span className="badge">{membership.franchise} / {membership.continuity}</span>
         </p>)}
