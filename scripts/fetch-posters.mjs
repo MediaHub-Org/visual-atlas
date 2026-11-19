@@ -84,6 +84,12 @@ async function api(path, params) {
 const manifest = JSON.parse(await readFile(manifestPath, 'utf8').catch(() => '{"entries":{}}'));
 let saved = 0, skipped = 0, missing = 0;
 
+async function persistManifest() {
+  manifest.generatedAt = new Date().toISOString();
+  manifest.note = 'Posters cached from TMDB for at most 150 days. Recheck attribution and terms before distribution.';
+  await writeFile(manifestPath, JSON.stringify(manifest, null, 2));
+}
+
 for (const work of works.slice(0, limit)) {
   const entry = manifest.entries[work.id];
   if (entry?.status === 'saved' && !force) continue;
@@ -108,12 +114,21 @@ for (const work of works.slice(0, limit)) {
 
   const candidates = (body.results ?? []).filter(result => result.poster_path);
   const target = normalise(work.title);
-  const matches = candidates.filter(result => {
-    if (normalise(result.title ?? result.name) !== target) return false;
-    const date = result.release_date ?? result.first_air_date ?? '';
+  const yearMatches = result => {
     if (!work.release_year) return true;
+    const date = result.release_date ?? result.first_air_date ?? '';
     return date.slice(0, 4) === String(work.release_year);
-  });
+  };
+  const exact = candidates.filter(result => normalise(result.title ?? result.name) === target && yearMatches(result));
+  // TMDB prefixes some titles ("Star Wars: Episode I - …"). Accept the seed
+  // title as a whole phrase, but only with an exact year and a unique result.
+  const contained = work.release_year
+    ? candidates.filter(result => {
+        const other = normalise(result.title ?? result.name);
+        return ` ${other} `.includes(` ${target} `) && yearMatches(result);
+      })
+    : [];
+  const matches = exact.length ? exact : contained;
 
   if (matches.length !== 1) {
     manifest.entries[work.id] = {
@@ -166,10 +181,10 @@ for (const work of works.slice(0, limit)) {
     console.error(`${work.title}: ${error.message}`);
   }
   await new Promise(resolve => setTimeout(resolve, delayMs));
+  // Checkpoint so an interrupted long run does not lose its review notes.
+  if ((saved + skipped + missing) % 25 === 0) await persistManifest();
 }
 
-manifest.generatedAt = new Date().toISOString();
-manifest.note = 'Posters cached from TMDB for at most 150 days. Recheck attribution and terms before distribution.';
-await writeFile(manifestPath, JSON.stringify(manifest, null, 2));
+await persistManifest();
 console.log(`\nSaved ${saved} · skipped ${skipped} · failed ${missing}${dryRun ? ' (dry run)' : ''}`);
 console.log(`Manifest: ${manifestPath}`);

@@ -21,6 +21,7 @@ export type Company = {
   depth: number;
 };
 export type Franchise = { id: string; name: string; companyIds: string[]; workIds: string[] };
+export type EditorialTag = { id: string; name: string; rationale: string };
 
 export type Dataset = {
   works: Work[];
@@ -36,6 +37,8 @@ export type Dataset = {
     basis: string;
     items: { workId: string; position: number }[];
   }[];
+  tags: EditorialTag[];
+  workTags: Map<string, string[]>;
   stats: { films: number; series: number; franchises: number; companies: number };
 };
 
@@ -57,6 +60,8 @@ type Seed = {
   franchise_company_associations: { franchise_id: string; company_id: string }[];
   sequences: { id: string; franchise_id: string; continuity_id: string; name: string; sequence_type: string; ordering_basis: string }[];
   sequence_items: { sequence_id: string; work_id: string; position: number }[];
+  tags: { id: string; name: string; selection_rationale: string | null }[];
+  work_tags: { work_id: string; tag_id: string }[];
 };
 
 const COLORS = ['#94674f', '#4b6877', '#a28255', '#707856', '#687481', '#566653', '#706479', '#a36b59'];
@@ -193,6 +198,20 @@ export function buildDataset(seed: Seed): Dataset {
         .map(item => ({ workId: item.work_id, position: item.position })),
     }));
 
+  const tags: EditorialTag[] = seed.tags.map(tag => ({
+    id: tag.id,
+    name: tag.name,
+    rationale: tag.selection_rationale ?? '',
+  }));
+  const tagIds = new Set(tags.map(tag => tag.id));
+  const workTags = new Map<string, string[]>();
+  for (const entry of seed.work_tags) {
+    if (!tagIds.has(entry.tag_id) || !worksById.has(entry.work_id)) continue;
+    const list = workTags.get(entry.work_id) ?? [];
+    if (!list.includes(entry.tag_id)) list.push(entry.tag_id);
+    workTags.set(entry.work_id, list);
+  }
+
   return {
     works,
     worksById,
@@ -200,6 +219,8 @@ export function buildDataset(seed: Seed): Dataset {
     companies,
     roots,
     sequences,
+    tags,
+    workTags,
     stats: {
       films: works.filter(work => work.format === 'Film').length,
       series: works.filter(work => work.format === 'Series').length,

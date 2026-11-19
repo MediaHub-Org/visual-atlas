@@ -25,6 +25,7 @@ function readUrl() {
     query: params.get('q') ?? '',
     franchise: params.get('franchise') ?? 'All',
     company: params.get('company') ?? '',
+    tag: params.get('tag') ?? '',
     format: format && ['All', 'Film', 'Series', 'Anime'].includes(format) ? format : 'All' as Format,
     sort: sort && SORTS.includes(sort) ? sort : 'releaseAsc' as Sort,
     view: view && VIEWS.includes(view) ? view : 'cards' as View,
@@ -43,6 +44,7 @@ export default function App() {
   const [query, setQuery] = useState(initial.query);
   const [franchise, setFranchise] = useState(initial.franchise);
   const [company, setCompany] = useState(initial.company);
+  const [tag, setTag] = useState(initial.tag);
   const [format, setFormat] = useState<Format>(initial.format);
   const [sort, setSort] = useState<Sort>(initial.sort);
   const [view, setView] = useState<View>(initial.view);
@@ -75,6 +77,7 @@ export default function App() {
     if (query) params.set('q', query);
     if (franchise !== 'All') params.set('franchise', franchise);
     if (company) params.set('company', company);
+    if (tag) params.set('tag', tag);
     if (format !== 'All') params.set('format', format);
     if (sort !== 'releaseAsc') params.set('sort', sort);
     if (view !== 'cards') params.set('view', view);
@@ -82,12 +85,12 @@ export default function App() {
     if (selected) params.set('work', selected);
     const next = `${location.pathname}${params.size ? `?${params}` : ''}`;
     if (next !== `${location.pathname}${location.search}`) history.replaceState(null, '', next);
-  }, [query, franchise, company, format, sort, view, density, selected]);
+  }, [query, franchise, company, tag, format, sort, view, density, selected]);
 
   useEffect(() => {
     const onPop = () => {
       const next = readUrl();
-      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company);
+      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setTag(next.tag);
       setFormat(next.format); setSort(next.sort); setView(next.view);
       setDensity(next.density); setSelected(next.work);
     };
@@ -109,6 +112,7 @@ export default function App() {
         (franchise === 'All' || work.memberships.some(m => m.franchise === franchise)) &&
         (!allowedFranchises || work.memberships.some(m => allowedFranchises.has(m.franchiseId))) &&
         (format === 'All' || (format === 'Anime' ? work.anime : work.format === format)) &&
+        (!tag || dataset.workTags.get(work.id)?.includes(tag)) &&
         (!needle || `${work.title} ${work.memberships.map(m => m.franchise).join(' ')}`.toLowerCase().includes(needle)))
       .sort((a, b) => {
         if (sort === 'title') return a.title.localeCompare(b.title);
@@ -117,10 +121,20 @@ export default function App() {
         if (b.year === null) return -1;
         return sort === 'releaseDesc' ? b.year - a.year : a.year - b.year;
       });
-  }, [dataset, query, franchise, allowedFranchises, format, sort]);
+  }, [dataset, query, franchise, allowedFranchises, format, tag, sort]);
+
+  const tagOptions = useMemo(() => {
+    if (!dataset) return [];
+    return dataset.tags
+      .map(entry => ({...entry, count: [...dataset.workTags.values()].filter(list => list.includes(entry.id)).length}))
+      .filter(entry => entry.count > 0);
+  }, [dataset]);
 
   const selectedWork = selected && dataset ? dataset.worksById.get(selected) : undefined;
-  const showHero = view === 'cards' && !query && franchise === 'All' && !company;
+  const selectedTags = selectedWork && dataset
+    ? dataset.tags.filter(entry => dataset.workTags.get(selectedWork.id)?.includes(entry.id))
+    : [];
+  const showHero = view === 'cards' && !query && franchise === 'All' && !company && !tag;
 
   function pickFranchise(name: string) {
     setFranchise(name === franchise ? 'All' : name);
@@ -138,7 +152,7 @@ export default function App() {
 
   return <div className="app">
     <Sidebar
-      dataset={dataset ?? {works: [], worksById: new Map(), franchises: [], companies: new Map(), roots: [], sequences: [], stats: {films: 0, series: 0, franchises: 0, companies: 0}}}
+      dataset={dataset ?? {works: [], worksById: new Map(), franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, franchises: 0, companies: 0}}}
       t={t}
       franchise={franchise}
       onFranchise={pickFranchise}
@@ -191,7 +205,7 @@ export default function App() {
                   <div>
                     <div className="eyebrow"><span/>{t('collection.eyebrow')}</div>
                     <h2>{companyNode?.name ?? (franchise === 'All' ? t('collection.title') : franchise)}</h2>
-                    <p>{filtered.length ? [
+                    <p aria-live="polite">{filtered.length ? [
                       qty(t, filtered.length, 'noun.work', 'noun.works'),
                       qty(t, filtered.filter(work => work.format === 'Film').length, 'noun.film', 'noun.films'),
                       qty(t, filtered.filter(work => work.format === 'Series').length, 'noun.seriesOne', 'noun.seriesMany'),
@@ -207,6 +221,12 @@ export default function App() {
                     <select value={franchise} onChange={event => { setFranchise(event.target.value); setCompany(''); }}>
                       <option value="All">{t('filter.franchise')}: {t('filter.all')}</option>
                       {dataset.franchises.map(entry => <option key={entry.id} value={entry.name}>{entry.name}</option>)}
+                    </select>
+                  </label>
+                  <label><span className="sr">{t('filter.tag')}</span>
+                    <select value={tag} onChange={event => setTag(event.target.value)}>
+                      <option value="">{t('filter.tag')}: {t('filter.all')}</option>
+                      {tagOptions.map(entry => <option key={entry.id} value={entry.id}>{entry.name} ({entry.count})</option>)}
                     </select>
                   </label>
                   <label><span className="sr">{t('filter.format')}</span>
@@ -227,9 +247,10 @@ export default function App() {
                   </button>
                 </div>
 
-                {(companyNode || franchise !== 'All') && <div className="active-filters">
+                {(companyNode || franchise !== 'All' || tag) && <div className="active-filters">
                   {companyNode && <button className="chip active" onClick={() => setCompany('')}>{companyNode.name} ✕</button>}
                   {franchise !== 'All' && <button className="chip active" onClick={() => setFranchise('All')}>{franchise} ✕</button>}
+                  {tag && <button className="chip active" onClick={() => setTag('')}>{tagOptions.find(entry => entry.id === tag)?.name ?? tag} ✕</button>}
                 </div>}
 
                 <div className="viewbar">
@@ -268,11 +289,12 @@ export default function App() {
     {selectedWork && <DetailPanel
       work={selectedWork}
       t={t}
+      tags={selectedTags}
       posters={posters}
       tmdbConfigured={tmdbConfigured}
       onPosterSaved={id => setPosters(current => ({ids: new Set(current.ids).add(id), version: Date.now()}))}
       onClose={closeDetail}
     />}
-    {settingsOpen && <SettingsPanel onClose={closeSettings}/>}
+    {settingsOpen && <SettingsPanel onClose={closeSettings} posterCount={posters.ids.size} configured={tmdbConfigured}/>}
   </div>;
 }

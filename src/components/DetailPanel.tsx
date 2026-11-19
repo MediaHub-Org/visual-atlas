@@ -5,9 +5,10 @@ import {posterUrl, type PosterLookup} from './WorkCard';
 
 type Candidate = {id: number; title: string; date?: string; poster: string};
 
-export function DetailPanel({work, t, posters, tmdbConfigured, onPosterSaved, onClose}: {
+export function DetailPanel({work, t, tags, posters, tmdbConfigured, onPosterSaved, onClose}: {
   work: Work;
   t: TFn;
+  tags: {id: string; name: string}[];
   posters: PosterLookup;
   tmdbConfigured: boolean;
   onPosterSaved: (id: string) => void;
@@ -60,6 +61,11 @@ export function DetailPanel({work, t, posters, tmdbConfigured, onPosterSaved, on
         <p>{work.description}</p>
         <h3>{t('detail.credits')}</h3>
         <p>{work.creators}</p>
+        {tags.length > 0 && <>
+          <h3>{t('detail.tags')}</h3>
+          <div className="franchise-chips">{tags.map(entry => <span className="chip" key={entry.id}>{entry.name}</span>)}</div>
+          <p className="muted">{t('detail.tagsNote')}</p>
+        </>}
         <PosterEditor work={work} t={t} configured={tmdbConfigured} onSaved={onPosterSaved}/>
         <h3>{t('detail.note')}</h3>
         <p>{t('detail.noteBody')}</p>

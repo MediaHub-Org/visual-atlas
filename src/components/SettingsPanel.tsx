@@ -48,7 +48,7 @@ function CalendarConverter({t}: {t: TFn}) {
   </section>;
 }
 
-export function SettingsPanel({onClose}: {onClose: () => void}) {
+export function SettingsPanel({onClose, posterCount, configured}: {onClose: () => void; posterCount: number; configured: boolean}) {
   const settings = useSettings();
   const {t} = settings;
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -119,6 +119,7 @@ export function SettingsPanel({onClose}: {onClose: () => void}) {
 
         <h3>{t('settings.offline')}</h3>
         <p className="muted">{t('settings.offlineNote')}</p>
+        <p className="muted">{t('settings.posterCount', {n: posterCount})} {configured ? t('settings.keyYes') : t('settings.keyNo')}</p>
 
         <button className="reset" onClick={settings.reset}>{t('settings.reset')}</button>
       </div>

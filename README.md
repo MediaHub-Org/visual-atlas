@@ -54,13 +54,16 @@ For a first local library, the backfill script matches titles exactly (normalise
 title plus release year) and skips anything ambiguous instead of guessing:
 
 ```powershell
-npm run posters:fetch -- --dry-run --limit 20
-npm run posters:fetch -- --franchise "Star Wars"
+node --env-file-if-exists=.env scripts/fetch-posters.mjs --dry-run --limit 20
+node --env-file-if-exists=.env scripts/fetch-posters.mjs --franchise "Star Wars"
 ```
 
-It writes a manifest of saved, ambiguous and unmatched works in
+Pass arguments to `node` directly: this npm version swallows flags after
+`npm run … --`, so the npm alias only works without arguments. The script is
+resumable, skips works that already have an image, checkpoints its manifest
+every 25 works and writes saved, ambiguous and unmatched results to
 `public/posters/manifest.json`. Review the ambiguous list in the app; each work
-also has its own manual suggestion box.
+also has its own manual search box.
 
 To use an independently licensed local JPEG instead, place it in
 `public/posters/` using the exact work ID as filename, e.g.
