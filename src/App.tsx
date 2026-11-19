@@ -250,7 +250,7 @@ export default function App() {
                         ? <TimelineView works={filtered} scale={settings.timelineScale} onScale={scale => settings.set({timelineScale: scale})} t={t} posters={posters} onSelect={setSelected}/>
                         : view === 'sequence'
                           ? <SequenceView dataset={dataset} works={filtered} t={t} onSelect={setSelected}/>
-                          : <HierarchyView dataset={dataset} t={t} onFranchise={pickFranchise}/>}
+                          : <HierarchyView dataset={dataset} t={t} onFranchise={pickFranchise} focusCompany={company}/>}
               </section>
 
               <footer>

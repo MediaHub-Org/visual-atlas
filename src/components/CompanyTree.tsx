@@ -1,20 +1,28 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import type {Dataset} from '../data';
 import type {TFn} from '../i18n';
 
 type Mode = 'corporate' | 'studio';
 
-export function CompanyTree({dataset, mode, t, onFranchise}: {
+export function CompanyTree({dataset, mode, t, onFranchise, focusId}: {
   dataset: Dataset;
   mode: Mode;
   t: TFn;
   onFranchise: (name: string) => void;
+  focusId?: string;
 }) {
   const franchisesById = new Map(dataset.franchises.map(franchise => [franchise.id, franchise]));
   const studioIds = [...dataset.companies.values()]
     .filter(company => company.franchiseIds.length > 0)
     .sort((a, b) => b.franchiseIds.length - a.franchiseIds.length || a.name.localeCompare(b.name))
     .map(company => company.id);
+  // Open the focused company and every ancestor so the URL state is visible.
+  const autoOpen = new Set<string>();
+  let focus: string | undefined = focusId;
+  while (focus && !autoOpen.has(focus)) {
+    autoOpen.add(focus);
+    focus = dataset.companies.get(focus)?.parentId ?? undefined;
+  }
 
   const renderFranchises = (ids: string[]) => ids.length
     ? <div className="franchise-chips">{ids.map(id => franchisesById.get(id)).filter(Boolean).map(franchise =>
@@ -26,24 +34,28 @@ export function CompanyTree({dataset, mode, t, onFranchise}: {
 
   return <div className="company-tree">
     {mode === 'corporate'
-      ? dataset.roots.map(rootId => <CompanyNode key={rootId} id={rootId} dataset={dataset} t={t} onFranchise={onFranchise} renderFranchises={renderFranchises}/>)
+      ? dataset.roots.map(rootId => <CompanyNode key={rootId} id={rootId} dataset={dataset} t={t} onFranchise={onFranchise} renderFranchises={renderFranchises} autoOpen={autoOpen}/>)
       : studioIds.map(id => {
           const company = dataset.companies.get(id)!;
-          return <CompanyNode key={id} id={id} dataset={dataset} t={t} onFranchise={onFranchise} renderFranchises={renderFranchises} flat/>;
+          return <CompanyNode key={id} id={id} dataset={dataset} t={t} onFranchise={onFranchise} renderFranchises={renderFranchises} autoOpen={autoOpen} flat/>;
         })}
   </div>;
 }
 
-function CompanyNode({id, dataset, t, onFranchise, renderFranchises, flat = false}: {
+function CompanyNode({id, dataset, t, onFranchise, renderFranchises, autoOpen, flat = false}: {
   id: string;
   dataset: Dataset;
   t: TFn;
   onFranchise: (name: string) => void;
   renderFranchises: (ids: string[]) => React.ReactNode;
+  autoOpen: Set<string>;
   flat?: boolean;
 }) {
   const company = dataset.companies.get(id);
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (autoOpen.has(id)) setOpen(true);
+  }, [autoOpen, id]);
   if (!company) return null;
   const franchiseIds = flat ? company.franchiseIds : company.subtreeFranchiseIds;
   const parent = company.parentId ? dataset.companies.get(company.parentId) : undefined;
@@ -55,7 +67,7 @@ function CompanyNode({id, dataset, t, onFranchise, renderFranchises, flat = fals
       <span className="company-count">{franchiseIds.length === 1 ? t('hierarchy.franchiseOne') : t('hierarchy.franchises', {n: franchiseIds.length})}</span>
     </button>
     {open && <div className="company-body">
-      {!flat && company.childIds.map(childId => <CompanyNode key={childId} id={childId} dataset={dataset} t={t} onFranchise={onFranchise} renderFranchises={renderFranchises}/>)}
+      {!flat && company.childIds.map(childId => <CompanyNode key={childId} id={childId} dataset={dataset} t={t} onFranchise={onFranchise} renderFranchises={renderFranchises} autoOpen={autoOpen}/>)}
       {renderFranchises(franchiseIds)}
     </div>}
   </section>;

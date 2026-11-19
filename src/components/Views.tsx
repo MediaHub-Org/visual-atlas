@@ -47,10 +47,11 @@ export function SequenceView({dataset, works, t, onSelect}: {
   </div>;
 }
 
-export function HierarchyView({dataset, t, onFranchise}: {
+export function HierarchyView({dataset, t, onFranchise, focusCompany}: {
   dataset: Dataset;
   t: TFn;
   onFranchise: (name: string) => void;
+  focusCompany?: string;
 }) {
   const [mode, setMode] = useState<'corporate' | 'studio'>('corporate');
   return <section className="hierarchy">
@@ -62,6 +63,6 @@ export function HierarchyView({dataset, t, onFranchise}: {
       <p>{t('hierarchy.note')}</p>
       {mode === 'studio' && <p>{t('hierarchy.modeNote')}</p>}
     </div>
-    <CompanyTree dataset={dataset} mode={mode} t={t} onFranchise={onFranchise}/>
+    <CompanyTree dataset={dataset} mode={mode} t={t} onFranchise={onFranchise} focusId={focusCompany}/>
   </section>;
 }
