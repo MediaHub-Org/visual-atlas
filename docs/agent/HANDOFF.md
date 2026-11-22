@@ -34,3 +34,9 @@ expose it beyond `127.0.0.1`.
    manual match in the detail panel.
 3. Then: import pipeline and migrations into the schema; users/roles/RLS;
    authenticated editing; `episode_count` reconciliation.
+
+The import pipeline cannot start without an editorial decision: the seed is
+unverified and the schema has no review state, so a copy would promote claims into
+facts. `db/IMPORT.md` (2026-11-22) is the proposal and names the three decisions
+(review vocabulary, claims vs. relationships, first-pass scope). No schema change
+was applied; `npm test` is still 38/38.

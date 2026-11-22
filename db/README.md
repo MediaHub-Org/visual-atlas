@@ -68,3 +68,7 @@ reconciliation between `episode_count` and the episodes actually recorded. The
 poster expiry rule records when a provider cache must be discarded but cannot
 delete the file. Nothing here has been applied to a deployed database, and no
 data in this repository is publishable.
+
+The import pipeline is not a straight copy: [`IMPORT.md`](IMPORT.md) proposes the
+migration and the review state it needs, and lists the three decisions that are
+the owner's before any code is written.

@@ -1,6 +1,20 @@
-# Journal — Visual Atlas
+# Journal - Visual Atlas
 
 Newest first. The live state is in [`HANDOFF.md`](HANDOFF.md).
+
+## 2026-11-22
+
+- Import plan written, not implemented (`db/IMPORT.md`, linked from
+  `db/README.md`). The seed cannot be copied into the schema as it stands: the
+  string ids need a stable `seed_key`, and the schema has no review state, so a
+  copy would turn `needs_review` claims into facts. The proposal adds a migration
+  (`seed_key` + `review_status` + review audit columns), a small migration runner,
+  an idempotent importer and four tests (double import, review defaults, rollback,
+  curated fields preserved).
+- Three decisions are the owner's before code: review vocabulary, claims in their
+  own tables vs. review columns on the real ones, and the first-pass scope
+  (sources, companies, franchises, works, tags).
+- No schema change applied; `npm test` still 38/38.
 
 ## 2026-11-19
 
