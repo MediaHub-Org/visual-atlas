@@ -32,11 +32,14 @@ expose it beyond `127.0.0.1`.
 1. Verify representative seed records against independent, licensed sources.
 2. Posters left: 38 works (mostly *Crayon Shin-chan* and *Doraemon* films) need a
    manual match in the detail panel.
-3. Then: import pipeline and migrations into the schema; users/roles/RLS;
-   authenticated editing; `episode_count` reconciliation.
+3. Relations and claims: `memberships`, `franchise_company_associations`,
+   `company_relationship_claims`, `continuities` and the narrative sequences. Each
+   needs a mapping and a review path; the review columns are already in place on
+   the four claim join tables.
+4. Then: users/roles/RLS; authenticated editing; `episode_count` reconciliation.
 
-The import pipeline cannot start without an editorial decision: the seed is
-unverified and the schema has no review state, so a copy would promote claims into
-facts. `db/IMPORT.md` (2026-11-22) is the proposal and names the three decisions
-(review vocabulary, claims vs. relationships, first-pass scope). No schema change
-was applied; `npm test` is still 38/38.
+The first import pass is in (`db/migrate.mjs`, `db/import.mjs`, migration
+`001_review_and_seed_key.sql`): sources, companies, franchises, works and tags,
+upserted by `seed_key`, every row `needs_review`, verbatim payloads in
+`imported_metadata`. `npm test` is 47/47 (38 schema + 9 import). The local
+`db/.data` holds the imported copy; it is ignored by Git.

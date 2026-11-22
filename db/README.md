@@ -62,13 +62,15 @@ whether `episode_count` matches the episodes actually recorded. The
 `claims_without_source` view surfaces the first of these — every curated claim
 that carries no source — without pretending to enforce it.
 
-Still missing on purpose or pending: users, roles and row-level security; a
-migration tool; an import pipeline that fills `imported_metadata`; and any
-reconciliation between `episode_count` and the episodes actually recorded. The
+Still missing on purpose or pending: users, roles and row-level security; any
+reconciliation between `episode_count` and the episodes actually recorded; the
+relations and claims of the seed (memberships, company claims, chronology). The
 poster expiry rule records when a provider cache must be discarded but cannot
 delete the file. Nothing here has been applied to a deployed database, and no
 data in this repository is publishable.
 
-The import pipeline is not a straight copy: [`IMPORT.md`](IMPORT.md) proposes the
-migration and the review state it needs, and lists the three decisions that are
-the owner's before any code is written.
+The import pipeline exists for the five entities with no claim semantics:
+[`IMPORT.md`](IMPORT.md) records what is imported, what is deliberately not, and
+the rules the importer follows (one transaction, upsert by `seed_key`, reviewed
+rows frozen, verbatim payloads in `imported_metadata`). Migrations live in
+`db/migrations/`, applied by `db/migrate.mjs`; `db/.data` is ignored.

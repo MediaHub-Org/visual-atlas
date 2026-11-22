@@ -4,17 +4,23 @@ Newest first. The live state is in [`HANDOFF.md`](HANDOFF.md).
 
 ## 2026-11-22
 
-- Import plan written, not implemented (`db/IMPORT.md`, linked from
-  `db/README.md`). The seed cannot be copied into the schema as it stands: the
-  string ids need a stable `seed_key`, and the schema has no review state, so a
-  copy would turn `needs_review` claims into facts. The proposal adds a migration
-  (`seed_key` + `review_status` + review audit columns), a small migration runner,
-  an idempotent importer and four tests (double import, review defaults, rollback,
-  curated fields preserved).
-- Three decisions are the owner's before code: review vocabulary, claims in their
-  own tables vs. review columns on the real ones, and the first-pass scope
-  (sources, companies, franchises, works, tags).
-- No schema change applied; `npm test` still 38/38.
+- **Import first pass implemented**, after the owner approved the plan's defaults.
+  Migration `001_review_and_seed_key.sql`: `seed_key` (unique, partial index) and
+  `review_status`/`reviewed_at`/`reviewed_by` on sources, companies, franchises,
+  works and tags, plus `review_status` on the four claim join tables; `reviewed`
+  without a date is refused.
+- `db/migrate.mjs`: schema + migrations in name order, one transaction each,
+  checksums in `schema_migrations`, a changed file is an error. `db/.data` ignored.
+- `db/import.mjs`: five entities in one transaction, upsert by `seed_key`, reviewed
+  rows frozen, every row's original JSON kept in `imported_metadata`, `--dry-run`
+  rolls back, an unmapped seed section aborts.
+- Tests: 9 import tests (migration idempotence, review defaults, curated title
+  preserved, rollback on a bad row, claims stay empty, unknown section refused,
+  dry run) next to the 38 schema tests. `npm test` 47/47.
+- Local run: 1 source, 84 companies, 73 franchises, 909 works, 13 tags, 1,080
+  payloads, all `needs_review`.
+- Relations and claims stay out: they need their own mapping and review path.
+- No remote; nothing published, nothing applied outside `db/.data`.
 
 ## 2026-11-19
 
