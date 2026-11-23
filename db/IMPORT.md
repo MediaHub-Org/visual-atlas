@@ -1,20 +1,23 @@
 # Import plan
 
-**Status: first pass implemented, 2026-11-22.** The owner approved the defaults:
+**Status: second pass implemented, 2026-11-23.** The owner approved the defaults:
 `needs_review` / `reviewed` / `rejected`, review columns (and reviews need a
 date), and a first pass over the five entities with no claim semantics. The
-verbatim payload of every imported row is kept in `imported_metadata`, so nothing
-the curated tables cannot hold is lost.
+second pass adds the relations and claims, still as draft rows. The verbatim
+payload of every imported row is kept in `imported_metadata`, so nothing the
+curated tables cannot hold is lost.
 
 What runs today:
 
     npm run db:migrate   # schema.sql + db/migrations/*.sql into db/.data (ignored)
-    npm run db:import    # the five entities; --dry-run reports counts and writes nothing
-    npm test             # 38 schema tests + 9 import tests
+    npm run db:import    # entities, relations and claims; --dry-run writes nothing
+    npm test             # 51 tests (schema + migrations + import)
 
-On 2026-11-22 the local database (`db/.data`, ignored) ended with 1 source, 84
-companies, 73 franchises, 909 works, 13 tags and 1,080 verbatim payloads, every
-row in `needs_review`.
+On 2026-11-23 the local database (`db/.data`, ignored) ended with 1 source, 84
+companies, 73 franchises, 909 works, 13 tags, 141 continuities, 855 franchise
+memberships, 836 continuity memberships, 206 franchise/company associations, 26
+company claims, 92 work/tag links and 2,413 verbatim payloads; every row is
+`needs_review`.
 
 ## Why it is not a straight copy
 
@@ -44,6 +47,26 @@ Everything else keeps its JSON in `imported_metadata` (`provider = 'seed'`,
 `external_id = '<array>:<id>'`). A seed section without a mapping aborts the
 import instead of being skipped quietly.
 
+## What the second pass imports
+
+| Seed array                    | Tables written                                                   | Notes                                                                 |
+|-------------------------------|------------------------------------------------------------------|-----------------------------------------------------------------------|
+| `continuities`                | `continuities`                                                   | upserted by `seed_key`; franchise reference checked                   |
+| `memberships`                 | `franchise_memberships`, `continuity_memberships`                | a row with `continuity_id: null` writes only the franchise membership |
+| `franchise_company_associations` | `franchise_companies`                                         | always `catalog_association`; `ownership_asserted: false` is kept     |
+| `company_relationship_claims` | `company_relationships`                                          | subject = parent, object = child; the cycle trigger still applies     |
+| `work_tags`                   | `work_tags`                                                      | write-once links                                                      |
+
+The membership type (`included` / `related_series`) is stored on both membership
+tables; without it every row would read as the same claim. Migration
+`002_relations_and_claims.sql` gives `continuities` and `company_relationships`
+their own `seed_key` and review columns, and `work_tags` its draft state.
+
+Natural keys make the joins idempotent: `(work_id, franchise_id)`,
+`(continuity_id, work_id)`, `(franchise_id, company_id, relationship)` and
+`(work_id, tag_id)`. A reviewed row is frozen: re-import refreshes only
+`needs_review` rows, and a tag link that already exists is never touched.
+
 ## Rules the importer follows
 
 - One transaction: a single bad row rolls the whole import back (tested).
@@ -53,12 +76,12 @@ import instead of being skipped quietly.
 
 ## Still out, on purpose
 
-- **Relations and claims** (`memberships`, `franchise_company_associations`,
-  `company_relationship_claims`, `continuities`, `sequences`, `sequence_items`,
-  `work_tags`): each needs its own mapping and review path. The review columns are
-  already in place for the four claim join tables.
-- **Chronology.** Narrative order is a proposal in the seed, not a date; mapping it
-  needs the owner's rule for `placement` and `certainty`.
+- **Sequences and sequence items.** Narrative order is a proposal in the seed, not
+  a date; mapping it needs the owner's rule for `placement` and `certainty`
+  (`editorial_proposal` is not one of the schema's four values). The importer
+  refuses to guess.
+- **Chronology.** `chronology_entries` and `chronology_relations` wait for that
+  same rule; no position or relation is invented from a sequence.
 - **Posters.** `posters` records provenance and expiry; importing the cached files
   is a separate step under TMDB's terms.
 - **Users, roles, RLS.** Still absent on purpose.

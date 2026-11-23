@@ -2,6 +2,23 @@
 
 Newest first. The live state is in [`HANDOFF.md`](HANDOFF.md).
 
+## 2026-11-23
+
+- **Relations and claims import, second pass.** Migration
+  `002_relations_and_claims.sql`: `seed_key` and full review state on
+  `continuities` and `company_relationships`; `membership_type` on both membership
+  joins; draft state on `work_tags`.
+- `db/import.mjs` adds continuities, memberships (a row without `continuity_id`
+  writes only the franchise membership), franchise/company associations, company
+  claims (subject = parent, object = child) and work/tag links. Natural keys make
+  the joins idempotent; reviewed rows are frozen; the claim cycle trigger still
+  applies.
+- Local run: 141 continuities, 855 franchise memberships, 836 continuity
+  memberships, 206 franchise/company associations, 26 claims, 92 work/tag links,
+  2,413 payloads, all `needs_review`. `npm test` 51/51, `npm run build` green.
+- Sequences and chronology stay out: the seed's `editorial_proposal` certainty
+  needs the owner's mapping rule; no position or relation is invented.
+
 ## 2026-11-22
 
 - **Import first pass implemented**, after the owner approved the plan's defaults.

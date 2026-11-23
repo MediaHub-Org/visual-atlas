@@ -19,7 +19,7 @@ const SEED_FILE = join(here, '..', 'public', 'data', 'media_atlas_seed.json');
 
 /**
  * The first pass (approved 2026-11-22): the five entities with no claim
- * semantics. Anything relation-shaped stays out until it has a review path.
+ * semantics. The second pass below adds the relations and claims.
  */
 const PLAN = [
   {
@@ -76,19 +76,36 @@ const PLAN = [
   },
 ];
 
+/** Seed arrays handled by the relation pass below. */
+const RELATION_ARRAYS = [
+  'continuities',
+  'memberships',
+  'franchise_company_associations',
+  'company_relationship_claims',
+  'work_tags',
+];
+
+/** Tables the relation pass writes, in report order. */
+const RELATION_TABLES = [
+  'continuities',
+  'franchise_memberships',
+  'continuity_memberships',
+  'franchise_companies',
+  'company_relationships',
+  'work_tags',
+];
+
 /** Sections that exist in the export and are deliberately not imported yet. */
 const SKIPPED = new Map([
   ['schema_version', 'metadata'],
   ['metadata', 'metadata'],
   ['project_rules', 'metadata'],
   ['import_contract', 'metadata'],
-  ['company_relationship_claims', 'claim: needs its own review path'],
-  ['franchise_company_associations', 'claim: needs its own review path'],
-  ['memberships', 'claim: needs its own review path'],
-  ['continuities', 'needs chronology design'],
-  ['sequences', 'editorial narrative proposal, not a date'],
-  ['sequence_items', 'editorial narrative proposal, not a date'],
-  ['work_tags', 'join table, later with the rest of the relations'],
+  // Narrative order is a proposal, not a date. The schema's certainty values
+  // (confirmed/estimated/disputed/unknown) cannot hold "editorial_proposal"
+  // without the owner's rule, so both arrays stay out for now.
+  ['sequences', 'narrative order needs the owner\'s placement/certainty rule'],
+  ['sequence_items', 'narrative order needs the owner\'s placement/certainty rule'],
   ['people', 'empty'],
   ['credits', 'empty'],
   ['work_company_credits', 'empty'],
@@ -99,8 +116,16 @@ const SKIPPED = new Map([
   ['calendar_systems', 'metadata'],
 ]);
 
+const COMPANY_CLAIMS = {
+  parent_company_claim: 'parent_company',
+  division_claim: 'division',
+  joint_venture_claim: 'joint_venture',
+};
+
+const MEMBERSHIP_TYPES = new Set(['included', 'related_series']);
+
 function checkSections(seed) {
-  const planned = new Set(PLAN.map((step) => step.array));
+  const planned = new Set([...PLAN.map((step) => step.array), ...RELATION_ARRAYS]);
   for (const key of Object.keys(seed)) {
     if (planned.has(key) || SKIPPED.has(key)) continue;
     throw new Error(`seed section "${key}" has no mapping; decide where it goes before importing`);
@@ -121,6 +146,36 @@ function upsertSql(table, columns) {
           returning id, (xmax = 0) as inserted`;
 }
 
+/** seed_key -> id for every imported row of a table. */
+async function loadIds(query, table) {
+  const result = await query.query(`select id, seed_key from ${table} where seed_key is not null`);
+  return new Map(result.rows.map((row) => [row.seed_key, row.id]));
+}
+
+function ref(ids, key, what) {
+  const id = ids.get(key);
+  if (id === undefined) throw new Error(`${what} "${key}" is not in the imported seed`);
+  return id;
+}
+
+/** The first seed source that exists, or null; the payload keeps the rest. */
+function sourceId(raw, ids) {
+  for (const key of raw.source_ids ?? []) {
+    if (ids.sources.has(key)) return ids.sources.get(key);
+  }
+  return null;
+}
+
+async function keepPayload(query, array, raw, externalId = raw.id, workId = null) {
+  await query.query(
+    `insert into imported_metadata (provider, external_id, payload, work_id)
+     values ('seed', $1, $2::jsonb, $3)
+     on conflict (provider, external_id) do update
+       set payload = excluded.payload, imported_at = now()`,
+    [`${array}:${externalId}`, JSON.stringify(raw), workId]
+  );
+}
+
 /**
  * Runs the import. Returns per-table insert/update counts; with `dryRun` the
  * work happens inside a transaction that is rolled back, so the numbers are
@@ -129,10 +184,16 @@ function upsertSql(table, columns) {
 export async function importSeed(db, seed, { dryRun = false } = {}) {
   checkSections(seed);
   const counts = {};
+  for (const table of [...PLAN.map((step) => step.table), ...RELATION_TABLES]) {
+    counts[table] = { inserted: 0, updated: 0 };
+  }
+
+  const tally = (table, inserted) => {
+    counts[table][inserted ? 'inserted' : 'updated'] += 1;
+  };
 
   const run = async (query) => {
     for (const step of PLAN) {
-      counts[step.table] = { inserted: 0, updated: 0 };
       const rows = seed[step.array] ?? [];
       for (const raw of rows) {
         if (!raw || typeof raw.id !== 'string' || !raw.id) {
@@ -145,18 +206,150 @@ export async function importSeed(db, seed, { dryRun = false } = {}) {
         const result = await query.query(upsertSql(step.table, columns), params);
         const row = result.rows[0];
         if (!row) throw new Error(`${step.table}: upsert returned no row for ${raw.id}`);
-        counts[step.table][row.inserted ? 'inserted' : 'updated'] += 1;
+        tally(step.table, row.inserted);
 
         // The verbatim payload is the audit trail for everything the curated
         // columns cannot hold.
-        await query.query(
-          `insert into imported_metadata (provider, external_id, payload, work_id)
-           values ('seed', $1, $2::jsonb, $3)
-           on conflict (provider, external_id) do update
-             set payload = excluded.payload, imported_at = now()`,
-          [`${step.array}:${raw.id}`, JSON.stringify(raw), step.table === 'works' ? row.id : null]
-        );
+        await keepPayload(query, step.array, raw, raw.id, step.table === 'works' ? row.id : null);
       }
+    }
+
+    const ids = {
+      sources: await loadIds(query, 'sources'),
+      companies: await loadIds(query, 'companies'),
+      franchises: await loadIds(query, 'franchises'),
+      works: await loadIds(query, 'works'),
+      tags: await loadIds(query, 'tags'),
+    };
+
+    // Continuities are entities, not claims: upsert by seed_key like the first
+    // pass and keep the franchise reference explicit.
+    for (const raw of seed.continuities ?? []) {
+      const result = await query.query(
+        upsertSql('continuities', ['franchise_id', 'name']),
+        [raw.id, ref(ids.franchises, raw.franchise_id, 'franchise'), raw.name]
+      );
+      tally('continuities', result.rows[0].inserted);
+      await keepPayload(query, 'continuities', raw);
+    }
+    ids.continuities = await loadIds(query, 'continuities');
+
+    // A membership claims that a work belongs to a franchise, and optionally
+    // to one continuity of it. The franchise row is inserted first because the
+    // continuity row's foreign key points at it.
+    for (const raw of seed.memberships ?? []) {
+      const workId = ref(ids.works, raw.work_id, 'work');
+      const franchiseId = ref(ids.franchises, raw.franchise_id, 'franchise');
+      const type = raw.membership_type ?? 'included';
+      if (!MEMBERSHIP_TYPES.has(type)) {
+        throw new Error(`memberships: unknown membership_type "${type}"`);
+      }
+      const source = sourceId(raw, ids);
+
+      const franchiseRow = await query.query(
+        `insert into franchise_memberships (work_id, franchise_id, source_id, membership_type)
+         values ($1, $2, $3, $4)
+         on conflict (work_id, franchise_id) do update set
+           source_id = case when franchise_memberships.review_status = 'needs_review'
+             then excluded.source_id else franchise_memberships.source_id end,
+           membership_type = case when franchise_memberships.review_status = 'needs_review'
+             then excluded.membership_type else franchise_memberships.membership_type end
+         returning (xmax = 0) as inserted`,
+        [workId, franchiseId, source, type]
+      );
+      tally('franchise_memberships', franchiseRow.rows[0].inserted);
+
+      if (raw.continuity_id) {
+        const continuityId = ref(ids.continuities, raw.continuity_id, 'continuity');
+        const continuityRow = await query.query(
+          `insert into continuity_memberships (continuity_id, work_id, franchise_id, source_id, membership_type)
+           values ($1, $2, $3, $4, $5)
+           on conflict (continuity_id, work_id) do update set
+             source_id = case when continuity_memberships.review_status = 'needs_review'
+               then excluded.source_id else continuity_memberships.source_id end,
+             membership_type = case when continuity_memberships.review_status = 'needs_review'
+               then excluded.membership_type else continuity_memberships.membership_type end
+           returning (xmax = 0) as inserted`,
+          [continuityId, workId, franchiseId, source, type]
+        );
+        tally('continuity_memberships', continuityRow.rows[0].inserted);
+      }
+
+      await keepPayload(query, 'memberships', raw, raw.id, workId);
+    }
+
+    // Which company a franchise is catalogued under. The seed says
+    // ownership_asserted: false, and the schema's relationship is the weaker
+    // catalog association, so no ownership is invented.
+    for (const raw of seed.franchise_company_associations ?? []) {
+      const franchiseId = ref(ids.franchises, raw.franchise_id, 'franchise');
+      const companyId = ref(ids.companies, raw.company_id, 'company');
+      const relationship = raw.relationship_type;
+      if (!['catalog_association', 'rights_holder', 'production'].includes(relationship)) {
+        throw new Error(`franchise_company_associations: unknown relationship "${relationship}"`);
+      }
+      const result = await query.query(
+        `insert into franchise_companies
+           (franchise_id, company_id, relationship, valid_from, valid_until, source_id)
+         values ($1, $2, $3, $4, $5, $6)
+         on conflict (franchise_id, company_id, relationship) do update set
+           valid_from = case when franchise_companies.review_status = 'needs_review'
+             then excluded.valid_from else franchise_companies.valid_from end,
+           valid_until = case when franchise_companies.review_status = 'needs_review'
+             then excluded.valid_until else franchise_companies.valid_until end,
+           source_id = case when franchise_companies.review_status = 'needs_review'
+             then excluded.source_id else franchise_companies.source_id end
+         returning (xmax = 0) as inserted`,
+        [franchiseId, companyId, relationship, raw.valid_from ?? null, raw.valid_to ?? null, sourceId(raw, ids)]
+      );
+      tally('franchise_companies', result.rows[0].inserted);
+      await keepPayload(query, 'franchise_company_associations', raw);
+    }
+
+    // Corporate claims. The seed's subject is the parent and its object the
+    // child; the schema trigger refuses a cycle, so a bad claim fails the whole
+    // import instead of silently reordering the tree.
+    for (const raw of seed.company_relationship_claims ?? []) {
+      const relationship = COMPANY_CLAIMS[raw.relationship_type];
+      if (!relationship) {
+        throw new Error(`company_relationship_claims: unknown relationship "${raw.relationship_type}"`);
+      }
+      const result = await query.query(
+        upsertSql('company_relationships', [
+          'parent_company_id',
+          'child_company_id',
+          'relationship',
+          'valid_from',
+          'valid_until',
+          'source_id',
+        ]),
+        [
+          raw.id,
+          ref(ids.companies, raw.subject_company_id, 'company'),
+          ref(ids.companies, raw.object_company_id, 'company'),
+          relationship,
+          raw.valid_from ?? null,
+          raw.valid_to ?? null,
+          sourceId(raw, ids),
+        ]
+      );
+      tally('company_relationships', result.rows[0].inserted);
+      await keepPayload(query, 'company_relationship_claims', raw);
+    }
+
+    // Editorial tag links. There is nothing to refresh on conflict; a reviewed
+    // or rejected link is left exactly as it is.
+    for (const raw of seed.work_tags ?? []) {
+      const workId = ref(ids.works, raw.work_id, 'work');
+      const tagId = ref(ids.tags, raw.tag_id, 'tag');
+      const result = await query.query(
+        `insert into work_tags (work_id, tag_id) values ($1, $2)
+         on conflict (work_id, tag_id) do nothing
+         returning work_id`,
+        [workId, tagId]
+      );
+      if (result.rows.length > 0) tally('work_tags', true);
+      await keepPayload(query, 'work_tags', raw, `${raw.work_id}:${raw.tag_id}`, workId);
     }
   };
 

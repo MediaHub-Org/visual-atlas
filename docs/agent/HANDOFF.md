@@ -1,6 +1,6 @@
 # Handoff
 
-Updated 2026-11-19. History is in [`JOURNAL.md`](JOURNAL.md).
+Updated 2026-11-23. History is in [`JOURNAL.md`](JOURNAL.md).
 
 ## State
 
@@ -32,14 +32,18 @@ expose it beyond `127.0.0.1`.
 1. Verify representative seed records against independent, licensed sources.
 2. Posters left: 38 works (mostly *Crayon Shin-chan* and *Doraemon* films) need a
    manual match in the detail panel.
-3. Relations and claims: `memberships`, `franchise_company_associations`,
-   `company_relationship_claims`, `continuities` and the narrative sequences. Each
-   needs a mapping and a review path; the review columns are already in place on
-   the four claim join tables.
+3. Sequences and chronology: the seed's narrative order is an editorial proposal,
+   and `editorial_proposal` is not one of the schema's certainty values. The owner
+   must decide how `placement` / `certainty` map before `sequences` and
+   `sequence_items` are imported; `chronology_entries` wait on the same rule.
 4. Then: users/roles/RLS; authenticated editing; `episode_count` reconciliation.
 
 The first import pass is in (`db/migrate.mjs`, `db/import.mjs`, migration
 `001_review_and_seed_key.sql`): sources, companies, franchises, works and tags,
 upserted by `seed_key`, every row `needs_review`, verbatim payloads in
-`imported_metadata`. `npm test` is 47/47 (38 schema + 9 import). The local
-`db/.data` holds the imported copy; it is ignored by Git.
+`imported_metadata`. The second pass (migration `002_relations_and_claims.sql`)
+adds continuities, memberships, franchise/company associations, company claims
+and work/tag links with the same draft state. `npm test` is 51/51. The local
+`db/.data` holds the imported copy (2,413 payloads); it is ignored by Git. Claims
+are rows in claim tables, never reviewed facts: the cycle trigger still refuses a
+corporate cycle and no ownership is inferred from `catalog_association`.
