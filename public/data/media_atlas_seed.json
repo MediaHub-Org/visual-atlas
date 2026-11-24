@@ -2155,6 +2155,30 @@
       "description": null,
       "loaded_unique_film_count": 4,
       "count_claim_matches_loaded": true
+    },
+    {
+      "id": "breaking-bad",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "name": "Breaking Bad",
+      "editorial_count_claim": null,
+      "count_scope": null,
+      "coverage": "added_2026_11_24_owner_request",
+      "description": null,
+      "loaded_unique_film_count": 0,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "doctor-who",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "name": "Doctor Who",
+      "editorial_count_claim": null,
+      "count_scope": null,
+      "coverage": "added_2026_11_24_owner_request",
+      "description": null,
+      "loaded_unique_film_count": 0,
+      "count_claim_matches_loaded": null
     }
   ],
   "franchise_company_associations": [
@@ -34344,6 +34368,46 @@
       "continuity_id": null,
       "membership_type": "related_series",
       "notes": "Broad franchise association only; do not assume this series shares the film continuity."
+    },
+    {
+      "id": "breaking-bad--main-continuity--series--better-call-saul",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "work_id": "series--better-call-saul",
+      "franchise_id": "breaking-bad",
+      "continuity_id": "breaking-bad--main-continuity",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "breaking-bad--main-continuity--series--breaking-bad",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "work_id": "series--breaking-bad",
+      "franchise_id": "breaking-bad",
+      "continuity_id": "breaking-bad--main-continuity",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "doctor-who--main-continuity--series--doctor-who-original-series",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "work_id": "series--doctor-who-original-series",
+      "franchise_id": "doctor-who",
+      "continuity_id": "doctor-who--main-continuity",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "doctor-who--main-continuity--series--doctor-who-revived-series",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "work_id": "series--doctor-who-revived-series",
+      "franchise_id": "doctor-who",
+      "continuity_id": "doctor-who--main-continuity",
+      "membership_type": "included",
+      "notes": null
     }
   ],
   "continuities": [
@@ -35895,6 +35959,24 @@
       ],
       "franchise_id": "pokemon",
       "name": "Live-action continuity",
+      "canonical_status": "unreviewed",
+      "notes": null
+    },
+    {
+      "id": "breaking-bad--main-continuity",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "franchise_id": "breaking-bad",
+      "name": "Main continuity",
+      "canonical_status": "unreviewed",
+      "notes": null
+    },
+    {
+      "id": "doctor-who--main-continuity",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "franchise_id": "doctor-who",
+      "name": "Main continuity",
       "canonical_status": "unreviewed",
       "notes": null
     }
@@ -39189,6 +39271,30 @@
       "ordering_basis": "release_year_with_editorial_ties",
       "certainty": "editorial_proposal",
       "notes": null
+    },
+    {
+      "id": "breaking-bad--main-continuity--narrative",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "franchise_id": "breaking-bad",
+      "continuity_id": "breaking-bad--main-continuity",
+      "name": "Main continuity: narrative order",
+      "sequence_type": "narrative",
+      "ordering_basis": "editorial_proposal_title_level",
+      "certainty": "editorial_proposal",
+      "notes": "Better Call Saul begins before Breaking Bad and also covers its aftermath; a title-level order cannot show that. Editorial proposal, unverified."
+    },
+    {
+      "id": "doctor-who--main-continuity--narrative",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "franchise_id": "doctor-who",
+      "continuity_id": "doctor-who--main-continuity",
+      "name": "Main continuity: narrative order",
+      "sequence_type": "narrative",
+      "ordering_basis": "editorial_proposal_title_level",
+      "certainty": "editorial_proposal",
+      "notes": "The revived series continues the original series story. Editorial proposal, unverified."
     }
   ],
   "sequence_items": [
@@ -49164,6 +49270,34 @@
       "sequence_id": "pokemon--live-action-continuity--release",
       "work_id": "film--pokemon-detective-pikachu--2019",
       "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "breaking-bad--main-continuity--narrative",
+      "work_id": "series--better-call-saul",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "breaking-bad--main-continuity--narrative",
+      "work_id": "series--breaking-bad",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "doctor-who--main-continuity--narrative",
+      "work_id": "series--doctor-who-original-series",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "doctor-who--main-continuity--narrative",
+      "work_id": "series--doctor-who-revived-series",
+      "position": 2,
       "position_certainty": "needs_review",
       "simultaneous_group": null
     }

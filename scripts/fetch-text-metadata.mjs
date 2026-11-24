@@ -13,10 +13,10 @@
 //   node --env-file-if-exists=.env scripts/fetch-text-metadata.mjs --only text--maus
 // COMICVINE_API_KEY (env or .env) enables the western comics; AniList needs no key.
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { normalise } from './match.mjs';
-import { adaptationProposals, chooseTitle, parseAniListMedia, parseComicVineSearch } from './text-sources.mjs';
+import { adaptationProposals, chooseTitle, imageType, parseAniListMedia, parseComicVineSearch } from './text-sources.mjs';
 import { tmdbExpiry } from './tmdb-cache.mjs';
 
 const args = process.argv.slice(2);
@@ -79,13 +79,20 @@ async function comicVine(work) {
 
 async function saveCover(work, coverUrl) {
   const image = await fetch(coverUrl, { headers: { 'User-Agent': USER_AGENT }, signal: AbortSignal.timeout(20000) });
-  if (!image.ok || !image.headers.get('content-type')?.startsWith('image/jpeg')) throw new Error('cover is not a JPEG');
+  if (!image.ok) throw new Error(`cover request failed (${image.status})`);
   const bytes = new Uint8Array(await image.arrayBuffer());
+  const ext = imageType(image.headers.get('content-type'), bytes);
+  if (!ext) throw new Error('cover is not a JPEG, PNG or WebP image');
   if (bytes.length > 5_000_000) throw new Error('cover too large');
   await mkdir(posterDir, { recursive: true });
   const cachedAt = new Date();
-  await writeFile(join(posterDir, `${work.id}.jpg`), bytes);
-  await writeFile(join(posterDir, `${work.id}.jpg.json`), JSON.stringify({
+  // One cover per work: drop a previous copy in another format.
+  for (const other of ['jpg', 'png', 'webp'].filter((entry) => entry !== ext)) {
+    await rm(join(posterDir, `${work.id}.${other}`), { force: true });
+    await rm(join(posterDir, `${work.id}.${other}.json`), { force: true });
+  }
+  await writeFile(join(posterDir, `${work.id}.${ext}`), bytes);
+  await writeFile(join(posterDir, `${work.id}.${ext}.json`), JSON.stringify({
     source: work.format === 'manga_series' ? 'AniList' : 'Comic Vine',
     cachedAt: cachedAt.toISOString(),
     expires: tmdbExpiry(cachedAt),

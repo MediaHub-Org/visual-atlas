@@ -95,8 +95,8 @@ labels such as «Doctor Who: original series» or «Doraemon: 1979 series».
 
 ## Text media (comics & manga)
 
-A **Video | Text** switch (sidebar and explore header, `?media=text`) swaps the whole
-catalogue. Text media is its own catalogue with its own franchises and is linked to
+A **Watch | Read** switch (sidebar and explore header, `?media=text`) swaps the whole
+catalogue (Watch: films, series and anime; Read: comics, manga and graphic novels). Read mode's sidebar lists formats and series/sagas instead of companies. Text media is its own catalogue with its own franchises and is linked to
 video adaptations. The catalogue (44 titles: the pilot plus a second batch of long-running
 manga and Marvel, DC, independent and European comics that have several sagas) lives in `public/data/media_text_seed.json`, same row shapes as the
 video seed, all `needs_review`; titles and years are facts, no synopsis is copied.
@@ -115,6 +115,7 @@ video seed, all `needs_review`; titles and years are facts, no synopsis is copie
   `public/data/text_adaptation_proposals.json` for you to review; they never enter the
   seed on their own. AniList forbids hoarding data and branding with its name; the footer
   credits each source in use.
+- **Covers:** the script saves JPEG, PNG or WebP covers (`public/posters/<id>.<ext>`); in a comic or manga's card, "Add cover…" lets you pick your own image file (local server only, no expiry). "No poster yet" lists the works still without one.
 - **Add a title:** add the work, its franchise membership (an existing franchise id or a
   new franchise) and, if a video work really adapts it, an `unknown` adaptation to
   `media_text_seed.json`; run `npm test` and `npm run db:import -- --dry-run`.

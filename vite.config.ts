@@ -6,7 +6,8 @@ import {tmdbExpiry} from './scripts/tmdb-cache.mjs';
 
 // Reading 800+ sidecars on every load is slow; the status scan is cached briefly
 // and invalidated whenever a poster is saved.
-let statusCache: {at: number; body: {configured: boolean; posters: string[]}} | null = null;
+let statusCache: {at: number; body: {configured: boolean; posters: string[]; types: Record<string, string>}} | null = null;
+const COVER_TYPES = {'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp'} as Record<string, string>;
 
 // Local-only development adapter, not an authenticated production API.
 function localPosters(): Plugin {
@@ -34,7 +35,8 @@ function localPosters(): Plugin {
             const dir = join(process.cwd(), 'public', 'posters');
             const files = await readdir(dir).catch(() => [] as string[]);
             const posters: string[] = [];
-            for (const file of files.filter(f => /^(film|series|text)--[a-z0-9-]+\.jpg$/.test(f))) {
+            const types: Record<string, string> = {};
+            for (const file of files.filter(f => /^(film|series|text)--[a-z0-9-]+\.(jpg|png|webp)$/.test(f))) {
               const path = join(dir, file);
               try {
                 const meta = JSON.parse(await readFile(`${path}.json`, 'utf8')) as {expires: string; sha256: string};
@@ -47,9 +49,12 @@ function localPosters(): Plugin {
               } catch (error) {
                 if ((error as NodeJS.ErrnoException).code !== 'ENOENT') continue;
               }
-              posters.push(file.slice(0, -4));
+              const id = file.slice(0, file.lastIndexOf('.'));
+              const ext = file.slice(file.lastIndexOf('.') + 1);
+              if (!posters.includes(id)) posters.push(id);
+              if (ext !== 'jpg') types[id] = ext;
             }
-            statusCache = {at: Date.now(), body: {configured: !!process.env.TMDB_API_KEY, posters}};
+            statusCache = {at: Date.now(), body: {configured: !!process.env.TMDB_API_KEY, posters, types}};
             return send(200, statusCache.body);
           }
           if (req.method === 'GET' && url.pathname === '/search') {
@@ -67,6 +72,29 @@ function localPosters(): Plugin {
               id: r.id, title: r.title ?? r.name, date: r.release_date ?? r.first_air_date,
               poster: r.poster_path
             }))});
+          }
+          // A cover the owner supplies for a comic or manga: raw image bytes, validated by magic number.
+          if (req.method === 'POST' && url.pathname === '/upload') {
+            const type = String(req.headers['content-type'] ?? '').split(';')[0].trim();
+            const ext = COVER_TYPES[type];
+            const workId = url.searchParams.get('workId') ?? '';
+            if (!origin || !ext) return send(403, {error: 'Same-origin JPEG, PNG or WebP required'});
+            if (!/^text--[a-z0-9-]+$/.test(workId)) return send(400, {error: 'Only comics and manga take an uploaded cover'});
+            const chunks: Buffer[] = [];
+            let size = 0;
+            for await (const chunk of req) { size += chunk.length; if (size > 5_000_000) return send(413, {error: 'Cover too large'}); chunks.push(chunk as Buffer); }
+            const data = Buffer.concat(chunks);
+            const magic = {jpg: [0xff, 0xd8, 0xff], png: [0x89, 0x50, 0x4e, 0x47], webp: [0x52, 0x49, 0x46, 0x46]}[ext]!;
+            if (!magic.every((value, index) => data[index] === value)) return send(400, {error: 'The file is not the image type it claims'});
+            const dir = join(process.cwd(), 'public', 'posters');
+            await mkdir(dir, {recursive: true});
+            for (const other of ['jpg', 'png', 'webp']) { await rm(join(dir, `${workId}.${other}`), {force: true}); await rm(join(dir, `${workId}.${other}.json`), {force: true}); }
+            const target = join(dir, `${workId}.${ext}`);
+            await writeFile(target, data);
+            // No expiry: the owner chose this file, it is not a provider cache.
+            await writeFile(`${target}.json`, JSON.stringify({source: 'uploaded by the owner', cachedAt: new Date().toISOString(), sha256: createHash('sha256').update(data).digest('hex')}, null, 2));
+            statusCache = null;
+            return send(200, {url: `/posters/${workId}.${ext}`});
           }
           if (req.method === 'POST' && url.pathname === '/save') {
             if (!origin || req.headers['content-type'] !== 'application/json') return send(403, {error: 'Same-origin JSON required'});

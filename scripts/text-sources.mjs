@@ -86,3 +86,17 @@ export function adaptationProposals(workId, media) {
       sourceRef: relation.id,
     }));
 }
+
+/**
+ * The file extension for an image whose declared type and first bytes agree:
+ * 'jpg', 'png' or 'webp'; null for anything else (an SVG or an HTML error page
+ * served as an image never becomes a cover).
+ */
+export function imageType(contentType, bytes) {
+  const declared = String(contentType ?? '').split(';')[0].trim().toLowerCase();
+  const at = (offset, ...values) => values.every((value, index) => bytes[offset + index] === value);
+  if (declared === 'image/jpeg' && at(0, 0xff, 0xd8, 0xff)) return 'jpg';
+  if (declared === 'image/png' && at(0, 0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a)) return 'png';
+  if (declared === 'image/webp' && at(0, 0x52, 0x49, 0x46, 0x46) && at(8, 0x57, 0x45, 0x42, 0x50)) return 'webp';
+  return null;
+}

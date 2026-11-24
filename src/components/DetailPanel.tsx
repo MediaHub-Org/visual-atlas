@@ -20,7 +20,7 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
   onAdaptation: (id: string) => void;
   posters: PosterLookup;
   tmdbConfigured: boolean;
-  onPosterSaved: (id: string) => void;
+  onPosterSaved: () => void;
   onClose: () => void;
 }) {
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -56,6 +56,7 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
         {poster && <img className="detail-poster" src={poster} alt=""/>}
         <span>FRAME / {work.format.toUpperCase()}</span>
         <strong>{work.title}</strong>
+        {work.medium === 'text' && <CoverUpload work={work} t={t} onSaved={onPosterSaved}/>}
         {work.medium === 'video' && <button className="poster-jump" onClick={() => {
           const editor = document.getElementById('poster-editor');
           editor?.scrollIntoView({behavior: 'smooth', block: 'center'});
@@ -102,6 +103,26 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
       </div>
     </aside>
   </div>;
+}
+
+/** "Add cover": the owner picks an image file for a comic or manga; the local server stores it. */
+function CoverUpload({work, t, onSaved}: {work: Work; t: TFn; onSaved: () => void}) {
+  const [message, setMessage] = useState('');
+  async function upload(file: File | undefined) {
+    if (!file) return;
+    setMessage('');
+    try {
+      const response = await fetch(`/api/posters/upload?workId=${encodeURIComponent(work.id)}`, {method: 'POST', headers: {'Content-Type': file.type}, body: file});
+      if (!response.ok) throw new Error();
+      onSaved();
+    } catch {
+      setMessage(t('cover.error'));
+    }
+  }
+  return <label className="poster-jump cover-upload">{t('cover.add')}
+    <input type="file" accept="image/jpeg,image/png,image/webp" onChange={event => { void upload(event.target.files?.[0]); event.target.value = ''; }}/>
+    {message && <small role="alert">{message}</small>}
+  </label>;
 }
 
 /** "Adapted as" / "Based on": links between a text work and a video work, both ways. */

@@ -1,10 +1,10 @@
 import type {Work} from '../data';
 import type {TFn} from '../i18n';
 
-export type PosterLookup = { ids: Set<string>; version: number };
+export type PosterLookup = { ids: Set<string>; version: number; /** File type of a cover that is not a JPEG (png, webp). */ types?: Record<string, string> };
 
 export function posterUrl(workId: string, posters: PosterLookup) {
-  return posters.ids.has(workId) ? `/posters/${workId}.jpg?v=${posters.version}` : null;
+  return posters.ids.has(workId) ? `/posters/${workId}.${posters.types?.[workId] ?? 'jpg'}?v=${posters.version}` : null;
 }
 
 export function WorkCard({work, t, posters, onSelect}: {work: Work; t: TFn; posters: PosterLookup; onSelect: (id: string) => void}) {

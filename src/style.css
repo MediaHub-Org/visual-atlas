@@ -427,3 +427,8 @@ button.person:hover { color: var(--accent); border-bottom-color: var(--accent); 
 .collection .section-heading .media-switch { margin: 0; align-self: flex-start; }
 .adaptations .group-items { padding-left: 0; }
 .adaptations .group-items .badge { margin-left: 8px; }
+
+.cover-upload { cursor: pointer; }
+.cover-upload input { position: absolute; inline-size: 1px; block-size: 1px; opacity: 0; }
+.cover-upload:focus-within { outline: 2px solid var(--accent); }
+.sidebar .side-count { margin-left: auto; color: var(--muted); font-size: 11px; }

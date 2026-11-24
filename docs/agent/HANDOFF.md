@@ -88,3 +88,8 @@ corporate cycle and no ownership is inferred from `catalog_association`.
 - Only six manga->anime links exist in the pilot (Dragon Ball x2, One Piece, Detective Conan, Doraemon x2), all `unknown`. No run-level links for Marvel/DC/TMNT comics or Pokémon Adventures on purpose.
 - Western comics and the standalone Maus, Saga, Blankets, Love and Rockets have no year/creators/cover until `COMICVINE_API_KEY` is set and the script is run (Comic Vine terms still to be read in full before the first call).
 - Not done: volumes/issues/arcs/reading order, publishers, a text-mode company view.
+
+## Watch | Read, covers and series universes (2026-11-24)
+- Switch renamed Watch | Read (es: Ver | Leer). Read mode sidebar = Discover, Format (with counts) and Series & sagas; no companies/collections.
+- Covers: PNG/WebP accepted (`imageType` in `scripts/text-sources.mjs`); `/api/posters/status` returns `types` for non-JPEG; `POST /api/posters/upload?workId=text--…` stores an owner-supplied cover (magic-number checked, 5 MB, no expiry). Comic Vine covers still wait for the key.
+- 60 series in the seed had no franchise, so their cards had no in-universe link. Added two franchises with an editorial narrative order (`unknown`, title level): Breaking Bad (Better Call Saul, Breaking Bad) and Doctor Who (original, revived). The other 58 are single series or different worlds (e.g. The Office UK/US) and stay franchise-less on purpose.

@@ -94,16 +94,17 @@ export default function App() {
     return () => { alive = false; };
   }, [attempt]);
 
-  useEffect(() => {
+  const refreshPosters = useCallback(() => {
     fetch('/api/posters/status')
       .then(response => response.ok ? response.json() : null)
       .then(data => {
         if (!data) return;
-        setPosters({ids: new Set<string>(data.posters), version: Date.now()});
+        setPosters({ids: new Set<string>(data.posters), types: data.types ?? {}, version: Date.now()});
         setTmdbConfigured(data.configured);
       })
       .catch(() => {});
   }, []);
+  useEffect(refreshPosters, [refreshPosters]);
 
   useEffect(() => {
     const params = new URLSearchParams();
@@ -264,6 +265,8 @@ export default function App() {
       franchise={franchise}
       medium={medium}
       onMedium={switchMedium}
+      format={format}
+      onFormat={id => { setFormat(format === id ? 'All' : id as Format); setView('cards'); setSelected(''); }}
       tag={tag}
       tags={tagOptions}
       onTag={id => { setTag(tag === id ? '' : id); setView('cards'); }}
@@ -431,7 +434,7 @@ export default function App() {
       onAdaptation={openAdaptation}
       posters={posters}
       tmdbConfigured={tmdbConfigured}
-      onPosterSaved={id => setPosters(current => ({ids: new Set(current.ids).add(id), version: Date.now()}))}
+      onPosterSaved={refreshPosters}
       onClose={closeDetail}
     />}
     {settingsOpen && <SettingsPanel onClose={closeSettings} posterCount={posters.ids.size} configured={tmdbConfigured}/>}

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { adaptationProposals, chooseTitle, parseAniListMedia, parseComicVineSearch } from '../scripts/text-sources.mjs';
+import { adaptationProposals, chooseTitle, imageType, parseAniListMedia, parseComicVineSearch } from '../scripts/text-sources.mjs';
 import { textMetadataFor } from '../src/medium.ts';
 
 const aniList = {
@@ -130,5 +130,25 @@ describe('textMetadataFor', () => {
     assert.equal(textMetadataFor(cache, 'nobody', now), null);
     for (const bad of [null, 3, {}, { entries: 'x' }]) assert.equal(textMetadataFor(bad, 'fresh', now), null);
     assert.deepEqual(textMetadataFor(cache, 'bad', now), { source: 'anilist', year: null, creators: [] });
+  });
+});
+
+describe('imageType', () => {
+  const png = Uint8Array.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0, 0]);
+  const jpg = Uint8Array.from([0xff, 0xd8, 0xff, 0xe0, 0, 0]);
+  const webp = Uint8Array.from([0x52, 0x49, 0x46, 0x46, 1, 2, 3, 4, 0x57, 0x45, 0x42, 0x50]);
+  it('accepts JPEG, PNG and WebP whose bytes agree with the declared type', () => {
+    assert.equal(imageType('image/jpeg', jpg), 'jpg');
+    assert.equal(imageType('image/png', png), 'png');
+    assert.equal(imageType('image/webp', webp), 'webp');
+    assert.equal(imageType('image/png; charset=binary', png), 'png');
+  });
+  it('refuses a declared type that the bytes contradict, and anything else', () => {
+    assert.equal(imageType('image/png', jpg), null);
+    assert.equal(imageType('image/jpeg', png), null);
+    assert.equal(imageType('image/svg+xml', Uint8Array.from([0x3c, 0x73, 0x76, 0x67])), null);
+    assert.equal(imageType('text/html', jpg), null);
+    assert.equal(imageType(null, jpg), null);
+    assert.equal(imageType('image/jpeg', new Uint8Array(0)), null);
   });
 });
