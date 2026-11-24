@@ -175,21 +175,29 @@ export function clampFormat(format: string, medium: Medium): string {
   return FORMATS_BY_MEDIUM[medium].includes(format) ? format : 'All';
 }
 
+/** Whether a work passes a format filter: 'All' always, 'Anime' is a flag, the rest compare the format. */
+export function matchesFormat(work: { format: string; anime?: boolean }, format: string): boolean {
+  if (format === 'All') return true;
+  return format === 'Anime' ? work.anime === true : work.format === format;
+}
+
 /**
- * The Read sidebar's two lists, each narrowed by the other's selection: format counts
- * follow the chosen franchise, and the franchise list follows the chosen format. A
- * selected franchise stays listed even with no match, so it can always be cleared.
+ * The sidebar's two lists for either catalogue (Watch or Read), each narrowed by the
+ * other's selection: format counts follow the chosen franchise, and the franchise list
+ * follows the chosen format. A selected franchise stays listed even with no match, so
+ * it can always be cleared.
  */
-export function textFacets(
-  works: { medium: Medium; format: string; memberships: { franchiseId: string; franchise: string }[] }[],
+export function facetLists(
+  works: { medium: Medium; format: string; anime?: boolean; memberships: { franchiseId: string; franchise: string }[] }[],
+  medium: Medium,
   format: string,
   franchise: string,
 ): { formats: { id: string; count: number }[]; franchises: { id: string; name: string; count: number }[] } {
-  const text = works.filter(work => work.medium === 'text');
-  const inFranchise = text.filter(work => franchise === 'All' || work.memberships.some(m => m.franchise === franchise));
-  const inFormat = text.filter(work => format === 'All' || work.format === format);
-  const formats = ['Manga', 'Comic', 'Graphic novel']
-    .map(id => ({ id, count: inFranchise.filter(work => work.format === id).length }))
+  const inMedium = works.filter(work => work.medium === medium);
+  const inFranchise = inMedium.filter(work => franchise === 'All' || work.memberships.some(m => m.franchise === franchise));
+  const inFormat = inMedium.filter(work => matchesFormat(work, format));
+  const formats = FORMATS_BY_MEDIUM[medium]
+    .map(id => ({ id, count: inFranchise.filter(work => matchesFormat(work, id)).length }))
     .filter(entry => entry.count > 0);
   const byFranchise = new Map<string, { id: string; name: string; count: number }>();
   for (const work of inFormat) {
@@ -200,7 +208,7 @@ export function textFacets(
     }
   }
   if (franchise !== 'All' && !byFranchise.has(franchise)) {
-    const id = text.flatMap(work => work.memberships).find(m => m.franchise === franchise)?.franchiseId ?? franchise;
+    const id = inMedium.flatMap(work => work.memberships).find(m => m.franchise === franchise)?.franchiseId ?? franchise;
     byFranchise.set(franchise, { id, name: franchise, count: 0 });
   }
   return { formats, franchises: [...byFranchise.values()].sort((a, b) => a.name.localeCompare(b.name)) };

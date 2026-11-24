@@ -4,11 +4,13 @@ import type {TFn} from '../i18n';
 import {CompanyTree} from './CompanyTree';
 import {AxisView, type AxisScale} from './AxisView';
 import {buildBlocks} from '../families';
+import {MiniWork, type PosterLookup} from './WorkCard';
 
-export function SequenceView({dataset, works, t, onSelect, openId = '', focusWork = '', axis = false, onAxis, scale = 'proportional', onScale}: {
+export function SequenceView({dataset, works, t, posters, onSelect, openId = '', focusWork = '', axis = false, onAxis, scale = 'proportional', onScale}: {
   dataset: Dataset;
   works: Work[];
   t: TFn;
+  posters: PosterLookup;
   onSelect: (id: string) => void;
   /** Show each universe on its own calendar axis instead of the editorial lists. */
   axis?: boolean;
@@ -48,11 +50,12 @@ export function SequenceView({dataset, works, t, onSelect, openId = '', focusWor
   const orphans = works.filter(work => !placed.has(work.id) && !blocks.some(block => block.members.includes(work)));
   const openByDefault = blocks.length <= 3;
   const hasDates = calendars.some(calendar => works.some(work => work.inWorld?.calendarId === calendar.id));
-  const workButton = (work: Work | undefined, extra: string, key: string, sequenceId = '', position?: number) => work && <button key={key}
+  // The same cards as the release timeline; a lane card carries its position.
+  const card = (work: Work | undefined, key: string, sequenceId = '', position?: number, extra = '') => work && <MiniWork key={key}
+    work={work} t={t} posters={posters} onSelect={onSelect}
     id={sequenceId ? `seq-${sequenceId}-${work.id}` : undefined}
-    className={work.id === focusWork && sequenceId === openId ? 'focus' : ''} onClick={() => onSelect(work.id)}>
-    {position !== undefined && <span>{position}</span>}{work.title} <small>({work.year ?? t('detail.yearUnknown')}){extra}</small>
-  </button>;
+    focus={work.id === focusWork && sequenceId === openId}
+    badge={position} note={`${work.year ?? t('detail.yearUnknown')} · ${t(`format.${work.format}`)}${extra}`}/>;
 
   return <div className="groups universe-blocks">
     {calendars.length > 0 && onAxis && <div className="segmented" role="group" aria-label={t('view.sequence')}>
@@ -71,7 +74,7 @@ export function SequenceView({dataset, works, t, onSelect, openId = '', focusWor
           {block.family && <span className="badge" title={t('universe.familyHint')}>{t('universe.family')}</span>}
           <span className="badge proposal" title={t('sequence.badgeHint')}>{t('sequence.badge')}</span>
         </summary>
-        {onAxisNow && block.calendar && <AxisView dataset={dataset} works={works} calendarId={block.calendar.id} scale={scale}
+        {onAxisNow && block.calendar && <AxisView dataset={dataset} works={works} calendarId={block.calendar.id} scale={scale} posters={posters}
           onScale={next => onScale?.(next)} t={t} onSelect={onSelect}/>}
         {!onAxisNow && <>
           {!block.calendar && <p className="lane-note">{t('universe.noDates')}</p>}
@@ -82,20 +85,20 @@ export function SequenceView({dataset, works, t, onSelect, openId = '', focusWor
                 <h4>{block.franchiseIds.length > 1 && <small>{lane.franchise}</small>}{lane.continuity}
                   <small className="basis">{lane.basis.replace(/_/g, ' ')} · {lane.items.length}</small></h4>
                 {same && <p className="lane-note">{t('universe.sameWorld')} {continuityLabel.get(same) ?? same}</p>}
-                <div className="group-items">{lane.items.map(item => workButton(dataset.worksById.get(item.workId), ` · ${t('sequence.review')}`, item.workId, lane.id, item.position))}</div>
+                <div className="lane-works">{lane.items.map(item => card(dataset.worksById.get(item.workId), item.workId, lane.id, item.position))}</div>
               </section>;
             })}
           </div>
           {block.unplaced.length > 0 && <details>
             <summary>{t('sequence.unpositioned')} · {block.unplaced.length}</summary>
-            <div className="group-items">{block.unplaced.map(work => workButton(work, ` · ${t('sequence.positionUnknown')}`, work.id))}</div>
+            <div className="lane-works wide">{block.unplaced.map(work => card(work, work.id, '', undefined, ` · ${t('sequence.positionUnknown')}`))}</div>
           </details>}
         </>}
       </details>;
     })}
     {orphans.length > 0 && <details>
       <summary>{t('sequence.unpositioned')} · {orphans.length}</summary>
-      <div className="group-items">{orphans.map(work => workButton(work, ` · ${t('sequence.positionUnknown')}`, work.id))}</div>
+      <div className="lane-works wide">{orphans.map(work => card(work, work.id, '', undefined, ` · ${t('sequence.positionUnknown')}`))}</div>
     </details>}
   </div>;
 }

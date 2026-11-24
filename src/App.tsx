@@ -2,7 +2,7 @@ import {useCallback, useEffect, useMemo, useState} from 'react';
 import {loadAtlas, type Dataset, type Work} from './data';
 import {useSettings} from './settings';
 import {qty} from './i18n';
-import {adaptationsFor, catalogueFranchises, clampFormat, clampView, FORMATS_BY_MEDIUM, parseMedium, type Medium} from './medium';
+import {adaptationsFor, catalogueFranchises, clampFormat, clampView, FORMATS_BY_MEDIUM, matchesFormat, parseMedium, type Medium} from './medium';
 import {MediaSwitch, Sidebar} from './components/Sidebar';
 import {WorkCard, type PosterLookup} from './components/WorkCard';
 import {TimelineView} from './components/TimelineView';
@@ -156,6 +156,14 @@ export default function App() {
     setView(current => clampView(current, next) as View);
   }, [dataset, selected]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  /** The brand link: back to the root index, as a fresh visit (Watch, no filters). */
+  function goHome() {
+    setMedium('video'); setQuery(''); setFranchise('All'); setCompany(''); setTag(''); setPerson(''); setFormat('All');
+    setSeq(''); setAt(''); setAxis(false); setSort('releaseAsc'); setView('cards'); setSelected(''); setNeedsPoster(false);
+    setSettingsOpen(false);
+    window.scrollTo({top: 0});
+  }
+
   /** Switch catalogue: filters of the other catalogue no longer apply, and a hidden view falls back to cards. */
   function switchMedium(next: Medium) {
     if (next === medium) return;
@@ -184,7 +192,7 @@ export default function App() {
         work.medium === medium &&
         (franchise === 'All' || work.memberships.some(m => m.franchise === franchise)) &&
         (!allowedFranchises || work.memberships.some(m => allowedFranchises.has(m.franchiseId))) &&
-        (format === 'All' || (format === 'Anime' ? work.anime : work.format === format)) &&
+        matchesFormat(work, format) &&
         (!tag || dataset.workTags.get(work.id)?.includes(tag)) &&
         (!person || hasPerson(work, Number(person))) &&
         (!needsPoster || !posters.ids.has(work.id)) &&
@@ -266,7 +274,8 @@ export default function App() {
       medium={medium}
       onMedium={switchMedium}
       format={format}
-      onFormat={id => { setFormat(format === id ? 'All' : id as Format); setView('cards'); setSelected(''); }}
+      onFormat={id => { setFormat(id === format ? 'All' : id as Format); setView('cards'); setSelected(''); }}
+      onHome={goHome}
       tag={tag}
       tags={tagOptions}
       onTag={id => { setTag(tag === id ? '' : id); setView('cards'); }}
@@ -397,7 +406,7 @@ export default function App() {
                     : view === 'timeline'
                       ? <TimelineView works={filtered} scale={settings.timelineScale} onScale={scale => settings.set({timelineScale: scale})} t={t} posters={posters} onSelect={setSelected}/>
                       : view === 'sequence'
-                        ? <SequenceView dataset={dataset} works={filtered} t={t} onSelect={setSelected} openId={seq} focusWork={at}
+                        ? <SequenceView dataset={dataset} works={filtered} t={t} posters={posters} onSelect={setSelected} openId={seq} focusWork={at}
                           axis={axis} onAxis={setAxis} scale={axisScale} onScale={setAxisScale}/>
                         : <HierarchyView dataset={dataset} t={t} onFranchise={pickFranchise} focusCompany={company}/>}
               </section>

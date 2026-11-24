@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { adaptationsFor, catalogueFranchises, clampFormat, clampView, franchiseWorkIds, mediumOfFormat, mergeTextSeed, parseMedium, textFacets } from '../src/medium.ts';
+import { adaptationsFor, catalogueFranchises, clampFormat, clampView, franchiseWorkIds, mediumOfFormat, mergeTextSeed, matchesFormat, parseMedium, facetLists } from '../src/medium.ts';
 
 describe('mediumOfFormat', () => {
   it('maps the four video formats and the three text formats', () => {
@@ -192,7 +192,7 @@ describe('clampView and clampFormat', () => {
   });
 });
 
-describe('textFacets (dependent sidebar lists)', () => {
+describe('facetLists (dependent sidebar lists)', () => {
   const work = (id, format, ...franchises) => ({ id, medium: 'text', format, memberships: franchises.map(name => ({ franchiseId: name.toLowerCase(), franchise: name })) });
   const works = [
     work('1', 'Manga', 'Naruto'),
@@ -206,24 +206,43 @@ describe('textFacets (dependent sidebar lists)', () => {
   const names = list => list.map(entry => entry.name ?? entry.id);
 
   it('with nothing selected lists every text format and franchise with their counts', () => {
-    const facets = textFacets(works, 'All', 'All');
+    const facets = facetLists(works, 'text', 'All', 'All');
     assert.deepEqual(facets.formats, [{ id: 'Manga', count: 3 }, { id: 'Comic', count: 2 }, { id: 'Graphic novel', count: 1 }]);
     assert.equal(facets.franchises.length, 6);
     assert.ok(!facets.franchises.some(entry => entry.count === 0));
   });
   it('choosing a format narrows the franchise list to franchises that have it', () => {
-    assert.deepEqual(names(textFacets(works, 'Comic', 'All').franchises), ['Batman', 'Hulk']);
-    assert.deepEqual(names(textFacets(works, 'Manga', 'All').franchises), ['Bleach', 'Doraemon', 'Naruto']);
+    assert.deepEqual(names(facetLists(works, 'text', 'Comic', 'All').franchises), ['Batman', 'Hulk']);
+    assert.deepEqual(names(facetLists(works, 'text', 'Manga', 'All').franchises), ['Bleach', 'Doraemon', 'Naruto']);
   });
   it('choosing a franchise narrows the format counts to that franchise', () => {
-    assert.deepEqual(textFacets(works, 'All', 'Hulk').formats, [{ id: 'Comic', count: 1 }]);
+    assert.deepEqual(facetLists(works, 'text', 'All', 'Hulk').formats, [{ id: 'Comic', count: 1 }]);
   });
   it('keeps a selected franchise listed even when the format leaves it empty, so it can be cleared', () => {
-    const facets = textFacets(works, 'Comic', 'Naruto');
+    const facets = facetLists(works, 'text', 'Comic', 'Naruto');
     assert.deepEqual(names(facets.franchises), ['Batman', 'Hulk', 'Naruto']);
     assert.equal(facets.franchises.find(entry => entry.name === 'Naruto').count, 0);
   });
   it('ignores video works', () => {
-    assert.equal(textFacets(works, 'All', 'All').franchises.find(entry => entry.name === 'Naruto').count, 1);
+    assert.equal(facetLists(works, 'text', 'All', 'All').franchises.find(entry => entry.name === 'Naruto').count, 1);
+  });
+});
+
+describe('facetLists in the Watch catalogue and matchesFormat', () => {
+  const v = (id, format, anime, ...franchises) => ({ id, medium: 'video', format, anime, memberships: franchises.map(name => ({ franchiseId: name.toLowerCase(), franchise: name })) });
+  const works = [v('a', 'Film', false, 'Alien'), v('b', 'Series', true, 'Naruto'), v('c', 'Series', false, 'Alien'), v('d', 'Film', true, 'Doraemon')];
+  it('lists Film, Series and Anime with counts, Anime being a flag across both', () => {
+    assert.deepEqual(facetLists(works, 'video', 'All', 'All').formats, [{ id: 'Film', count: 2 }, { id: 'Series', count: 2 }, { id: 'Anime', count: 2 }]);
+  });
+  it('narrows the same way as in Read', () => {
+    assert.deepEqual(facetLists(works, 'video', 'Anime', 'All').franchises.map(e => e.name), ['Doraemon', 'Naruto']);
+    assert.deepEqual(facetLists(works, 'video', 'All', 'Alien').formats, [{ id: 'Film', count: 1 }, { id: 'Series', count: 1 }]);
+  });
+  it('matchesFormat: All matches everything, Anime is the flag, others compare the format', () => {
+    assert.equal(matchesFormat({ format: 'Film', anime: false }, 'All'), true);
+    assert.equal(matchesFormat({ format: 'Film', anime: true }, 'Anime'), true);
+    assert.equal(matchesFormat({ format: 'Series', anime: false }, 'Anime'), false);
+    assert.equal(matchesFormat({ format: 'Series' }, 'Series'), true);
+    assert.equal(matchesFormat({ format: 'Series' }, 'Film'), false);
   });
 });

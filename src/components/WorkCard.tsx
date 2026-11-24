@@ -27,12 +27,17 @@ export function WorkCard({work, t, posters, onSelect}: {work: Work; t: TFn; post
   </button>;
 }
 
-export function MiniWork({work, t, posters, onSelect}: {work: Work; t: TFn; posters: PosterLookup; onSelect: (id: string) => void}) {
+export function MiniWork({work, t, posters, onSelect, id, focus = false, badge, note}: {
+  work: Work; t: TFn; posters: PosterLookup; onSelect: (id: string) => void;
+  /** DOM id (lanes scroll to it), highlight, a corner badge (position) and a line replacing the format. */
+  id?: string; focus?: boolean; badge?: React.ReactNode; note?: string;
+}) {
   const poster = posterUrl(work.id, posters);
-  return <button className="mini-work" onClick={() => onSelect(work.id)}>
+  return <button id={id} className={`mini-work ${focus ? 'focus' : ''}`} onClick={() => onSelect(work.id)}>
+    {badge !== undefined && <span className="mini-badge">{badge}</span>}
     <span className="mini-poster" style={{'--poster': work.color} as React.CSSProperties}>
       {poster ? <img src={poster} alt="" loading="lazy" onError={event => { event.currentTarget.style.display = 'none'; }}/> : <span>{work.title.slice(0, 2)}</span>}
     </span>
-    <span className="mini-text"><strong>{work.title}</strong><small>{work.year ?? t('detail.yearUnknown')} · {t(`format.${work.format}`)}</small></span>
+    <span className="mini-text"><strong>{work.title}</strong><small>{note ?? `${work.year ?? t('detail.yearUnknown')} · ${t(`format.${work.format}`)}`}</small></span>
   </button>;
 }

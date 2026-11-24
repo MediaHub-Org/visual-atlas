@@ -93,3 +93,8 @@ corporate cycle and no ownership is inferred from `catalog_association`.
 - Switch renamed Watch | Read (es: Ver | Leer). Read mode sidebar = Discover, Format (with counts) and Series & sagas; no companies/collections.
 - Covers: PNG/WebP accepted (`imageType` in `scripts/text-sources.mjs`); `/api/posters/status` returns `types` for non-JPEG; `POST /api/posters/upload?workId=text--…` stores an owner-supplied cover (magic-number checked, 5 MB, no expiry). Comic Vine covers still wait for the key.
 - 60 series in the seed had no franchise, so their cards had no in-universe link. Added two franchises with an editorial narrative order (`unknown`, title level): Breaking Bad (Better Call Saul, Breaking Bad) and Doctor Who (original, revived). The other 58 are single series or different worlds (e.g. The Office UK/US) and stay franchise-less on purpose.
+
+## Same sidebar in Watch and Read; card lanes; brand home (2026-11-24)
+- Sidebar structure is shared: Discover, Format (All + formats, counts) and Series & sagas (franchises, counts), narrowing each other (`facetLists` in `src/medium.ts`). Watch also keeps Companies and Collections; Read has none yet (no publisher/tag data; Comic Vine's `publisher` field could feed a Read "Publishers" section later).
+- "In-universe order" lanes, the Star Wars calendar axis and unplaced lists now use the release timeline's `MiniWork` cards (poster, title, year; lanes show the position as a badge).
+- The sidebar brand is a link to `/` and resets to a fresh Watch visit.

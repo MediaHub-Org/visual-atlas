@@ -1,5 +1,6 @@
 import type {Dataset, Work} from '../data';
 import type {TFn} from '../i18n';
+import {MiniWork, type PosterLookup} from './WorkCard';
 import {axisGroups, formatSpan, formatYear, gapFor, orderConflicts, primaryOf, type Period} from '../chronology';
 
 export type AxisScale = 'equal' | 'proportional';
@@ -10,8 +11,9 @@ export type AxisScale = 'equal' | 'proportional';
  * apart (never dropped). Where the seed's list order disagrees with the dates the
  * pair is flagged; the dates never rewrite the list.
  */
-export function AxisView({dataset, works, calendarId, scale, onScale, t, onSelect}: {
+export function AxisView({dataset, works, calendarId, scale, onScale, t, posters, onSelect}: {
   dataset: Dataset;
+  posters: PosterLookup;
   works: Work[];
   calendarId: string;
   scale: AxisScale;
@@ -72,12 +74,11 @@ export function AxisView({dataset, works, calendarId, scale, onScale, t, onSelec
             const work = byId.get(id)!;
             const period = primaryOf(periodsOf(work))!;
             const span = period.end !== null && period.start !== null ? Math.max(0, period.end - period.start) : 0;
-            return <button key={id} className="axis-work" onClick={() => onSelect(id)}>
+            const note = `${period.qualifier === 'circa' ? 'c. ' : ''}${formatSpan(period, calendar)}${period.qualifier === 'open_after' ? ` ${t('inworld.openAfter')}` : ''} · ${t(`format.${work.format}`)}`;
+            return <div key={id} className="axis-item">
               <span className="axis-bar" aria-hidden="true" style={{height: 10 + (scale === 'proportional' ? span * 10 : Math.min(span, 1) * 14), opacity: period.qualifier === 'open_after' ? 0.45 : 1}}/>
-              <span>{work.title}
-                <small> · {t(`format.${work.format}`)} · {period.qualifier === 'circa' ? 'c. ' : ''}{formatSpan(period, calendar)}{period.qualifier === 'open_after' ? ` ${t('inworld.openAfter')}` : ''}</small>
-              </span>
-            </button>;
+              <MiniWork work={work} t={t} posters={posters} onSelect={onSelect} note={note}/>
+            </div>;
           })}</div>
         </section>;
       })}
@@ -85,7 +86,7 @@ export function AxisView({dataset, works, calendarId, scale, onScale, t, onSelec
 
     {undated.length > 0 && <details className="axis-undated" open>
       <summary>{t('axis.undated', {n: undated.length})}</summary>
-      <div className="group-items">{undated.map(id => <button key={id} onClick={() => onSelect(id)}>{byId.get(id)!.title}</button>)}</div>
+      <div className="lane-works wide">{undated.map(id => <MiniWork key={id} work={byId.get(id)!} t={t} posters={posters} onSelect={onSelect}/>)}</div>
     </details>}
   </section>;
 }

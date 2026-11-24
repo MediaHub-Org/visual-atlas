@@ -1,7 +1,7 @@
 import type {Dataset} from '../data';
 import type {TFn} from '../i18n';
 import {CompanySidebar} from './CompanyTree';
-import {textFacets, type Medium} from '../medium';
+import {facetLists, type Medium} from '../medium';
 
 /** Video | Text catalogue switch, in the sidebar and in the explore header. */
 export function MediaSwitch({medium, onMedium, t}: {medium: Medium; onMedium: (medium: Medium) => void; t: TFn}) {
@@ -12,7 +12,7 @@ export function MediaSwitch({medium, onMedium, t}: {medium: Medium; onMedium: (m
   </div>;
 }
 
-export function Sidebar({dataset, t, franchise, medium, onMedium, format, onFormat, tag, tags, onFranchise, onCompany, onAllCompanies, onTag, onView, onSettings}: {
+export function Sidebar({dataset, t, franchise, medium, onMedium, format, onFormat, onHome, tag, tags, onFranchise, onCompany, onAllCompanies, onTag, onView, onSettings}: {
   dataset: Dataset;
   t: TFn;
   franchise: string;
@@ -20,6 +20,7 @@ export function Sidebar({dataset, t, franchise, medium, onMedium, format, onForm
   onMedium: (medium: Medium) => void;
   format: string;
   onFormat: (format: string) => void;
+  onHome: () => void;
   tag: string;
   tags: {id: string; name: string; count: number}[];
   onFranchise: (name: string) => void;
@@ -29,13 +30,13 @@ export function Sidebar({dataset, t, franchise, medium, onMedium, format, onForm
   onView: (view: 'cards' | 'sequence' | 'timeline' | 'hierarchy') => void;
   onSettings: () => void;
 }) {
-  // Read mode: formats and the franchise list replace the company tree (there is no publisher data yet).
-  // The two lists narrow each other, so choosing a format changes the series list and the reverse.
-  const facets = textFacets(medium === 'text' ? dataset.works : [], format, franchise);
-  const textFormats = facets.formats;
-  const textFranchises = facets.franchises;
+  // Watch and Read share one structure: Discover, Format, Series & sagas. The two lists narrow
+  // each other, so choosing a format changes the series list and the reverse. Companies and
+  // collections only exist for Watch (no publisher or editorial-tag data for comics yet).
+  const facets = facetLists(dataset.works, medium, format, franchise);
+  const total = dataset.works.filter(work => work.medium === medium && (franchise === 'All' || work.memberships.some(m => m.franchise === franchise))).length;
   return <aside className="sidebar">
-    <div className="brand"><span className="brand-icon">✳</span> FRAME<span className="brand-dot">.</span></div>
+    <a className="brand" href="/" aria-label={t('nav.home')} onClick={event => { event.preventDefault(); onHome(); }}><span className="brand-icon">✳</span> FRAME<span className="brand-dot">.</span></a>
     <div className="sidebar-label">{t('brand.sub')}</div>
 
     <div className="side-scroll">
@@ -45,16 +46,19 @@ export function Sidebar({dataset, t, franchise, medium, onMedium, format, onForm
       {medium === 'video' && <button className="side-link" onClick={() => onView('sequence')}>↝ <span>{t('nav.sequences')}</span></button>}
       <button className="side-link" onClick={() => onView('timeline')}>◷ <span>{t('nav.timeline')}</span></button>
 
-      {medium === 'text' && <>
-        <div className="side-section">{t('nav.formats')}</div>
-        {textFormats.map(entry => <button key={entry.id} className={`side-link ${format === entry.id ? 'current' : ''}`} aria-pressed={format === entry.id} onClick={() => onFormat(entry.id)}>
-          <span>{t(`format.${entry.id}` as 'format.Manga')}</span><small className="side-count">{entry.count}</small>
-        </button>)}
-        <div className="side-section">{t('nav.series')}</div>
-        {textFranchises.map(entry => <button key={entry.id} className={`side-link ${franchise === entry.name ? 'current' : ''}`} onClick={() => onFranchise(entry.name)}>
+      <div className="side-section">{t('nav.formats')}</div>
+      <button className={`side-link ${format === 'All' ? 'current' : ''}`} aria-pressed={format === 'All'} onClick={() => onFormat('All')}>
+        <span>{t('filter.all')}</span><small className="side-count">{total}</small>
+      </button>
+      {facets.formats.map(entry => <button key={entry.id} className={`side-link ${format === entry.id ? 'current' : ''}`} aria-pressed={format === entry.id} onClick={() => onFormat(entry.id)}>
+        <span>{t(`format.${entry.id}` as 'format.Manga')}</span><small className="side-count">{entry.count}</small>
+      </button>)}
+      <div className="side-section">{t('nav.series')}</div>
+      <div className="side-list">
+        {facets.franchises.map(entry => <button key={entry.id} className={`side-link ${franchise === entry.name ? 'current' : ''}`} onClick={() => onFranchise(entry.name)}>
           <span>{entry.name}</span><small className="side-count">{entry.count}</small>
         </button>)}
-      </>}
+      </div>
       {medium === 'video' && <>
         <div className="side-section">{t('nav.companies')}</div>
         <CompanySidebar dataset={dataset} t={t} onFranchise={onFranchise} onCompany={onCompany} onAll={onAllCompanies}/>
