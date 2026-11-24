@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
+import { parseTimeline } from '../scripts/chronology/wookieepedia.mjs';
 import { calendar, pages } from '../scripts/chronology/star-wars-pages.mjs';
 import { buildEntry } from '../scripts/fetch-wookieepedia-dates.mjs';
 
@@ -45,5 +46,14 @@ describe('page map', () => {
     assert.equal(calendar.era_before, 'BBY');
     assert.equal(calendar.era_after, 'ABY');
     assert.equal(calendar.franchise, 'star-wars');
+  });
+});
+
+describe('the committed data file', () => {
+  const file = JSON.parse(readFileSync(new URL('../public/data/chronology/star-wars.json', import.meta.url), 'utf8'));
+  it('re-parses from its raw strings to exactly the stored periods', () => {
+    for (const [id, entry] of Object.entries(file.entries)) {
+      assert.deepEqual(parseTimeline(entry.raw), { periods: entry.periods, parsed: true }, id);
+    }
   });
 });

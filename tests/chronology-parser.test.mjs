@@ -68,3 +68,35 @@ describe('parseTimeline', () => {
     assert.deepEqual(parseTimeline(''), { periods: [], parsed: false });
   });
 });
+
+describe('parser never produces a date the source did not state', () => {
+  const unparsed = (raw) => assert.deepEqual(parseTimeline(raw), { periods: [], parsed: false }, raw);
+  it('rejects numbers written with a thousands separator', () => {
+    unparsed('c. [[1,032 BBY]]');
+    unparsed('[[25,000 BBY]]');
+  });
+  it('rejects wording it does not recognise instead of calling it exact', () => {
+    unparsed('Shortly after [[4 ABY]]');
+    unparsed('[[19 BBY]], with flashbacks to [[22 BBY]]');
+  });
+  it('rejects more than two years in one entry and ranges that end before they start', () => {
+    unparsed('[[22 BBY]], [[20 BBY]]&ndash;[[19 BBY]]');
+    unparsed('[[19 BBY]]&ndash;[[22 BBY]]');
+  });
+  it('rejects the whole field when one entry cannot be read, keeping nothing half-parsed', () => {
+    unparsed('*[[10 BBY]] {{C|Main story}}\n*sometime later {{C|Prologue}}');
+  });
+  it('reads circa with no space after the period', () => {
+    assert.equal(parseTimeline('c.[[9 ABY]]').periods[0].qualifier, 'circa');
+  });
+  it('turns an empty label into null', () => {
+    assert.equal(parseTimeline('*[[5 BBY]] {{C|}}').periods[0].label, null);
+  });
+});
+
+describe('extractTimeline field boundaries', () => {
+  it('ends the field at the next field whatever its name looks like', () => {
+    assert.equal(extractTimeline('{{Movie\n|canon_timeline=[[9 ABY]]\n|image2=x [[5 BBY]]\n}}').raw, '[[9 ABY]]');
+    assert.equal(extractTimeline('{{Movie\n|timeline=[[9 ABY]]\n|Season=x [[5 BBY]]\n}}').raw, '[[9 ABY]]');
+  });
+});

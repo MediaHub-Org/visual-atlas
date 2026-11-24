@@ -2,7 +2,7 @@
 // Nothing here guesses: a string without an era year parses to no period at all.
 
 const REF = /<ref\b[^>]*\/>|<ref\b[^>]*>[\s\S]*?<\/ref>/gi;
-const ERA = /(\d+)\s*(BBY|ABY)/gi;
+const SPAN = /^(\d+\s*(?:BBY|ABY))(?:\s*(?:&ndash;|–|-)\s*(\d+\s*(?:BBY|ABY)))?$/i;
 
 /**
  * The canon timeline field of a page's infobox: `canon_timeline`, else
@@ -10,7 +10,7 @@ const ERA = /(\d+)\s*(BBY|ABY)/gi;
  */
 export function extractTimeline(wikitext) {
   for (const field of ['canon_timeline', 'timeline']) {
-    const match = new RegExp(`^\\|\\s*${field}\\s*=([\\s\\S]*?)(?=^\\|[a-z_ ]+=|^\\}\\})`, 'm').exec(wikitext);
+    const match = new RegExp(`^\\|\\s*${field}\\s*=([\\s\\S]*?)(?=^\\|[^=\\n]+=|^\\}\\})`, 'm').exec(wikitext);
     if (match) return { field, raw: match[1].replace(REF, '').trim() };
   }
   return null;
@@ -29,33 +29,50 @@ function plain(text) {
   return text.replace(/\[\[([^\]|]*\|)?([^\]]*)\]\]/g, '$2');
 }
 
+/**
+ * One timeline entry -> a period, or null when its wording is not one of the
+ * accepted shapes: `Y`, `Y-Y` (hyphen or en dash, never ending before it starts),
+ * optionally prefixed `c.` or `During or after`, or followed by `, days before ...`.
+ * Anything else (a thousands separator, "shortly after", a third year) is refused
+ * rather than read as an exact date.
+ */
 function parseEntry(entry) {
   const labelled = /\{\{C\|([^}]*)\}\}/.exec(entry);
-  const label = labelled ? plain(labelled[1]).trim() : null;
-  const body = plain(entry.replace(/\{\{C\|[^}]*\}\}/g, ''));
-  const years = [...body.matchAll(ERA)].map((hit) => eraValue(`${hit[1]} ${hit[2]}`));
-  if (years.length === 0) return null;
+  const label = (labelled ? plain(labelled[1]).trim() : '') || null;
+  let body = plain(entry.replace(/\{\{C\|[^}]*\}\}/g, '')).trim();
   let qualifier = 'exact';
-  if (/during or after/i.test(body)) qualifier = 'open_after';
-  else if (/days before/i.test(body)) qualifier = 'days_before';
-  else if (/(^|\s)c\.\s/i.test(body)) qualifier = 'circa';
-  const start = years[0];
-  const end = qualifier === 'open_after' ? null : years.length > 1 ? years[1] : years[0];
-  return { label, start, end, qualifier, primary: false };
+  const days = /^(.*?),?\s*days before/is.exec(body);
+  if (days) {
+    qualifier = 'days_before';
+    body = days[1].trim();
+  } else if (/^during or after\s+/i.test(body)) {
+    qualifier = 'open_after';
+    body = body.replace(/^during or after\s+/i, '');
+  } else if (/^c\.\s*/i.test(body)) {
+    qualifier = 'circa';
+    body = body.replace(/^c\.\s*/i, '');
+  }
+  const span = SPAN.exec(body);
+  if (!span) return null;
+  const start = eraValue(span[1]);
+  const end = span[2] === undefined ? start : eraValue(span[2]);
+  if (end < start || (qualifier === 'open_after' && span[2] !== undefined)) return null;
+  return { label, start, end: qualifier === 'open_after' ? null : end, qualifier, primary: false };
 }
 
 /**
  * Timeline string -> periods. Exactly one period is primary: the one labelled
  * "Main story", else the first. `parsed` is false (and periods empty) when the
- * string holds no era year.
+ * string holds no era year or any entry is not an accepted shape.
  */
 export function parseTimeline(raw) {
   const entries = String(raw ?? '')
     .split(/\n/)
     .map((line) => line.replace(/^\s*\*\s*/, '').trim())
     .filter(Boolean);
-  const periods = entries.map(parseEntry).filter(Boolean);
-  if (periods.length === 0) return { periods: [], parsed: false };
+  const periods = entries.map(parseEntry);
+  // One unreadable entry refuses the whole field: nothing is kept half-understood.
+  if (periods.length === 0 || periods.some((period) => period === null)) return { periods: [], parsed: false };
   const main = periods.findIndex((period) => period.label?.toLowerCase() === 'main story');
   periods[main >= 0 ? main : 0].primary = true;
   return { periods, parsed: true };
