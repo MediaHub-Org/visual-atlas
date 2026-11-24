@@ -1,11 +1,23 @@
 import type {Dataset} from '../data';
 import type {TFn} from '../i18n';
 import {CompanySidebar} from './CompanyTree';
+import type {Medium} from '../medium';
 
-export function Sidebar({dataset, t, franchise, tag, tags, onFranchise, onCompany, onAllCompanies, onTag, onView, onSettings}: {
+/** Video | Text catalogue switch, in the sidebar and in the explore header. */
+export function MediaSwitch({medium, onMedium, t}: {medium: Medium; onMedium: (medium: Medium) => void; t: TFn}) {
+  return <div className="segmented media-switch" role="group" aria-label={t('media.label')}>
+    {(['video', 'text'] as const).map(option => <button key={option} className={medium === option ? 'selected' : ''} aria-pressed={medium === option} onClick={() => onMedium(option)}>
+      {t(`media.${option}`)}
+    </button>)}
+  </div>;
+}
+
+export function Sidebar({dataset, t, franchise, medium, onMedium, tag, tags, onFranchise, onCompany, onAllCompanies, onTag, onView, onSettings}: {
   dataset: Dataset;
   t: TFn;
   franchise: string;
+  medium: Medium;
+  onMedium: (medium: Medium) => void;
   tag: string;
   tags: {id: string; name: string; count: number}[];
   onFranchise: (name: string) => void;
@@ -20,13 +32,16 @@ export function Sidebar({dataset, t, franchise, tag, tags, onFranchise, onCompan
     <div className="sidebar-label">{t('brand.sub')}</div>
 
     <div className="side-scroll">
+      <MediaSwitch medium={medium} onMedium={onMedium} t={t}/>
       <div className="side-section">{t('nav.discover')}</div>
       <button className="side-link" onClick={() => onView('cards')}>◈ <span>{t('nav.explore')}</span></button>
-      <button className="side-link" onClick={() => onView('sequence')}>↝ <span>{t('nav.sequences')}</span></button>
+      {medium === 'video' && <button className="side-link" onClick={() => onView('sequence')}>↝ <span>{t('nav.sequences')}</span></button>}
       <button className="side-link" onClick={() => onView('timeline')}>◷ <span>{t('nav.timeline')}</span></button>
 
-      <div className="side-section">{t('nav.companies')}</div>
-      <CompanySidebar dataset={dataset} t={t} onFranchise={onFranchise} onCompany={onCompany} onAll={onAllCompanies}/>
+      {medium === 'video' && <>
+        <div className="side-section">{t('nav.companies')}</div>
+        <CompanySidebar dataset={dataset} t={t} onFranchise={onFranchise} onCompany={onCompany} onAll={onAllCompanies}/>
+      </>}
       {franchise !== 'All' && <button className="side-link clear" onClick={() => onFranchise('All')}>✕ <span>{franchise}</span></button>}
 
       {tags.length > 0 && <>

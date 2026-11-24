@@ -5,8 +5,9 @@ import {posterUrl, type PosterLookup} from './WorkCard';
 import {formatSpan, type Calendar} from '../chronology';
 
 type Candidate = {id: number; title: string; date?: string; poster: string};
+export type AdaptationLink = {workId: string; title: string; year: number | null; kind: string; certainty: 'unknown' | 'estimated' | 'confirmed'};
 
-export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpenOrder, onWork, posters, tmdbConfigured, onPosterSaved, onClose}: {
+export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpenOrder, onWork, links, onAdaptation, posters, tmdbConfigured, onPosterSaved, onClose}: {
   work: Work;
   t: TFn;
   tags: {id: string; name: string}[];
@@ -15,6 +16,8 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
   universe: {id: string; label: string; position: number; total: number; prev?: {id: string; title: string}; next?: {id: string; title: string}}[];
   onOpenOrder: (sequenceId: string, workId: string) => void;
   onWork: (id: string) => void;
+  links: {asSource: AdaptationLink[]; asAdapted: AdaptationLink[]};
+  onAdaptation: (id: string) => void;
   posters: PosterLookup;
   tmdbConfigured: boolean;
   onPosterSaved: (id: string) => void;
@@ -83,6 +86,7 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
           </div>)}
           <p className="muted">{t('universe.note')}</p>
         </section>}
+        <Adaptations work={work} links={links} t={t} onOpen={onAdaptation}/>
         <h3>{t('detail.story')}</h3>
         <p>{work.description}</p>
         <Credits work={work} t={t} onPerson={onPerson}/>
@@ -91,12 +95,31 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
           <div className="franchise-chips">{tags.map(entry => <span className="chip" key={entry.id}>{entry.name}</span>)}</div>
           <p className="muted">{t('detail.tagsNote')}</p>
         </>}
-        <PosterEditor work={work} t={t} configured={tmdbConfigured} onSaved={onPosterSaved}/>
+        {work.medium === 'video' && <PosterEditor work={work} t={t} configured={tmdbConfigured} onSaved={onPosterSaved}/>}
         <h3>{t('detail.note')}</h3>
         <p>{t('detail.noteBody')}</p>
       </div>
     </aside>
   </div>;
+}
+
+/** "Adapted as" / "Based on": links between a text work and a video work, both ways. */
+function Adaptations({work, links, t, onOpen}: {work: Work; links: {asSource: AdaptationLink[]; asAdapted: AdaptationLink[]}; t: TFn; onOpen: (id: string) => void}) {
+  const groups = [
+    {key: 'adapt.adaptedAs' as const, items: links.asSource},
+    {key: 'adapt.basedOn' as const, items: links.asAdapted},
+  ].filter(group => group.items.length > 0);
+  if (groups.length === 0) return work.medium === 'text' ? <section className="adaptations"><h3>{t('adapt.title')}</h3><p className="muted">{t('adapt.none')}</p></section> : null;
+  return <section className="adaptations">
+    <h3>{t('adapt.title')}</h3>
+    {groups.map(group => <div key={group.key}>
+      <strong>{t(group.key)}</strong>
+      <div className="group-items">{group.items.map(link => <button key={`${group.key}:${link.workId}:${link.kind}`} onClick={() => onOpen(link.workId)}>
+        {link.title} <small>({link.year ?? t('detail.yearUnknown')}) · {t(`adapt.kind.${link.kind}` as 'adapt.kind.other')}</small>
+        <span className={`badge ${link.certainty === 'unknown' ? 'proposal' : ''}`} title={t('sequence.badgeHint')}>{t(`adapt.certainty.${link.certainty}`)}</span>
+      </button>)}</div>
+    </div>)}
+  </section>;
 }
 
 const QUALIFIER_KEYS = {

@@ -421,3 +421,9 @@ button.person:hover { color: var(--accent); border-bottom-color: var(--accent); 
 .lane .group-items { padding-left: 0; }
 .lane-note { font-size: 11px; color: var(--muted); margin: 6px 0 0; }
 .universe-block > summary .basis { text-transform: none; }
+
+.media-switch { margin: 4px 0 14px; }
+.media-switch button { flex: 1; }
+.collection .section-heading .media-switch { margin: 0; align-self: flex-start; }
+.adaptations .group-items { padding-left: 0; }
+.adaptations .group-items .badge { margin-left: 8px; }

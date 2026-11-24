@@ -2,7 +2,8 @@ import {useCallback, useEffect, useMemo, useState} from 'react';
 import {loadAtlas, type Dataset, type Work} from './data';
 import {useSettings} from './settings';
 import {qty} from './i18n';
-import {Sidebar} from './components/Sidebar';
+import {adaptationsFor, catalogueFranchises, parseMedium, type Medium} from './medium';
+import {MediaSwitch, Sidebar} from './components/Sidebar';
 import {WorkCard, type PosterLookup} from './components/WorkCard';
 import {TimelineView} from './components/TimelineView';
 import {HierarchyView, SequenceView} from './components/Views';
@@ -11,7 +12,10 @@ import {SettingsPanel} from './components/SettingsPanel';
 
 type View = 'cards' | 'hierarchy' | 'sequence' | 'timeline';
 type Sort = 'releaseAsc' | 'releaseDesc' | 'title';
-type Format = 'All' | 'Film' | 'Series' | 'Anime';
+type Format = 'All' | 'Film' | 'Series' | 'Anime' | 'Comic' | 'Manga' | 'Graphic novel';
+const FORMATS: Record<Medium, Exclude<Format, 'All'>[]> = {video: ['Film', 'Series', 'Anime'], text: ['Manga', 'Comic', 'Graphic novel']};
+/** Tabs per catalogue: text media has no in-world order yet. */
+const VIEWS_BY_MEDIUM: Record<Medium, View[]> = {video: ['cards', 'sequence', 'timeline'], text: ['cards', 'timeline']};
 
 /** The dashboard's tabs. Hierarchy is no longer a tab: only the sidebar's "+N more" companies link opens it. */
 const VIEWS: View[] = ['cards', 'sequence', 'timeline'];
@@ -32,7 +36,8 @@ function readUrl() {
     seq: params.get('seq') ?? '',
     at: params.get('at') ?? '',
     axis: params.get('axis') === '1',
-    format: format && ['All', 'Film', 'Series', 'Anime'].includes(format) ? format : 'All' as Format,
+    media: parseMedium(params.get('media')),
+    format: format && ['All', ...FORMATS.video, ...FORMATS.text].includes(format) ? format : 'All' as Format,
     sort: sort && SORTS.includes(sort) ? sort : 'releaseAsc' as Sort,
     view: view && ROUTABLE.includes(view) ? view : 'cards' as View,
     density: params.get('density') === 'compact' ? 'compact' as const : 'comfortable' as const,
@@ -69,6 +74,7 @@ export default function App() {
   const [at, setAt] = useState(initial.at);
   const [axis, setAxis] = useState(initial.axis);
   const [axisScale, setAxisScale] = useState<'equal' | 'proportional'>('proportional');
+  const [medium, setMedium] = useState<Medium>(initial.media);
   const [format, setFormat] = useState<Format>(initial.format);
   const [sort, setSort] = useState<Sort>(initial.sort);
   const [view, setView] = useState<View>(initial.view);
@@ -107,6 +113,7 @@ export default function App() {
     if (seq) params.set('seq', seq);
     if (at) params.set('at', at);
     if (axis) params.set('axis', '1');
+    if (medium === 'text') params.set('media', 'text');
     if (format !== 'All') params.set('format', format);
     if (sort !== 'releaseAsc') params.set('sort', sort);
     if (view !== 'cards') params.set('view', view);
@@ -115,13 +122,13 @@ export default function App() {
     if (needsPoster) params.set('noposter', '1');
     const next = `${location.pathname}${params.size ? `?${params}` : ''}`;
     if (next !== `${location.pathname}${location.search}`) history.replaceState(null, '', next);
-  }, [query, franchise, company, tag, person, seq, at, axis, format, sort, view, density, selected, needsPoster]);
+  }, [query, franchise, company, tag, person, seq, at, axis, medium, format, sort, view, density, selected, needsPoster]);
 
   useEffect(() => {
     const onPop = () => {
       const next = readUrl();
       setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setTag(next.tag); setPerson(next.person); setSeq(next.seq); setAt(next.at); setAxis(next.axis);
-      setFormat(next.format); setSort(next.sort); setView(next.view);
+      setMedium(next.media); setFormat(next.format); setSort(next.sort); setView(next.view);
       setDensity(next.density); setSelected(next.work); setNeedsPoster(next.needsPoster);
     };
     window.addEventListener('popstate', onPop);
@@ -135,6 +142,21 @@ export default function App() {
     setSeq(sequenceId); setAt(workId); setAxis(false); setView('sequence'); setSelected('');
     setQuery(''); setFranchise('All'); setCompany(''); setTag(''); setPerson(''); setFormat('All'); setNeedsPoster(false);
   }
+  /** Switch catalogue: filters of the other catalogue no longer apply, and a hidden view falls back to cards. */
+  function switchMedium(next: Medium) {
+    if (next === medium) return;
+    setMedium(next);
+    setFranchise('All'); setCompany(''); setTag(''); setPerson(''); setFormat('All'); setNeedsPoster(false);
+    setSeq(''); setAt(''); setAxis(false); setSelected('');
+    if (!VIEWS_BY_MEDIUM[next].includes(view)) setView('cards');
+  }
+  /** Open a work from an adaptation link, in whichever catalogue it lives. */
+  function openAdaptation(id: string) {
+    const target = dataset?.worksById.get(id);
+    if (!target) return;
+    if (target.medium !== medium) switchMedium(target.medium);
+    setSelected(id);
+  }
   const closeSettings = useCallback(() => setSettingsOpen(false), []);
 
   const companyNode = company ? dataset?.companies.get(company) : undefined;
@@ -145,6 +167,7 @@ export default function App() {
     const needle = query.trim().toLowerCase();
     return dataset.works
       .filter(work =>
+        work.medium === medium &&
         (franchise === 'All' || work.memberships.some(m => m.franchise === franchise)) &&
         (!allowedFranchises || work.memberships.some(m => allowedFranchises.has(m.franchiseId))) &&
         (format === 'All' || (format === 'Anime' ? work.anime : work.format === format)) &&
@@ -159,14 +182,28 @@ export default function App() {
         if (b.year === null) return -1;
         return sort === 'releaseDesc' ? b.year - a.year : a.year - b.year;
       });
-  }, [dataset, query, franchise, allowedFranchises, format, tag, person, needsPoster, posters, sort]);
+  }, [dataset, medium, query, franchise, allowedFranchises, format, tag, person, needsPoster, posters, sort]);
 
   const tagOptions = useMemo(() => {
     if (!dataset) return [];
+    const inMedium = [...dataset.workTags.entries()].filter(([id]) => dataset.worksById.get(id)?.medium === medium).map(([, list]) => list);
     return dataset.tags
-      .map(entry => ({...entry, count: [...dataset.workTags.values()].filter(list => list.includes(entry.id)).length}))
+      .map(entry => ({...entry, count: inMedium.filter(list => list.includes(entry.id)).length}))
       .filter(entry => entry.count > 0);
-  }, [dataset]);
+  }, [dataset, medium]);
+  const franchiseOptions = useMemo(() => dataset ? catalogueFranchises(dataset.franchises, dataset.works, medium) : [], [dataset, medium]);
+  const links = useMemo(() => {
+    if (!selected || !dataset) return {asSource: [], asAdapted: []};
+    const found = adaptationsFor(selected, dataset.adaptations, id => dataset.worksById.has(id));
+    const view = (link: (typeof dataset.adaptations)[number], other: string) => {
+      const work = dataset.worksById.get(other)!;
+      return {workId: other, title: work.title, year: work.year, kind: link.kind, certainty: link.certainty};
+    };
+    return {
+      asSource: found.asSource.map(link => view(link, link.adaptedId)),
+      asAdapted: found.asAdapted.map(link => view(link, link.sourceId)),
+    };
+  }, [selected, dataset]);
 
   const selectedWork = selected && dataset ? dataset.worksById.get(selected) : undefined;
   const selectedUniverse = useMemo(() => {
@@ -212,6 +249,8 @@ export default function App() {
       dataset={dataset ?? {works: [], worksById: new Map(), people: new Map(), calendars: new Map(), families: [], adaptations: [], chronologySources: [], franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, textWorks: 0, franchises: 0, companies: 0}}}
       t={t}
       franchise={franchise}
+      medium={medium}
+      onMedium={switchMedium}
       tag={tag}
       tags={tagOptions}
       onTag={id => { setTag(tag === id ? '' : id); setView('cards'); }}
@@ -247,9 +286,16 @@ export default function App() {
                     <h1>{t('hero.title')}<br/><em>{t('hero.titleEm')}</em></h1>
                     <p>{t('hero.body')}</p>
                     <div className="stats">
-                      <div><strong>{dataset.stats.films}</strong><span>{t('stats.films')}</span></div>
-                      <div><strong>{dataset.stats.series}</strong><span>{t('stats.series')}</span></div>
-                      <div><strong>{dataset.stats.franchises}</strong><span>{t('stats.worlds')}</span></div>
+                      {medium === 'text'
+                        ? <>
+                          <div><strong>{dataset.stats.textWorks}</strong><span>{t('stats.textWorks')}</span></div>
+                          <div><strong>{franchiseOptions.length}</strong><span>{t('stats.worlds')}</span></div>
+                        </>
+                        : <>
+                          <div><strong>{dataset.stats.films}</strong><span>{t('stats.films')}</span></div>
+                          <div><strong>{dataset.stats.series}</strong><span>{t('stats.series')}</span></div>
+                          <div><strong>{dataset.stats.franchises}</strong><span>{t('stats.worlds')}</span></div>
+                        </>}
                     </div>
                   </div>
                   <div className="hero-art" aria-hidden="true">
@@ -267,10 +313,15 @@ export default function App() {
                     <h2>{companyNode?.name ?? (franchise === 'All' ? t('collection.title') : franchise)}</h2>
                     <p aria-live="polite">{filtered.length ? [
                       qty(t, filtered.length, 'noun.work', 'noun.works'),
-                      qty(t, filtered.filter(work => work.format === 'Film').length, 'noun.film', 'noun.films'),
-                      qty(t, filtered.filter(work => work.format === 'Series').length, 'noun.seriesOne', 'noun.seriesMany'),
+                      ...(medium === 'text'
+                        ? FORMATS.text.map(option => `${filtered.filter(work => work.format === option).length} ${t(`format.${option}`)}`)
+                        : [
+                          qty(t, filtered.filter(work => work.format === 'Film').length, 'noun.film', 'noun.films'),
+                          qty(t, filtered.filter(work => work.format === 'Series').length, 'noun.seriesOne', 'noun.seriesMany'),
+                        ]),
                     ].join(' · ') : t('collection.body')}</p>
                   </div>
+                  <MediaSwitch medium={medium} onMedium={switchMedium} t={t}/>
                 </div>
 
                 <div className="toolbar">
@@ -280,7 +331,7 @@ export default function App() {
                   <label><span className="sr">{t('filter.franchise')}</span>
                     <select value={franchise} onChange={event => { setFranchise(event.target.value); setCompany(''); }}>
                       <option value="All">{t('filter.franchise')}: {t('filter.all')}</option>
-                      {dataset.franchises.map(entry => <option key={entry.id} value={entry.name}>{entry.name}</option>)}
+                      {franchiseOptions.map(entry => <option key={entry.id} value={entry.name}>{entry.name}</option>)}
                     </select>
                   </label>
                   <label><span className="sr">{t('filter.tag')}</span>
@@ -292,9 +343,7 @@ export default function App() {
                   <label><span className="sr">{t('filter.format')}</span>
                     <select value={format} onChange={event => setFormat(event.target.value as Format)}>
                       <option value="All">{t('filter.format')}: {t('filter.all')}</option>
-                      <option value="Film">{t('format.Film')}</option>
-                      <option value="Series">{t('format.Series')}</option>
-                      <option value="Anime">{t('format.Anime')}</option>
+                      {FORMATS[medium].map(option => <option key={option} value={option}>{t(`format.${option}`)}</option>)}
                     </select>
                   </label>
                   <label><span className="sr">{t('filter.sort')}</span>
@@ -319,7 +368,7 @@ export default function App() {
 
                 <div className="viewbar">
                   <div className="views">
-                    {VIEWS.map(option => <button key={option} className={view === option ? 'selected' : ''} aria-pressed={view === option} onClick={() => setView(option)}>
+                    {VIEWS_BY_MEDIUM[medium].map(option => <button key={option} className={view === option ? 'selected' : ''} aria-pressed={view === option} onClick={() => setView(option)}>
                       {t(`view.${option}`)}
                     </button>)}
                   </div>
@@ -362,6 +411,8 @@ export default function App() {
       calendar={selectedWork?.inWorld ? dataset?.calendars.get(selectedWork.inWorld.calendarId) : undefined}
       onOpenOrder={openOrder}
       onWork={setSelected}
+      links={links}
+      onAdaptation={openAdaptation}
       posters={posters}
       tmdbConfigured={tmdbConfigured}
       onPosterSaved={id => setPosters(current => ({ids: new Set(current.ids).add(id), version: Date.now()}))}
