@@ -84,6 +84,7 @@ corporate cycle and no ownership is inferred from `catalog_association`.
 
 ## Text media, comics & manga (2026-11-24)
 - Spec `docs/superpowers/specs/2026-11-24-text-media-design.md`, plan `docs/superpowers/plans/2026-11-24-text-media.md`. Video | Text switch (`media=text`), pilot of 13 titles in `public/data/media_text_seed.json`, `adaptations` table (migration 005), `src/medium.ts` (pure, tested in `tests/medium.test.mjs`), enrichment `scripts/fetch-text-metadata.mjs`.
-- Only six manga->anime links exist (Dragon Ball x2, One Piece, Detective Conan, Doraemon x2), all `unknown`. No run-level links for Marvel/DC/TMNT comics or Pokémon Adventures on purpose.
+- Second batch (2026-11-24, owner: "only the big influential ones with several sagas, otherwise nothing"): 31 more titles, 44 in total, 13 adaptations (7 added, only where a video work in the atlas adapts that specific title). Marvel/DC comics have no links on purpose. Batman and Superman comics sit in the franchises named "...solo live-action films" (naming wart); X-Men and Spider-Man in theirs.
+- Only six manga->anime links exist in the pilot (Dragon Ball x2, One Piece, Detective Conan, Doraemon x2), all `unknown`. No run-level links for Marvel/DC/TMNT comics or Pokémon Adventures on purpose.
 - Western comics and the standalone Maus, Saga, Blankets, Love and Rockets have no year/creators/cover until `COMICVINE_API_KEY` is set and the script is run (Comic Vine terms still to be read in full before the first call).
 - Not done: volumes/issues/arcs/reading order, publishers, a text-mode company view.

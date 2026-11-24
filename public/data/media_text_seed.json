@@ -134,6 +134,316 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null
+    },
+    {
+      "id": "text--naruto-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Naruto",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--bleach-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Bleach",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--jojo-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "JoJo's Bizarre Adventure",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--hunter-x-hunter-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Hunter x Hunter",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--berserk-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Berserk",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--fullmetal-alchemist-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Fullmetal Alchemist",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--attack-on-titan-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Attack on Titan",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--saint-seiya-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Saint Seiya",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--sailor-moon-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Sailor Moon",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--astro-boy-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Astro Boy",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--fist-of-the-north-star-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Fist of the North Star",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--avengers-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "The Avengers",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--fantastic-four-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Fantastic Four",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--x-men-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "X-Men",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--captain-america-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Captain America",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--iron-man-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Iron Man",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--thor-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Thor",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--daredevil-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Daredevil",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--hulk-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "The Incredible Hulk",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--superman-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Superman",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--wonder-woman-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Wonder Woman",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--justice-league-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Justice League",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--flash-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "The Flash",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--green-lantern-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Green Lantern",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--sandman-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "The Sandman",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--walking-dead-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "The Walking Dead",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--hellboy-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Hellboy",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--asterix-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Asterix",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--tintin-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "The Adventures of Tintin",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--mortadelo-y-filemon-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Mortadelo y Filemón",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--lucky-luke-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Lucky Luke",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
     }
   ],
   "franchises": [
@@ -156,6 +466,122 @@
     {
       "id": "love-and-rockets",
       "name": "Love and Rockets"
+    },
+    {
+      "id": "naruto",
+      "name": "Naruto"
+    },
+    {
+      "id": "bleach",
+      "name": "Bleach"
+    },
+    {
+      "id": "jojo",
+      "name": "JoJo's Bizarre Adventure"
+    },
+    {
+      "id": "hunter-x-hunter",
+      "name": "Hunter x Hunter"
+    },
+    {
+      "id": "berserk",
+      "name": "Berserk"
+    },
+    {
+      "id": "fullmetal-alchemist",
+      "name": "Fullmetal Alchemist"
+    },
+    {
+      "id": "attack-on-titan",
+      "name": "Attack on Titan"
+    },
+    {
+      "id": "saint-seiya",
+      "name": "Saint Seiya"
+    },
+    {
+      "id": "sailor-moon",
+      "name": "Sailor Moon"
+    },
+    {
+      "id": "astro-boy",
+      "name": "Astro Boy"
+    },
+    {
+      "id": "fist-of-the-north-star",
+      "name": "Fist of the North Star"
+    },
+    {
+      "id": "avengers",
+      "name": "The Avengers"
+    },
+    {
+      "id": "fantastic-four",
+      "name": "Fantastic Four"
+    },
+    {
+      "id": "captain-america",
+      "name": "Captain America"
+    },
+    {
+      "id": "iron-man",
+      "name": "Iron Man"
+    },
+    {
+      "id": "thor",
+      "name": "Thor"
+    },
+    {
+      "id": "daredevil",
+      "name": "Daredevil"
+    },
+    {
+      "id": "hulk",
+      "name": "The Incredible Hulk"
+    },
+    {
+      "id": "wonder-woman",
+      "name": "Wonder Woman"
+    },
+    {
+      "id": "justice-league",
+      "name": "Justice League"
+    },
+    {
+      "id": "flash",
+      "name": "The Flash"
+    },
+    {
+      "id": "green-lantern",
+      "name": "Green Lantern"
+    },
+    {
+      "id": "sandman",
+      "name": "The Sandman"
+    },
+    {
+      "id": "walking-dead",
+      "name": "The Walking Dead"
+    },
+    {
+      "id": "hellboy",
+      "name": "Hellboy"
+    },
+    {
+      "id": "asterix",
+      "name": "Asterix"
+    },
+    {
+      "id": "tintin",
+      "name": "The Adventures of Tintin"
+    },
+    {
+      "id": "mortadelo-y-filemon",
+      "name": "Mortadelo y Filemón"
+    },
+    {
+      "id": "lucky-luke",
+      "name": "Lucky Luke"
     }
   ],
   "continuities": [],
@@ -250,6 +676,223 @@
       "franchise_id": "love-and-rockets",
       "continuity_id": null,
       "source_ids": []
+    },
+    {
+      "id": "text-m-naruto-manga",
+      "work_id": "text--naruto-manga",
+      "franchise_id": "naruto",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-bleach-manga",
+      "work_id": "text--bleach-manga",
+      "franchise_id": "bleach",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-jojo-manga",
+      "work_id": "text--jojo-manga",
+      "franchise_id": "jojo",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-hunter-x-hunter-manga",
+      "work_id": "text--hunter-x-hunter-manga",
+      "franchise_id": "hunter-x-hunter",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-berserk-manga",
+      "work_id": "text--berserk-manga",
+      "franchise_id": "berserk",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-fullmetal-alchemist-manga",
+      "work_id": "text--fullmetal-alchemist-manga",
+      "franchise_id": "fullmetal-alchemist",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-attack-on-titan-manga",
+      "work_id": "text--attack-on-titan-manga",
+      "franchise_id": "attack-on-titan",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-saint-seiya-manga",
+      "work_id": "text--saint-seiya-manga",
+      "franchise_id": "saint-seiya",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-sailor-moon-manga",
+      "work_id": "text--sailor-moon-manga",
+      "franchise_id": "sailor-moon",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-astro-boy-manga",
+      "work_id": "text--astro-boy-manga",
+      "franchise_id": "astro-boy",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-fist-of-the-north-star-manga",
+      "work_id": "text--fist-of-the-north-star-manga",
+      "franchise_id": "fist-of-the-north-star",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-avengers-comic",
+      "work_id": "text--avengers-comic",
+      "franchise_id": "avengers",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-fantastic-four-comic",
+      "work_id": "text--fantastic-four-comic",
+      "franchise_id": "fantastic-four",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-x-men-comic",
+      "work_id": "text--x-men-comic",
+      "franchise_id": "x-men",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-captain-america-comic",
+      "work_id": "text--captain-america-comic",
+      "franchise_id": "captain-america",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-iron-man-comic",
+      "work_id": "text--iron-man-comic",
+      "franchise_id": "iron-man",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-thor-comic",
+      "work_id": "text--thor-comic",
+      "franchise_id": "thor",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-daredevil-comic",
+      "work_id": "text--daredevil-comic",
+      "franchise_id": "daredevil",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-hulk-comic",
+      "work_id": "text--hulk-comic",
+      "franchise_id": "hulk",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-superman-comic",
+      "work_id": "text--superman-comic",
+      "franchise_id": "superman",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-wonder-woman-comic",
+      "work_id": "text--wonder-woman-comic",
+      "franchise_id": "wonder-woman",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-justice-league-comic",
+      "work_id": "text--justice-league-comic",
+      "franchise_id": "justice-league",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-flash-comic",
+      "work_id": "text--flash-comic",
+      "franchise_id": "flash",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-green-lantern-comic",
+      "work_id": "text--green-lantern-comic",
+      "franchise_id": "green-lantern",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-sandman-comic",
+      "work_id": "text--sandman-comic",
+      "franchise_id": "sandman",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-walking-dead-comic",
+      "work_id": "text--walking-dead-comic",
+      "franchise_id": "walking-dead",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-hellboy-comic",
+      "work_id": "text--hellboy-comic",
+      "franchise_id": "hellboy",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-asterix-comic",
+      "work_id": "text--asterix-comic",
+      "franchise_id": "asterix",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-tintin-comic",
+      "work_id": "text--tintin-comic",
+      "franchise_id": "tintin",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-mortadelo-y-filemon-comic",
+      "work_id": "text--mortadelo-y-filemon-comic",
+      "franchise_id": "mortadelo-y-filemon",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-lucky-luke-comic",
+      "work_id": "text--lucky-luke-comic",
+      "franchise_id": "lucky-luke",
+      "continuity_id": null,
+      "source_ids": []
     }
   ],
   "adaptations": [
@@ -298,6 +941,62 @@
       "source_work_id": "text--doraemon-manga",
       "adapted_work_id": "series--doraemon-2005-series",
       "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-naruto-manga",
+      "source_work_id": "text--naruto-manga",
+      "adapted_work_id": "series--naruto",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-bleach-manga",
+      "source_work_id": "text--bleach-manga",
+      "adapted_work_id": "series--bleach",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-fullmetal-alchemist-manga",
+      "source_work_id": "text--fullmetal-alchemist-manga",
+      "adapted_work_id": "series--fullmetal-alchemist-brotherhood",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-attack-on-titan-manga",
+      "source_work_id": "text--attack-on-titan-manga",
+      "adapted_work_id": "series--attack-on-titan",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-sailor-moon-manga",
+      "source_work_id": "text--sailor-moon-manga",
+      "adapted_work_id": "series--sailor-moon-original-series",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-astro-boy-manga",
+      "source_work_id": "text--astro-boy-manga",
+      "adapted_work_id": "series--astro-boy-original-series",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-walking-dead-comic",
+      "source_work_id": "text--walking-dead-comic",
+      "adapted_work_id": "series--the-walking-dead",
+      "kind": "series",
       "certainty": "unknown",
       "notes": "editorial proposal, unverified"
     }

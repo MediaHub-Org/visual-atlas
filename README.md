@@ -97,8 +97,8 @@ labels such as «Doctor Who: original series» or «Doraemon: 1979 series».
 
 A **Video | Text** switch (sidebar and explore header, `?media=text`) swaps the whole
 catalogue. Text media is its own catalogue with its own franchises and is linked to
-video adaptations. The pilot (13 titles: five manga, three Western comics, five
-independent titles) lives in `public/data/media_text_seed.json`, same row shapes as the
+video adaptations. The catalogue (44 titles: the pilot plus a second batch of long-running
+manga and Marvel, DC, independent and European comics that have several sagas) lives in `public/data/media_text_seed.json`, same row shapes as the
 video seed, all `needs_review`; titles and years are facts, no synopsis is copied.
 
 - **Adaptations** (`adaptations` table, migration `005_text_media.sql`) link a source work
