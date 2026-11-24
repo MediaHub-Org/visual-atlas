@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "metadata": {
+    "title": "Text media (comics and manga) - editorial seed",
+    "note": "Same row shapes as media_atlas_seed.json. Titles and years are facts; no synopsis is copied from any source. Every row is needs_review and every adaptation certainty is unknown until a person reviews it."
+  },
+  "works": [],
+  "franchises": [],
+  "continuities": [],
+  "memberships": [],
+  "adaptations": []
+}

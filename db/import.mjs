@@ -17,6 +17,7 @@ import { migrate } from './migrate.mjs';
 const here = dirname(fileURLToPath(import.meta.url));
 const SEED_FILE = join(here, '..', 'public', 'data', 'media_atlas_seed.json');
 const CHRONOLOGY_DIR = join(here, '..', 'public', 'data', 'chronology');
+const TEXT_SEED_FILE = join(here, '..', 'public', 'data', 'media_text_seed.json');
 
 /**
  * The first pass (approved 2026-11-22): the five entities with no claim
@@ -86,6 +87,7 @@ const RELATION_ARRAYS = [
   'work_tags',
   'sequences',
   'sequence_items',
+  'adaptations',
 ];
 
 /** Tables the relation pass writes, in report order. */
@@ -98,6 +100,7 @@ const RELATION_TABLES = [
   'work_tags',
   'sequences',
   'sequence_items',
+  'adaptations',
   'fictional_calendars',
   'narrative_periods',
 ];
@@ -127,6 +130,29 @@ const COMPANY_CLAIMS = {
 const SEQUENCE_TYPES = new Set(['release', 'narrative']);
 
 const MEMBERSHIP_TYPES = new Set(['included', 'related_series']);
+
+/** The arrays the text seed may add to the video seed; its adaptations are handled in their own pass. */
+const TEXT_ARRAYS = ['works', 'franchises', 'continuities', 'memberships'];
+
+/**
+ * The video seed with the text seed's works, franchises, continuities and
+ * memberships added (the same row shapes, so the existing passes import them).
+ * A text id that the video seed already uses is refused, never overwritten.
+ */
+function withText(seed, text) {
+  if (!text) return seed;
+  const merged = { ...seed, adaptations: text.adaptations ?? [] };
+  for (const array of TEXT_ARRAYS) {
+    const taken = new Set((seed[array] ?? []).map((row) => row.id));
+    for (const row of text[array] ?? []) {
+      if (array !== 'memberships' && taken.has(row.id)) {
+        throw new Error(`text seed ${array} "${row.id}" is already in the video seed`);
+      }
+    }
+    merged[array] = [...(seed[array] ?? []), ...(text[array] ?? [])];
+  }
+  return merged;
+}
 
 function checkSections(seed) {
   const planned = new Set([...PLAN.map((step) => step.array), ...RELATION_ARRAYS]);
@@ -185,7 +211,8 @@ async function keepPayload(query, array, raw, externalId = raw.id, workId = null
  * work happens inside a transaction that is rolled back, so the numbers are
  * real but nothing is kept.
  */
-export async function importSeed(db, seed, { dryRun = false, chronology = [] } = {}) {
+export async function importSeed(db, seed, { dryRun = false, chronology = [], text } = {}) {
+  seed = withText(seed, text);
   checkSections(seed);
   const counts = {};
   for (const table of [...PLAN.map((step) => step.table), ...RELATION_TABLES]) {
@@ -412,6 +439,30 @@ export async function importSeed(db, seed, { dryRun = false, chronology = [] } =
       await keepPayload(query, 'sequence_items', raw, `${raw.sequence_id}:${raw.work_id}`, workId);
     }
 
+    // Adaptations: an editorial link between a text work and a video work. The
+    // import never asserts 'confirmed' (a person does, by reviewing the row), and a
+    // link whose endpoint is in neither seed fails the import.
+    for (const raw of seed.adaptations ?? []) {
+      const certainty = raw.certainty ?? 'unknown';
+      if (certainty === 'confirmed') {
+        throw new Error(`adaptations: "${raw.id}" claims certainty confirmed; only a reviewer sets that`);
+      }
+      const result = await query.query(
+        upsertSql('adaptations', ['source_work_id', 'adapted_work_id', 'kind', 'certainty', 'notes', 'source_id']),
+        [
+          raw.id,
+          ref(ids.works, raw.source_work_id, 'work'),
+          ref(ids.works, raw.adapted_work_id, 'work'),
+          raw.kind,
+          certainty,
+          raw.notes ?? null,
+          sourceId(raw, ids),
+        ]
+      );
+      tally('adaptations', result.rows[0].inserted);
+      await keepPayload(query, 'adaptations', raw);
+    }
+
     // In-world dates (public/data/chronology/*.json, from Wookieepedia): a
     // calendar row per file and one draft period per parsed date. A stated date
     // is 'estimated', an open-ended one 'unknown', never 'confirmed'; an entry the
@@ -509,7 +560,8 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
           .filter((name) => name.endsWith('.json'))
           .map((name) => JSON.parse(readFileSync(join(CHRONOLOGY_DIR, name), 'utf8')))
       : [];
-    const counts = await importSeed(db, seed, { dryRun, chronology });
+    const text = existsSync(TEXT_SEED_FILE) ? JSON.parse(readFileSync(TEXT_SEED_FILE, 'utf8')) : undefined;
+    const counts = await importSeed(db, seed, { dryRun, chronology, text });
     console.log(JSON.stringify({ dryRun, counts }, null, 2));
   } finally {
     await db.close();

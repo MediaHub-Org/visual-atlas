@@ -99,6 +99,22 @@ revision, retrieval date and licence. Certainty is `estimated` for a stated date
 row (its raw string stays in the verbatim payload). The seed's editorial sequences are
 not rewritten by these dates.
 
+## Fifth pass: text media (2026-11-24)
+
+Comics and manga live in a second committed file, `public/data/media_text_seed.json`,
+with the same row shapes as the video seed (`works` with format `comic_series`,
+`manga_series` or `graphic_novel`, `franchises`, `continuities`, `memberships`) plus an
+`adaptations` array. `importSeed(db, seed, { text })` adds its works, franchises,
+continuities and memberships to the video seed's and runs the same passes; a text id
+that the video seed already uses is refused. A text work may join an existing
+franchise (Dragon Ball's manga joins `dragon-ball`).
+
+`adaptations` (migration `005_text_media.sql`) link a source work to the work adapted
+from it, in either medium direction, by seed id. Rows import `needs_review`, certainty
+`unknown` (or `estimated` if a source states it); the import **throws on `confirmed`**,
+since only a reviewer sets that, and on an endpoint that is in neither seed. A reviewed
+row is frozen like every other.
+
 ## Still out, on purpose
 
 - **Chronology.** `chronology_entries` and `chronology_relations` stay empty: a

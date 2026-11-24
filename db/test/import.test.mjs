@@ -560,3 +560,89 @@ describe('in-world chronology import', () => {
     });
   });
 });
+
+describe('text media import', () => {
+  const text = () => ({
+    schema_version: '1.0.0',
+    works: [
+      { id: 'text--dragon-ball-manga', format: 'manga_series', title: 'Dragon Ball (manga)', release_year: 1984, review_status: 'needs_review', source_ids: ['conversation'] },
+      { id: 'text--maus', format: 'graphic_novel', title: 'Maus', release_year: null, review_status: 'needs_review', source_ids: ['conversation'] },
+    ],
+    franchises: [{ id: 'maus', name: 'Maus' }],
+    continuities: [],
+    memberships: [
+      { id: 'text-m1', work_id: 'text--dragon-ball-manga', franchise_id: 'dragon-ball', continuity_id: null, source_ids: ['conversation'] },
+      { id: 'text-m2', work_id: 'text--maus', franchise_id: 'maus', continuity_id: null, source_ids: ['conversation'] },
+    ],
+    adaptations: [
+      { id: 'ad1', source_work_id: 'text--dragon-ball-manga', adapted_work_id: 'series--dragon-ball', kind: 'anime', certainty: 'unknown', notes: 'editorial proposal, unverified' },
+    ],
+  });
+  const load = (db, t = text()) => importSeed(db, seed, { text: t });
+
+  it('imports text works and joins one to an existing franchise', async () => {
+    await withDb(async (db) => {
+      const counts = await load(db);
+      assert.equal(counts.works.inserted, TOTALS.works + 2);
+      const formats = (await db.query("select format from works where seed_key like 'text--%' order by format")).rows.map((r) => r.format);
+      assert.deepEqual(formats, ['graphic_novel', 'manga_series']);
+      const joined = (await db.query(
+        `select f.seed_key from franchise_memberships fm join works w on w.id = fm.work_id join franchises f on f.id = fm.franchise_id
+          where w.seed_key = 'text--dragon-ball-manga'`
+      )).rows;
+      assert.deepEqual(joined.map((r) => r.seed_key), ['dragon-ball']);
+    });
+  });
+  it('imports an adaptation as needs_review with certainty unknown', async () => {
+    await withDb(async (db) => {
+      const counts = await load(db);
+      assert.deepEqual(counts.adaptations, { inserted: 1, updated: 0 });
+      const row = (await db.query('select review_status, certainty, kind from adaptations')).rows[0];
+      assert.deepEqual(row, { review_status: 'needs_review', certainty: 'unknown', kind: 'anime' });
+    });
+  });
+  it('refuses certainty confirmed from the import', async () => {
+    await withDb(async (db) => {
+      const t = text();
+      t.adaptations[0].certainty = 'confirmed';
+      await assert.rejects(() => load(db, t), /confirmed/);
+      assert.equal(await count(db, 'adaptations'), 0);
+    });
+  });
+  it('refuses an adaptation whose endpoint is in neither seed', async () => {
+    await withDb(async (db) => {
+      const t = text();
+      t.adaptations[0].adapted_work_id = 'series--nowhere';
+      await assert.rejects(() => load(db, t), /not in the imported seed/);
+    });
+  });
+  it('refuses a text work or franchise id that the video seed already uses', async () => {
+    await withDb(async (db) => {
+      const t = text();
+      t.works[0].id = 'series--dragon-ball';
+      await assert.rejects(() => load(db, t), /already in the video seed/);
+    });
+  });
+  it('is idempotent and leaves a reviewed adaptation alone', async () => {
+    await withDb(async (db) => {
+      await load(db);
+      await db.query("update adaptations set review_status = 'reviewed', reviewed_at = '2026-11-24', certainty = 'estimated'");
+      const t = text();
+      t.adaptations[0].certainty = 'unknown';
+      t.adaptations[0].notes = 'changed in the file';
+      const second = await load(db, t);
+      assert.deepEqual(second.adaptations, { inserted: 0, updated: 1 });
+      assert.equal(await count(db, 'adaptations'), 1);
+      const row = (await db.query('select certainty, notes from adaptations')).rows[0];
+      assert.equal(row.certainty, 'estimated');
+      assert.notEqual(row.notes, 'changed in the file');
+    });
+  });
+  it('is unchanged without a text seed', async () => {
+    await withDb(async (db) => {
+      const counts = await importSeed(db, seed);
+      assert.equal(counts.works.inserted, TOTALS.works);
+      assert.deepEqual(counts.adaptations, { inserted: 0, updated: 0 });
+    });
+  });
+});
