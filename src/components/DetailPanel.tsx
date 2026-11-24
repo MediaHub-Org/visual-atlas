@@ -56,11 +56,11 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
         {poster && <img className="detail-poster" src={poster} alt=""/>}
         <span>FRAME / {work.format.toUpperCase()}</span>
         <strong>{work.title}</strong>
-        <button className="poster-jump" onClick={() => {
+        {work.medium === 'video' && <button className="poster-jump" onClick={() => {
           const editor = document.getElementById('poster-editor');
           editor?.scrollIntoView({behavior: 'smooth', block: 'center'});
           editor?.querySelector('input')?.focus({preventScroll: true});
-        }}>{t('poster.change')}</button>
+        }}>{t('poster.change')}</button>}
       </div>
       <div className="detail-body">
         <span className="eyebrow">{t('detail.collection')} / {t('detail.seed')}</span>
@@ -70,7 +70,7 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
         </p>
         {work.yearImported && <p className="muted">{t(work.medium === 'text' ? 'detail.yearImportedText' : 'detail.yearImported')}</p>}
         {work.medium === 'text' && !work.creators.startsWith('Not supplied') && <p className="muted">{t('detail.creators')}: {work.creators}</p>}
-        {work.memberships.map(membership => <p key={`${membership.franchise}/${membership.continuity}`}>
+        {work.memberships.filter(m => work.medium === 'video' || m.continuity !== 'Continuity not specified').map(membership => <p key={`${membership.franchise}/${membership.continuity}`}>
           <span className="badge">{membership.franchise} / {membership.continuity}</span>
         </p>)}
         {work.inWorld && calendar && <InWorldDates work={work} calendar={calendar} t={t}/>}
@@ -90,7 +90,7 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
         <Adaptations work={work} links={links} t={t} onOpen={onAdaptation}/>
         <h3>{t('detail.story')}</h3>
         <p>{work.description}</p>
-        <Credits work={work} t={t} onPerson={onPerson}/>
+        {work.medium === 'video' && <Credits work={work} t={t} onPerson={onPerson}/>}
         {tags.length > 0 && <>
           <h3>{t('detail.tags')}</h3>
           <div className="franchise-chips">{tags.map(entry => <span className="chip" key={entry.id}>{entry.name}</span>)}</div>

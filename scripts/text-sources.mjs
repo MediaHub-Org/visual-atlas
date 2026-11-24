@@ -9,6 +9,8 @@ const plausibleYear = (value) => {
   const year = typeof value === 'string' && /^\d{4}$/.test(value) ? Number(value) : value;
   return Number.isInteger(year) && year > 1800 && year < 2200 ? year : null;
 };
+/** Staff who made the work (story, art, original creator); translators, assistants and editors are left out. */
+const MAKER_ROLE = /\b(story|art|original creator|creator)\b/i;
 const isObject = (value) => typeof value === 'object' && value !== null && !Array.isArray(value);
 
 /**
@@ -28,6 +30,7 @@ export function parseAniListMedia(json) {
     status: typeof media.status === 'string' ? media.status : null,
     creators: edges(media.staff)
       .filter((edge) => isObject(edge.node) && isObject(edge.node.name) && typeof edge.node.name.full === 'string')
+      .filter((edge) => MAKER_ROLE.test(String(edge.role ?? '')))
       .map((edge) => ({ name: edge.node.name.full, role: typeof edge.role === 'string' ? edge.role : '' })),
     coverUrl: isObject(media.coverImage) && isHttps(media.coverImage.large) ? media.coverImage.large : null,
     relations: edges(media.relations)

@@ -32,6 +32,17 @@ describe('parseAniListMedia', () => {
     assert.equal(media.coverUrl, 'https://s4.anilist.co/file/cover.jpg');
     assert.equal(media.relations.length, 2);
   });
+  it('keeps only the people who made the work, not translators or assistants', () => {
+    const staffed = structuredClone(aniList);
+    staffed.data.Media.staff.edges.push(
+      { role: 'Translator (French)', node: { name: { full: 'T' } } },
+      { role: 'Assistant', node: { name: { full: 'A' } } },
+      { role: 'Original Creator', node: { name: { full: 'O' } } },
+      { role: 'Story', node: { name: { full: 'S' } } },
+      { role: 'Art', node: { name: { full: 'R' } } },
+    );
+    assert.deepEqual(parseAniListMedia(staffed).creators.map(c => c.name), ['Akira Toriyama', 'O', 'S', 'R']);
+  });
   it('returns null, never throws, on malformed or empty input', () => {
     for (const bad of [null, undefined, 3, 'x', [], {}, { data: null }, { data: { Media: null } }, { data: { Media: { id: 'x' } } }]) {
       assert.equal(parseAniListMedia(bad), null, JSON.stringify(bad));

@@ -2,11 +2,304 @@
   "schema_version": "1.0.0",
   "metadata": {
     "title": "Text media (comics and manga) - editorial seed",
-    "note": "Same row shapes as media_atlas_seed.json. Titles and years are facts; no synopsis is copied from any source. Every row is needs_review and every adaptation certainty is unknown until a person reviews it."
+    "note": "Same row shapes as media_atlas_seed.json. Titles and years are facts; no synopsis is copied from any source. Every row is needs_review and every adaptation certainty is unknown until a person reviews it. A null release_year means no source stated it yet: the local AniList / Comic Vine cache may fill it in the app, marked as imported."
   },
-  "works": [],
-  "franchises": [],
+  "works": [
+    {
+      "id": "text--dragon-ball-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Dragon Ball",
+      "original_title": null,
+      "release_year": 1984,
+      "release_precision": "year"
+    },
+    {
+      "id": "text--one-piece-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "One Piece",
+      "original_title": null,
+      "release_year": 1997,
+      "release_precision": "year"
+    },
+    {
+      "id": "text--detective-conan-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Detective Conan",
+      "original_title": null,
+      "release_year": 1994,
+      "release_precision": "year"
+    },
+    {
+      "id": "text--doraemon-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Doraemon",
+      "original_title": null,
+      "release_year": 1969,
+      "release_precision": "year"
+    },
+    {
+      "id": "text--pokemon-adventures-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Pokémon Adventures",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--vagabond-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Vagabond",
+      "original_title": null,
+      "release_year": 1998,
+      "release_precision": "year"
+    },
+    {
+      "id": "text--amazing-spider-man-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "The Amazing Spider-Man",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--batman-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Batman",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--tmnt-mirage-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Teenage Mutant Ninja Turtles",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--maus",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "graphic_novel",
+      "title": "Maus",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--saga-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Saga",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--blankets",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "graphic_novel",
+      "title": "Blankets",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--love-and-rockets",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Love and Rockets",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    }
+  ],
+  "franchises": [
+    {
+      "id": "vagabond",
+      "name": "Vagabond"
+    },
+    {
+      "id": "maus",
+      "name": "Maus"
+    },
+    {
+      "id": "saga",
+      "name": "Saga"
+    },
+    {
+      "id": "blankets",
+      "name": "Blankets"
+    },
+    {
+      "id": "love-and-rockets",
+      "name": "Love and Rockets"
+    }
+  ],
   "continuities": [],
-  "memberships": [],
-  "adaptations": []
+  "memberships": [
+    {
+      "id": "text-m-dragon-ball",
+      "work_id": "text--dragon-ball-manga",
+      "franchise_id": "dragon-ball",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-one-piece",
+      "work_id": "text--one-piece-manga",
+      "franchise_id": "one-piece",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-detective-conan",
+      "work_id": "text--detective-conan-manga",
+      "franchise_id": "detective-conan",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-doraemon",
+      "work_id": "text--doraemon-manga",
+      "franchise_id": "doraemon",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-pokemon",
+      "work_id": "text--pokemon-adventures-manga",
+      "franchise_id": "pokemon",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-vagabond",
+      "work_id": "text--vagabond-manga",
+      "franchise_id": "vagabond",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-spider-man",
+      "work_id": "text--amazing-spider-man-comic",
+      "franchise_id": "spider-man",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-batman",
+      "work_id": "text--batman-comic",
+      "franchise_id": "batman",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-tmnt",
+      "work_id": "text--tmnt-mirage-comic",
+      "franchise_id": "tmnt",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-maus",
+      "work_id": "text--maus",
+      "franchise_id": "maus",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-saga",
+      "work_id": "text--saga-comic",
+      "franchise_id": "saga",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-blankets",
+      "work_id": "text--blankets",
+      "franchise_id": "blankets",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-love-and-rockets",
+      "work_id": "text--love-and-rockets",
+      "franchise_id": "love-and-rockets",
+      "continuity_id": null,
+      "source_ids": []
+    }
+  ],
+  "adaptations": [
+    {
+      "id": "text-ad-dragon-ball-anime",
+      "source_work_id": "text--dragon-ball-manga",
+      "adapted_work_id": "series--dragon-ball",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-dragon-ball-z",
+      "source_work_id": "text--dragon-ball-manga",
+      "adapted_work_id": "series--dragon-ball-z",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-one-piece-anime",
+      "source_work_id": "text--one-piece-manga",
+      "adapted_work_id": "series--one-piece-anime",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-detective-conan-anime",
+      "source_work_id": "text--detective-conan-manga",
+      "adapted_work_id": "series--detective-conan",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-doraemon-1979",
+      "source_work_id": "text--doraemon-manga",
+      "adapted_work_id": "series--doraemon-1979-series",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-doraemon-2005",
+      "source_work_id": "text--doraemon-manga",
+      "adapted_work_id": "series--doraemon-2005-series",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    }
+  ]
 }

@@ -9,7 +9,8 @@ export function posterUrl(workId: string, posters: PosterLookup) {
 
 export function WorkCard({work, t, posters, onSelect}: {work: Work; t: TFn; posters: PosterLookup; onSelect: (id: string) => void}) {
   const poster = posterUrl(work.id, posters);
-  const continuity = work.memberships[0]?.continuity;
+  const unspecified = work.medium === 'text' && work.memberships[0]?.continuity === 'Continuity not specified';
+  const continuity = unspecified ? undefined : work.memberships[0]?.continuity;
   return <button className="card" onClick={() => onSelect(work.id)}>
     <span className="poster" style={{'--poster': work.color} as React.CSSProperties}>
       {poster && <img className="local-poster" src={poster} alt="" loading="lazy" onError={event => { event.currentTarget.style.display = 'none'; }}/>}
