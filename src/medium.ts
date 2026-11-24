@@ -174,3 +174,34 @@ export function clampView(view: string, medium: Medium): string {
 export function clampFormat(format: string, medium: Medium): string {
   return FORMATS_BY_MEDIUM[medium].includes(format) ? format : 'All';
 }
+
+/**
+ * The Read sidebar's two lists, each narrowed by the other's selection: format counts
+ * follow the chosen franchise, and the franchise list follows the chosen format. A
+ * selected franchise stays listed even with no match, so it can always be cleared.
+ */
+export function textFacets(
+  works: { medium: Medium; format: string; memberships: { franchiseId: string; franchise: string }[] }[],
+  format: string,
+  franchise: string,
+): { formats: { id: string; count: number }[]; franchises: { id: string; name: string; count: number }[] } {
+  const text = works.filter(work => work.medium === 'text');
+  const inFranchise = text.filter(work => franchise === 'All' || work.memberships.some(m => m.franchise === franchise));
+  const inFormat = text.filter(work => format === 'All' || work.format === format);
+  const formats = ['Manga', 'Comic', 'Graphic novel']
+    .map(id => ({ id, count: inFranchise.filter(work => work.format === id).length }))
+    .filter(entry => entry.count > 0);
+  const byFranchise = new Map<string, { id: string; name: string; count: number }>();
+  for (const work of inFormat) {
+    for (const m of work.memberships) {
+      const entry = byFranchise.get(m.franchise) ?? { id: m.franchiseId, name: m.franchise, count: 0 };
+      entry.count += 1;
+      byFranchise.set(m.franchise, entry);
+    }
+  }
+  if (franchise !== 'All' && !byFranchise.has(franchise)) {
+    const id = text.flatMap(work => work.memberships).find(m => m.franchise === franchise)?.franchiseId ?? franchise;
+    byFranchise.set(franchise, { id, name: franchise, count: 0 });
+  }
+  return { formats, franchises: [...byFranchise.values()].sort((a, b) => a.name.localeCompare(b.name)) };
+}

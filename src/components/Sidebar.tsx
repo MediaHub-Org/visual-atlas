@@ -1,7 +1,7 @@
 import type {Dataset} from '../data';
 import type {TFn} from '../i18n';
 import {CompanySidebar} from './CompanyTree';
-import {catalogueFranchises, type Medium} from '../medium';
+import {textFacets, type Medium} from '../medium';
 
 /** Video | Text catalogue switch, in the sidebar and in the explore header. */
 export function MediaSwitch({medium, onMedium, t}: {medium: Medium; onMedium: (medium: Medium) => void; t: TFn}) {
@@ -30,13 +30,10 @@ export function Sidebar({dataset, t, franchise, medium, onMedium, format, onForm
   onSettings: () => void;
 }) {
   // Read mode: formats and the franchise list replace the company tree (there is no publisher data yet).
-  const textWorks = medium === 'text' ? dataset.works.filter(work => work.medium === 'text') : [];
-  const textFormats = ['Manga', 'Comic', 'Graphic novel'].map(id => ({id, count: textWorks.filter(work => work.format === id).length})).filter(entry => entry.count > 0);
-  const textFranchises = medium === 'text'
-    ? catalogueFranchises(dataset.franchises, dataset.works, 'text')
-      .map(entry => ({...entry, count: textWorks.filter(work => work.memberships.some(m => m.franchiseId === entry.id)).length}))
-      .sort((a, b) => a.name.localeCompare(b.name))
-    : [];
+  // The two lists narrow each other, so choosing a format changes the series list and the reverse.
+  const facets = textFacets(medium === 'text' ? dataset.works : [], format, franchise);
+  const textFormats = facets.formats;
+  const textFranchises = facets.franchises;
   return <aside className="sidebar">
     <div className="brand"><span className="brand-icon">✳</span> FRAME<span className="brand-dot">.</span></div>
     <div className="sidebar-label">{t('brand.sub')}</div>

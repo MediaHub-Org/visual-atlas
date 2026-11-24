@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { adaptationsFor, catalogueFranchises, clampFormat, clampView, franchiseWorkIds, mediumOfFormat, mergeTextSeed, parseMedium } from '../src/medium.ts';
+import { adaptationsFor, catalogueFranchises, clampFormat, clampView, franchiseWorkIds, mediumOfFormat, mergeTextSeed, parseMedium, textFacets } from '../src/medium.ts';
 
 describe('mediumOfFormat', () => {
   it('maps the four video formats and the three text formats', () => {
@@ -189,5 +189,41 @@ describe('clampView and clampFormat', () => {
     assert.equal(clampFormat('Manga', 'video'), 'All');
     assert.equal(clampFormat('Film', 'text'), 'All');
     assert.equal(clampFormat('All', 'text'), 'All');
+  });
+});
+
+describe('textFacets (dependent sidebar lists)', () => {
+  const work = (id, format, ...franchises) => ({ id, medium: 'text', format, memberships: franchises.map(name => ({ franchiseId: name.toLowerCase(), franchise: name })) });
+  const works = [
+    work('1', 'Manga', 'Naruto'),
+    work('2', 'Manga', 'Bleach'),
+    work('3', 'Comic', 'Batman'),
+    work('4', 'Comic', 'Hulk'),
+    work('5', 'Graphic novel', 'Maus'),
+    work('6', 'Manga', 'Doraemon'),
+    { id: 'v', medium: 'video', format: 'Series', memberships: [{ franchiseId: 'naruto', franchise: 'Naruto' }] },
+  ];
+  const names = list => list.map(entry => entry.name ?? entry.id);
+
+  it('with nothing selected lists every text format and franchise with their counts', () => {
+    const facets = textFacets(works, 'All', 'All');
+    assert.deepEqual(facets.formats, [{ id: 'Manga', count: 3 }, { id: 'Comic', count: 2 }, { id: 'Graphic novel', count: 1 }]);
+    assert.equal(facets.franchises.length, 6);
+    assert.ok(!facets.franchises.some(entry => entry.count === 0));
+  });
+  it('choosing a format narrows the franchise list to franchises that have it', () => {
+    assert.deepEqual(names(textFacets(works, 'Comic', 'All').franchises), ['Batman', 'Hulk']);
+    assert.deepEqual(names(textFacets(works, 'Manga', 'All').franchises), ['Bleach', 'Doraemon', 'Naruto']);
+  });
+  it('choosing a franchise narrows the format counts to that franchise', () => {
+    assert.deepEqual(textFacets(works, 'All', 'Hulk').formats, [{ id: 'Comic', count: 1 }]);
+  });
+  it('keeps a selected franchise listed even when the format leaves it empty, so it can be cleared', () => {
+    const facets = textFacets(works, 'Comic', 'Naruto');
+    assert.deepEqual(names(facets.franchises), ['Batman', 'Hulk', 'Naruto']);
+    assert.equal(facets.franchises.find(entry => entry.name === 'Naruto').count, 0);
+  });
+  it('ignores video works', () => {
+    assert.equal(textFacets(works, 'All', 'All').franchises.find(entry => entry.name === 'Naruto').count, 1);
   });
 });
