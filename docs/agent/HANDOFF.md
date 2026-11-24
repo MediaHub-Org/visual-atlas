@@ -1,6 +1,6 @@
 # Handoff
 
-Updated 2026-11-23. History is in [`JOURNAL.md`](JOURNAL.md).
+Updated 2026-11-24. History is in [`JOURNAL.md`](JOURNAL.md).
 
 ## State
 
@@ -32,10 +32,10 @@ expose it beyond `127.0.0.1`.
 1. Verify representative seed records against independent, licensed sources.
 2. Posters left: 38 works (mostly *Crayon Shin-chan* and *Doraemon* films) need a
    manual match in the detail panel.
-3. Sequences and chronology: the seed's narrative order is an editorial proposal,
-   and `editorial_proposal` is not one of the schema's certainty values. The owner
-   must decide how `placement` / `certainty` map before `sequences` and
-   `sequence_items` are imported; `chronology_entries` wait on the same rule.
+3. Sequences are imported (owner's rule, 2026-11-24): `certainty = 'unknown'`,
+   `origin = 'editorial_proposal'`, all `needs_review` (migration 003). Still open:
+   `chronology_entries` / `chronology_relations` stay empty until a verified order
+   exists, and the UI should label these sequences as proposals.
 4. Then: users/roles/RLS; authenticated editing; `episode_count` reconciliation.
 
 The first import pass is in (`db/migrate.mjs`, `db/import.mjs`, migration
@@ -43,7 +43,7 @@ The first import pass is in (`db/migrate.mjs`, `db/import.mjs`, migration
 upserted by `seed_key`, every row `needs_review`, verbatim payloads in
 `imported_metadata`. The second pass (migration `002_relations_and_claims.sql`)
 adds continuities, memberships, franchise/company associations, company claims
-and work/tag links with the same draft state. `npm test` is 51/51. The local
+and work/tag links with the same draft state. `npm test` is 54/54. The third pass (migration `003_sequences.sql`) imports the 235 sequences and 1,425 items as unknown/editorial proposals; run `npm run db:import` to bring the local `db/.data` copy up to date. The local
 `db/.data` holds the imported copy (2,413 payloads); it is ignored by Git. Claims
 are rows in claim tables, never reviewed facts: the cycle trigger still refuses a
 corporate cycle and no ownership is inferred from `catalog_association`.

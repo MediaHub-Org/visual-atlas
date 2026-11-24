@@ -83,6 +83,8 @@ const RELATION_ARRAYS = [
   'franchise_company_associations',
   'company_relationship_claims',
   'work_tags',
+  'sequences',
+  'sequence_items',
 ];
 
 /** Tables the relation pass writes, in report order. */
@@ -93,6 +95,8 @@ const RELATION_TABLES = [
   'franchise_companies',
   'company_relationships',
   'work_tags',
+  'sequences',
+  'sequence_items',
 ];
 
 /** Sections that exist in the export and are deliberately not imported yet. */
@@ -101,11 +105,6 @@ const SKIPPED = new Map([
   ['metadata', 'metadata'],
   ['project_rules', 'metadata'],
   ['import_contract', 'metadata'],
-  // Narrative order is a proposal, not a date. The schema's certainty values
-  // (confirmed/estimated/disputed/unknown) cannot hold "editorial_proposal"
-  // without the owner's rule, so both arrays stay out for now.
-  ['sequences', 'narrative order needs the owner\'s placement/certainty rule'],
-  ['sequence_items', 'narrative order needs the owner\'s placement/certainty rule'],
   ['people', 'empty'],
   ['credits', 'empty'],
   ['work_company_credits', 'empty'],
@@ -121,6 +120,8 @@ const COMPANY_CLAIMS = {
   division_claim: 'division',
   joint_venture_claim: 'joint_venture',
 };
+
+const SEQUENCE_TYPES = new Set(['release', 'narrative']);
 
 const MEMBERSHIP_TYPES = new Set(['included', 'related_series']);
 
@@ -350,6 +351,62 @@ export async function importSeed(db, seed, { dryRun = false } = {}) {
       );
       if (result.rows.length > 0) tally('work_tags', true);
       await keepPayload(query, 'work_tags', raw, `${raw.work_id}:${raw.tag_id}`, workId);
+    }
+
+    // Sequences (owner's rule, 2026-11-24): the seed's order is an editorial
+    // proposal, so it imports with certainty 'unknown' and origin
+    // 'editorial_proposal' -- never as estimated or confirmed -- and every
+    // position stays needs_review. The seed's own certainty and
+    // position_certainty values live on in the verbatim payload.
+    const sequenceSource = new Map();
+    for (const raw of seed.sequences ?? []) {
+      if (!SEQUENCE_TYPES.has(raw.sequence_type)) {
+        throw new Error(`sequences: unknown sequence_type "${raw.sequence_type}"`);
+      }
+      const result = await query.query(
+        upsertSql('sequences', [
+          'franchise_id',
+          'continuity_id',
+          'name',
+          'sequence_type',
+          'ordering_basis',
+          'notes',
+          'source_id',
+        ]),
+        [
+          raw.id,
+          ref(ids.franchises, raw.franchise_id, 'franchise'),
+          ref(ids.continuities, raw.continuity_id, 'continuity'),
+          raw.name,
+          raw.sequence_type,
+          raw.ordering_basis,
+          raw.notes ?? null,
+          sourceId(raw, ids),
+        ]
+      );
+      tally('sequences', result.rows[0].inserted);
+      sequenceSource.set(raw.id, { id: result.rows[0].id, continuity: raw.continuity_id });
+      await keepPayload(query, 'sequences', raw);
+    }
+
+    for (const raw of seed.sequence_items ?? []) {
+      const sequence = sequenceSource.get(raw.sequence_id);
+      if (!sequence) throw new Error(`sequence "${raw.sequence_id}" is not in the imported seed`);
+      const workId = ref(ids.works, raw.work_id, 'work');
+      const result = await query.query(
+        `insert into sequence_items (sequence_id, continuity_id, work_id, position, simultaneous_group)
+         values ($1, $2, $3, $4, $5)
+         on conflict (sequence_id, work_id) do update set
+           position = case when sequence_items.review_status = 'needs_review'
+             then excluded.position else sequence_items.position end,
+           simultaneous_group = case when sequence_items.review_status = 'needs_review'
+             then excluded.simultaneous_group else sequence_items.simultaneous_group end
+         returning (xmax = 0) as inserted`,
+        [sequence.id, ids.continuities.get(sequence.continuity), workId, raw.position,
+         raw.simultaneous_group ?? null]
+      );
+      tally('sequence_items', result.rows[0].inserted);
+      await keepPayload(query, 'sequence_items', raw, `${raw.sequence_id}:${raw.work_id}`, workId);
     }
   };
 

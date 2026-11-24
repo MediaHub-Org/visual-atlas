@@ -35,6 +35,8 @@ const RELATION_TOTALS = {
   ),
   company_relationships: seed.company_relationship_claims.length,
   work_tags: unique(seed.work_tags, (row) => `${row.work_id}|${row.tag_id}`),
+  sequences: seed.sequences.length,
+  sequence_items: unique(seed.sequence_items, (row) => `${row.sequence_id}|${row.work_id}`),
 };
 
 const ALL_TOTALS = { ...TOTALS, ...RELATION_TOTALS };
@@ -45,7 +47,9 @@ const PAYLOADS =
   seed.memberships.length +
   seed.franchise_company_associations.length +
   seed.company_relationship_claims.length +
-  seed.work_tags.length;
+  seed.work_tags.length +
+  seed.sequences.length +
+  seed.sequence_items.length;
 
 async function withDb(run) {
   const db = new PGlite();
@@ -68,7 +72,7 @@ describe('migrations', () => {
       const applied = await db.query('select name from schema_migrations order by name');
       assert.deepEqual(
         applied.rows.map((row) => row.name),
-        ['001_review_and_seed_key.sql', '002_relations_and_claims.sql', 'base:schema.sql']
+        ['001_review_and_seed_key.sql', '002_relations_and_claims.sql', '003_sequences.sql', 'base:schema.sql']
       );
     });
   });
@@ -289,6 +293,78 @@ describe('seed import', () => {
       assert.equal(link.relationship, 'catalog_association');
       assert.equal(link.review_status, 'needs_review');
       assert.equal(await count(db, 'work_tags'), RELATION_TOTALS.work_tags);
+    });
+  });
+
+  it("imports sequences as unknown, editorial proposals, never as estimated or confirmed", async () => {
+    await withDb(async (db) => {
+      await importSeed(db, seed);
+      const rows = (
+        await db.query(
+          'select certainty, origin, review_status, count(*)::int as n from sequences group by 1, 2, 3'
+        )
+      ).rows;
+      assert.deepEqual(rows, [
+        { certainty: 'unknown', origin: 'editorial_proposal', review_status: 'needs_review', n: seed.sequences.length },
+      ]);
+      const items = (
+        await db.query('select certainty, review_status, count(*)::int as n from sequence_items group by 1, 2')
+      ).rows;
+      assert.deepEqual(items, [
+        { certainty: 'unknown', review_status: 'needs_review', n: RELATION_TOTALS.sequence_items },
+      ]);
+      // The seed's own words survive in the verbatim payload.
+      const payload = (
+        await db.query("select payload from imported_metadata where external_id = $1", [
+          `sequences:${seed.sequences[0].id}`,
+        ])
+      ).rows[0].payload;
+      assert.equal(payload.certainty, 'editorial_proposal');
+      // Order inside a sequence is kept.
+      const first = seed.sequence_items.find((row) => row.position === 1);
+      const stored = (
+        await db.query(
+          `select i.position from sequence_items i
+             join sequences s on s.id = i.sequence_id
+             join works w on w.id = i.work_id
+            where s.seed_key = $1 and w.seed_key = $2`,
+          [first.sequence_id, first.work_id]
+        )
+      ).rows[0];
+      assert.equal(stored.position, 1);
+    });
+  });
+
+  it('refuses a sequence item whose work is not in the sequence continuity', async () => {
+    await withDb(async (db) => {
+      const broken = structuredClone(seed);
+      const memberWorks = new Set(
+        broken.memberships
+          .filter((row) => row.continuity_id === broken.sequences[0].continuity_id)
+          .map((row) => row.work_id)
+      );
+      const outsider = broken.works.find((work) => !memberWorks.has(work.id));
+      broken.sequence_items.push({
+        sequence_id: broken.sequences[0].id,
+        work_id: outsider.id,
+        position: 9999,
+        position_certainty: 'needs_review',
+        simultaneous_group: null,
+      });
+      await assert.rejects(() => importSeed(db, broken), (error) => error.code === '23503');
+      assert.equal(await count(db, 'sequences'), 0);
+    });
+  });
+
+  it('does not overwrite a reviewed sequence item on re-import', async () => {
+    await withDb(async (db) => {
+      await importSeed(db, seed);
+      await db.query(
+        `update sequence_items set position = 500, review_status = 'reviewed' where ctid = (select ctid from sequence_items limit 1)`
+      );
+      await importSeed(db, seed);
+      const kept = (await db.query("select position from sequence_items where review_status = 'reviewed'")).rows;
+      assert.deepEqual(kept, [{ position: 500 }]);
     });
   });
 

@@ -74,14 +74,23 @@ Natural keys make the joins idempotent: `(work_id, franchise_id)`,
   row is frozen (tested).
 - `--dry-run` runs the real statements and rolls back (tested).
 
+## Third pass: sequences (owner's rule, 2026-11-24)
+
+The seed's 235 sequences and 1,425 items are an editorial proposal from the
+conversation export. They import into `sequences` / `sequence_items`
+(migration `003_sequences.sql`) with `certainty = 'unknown'` and
+`origin = 'editorial_proposal'` -- never `estimated` or `confirmed` -- and every
+row `needs_review`. The seed's own `certainty` / `position_certainty` values stay
+in the verbatim payload. Items must belong to the sequence's continuity
+(composite foreign key), and a reviewed item is frozen on re-import. Release
+order and narrative order of one continuity are two sequences, which is why they
+do not go into `chronology_entries`.
+
 ## Still out, on purpose
 
-- **Sequences and sequence items.** Narrative order is a proposal in the seed, not
-  a date; mapping it needs the owner's rule for `placement` and `certainty`
-  (`editorial_proposal` is not one of the schema's four values). The importer
-  refuses to guess.
-- **Chronology.** `chronology_entries` and `chronology_relations` wait for that
-  same rule; no position or relation is invented from a sequence.
+- **Chronology.** `chronology_entries` and `chronology_relations` stay empty: a
+  sequence is an editorial list, not a verified chronology, so no position or
+  relation is derived from it.
 - **Posters.** `posters` records provenance and expiry; importing the cached files
   is a separate step under TMDB's terms.
 - **Users, roles, RLS.** Still absent on purpose.
