@@ -378,3 +378,12 @@ button.person:hover { color: var(--accent); border-bottom-color: var(--accent); 
 .detail-art { position: relative; }
 .poster-jump { position: absolute; right: 12px; bottom: 12px; font-size: 10px; padding: 6px 10px; border: 1px solid var(--line-strong); background: var(--bg); color: var(--text); border-radius: 3px; cursor: pointer; }
 .poster-jump:hover { border-color: var(--accent); color: var(--accent); }
+
+.universe { border: 1px solid var(--line); border-radius: 4px; padding: 4px 14px 12px; margin: 18px 0; }
+.universe-row { display: grid; gap: 6px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.universe-row:last-of-type { border-bottom: 0; }
+.universe-nav { display: flex; gap: 8px; flex-wrap: wrap; }
+.universe-nav button { font-size: 11px; padding: 6px 10px; border: 1px solid var(--line-strong); background: none; color: var(--text); border-radius: 3px; cursor: pointer; }
+.universe-nav button:disabled { opacity: .35; cursor: default; }
+.universe-nav button.primary { border-color: var(--accent); color: var(--accent); margin-left: auto; }
+.group-items button.focus { background: var(--accent-soft); outline: 1px solid var(--accent); }

@@ -5,11 +5,14 @@ import {posterUrl, type PosterLookup} from './WorkCard';
 
 type Candidate = {id: number; title: string; date?: string; poster: string};
 
-export function DetailPanel({work, t, tags, onPerson, posters, tmdbConfigured, onPosterSaved, onClose}: {
+export function DetailPanel({work, t, tags, onPerson, universe, onOpenOrder, onWork, posters, tmdbConfigured, onPosterSaved, onClose}: {
   work: Work;
   t: TFn;
   tags: {id: string; name: string}[];
   onPerson: (id: number) => void;
+  universe: {id: string; label: string; position: number; total: number; prev?: {id: string; title: string}; next?: {id: string; title: string}}[];
+  onOpenOrder: (sequenceId: string, workId: string) => void;
+  onWork: (id: string) => void;
   posters: PosterLookup;
   tmdbConfigured: boolean;
   onPosterSaved: (id: string) => void;
@@ -64,6 +67,19 @@ export function DetailPanel({work, t, tags, onPerson, posters, tmdbConfigured, o
         {work.memberships.map(membership => <p key={`${membership.franchise}/${membership.continuity}`}>
           <span className="badge">{membership.franchise} / {membership.continuity}</span>
         </p>)}
+        {universe.length > 0 && <section className="universe">
+          <h3>{t('universe.title')}</h3>
+          {universe.map(entry => <div className="universe-row" key={entry.id}>
+            <strong>{entry.label}</strong>
+            <span className="muted">{t('universe.position', {n: entry.position, total: entry.total})}</span>
+            <div className="universe-nav">
+              <button disabled={!entry.prev} onClick={() => entry.prev && onWork(entry.prev.id)} title={entry.prev?.title}>← {t('universe.prev')}</button>
+              <button disabled={!entry.next} onClick={() => entry.next && onWork(entry.next.id)} title={entry.next?.title}>{t('universe.next')} →</button>
+              <button className="primary" onClick={() => onOpenOrder(entry.id, work.id)}>{t('universe.open')}</button>
+            </div>
+          </div>)}
+          <p className="muted">{t('universe.note')}</p>
+        </section>}
         <h3>{t('detail.story')}</h3>
         <p>{work.description}</p>
         <Credits work={work} t={t} onPerson={onPerson}/>

@@ -33,6 +33,14 @@ The detail panel shows the credits with a source line and TMDB link; each name f
 by person (`?person=<tmdb id>`). The poster search is also reachable from a
 «Change poster» button on the poster (it used to sit unseen at the bottom of the panel).
 
+The two orders are now named apart: «Release timeline» (by year of release) and
+«In-universe order» (the seed's narrative sequences). A work's detail panel lists the
+in-universe order(s) it belongs to with position, earlier/later neighbours and
+«Open the full order» (`?seq=<sequence id>&at=<work id>`), which opens only that list
+with the work highlighted; the other lists start collapsed. There are no in-world
+dates yet: `narrative_periods` is empty and `calendar_systems` only has real-world
+calendars. See the owner's chronology goal in the next section before adding dates.
+
 ## Next (beyond the basics)
 
 1. Verify representative seed records against independent, licensed sources.

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import type {Dataset, Work} from '../data';
 import type {TFn} from '../i18n';
 import {CompanyTree} from './CompanyTree';
@@ -15,12 +15,20 @@ export function TableView({works, t, onSelect}: {works: Work[]; t: TFn; onSelect
   </table></div>;
 }
 
-export function SequenceView({dataset, works, t, onSelect}: {
+export function SequenceView({dataset, works, t, onSelect, openId = '', focusWork = ''}: {
   dataset: Dataset;
   works: Work[];
   t: TFn;
   onSelect: (id: string) => void;
+  /** The one sequence to show open (arriving from a work's card); none opens by default. */
+  openId?: string;
+  focusWork?: string;
 }) {
+  useEffect(() => {
+    if (!openId) return;
+    document.getElementById(`seq-${openId}`)?.scrollIntoView({block: 'start'});
+    document.getElementById(`seq-${openId}-${focusWork}`)?.scrollIntoView({block: 'center'});
+  }, [openId, focusWork]);
   const visible = new Set(works.map(work => work.id));
   const sequences = dataset.sequences
     .map(sequence => ({...sequence, items: sequence.items.filter(item => visible.has(item.workId))}))
@@ -29,15 +37,15 @@ export function SequenceView({dataset, works, t, onSelect}: {
   const unplaced = works.filter(work => !placed.has(work.id));
   return <div className="groups">
     <p>{t('sequence.note')}</p>
-    {sequences.map(sequence => <details key={sequence.id} open>
+    {sequences.map(sequence => <details key={`${sequence.id}:${openId}`} id={`seq-${sequence.id}`} open={sequence.id === openId}>
       <summary>
         {sequence.franchise} / {sequence.continuity}
         <span className="badge proposal" title={t('sequence.badgeHint')}>{t('sequence.badge')}</span>
-        <small className="basis">{sequence.basis.replace(/_/g, ' ')}</small>
+        <small className="basis">{sequence.basis.replace(/_/g, ' ')} · {sequence.items.length}</small>
       </summary>
       <div className="group-items">{sequence.items.map(item => {
         const work = dataset.worksById.get(item.workId);
-        return work && <button key={work.id} onClick={() => onSelect(work.id)}>
+        return work && <button key={work.id} id={`seq-${sequence.id}-${work.id}`} className={work.id === focusWork && sequence.id === openId ? 'focus' : ''} onClick={() => onSelect(work.id)}>
           <span>{item.position}</span>{work.title} <small>({work.year ?? t('detail.yearUnknown')}) · {t('sequence.review')}</small>
         </button>;
       })}</div>

@@ -27,6 +27,8 @@ function readUrl() {
     company: params.get('company') ?? '',
     tag: params.get('tag') ?? '',
     person: params.get('person') ?? '',
+    seq: params.get('seq') ?? '',
+    at: params.get('at') ?? '',
     format: format && ['All', 'Film', 'Series', 'Anime'].includes(format) ? format : 'All' as Format,
     sort: sort && SORTS.includes(sort) ? sort : 'releaseAsc' as Sort,
     view: view && VIEWS.includes(view) ? view : 'cards' as View,
@@ -60,6 +62,8 @@ export default function App() {
   const [company, setCompany] = useState(initial.company);
   const [tag, setTag] = useState(initial.tag);
   const [person, setPerson] = useState(initial.person);
+  const [seq, setSeq] = useState(initial.seq);
+  const [at, setAt] = useState(initial.at);
   const [format, setFormat] = useState<Format>(initial.format);
   const [sort, setSort] = useState<Sort>(initial.sort);
   const [view, setView] = useState<View>(initial.view);
@@ -95,6 +99,8 @@ export default function App() {
     if (company) params.set('company', company);
     if (tag) params.set('tag', tag);
     if (person) params.set('person', person);
+    if (seq) params.set('seq', seq);
+    if (at) params.set('at', at);
     if (format !== 'All') params.set('format', format);
     if (sort !== 'releaseAsc') params.set('sort', sort);
     if (view !== 'cards') params.set('view', view);
@@ -103,12 +109,12 @@ export default function App() {
     if (needsPoster) params.set('noposter', '1');
     const next = `${location.pathname}${params.size ? `?${params}` : ''}`;
     if (next !== `${location.pathname}${location.search}`) history.replaceState(null, '', next);
-  }, [query, franchise, company, tag, person, format, sort, view, density, selected, needsPoster]);
+  }, [query, franchise, company, tag, person, seq, at, format, sort, view, density, selected, needsPoster]);
 
   useEffect(() => {
     const onPop = () => {
       const next = readUrl();
-      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setTag(next.tag); setPerson(next.person);
+      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setTag(next.tag); setPerson(next.person); setSeq(next.seq); setAt(next.at);
       setFormat(next.format); setSort(next.sort); setView(next.view);
       setDensity(next.density); setSelected(next.work); setNeedsPoster(next.needsPoster);
     };
@@ -117,6 +123,12 @@ export default function App() {
   }, []);
 
   const closeDetail = useCallback(() => setSelected(''), []);
+
+  /** Open one universe's in-world order at a work, clearing filters that would hide part of it. */
+  function openOrder(sequenceId: string, workId: string) {
+    setSeq(sequenceId); setAt(workId); setView('sequence'); setSelected('');
+    setQuery(''); setFranchise('All'); setCompany(''); setTag(''); setPerson(''); setFormat('All'); setNeedsPoster(false);
+  }
   const closeSettings = useCallback(() => setSettingsOpen(false), []);
 
   const companyNode = company ? dataset?.companies.get(company) : undefined;
@@ -151,6 +163,25 @@ export default function App() {
   }, [dataset]);
 
   const selectedWork = selected && dataset ? dataset.worksById.get(selected) : undefined;
+  const selectedUniverse = useMemo(() => {
+    if (!selectedWork || !dataset) return [];
+    return dataset.sequences.flatMap(sequence => {
+      const index = sequence.items.findIndex(item => item.workId === selectedWork.id);
+      if (index < 0) return [];
+      const near = (offset: number) => {
+        const work = dataset.worksById.get(sequence.items[index + offset]?.workId ?? '');
+        return work ? {id: work.id, title: work.title} : undefined;
+      };
+      return [{
+        id: sequence.id,
+        label: `${sequence.franchise} / ${sequence.continuity}`,
+        position: index + 1,
+        total: sequence.items.length,
+        prev: near(-1),
+        next: near(1),
+      }];
+    });
+  }, [selectedWork, dataset]);
   const selectedTags = selectedWork && dataset
     ? dataset.tags.filter(entry => dataset.workTags.get(selectedWork.id)?.includes(entry.id))
     : [];
@@ -181,7 +212,7 @@ export default function App() {
       onFranchise={pickFranchise}
       onCompany={pickCompany}
       onAllCompanies={() => { setView('hierarchy'); setCompany(''); setFranchise('All'); }}
-      onView={target => setView(target)}
+      onView={target => { setView(target); if (target === 'sequence') { setSeq(''); setAt(''); } }}
       onSettings={() => setSettingsOpen(true)}
     />
     <main>
@@ -297,7 +328,7 @@ export default function App() {
                       : view === 'timeline'
                         ? <TimelineView works={filtered} scale={settings.timelineScale} onScale={scale => settings.set({timelineScale: scale})} t={t} posters={posters} onSelect={setSelected}/>
                         : view === 'sequence'
-                          ? <SequenceView dataset={dataset} works={filtered} t={t} onSelect={setSelected}/>
+                          ? <SequenceView dataset={dataset} works={filtered} t={t} onSelect={setSelected} openId={seq} focusWork={at}/>
                           : <HierarchyView dataset={dataset} t={t} onFranchise={pickFranchise} focusCompany={company}/>}
               </section>
 
@@ -318,6 +349,9 @@ export default function App() {
       t={t}
       tags={selectedTags}
       onPerson={id => { setPerson(String(id)); setSelected(''); setView('cards'); }}
+      universe={selectedUniverse}
+      onOpenOrder={openOrder}
+      onWork={setSelected}
       posters={posters}
       tmdbConfigured={tmdbConfigured}
       onPosterSaved={id => setPosters(current => ({ids: new Set(current.ids).add(id), version: Date.now()}))}
