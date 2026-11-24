@@ -48,3 +48,67 @@ export function adaptationsFor(
     asAdapted: all.filter(link => link.adaptedId === workId && exists(link.sourceId)),
   };
 }
+
+type Row = Record<string, unknown>;
+const isRow = (value: unknown): value is Row => typeof value === 'object' && value !== null && !Array.isArray(value);
+const isText = (value: unknown): value is string => typeof value === 'string' && value.length > 0;
+const rowsOf = (value: unknown): Row[] => (Array.isArray(value) ? value.filter(isRow) : []);
+const CERTAINTIES = ['unknown', 'estimated', 'confirmed'];
+
+/**
+ * The video seed plus the text seed's works, franchises, continuities and
+ * memberships, and the validated adaptation links. A malformed or absent text seed
+ * returns the very same video seed; a bad text row is dropped, never fatal, and a
+ * text id that the video seed already uses never replaces the video row.
+ */
+export function mergeTextSeed<S extends { works: Row[]; franchises: Row[]; continuities: Row[]; memberships: Row[] }>(
+  seed: S,
+  raw: unknown,
+): { seed: S; adaptations: Adaptation[] } {
+  if (!isRow(raw)) return { seed, adaptations: [] };
+  const workIds = new Set(seed.works.map(row => row.id));
+  const franchiseIds = new Set(seed.franchises.map(row => row.id));
+  const continuityIds = new Set(seed.continuities.map(row => row.id));
+
+  const works = rowsOf(raw.works).filter(row => {
+    if (!isText(row.id) || !isText(row.title) || !isText(row.format) || mediumOfFormat(row.format) !== 'text' || workIds.has(row.id)) return false;
+    workIds.add(row.id);
+    return true;
+  });
+  const textWorkIds = new Set(works.map(row => row.id));
+  const franchises = rowsOf(raw.franchises).filter(row => {
+    if (!isText(row.id) || !isText(row.name) || franchiseIds.has(row.id)) return false;
+    franchiseIds.add(row.id);
+    return true;
+  });
+  const continuities = rowsOf(raw.continuities).filter(row => {
+    if (!isText(row.id) || !isText(row.name) || continuityIds.has(row.id)) return false;
+    continuityIds.add(row.id);
+    return true;
+  });
+  const memberships = rowsOf(raw.memberships).filter(row =>
+    isText(row.work_id) && textWorkIds.has(row.work_id) && isText(row.franchise_id) && franchiseIds.has(row.franchise_id));
+  const adaptations = rowsOf(raw.adaptations)
+    .filter(row => isText(row.id) && isText(row.source_work_id) && isText(row.adapted_work_id) && isText(row.kind)
+      && workIds.has(row.source_work_id) && workIds.has(row.adapted_work_id) && row.source_work_id !== row.adapted_work_id
+      && CERTAINTIES.includes((row.certainty ?? 'unknown') as string))
+    .map(row => ({
+      id: row.id as string,
+      sourceId: row.source_work_id as string,
+      adaptedId: row.adapted_work_id as string,
+      kind: row.kind as string,
+      certainty: (row.certainty ?? 'unknown') as Adaptation['certainty'],
+    }));
+
+  if (works.length + franchises.length + continuities.length + memberships.length === 0) return { seed, adaptations };
+  return {
+    seed: {
+      ...seed,
+      works: [...seed.works, ...works],
+      franchises: [...seed.franchises, ...franchises],
+      continuities: [...seed.continuities, ...continuities],
+      memberships: [...seed.memberships, ...memberships],
+    },
+    adaptations,
+  };
+}

@@ -209,7 +209,7 @@ export default function App() {
 
   return <div className="app">
     <Sidebar
-      dataset={dataset ?? {works: [], worksById: new Map(), people: new Map(), calendars: new Map(), families: [], chronologySources: [], franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, franchises: 0, companies: 0}}}
+      dataset={dataset ?? {works: [], worksById: new Map(), people: new Map(), calendars: new Map(), families: [], adaptations: [], chronologySources: [], franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, textWorks: 0, franchises: 0, companies: 0}}}
       t={t}
       franchise={franchise}
       tag={tag}

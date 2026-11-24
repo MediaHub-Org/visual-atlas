@@ -1,5 +1,6 @@
 import type { Calendar, Period, Qualifier } from './chronology';
 import { parseFamilies, type Family } from './families';
+import { catalogueFranchises, mediumOfFormat, mergeTextSeed, type Adaptation, type Medium } from './medium';
 
 export type Person = { id: number; name: string };
 export type Credits = {
@@ -28,7 +29,9 @@ export type Work = {
   year: number | null;
   /** True when the year came from imported TMDB metadata, not the curated seed. */
   yearImported?: boolean;
-  format: 'Film' | 'Series';
+  format: 'Film' | 'Series' | 'Comic' | 'Manga' | 'Graphic novel';
+  /** Derived from the format: video (films, series) or text (comics, manga). */
+  medium: Medium;
   memberships: Membership[];
   anime: boolean;
   animated: boolean;
@@ -61,6 +64,8 @@ export type Dataset = {
   calendars: Map<string, Calendar & { franchise: string }>;
   /** Owner-approved groups of franchises sharing one world (public/data/universe_families.json). */
   families: Family[];
+  /** Links between a text work and a video work (public/data/media_text_seed.json). */
+  adaptations: Adaptation[];
   chronologySources: { name: string; licence: string; licenceUrl: string }[];
   franchises: Franchise[];
   companies: Map<string, Company>;
@@ -77,7 +82,7 @@ export type Dataset = {
   }[];
   tags: EditorialTag[];
   workTags: Map<string, string[]>;
-  stats: { films: number; series: number; franchises: number; companies: number };
+  stats: { films: number; series: number; textWorks: number; franchises: number; companies: number };
 };
 
 type SeedWork = {
@@ -165,9 +170,9 @@ function validPeriod(raw: unknown): Period | null {
 }
 
 export async function loadAtlas(url = '/data/media_atlas_seed.json'): Promise<Dataset> {
-  const [seedResponse, metadata, credits, chronology, familiesFile] = await Promise.all([fetch(url), loadImportedMetadata(), loadImportedCredits(), loadChronology(), loadLocalJson<unknown>('/data/universe_families.json')]);
+  const [seedResponse, metadata, credits, chronology, familiesFile, textSeed] = await Promise.all([fetch(url), loadImportedMetadata(), loadImportedCredits(), loadChronology(), loadLocalJson<unknown>('/data/universe_families.json'), loadLocalJson<unknown>('/data/media_text_seed.json')]);
   if (!seedResponse.ok) throw new Error(`Unable to load the atlas dataset (${seedResponse.status}).`);
-  return buildDataset(await seedResponse.json() as Seed, metadata, credits, chronology, parseFamilies(familiesFile));
+  return buildDataset(await seedResponse.json() as Seed, metadata, credits, chronology, parseFamilies(familiesFile), textSeed);
 }
 
 /** Credits past their cache limit are not shown; fetch-credits.mjs re-fetches them. */
@@ -183,7 +188,11 @@ function freshCredits(entry?: ImportedCreditsEntry): Credits | undefined {
   };
 }
 
-export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, credits?: ImportedCredits | null, chronology: ChronologyFile[] = [], families: Family[] = []): Dataset {
+const FORMATS: Record<string, Work['format']> = { film: 'Film', comic_series: 'Comic', manga_series: 'Manga', graphic_novel: 'Graphic novel' };
+
+export function buildDataset(videoSeed: Seed, metadata?: ImportedMetadata | null, credits?: ImportedCredits | null, chronology: ChronologyFile[] = [], families: Family[] = [], textSeed?: unknown): Dataset {
+  // Comics and manga ride in the same arrays; with no (or a malformed) text seed this is the video seed itself.
+  const { seed, adaptations } = mergeTextSeed(videoSeed, textSeed);
   const franchiseNames = new Map(seed.franchises.map(f => [f.id, f.name]));
 
   const calendars = new Map<string, Calendar & { franchise: string }>();
@@ -240,7 +249,8 @@ export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, cre
       title: work.title,
       year: useImported ? importedYear! : work.release_year,
       yearImported: useImported || undefined,
-      format: work.format === 'film' ? 'Film' : 'Series',
+      format: FORMATS[work.format] ?? 'Series',
+      medium: mediumOfFormat(work.format),
       memberships: byWork.get(work.id) ?? [],
       anime: work.animation_classification === 'anime',
       animated: work.animation_classification === 'anime' || work.animation_classification === 'animation',
@@ -378,6 +388,7 @@ export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, cre
     people,
     calendars,
     families,
+    adaptations,
     chronologySources,
     franchises,
     companies,
@@ -388,7 +399,8 @@ export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, cre
     stats: {
       films: works.filter(work => work.format === 'Film').length,
       series: works.filter(work => work.format === 'Series').length,
-      franchises: franchises.length,
+      textWorks: works.filter(work => work.medium === 'text').length,
+      franchises: catalogueFranchises(franchises, works, 'video').length,
       companies: [...companies.keys()].length,
     },
   };
