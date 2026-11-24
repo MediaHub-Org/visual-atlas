@@ -93,6 +93,32 @@ catalogue duplicates share title and year, and refuses event/premiere titles.
 `scripts/title-rules.mjs` holds the explicit, reviewable overrides for seed
 labels such as «Doctor Who: original series» or «Doraemon: 1979 series».
 
+## Text media (comics & manga)
+
+A **Video | Text** switch (sidebar and explore header, `?media=text`) swaps the whole
+catalogue. Text media is its own catalogue with its own franchises and is linked to
+video adaptations. The pilot (13 titles: five manga, three Western comics, five
+independent titles) lives in `public/data/media_text_seed.json`, same row shapes as the
+video seed, all `needs_review`; titles and years are facts, no synopsis is copied.
+
+- **Adaptations** (`adaptations` table, migration `005_text_media.sql`) link a source work
+  to the work adapted from it, either direction. Seed links are certainty `unknown`
+  (shown as "Editorial proposal · unverified"); the import refuses `confirmed`.
+- **Not in the pilot:** volumes, issues, arcs, reading order, publishers, regional
+  editions, in-world chronology. Text mode hides "In-universe order" and the company tree.
+- **Local enrichment:** `node --env-file-if-exists=.env scripts/fetch-text-metadata.mjs`
+  (`--dry-run`, `--only <id>`, `--limit`) takes year, creators and a cover from AniList
+  (manga, no key) and Comic Vine (`COMICVINE_API_KEY` in `.env`, never committed). Cache:
+  `public/data/text_metadata.json` and covers in `public/posters/`, local-only, 150-day
+  expiry, ignored by Git and stripped from `dist/`. A work is cached only on an exact
+  normalised title match. AniList's reported adaptations go to
+  `public/data/text_adaptation_proposals.json` for you to review; they never enter the
+  seed on their own. AniList forbids hoarding data and branding with its name; the footer
+  credits each source in use.
+- **Add a title:** add the work, its franchise membership (an existing franchise id or a
+  new franchise) and, if a video work really adapts it, an `unknown` adaptation to
+  `media_text_seed.json`; run `npm test` and `npm run db:import -- --dry-run`.
+
 ## In-world chronology
 
 The release timeline orders works by real-world year; the **in-universe order** view

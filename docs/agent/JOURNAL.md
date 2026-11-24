@@ -99,3 +99,7 @@ Newest first. The live state is in [`HANDOFF.md`](HANDOFF.md).
 - Committed the previous session's pending work (escape key, schema proposal,
   moved-repository notes) after verifying the build; git identity set locally
   for this repository.
+
+## 2026-11-24 - text media pilot
+- Added the Video | Text catalogue switch, text formats and adaptation links (migration 005), a separate text seed with 13 pilot titles, a pure `src/medium.ts`, and a local AniList / Comic Vine enrichment script with attribution and cache rules matching the TMDB ones.
+- Browser-verified: manga <-> anime links both ways, standalone titles show "No adaptation in the atlas". Tests: db 82, ui 75.

@@ -81,3 +81,9 @@ corporate cycle and no ownership is inferred from `catalog_association`.
 - "In-universe order" shows one block per universe family (Marvel, DC live action: `public/data/universe_families.json`, owner-approved 2026-11-24, Insidious excluded) or per franchise, with one lane per continuity. Continuities are never merged; `same_world` only labels a lane.
 - Star Wars is the only block with a calendar: "Calendar axis" switches it to the BBY/ABY axis. Other blocks say they have no in-world dates.
 - Code: `src/families.ts` (parse + `buildBlocks`, tested in `tests/families.test.mjs`), `SequenceView` in `src/components/Views.tsx`. Proposal record: `docs/proposals/universe-families.md`.
+
+## Text media, comics & manga (2026-11-24)
+- Spec `docs/superpowers/specs/2026-11-24-text-media-design.md`, plan `docs/superpowers/plans/2026-11-24-text-media.md`. Video | Text switch (`media=text`), pilot of 13 titles in `public/data/media_text_seed.json`, `adaptations` table (migration 005), `src/medium.ts` (pure, tested in `tests/medium.test.mjs`), enrichment `scripts/fetch-text-metadata.mjs`.
+- Only six manga->anime links exist (Dragon Ball x2, One Piece, Detective Conan, Doraemon x2), all `unknown`. No run-level links for Marvel/DC/TMNT comics or Pokémon Adventures on purpose.
+- Western comics and the standalone Maus, Saga, Blankets, Love and Rockets have no year/creators/cover until `COMICVINE_API_KEY` is set and the script is run (Comic Vine terms still to be read in full before the first call).
+- Not done: volumes/issues/arcs/reading order, publishers, a text-mode company view.
