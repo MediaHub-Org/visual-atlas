@@ -16,6 +16,7 @@ export type InWorld = {
   page: string;
   url: string;
   revision: number | null;
+  licence: string;
   periods: Period[];
 };
 
@@ -138,17 +139,21 @@ async function loadChronology(): Promise<ChronologyFile[]> {
   return files.filter((file): file is ChronologyFile => file !== null && typeof file === 'object');
 }
 
+const isHttps = (value: unknown): value is string => typeof value === 'string' && /^https:\/\//.test(value);
+
 /** A period the file claims, or null when it is malformed (a bad row never reaches the UI). */
 function validPeriod(raw: unknown): Period | null {
   if (!raw || typeof raw !== 'object') return null;
   const row = raw as Record<string, unknown>;
   const number = (value: unknown) => (typeof value === 'number' && Number.isFinite(value) ? value : null);
   const start = number(row.start);
-  if (start === null || !QUALIFIERS.includes(row.qualifier as Qualifier)) return null;
+  const end = number(row.end);
+  if (start === null || !Number.isInteger(start) || (end !== null && (!Number.isInteger(end) || end < start))) return null;
+  if (!QUALIFIERS.includes(row.qualifier as Qualifier)) return null;
   return {
     label: typeof row.label === 'string' ? row.label : null,
     start,
-    end: number(row.end),
+    end,
     qualifier: row.qualifier as Qualifier,
     primary: row.primary === true,
   };
@@ -191,13 +196,18 @@ export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, cre
       franchise: franchiseNames.get(calendar.franchise ?? '') ?? calendar.franchise ?? '',
     });
     if (file.source?.name && file.source.licence) {
-      chronologySources.push({ name: file.source.name, licence: file.source.licence, licenceUrl: file.source.licence_url ?? '' });
+      chronologySources.push({ name: file.source.name, licence: file.source.licence, licenceUrl: isHttps(file.source.licence_url) ? file.source.licence_url! : '' });
     }
     for (const [workId, entry] of Object.entries(file.entries ?? {})) {
       if (!entry?.parsed || !Array.isArray(entry.periods) || typeof entry.page !== 'string' || typeof entry.url !== 'string') continue;
       const periods = entry.periods.map(validPeriod).filter((period): period is Period => period !== null);
-      if (periods.length === 0) continue;
-      inWorldByWork.set(workId, { calendarId: calendar.id, page: entry.page, url: entry.url, revision: entry.revision ?? null, periods });
+      // Exactly one primary period, and only web links: a malformed entry never reaches the UI.
+      if (periods.length === 0 || periods.length !== entry.periods.length || periods.filter(period => period.primary).length !== 1) continue;
+      if (!isHttps(entry.url)) continue;
+      inWorldByWork.set(workId, {
+        calendarId: calendar.id, page: entry.page, url: entry.url, revision: entry.revision ?? null,
+        licence: file.source?.licence ?? '', periods,
+      });
     }
   }
   const continuityNames = new Map(seed.continuities.map(c => [c.id, c.name]));

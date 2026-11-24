@@ -434,11 +434,26 @@ export async function importSeed(db, seed, { dryRun = false, chronology = [] } =
       );
       tally('fictional_calendars', calendarResult.rows[0].inserted);
 
+      const currentKeys = [];
       for (const [seedWorkId, entry] of Object.entries(file.entries ?? {})) {
         const workId = ref(ids.works, seedWorkId, 'work');
         await keepPayload(query, 'chronology', entry, seedWorkId, workId);
         if (!entry.parsed) continue;
+        // The source may move "primary" to another entry. Draft rows give the flag
+        // up first (the schema allows one primary per work); a reviewed primary is
+        // frozen, so it keeps the flag and the new primary arrives as a plain period.
+        const reviewedPrimary = (await query.query(
+          `select 1 from narrative_periods
+            where work_id = $1 and is_primary and review_status <> 'needs_review' limit 1`,
+          [workId]
+        )).rows.length > 0;
+        await query.query(
+          `update narrative_periods set is_primary = false
+            where work_id = $1 and review_status = 'needs_review' and seed_key is not null`,
+          [workId]
+        );
         for (const [index, period] of entry.periods.entries()) {
+          currentKeys.push(`${seedWorkId}#${index}`);
           const result = await query.query(
             upsertSql('narrative_periods', [
               'work_id', 'label', 'calendar', 'calendar_id', 'start_value', 'end_value',
@@ -446,16 +461,24 @@ export async function importSeed(db, seed, { dryRun = false, chronology = [] } =
               'source_revision', 'retrieved_at', 'licence',
             ]),
             [
-              `${seedWorkId}#${index}`, workId, period.label ?? 'Story', calendar.id, calendar.id,
+              `${seedWorkId}#${index}`, workId, period.label || 'Story', calendar.id, calendar.id,
               period.start, period.end, period.qualifier,
               period.qualifier === 'open_after' ? 'unknown' : 'estimated',
-              period.primary, entry.raw, entry.page, entry.revision ?? null,
+              period.primary && !reviewedPrimary, entry.raw, entry.page, entry.revision ?? null,
               entry.retrievedAt ?? null, file.source?.licence ?? null,
             ]
           );
           tally('narrative_periods', result.rows[0].inserted);
         }
       }
+      // A draft period the source no longer has (an entry that lost a date, stopped
+      // parsing or left the file) goes; a reviewed one is a person's decision and stays.
+      await query.query(
+        `delete from narrative_periods
+          where calendar_id = $1 and review_status = 'needs_review' and seed_key is not null
+            and not (seed_key = any($2::text[]))`,
+        [calendar.id, currentKeys]
+      );
     }
   };
 

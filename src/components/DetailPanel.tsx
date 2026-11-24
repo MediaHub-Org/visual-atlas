@@ -112,7 +112,7 @@ function InWorldDates({work, calendar, t}: {work: Work; calendar: Calendar; t: T
       {period.qualifier !== 'exact' && <small> · {t(QUALIFIER_KEYS[period.qualifier])}</small>}
       {period.label && <small> · {period.label}</small>}
     </li>)}</ul>
-    <p className="muted">{t('inworld.source')} <a href={inWorld.url} target="_blank" rel="noreferrer">{inWorld.page}</a> (CC BY-SA 3.0)</p>
+    <p className="muted">{t('inworld.source')} <a href={inWorld.url} target="_blank" rel="noreferrer">{inWorld.page}</a>{inWorld.licence && ` (${inWorld.licence})`}</p>
   </section>;
 }
 

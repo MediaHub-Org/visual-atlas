@@ -50,6 +50,10 @@ export function AxisView({dataset, works, calendarId, scale, onScale, t, onSelec
       </div>
     </header>
     <p className="muted">{t('axis.note')}</p>
+    {dataset.chronologySources.length > 0 && <p className="muted axis-source">
+      {t('inworld.footer')} {dataset.chronologySources.map(source =>
+        <a key={source.name} href={source.licenceUrl || undefined} target="_blank" rel="noreferrer">{source.name} · {source.licence}</a>)}
+    </p>}
 
     {conflicts.length > 0 && <ul className="axis-conflicts">
       {conflicts.map(conflict => <li key={conflict.key}>

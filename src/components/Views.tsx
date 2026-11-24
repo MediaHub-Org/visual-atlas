@@ -48,6 +48,7 @@ export function SequenceView({dataset, works, t, onSelect, openId = '', focusWor
       <button className={!showAxis ? 'selected' : ''} aria-pressed={!showAxis} onClick={() => onAxis(false)}>{t('view.list')}</button>
       <button className={showAxis ? 'selected' : ''} aria-pressed={showAxis} onClick={() => onAxis(true)}>{t('view.axis')}</button>
     </div>}
+    {showAxis && !calendars.some(id => works.some(work => work.inWorld?.calendarId === id)) && <div className="empty">{t('axis.none')}</div>}
     {showAxis && calendars.map(id => <AxisView key={id} dataset={dataset} works={works} calendarId={id} scale={scale}
       onScale={next => onScale?.(next)} t={t} onSelect={onSelect}/>)}
     {!showAxis && <>

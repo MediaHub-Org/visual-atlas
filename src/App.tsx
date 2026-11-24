@@ -66,6 +66,7 @@ export default function App() {
   const [seq, setSeq] = useState(initial.seq);
   const [at, setAt] = useState(initial.at);
   const [axis, setAxis] = useState(initial.axis);
+  const [axisScale, setAxisScale] = useState<'equal' | 'proportional'>('proportional');
   const [format, setFormat] = useState<Format>(initial.format);
   const [sort, setSort] = useState<Sort>(initial.sort);
   const [view, setView] = useState<View>(initial.view);
@@ -332,8 +333,7 @@ export default function App() {
                         ? <TimelineView works={filtered} scale={settings.timelineScale} onScale={scale => settings.set({timelineScale: scale})} t={t} posters={posters} onSelect={setSelected}/>
                         : view === 'sequence'
                           ? <SequenceView dataset={dataset} works={filtered} t={t} onSelect={setSelected} openId={seq} focusWork={at}
-                            axis={axis} onAxis={setAxis} scale={settings.timelineScale === 'equal' ? 'equal' : 'proportional'}
-                            onScale={scale => settings.set({timelineScale: scale})}/>
+                            axis={axis} onAxis={setAxis} scale={axisScale} onScale={setAxisScale}/>
                           : <HierarchyView dataset={dataset} t={t} onFranchise={pickFranchise} focusCompany={company}/>}
               </section>
 

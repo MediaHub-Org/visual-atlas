@@ -483,6 +483,64 @@ describe('in-world chronology import', () => {
     });
   });
 
+  const soloKeys = ["film--solo-a-star-wars-story--2018#0", "film--solo-a-star-wars-story--2018#1"];
+  const primaryOf = async (db, work) =>
+    (await db.query(
+      `select p.seed_key from narrative_periods p join works w on w.id = p.work_id
+        where w.seed_key = $1 and p.is_primary`, [work])).rows.map((row) => row.seed_key);
+
+  it('moves the primary period back to an earlier entry, instead of failing the import', async () => {
+    await withDb(async (db) => {
+      const moved = structuredClone(chronology);
+      const solo = moved.entries['film--solo-a-star-wars-story--2018'].periods;
+      solo[0].primary = false;
+      solo[1].primary = true;
+      await importSeed(db, seed, { chronology: [moved] });
+      assert.deepEqual(await primaryOf(db, 'film--solo-a-star-wars-story--2018'), [soloKeys[1]]);
+      await load(db);
+      assert.deepEqual(await primaryOf(db, 'film--solo-a-star-wars-story--2018'), [soloKeys[0]]);
+    });
+  });
+
+  it('keeps a reviewed primary and brings the new primary in as a plain period', async () => {
+    await withDb(async (db) => {
+      await load(db);
+      await db.query(`update narrative_periods set review_status = 'reviewed', reviewed_at = current_date where seed_key = $1`, [soloKeys[0]]);
+      const moved = structuredClone(chronology);
+      const solo = moved.entries['film--solo-a-star-wars-story--2018'].periods;
+      solo[0].primary = false;
+      solo[1].primary = true;
+      await importSeed(db, seed, { chronology: [moved] });
+      assert.deepEqual(await primaryOf(db, 'film--solo-a-star-wars-story--2018'), [soloKeys[0]]);
+    });
+  });
+
+  it('removes draft periods the source no longer has, but keeps reviewed ones', async () => {
+    await withDb(async (db) => {
+      await load(db);
+      const fewer = structuredClone(chronology);
+      fewer.entries['film--solo-a-star-wars-story--2018'].periods.pop();
+      fewer.entries['film--a-new-hope--1977'] = { ...fewer.entries['film--a-new-hope--1977'], parsed: false, periods: [] };
+      await db.query(`update narrative_periods set review_status = 'reviewed', reviewed_at = current_date where seed_key = 'series--star-wars-rebels#1'`);
+      fewer.entries['series--star-wars-rebels'].periods.pop();
+      await importSeed(db, seed, { chronology: [fewer] });
+      const keys = (await db.query('select seed_key from narrative_periods')).rows.map((row) => row.seed_key);
+      assert.ok(!keys.includes(soloKeys[1]), 'the dropped Solo period is gone');
+      assert.ok(!keys.includes('film--a-new-hope--1977#0'), 'an entry that stopped parsing leaves no draft rows');
+      assert.ok(keys.includes('series--star-wars-rebels#1'), 'a reviewed period is never deleted');
+    });
+  });
+
+  it('stores an empty label as "Story" instead of aborting', async () => {
+    await withDb(async (db) => {
+      const blank = structuredClone(chronology);
+      blank.entries['film--a-new-hope--1977'].periods[0].label = '';
+      await importSeed(db, seed, { chronology: [blank] });
+      const row = (await db.query("select label from narrative_periods where seed_key = 'film--a-new-hope--1977#0'")).rows[0];
+      assert.equal(row.label, 'Story');
+    });
+  });
+
   it('refuses a period that ends before it starts', async () => {
     await withDb(async (db) => {
       await load(db);
