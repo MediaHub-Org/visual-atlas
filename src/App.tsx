@@ -9,13 +9,14 @@ import {TimelineView} from './components/TimelineView';
 import {HierarchyView, SequenceView} from './components/Views';
 import {DetailPanel} from './components/DetailPanel';
 import {SettingsPanel} from './components/SettingsPanel';
+import {DensityPanel} from './components/DensityPanel';
 
 type View = 'cards' | 'hierarchy' | 'sequence' | 'timeline';
 type Sort = 'releaseAsc' | 'releaseDesc' | 'title';
 type Format = 'All' | 'Film' | 'Series' | 'Anime' | 'Comic' | 'Manga' | 'Graphic novel';
 const FORMATS = FORMATS_BY_MEDIUM as Record<Medium, Exclude<Format, 'All'>[]>;
 /** Tabs per catalogue: text media has no in-world order yet. */
-const VIEWS_BY_MEDIUM: Record<Medium, View[]> = {video: ['cards', 'sequence', 'timeline'], text: ['cards', 'timeline']};
+const VIEWS_BY_MEDIUM: Record<Medium, View[]> = {video: ['cards', 'sequence', 'timeline'], text: ['cards', 'sequence', 'timeline']};
 
 /** The dashboard's tabs. Hierarchy is no longer a tab: only the sidebar's "+N more" companies link opens it. */
 const VIEWS: View[] = ['cards', 'sequence', 'timeline'];
@@ -42,7 +43,6 @@ function readUrl() {
     format: clampFormat(format ?? 'All', media) as Format,
     sort: sort && SORTS.includes(sort) ? sort : 'releaseAsc' as Sort,
     view: clampView(view && ROUTABLE.includes(view) ? view : 'cards', media) as View,
-    density: params.get('density') === 'compact' ? 'compact' as const : 'comfortable' as const,
     work: params.get('work') ?? '',
     needsPoster: params.get('noposter') === '1',
   };
@@ -75,12 +75,12 @@ export default function App() {
   const [seq, setSeq] = useState(initial.seq);
   const [at, setAt] = useState(initial.at);
   const [axis, setAxis] = useState(initial.axis);
-  const [axisScale, setAxisScale] = useState<'equal' | 'proportional'>('proportional');
   const [medium, setMedium] = useState<Medium>(initial.media);
   const [format, setFormat] = useState<Format>(initial.format);
   const [sort, setSort] = useState<Sort>(initial.sort);
   const [view, setView] = useState<View>(initial.view);
-  const [density, setDensity] = useState<'compact' | 'comfortable'>(initial.density);
+  const density = settings.density;
+  const [densityOpen, setDensityOpen] = useState(false);
   const [selected, setSelected] = useState(initial.work);
   const [needsPoster, setNeedsPoster] = useState(initial.needsPoster);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -120,19 +120,18 @@ export default function App() {
     if (format !== 'All') params.set('format', format);
     if (sort !== 'releaseAsc') params.set('sort', sort);
     if (view !== 'cards') params.set('view', view);
-    if (density !== 'comfortable') params.set('density', density);
     if (selected) params.set('work', selected);
     if (needsPoster) params.set('noposter', '1');
     const next = `${location.pathname}${params.size ? `?${params}` : ''}`;
     if (next !== `${location.pathname}${location.search}`) history.replaceState(null, '', next);
-  }, [query, franchise, company, tag, person, seq, at, axis, medium, format, sort, view, density, selected, needsPoster]);
+  }, [query, franchise, company, tag, person, seq, at, axis, medium, format, sort, view, selected, needsPoster]);
 
   useEffect(() => {
     const onPop = () => {
       const next = readUrl();
       setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setTag(next.tag); setPerson(next.person); setSeq(next.seq); setAt(next.at); setAxis(next.axis);
       setMedium(next.media); setFormat(next.format); setSort(next.sort); setView(next.view);
-      setDensity(next.density); setSelected(next.work); setNeedsPoster(next.needsPoster);
+      setSelected(next.work); setNeedsPoster(next.needsPoster);
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
@@ -276,9 +275,6 @@ export default function App() {
       format={format}
       onFormat={id => { setFormat(id === format ? 'All' : id as Format); setView('cards'); setSelected(''); }}
       onHome={goHome}
-      tag={tag}
-      tags={tagOptions}
-      onTag={id => { setTag(tag === id ? '' : id); setView('cards'); }}
       onFranchise={pickFranchise}
       onCompany={pickCompany}
       onAllCompanies={() => { setView('hierarchy'); setCompany(''); setFranchise('All'); }}
@@ -359,12 +355,6 @@ export default function App() {
                       {franchiseOptions.map(entry => <option key={entry.id} value={entry.name}>{entry.name}</option>)}
                     </select>
                   </label>
-                  <label><span className="sr">{t('filter.tag')}</span>
-                    <select value={tag} onChange={event => setTag(event.target.value)}>
-                      <option value="">{t('filter.tag')}: {t('filter.all')}</option>
-                      {tagOptions.map(entry => <option key={entry.id} value={entry.id}>{entry.name} ({entry.count})</option>)}
-                    </select>
-                  </label>
                   <label><span className="sr">{t('filter.format')}</span>
                     <select value={format} onChange={event => setFormat(event.target.value as Format)}>
                       <option value="All">{t('filter.format')}: {t('filter.all')}</option>
@@ -379,13 +369,20 @@ export default function App() {
                   <button className={`chip ${needsPoster ? 'active' : ''}`} aria-pressed={needsPoster} onClick={() => setNeedsPoster(value => !value)}>
                     {t('filter.noPoster')}
                   </button>
-                  <button className="density" onClick={() => settings.set({cardStyle: settings.cardStyle === 'text' ? 'poster' : 'text'})}>
+                  <button className="chip" onClick={() => settings.set({cardStyle: settings.cardStyle === 'text' ? 'poster' : 'text'})}>
                     {t('card.style')}: {t(`card.${settings.cardStyle}`)}
                   </button>
-                  <button className="density" onClick={() => setDensity(density === 'compact' ? 'comfortable' : 'compact')}>
-                    {t('density.label')}: {t(`density.${density}`)}
+                  <button className="chip" aria-haspopup="dialog" onClick={() => setDensityOpen(true)}>
+                    {t('density.label')}: {t(`density.${density}`)} · {t(`timeline.${settings.timelineScale}`)}
                   </button>
                 </div>
+
+                {tagOptions.length > 0 && <div className="pill-row" role="group" aria-label={t('nav.collections')}>
+                  <span className="pill-label">{t('nav.collections')}</span>
+                  {tagOptions.map(entry => <button key={entry.id} className={`chip ${tag === entry.id ? 'active' : ''}`} aria-pressed={tag === entry.id} onClick={() => setTag(tag === entry.id ? '' : entry.id)}>
+                    {entry.name} <span>{entry.count}</span>
+                  </button>)}
+                </div>}
 
                 {(companyNode || franchise !== 'All' || tag || person) && <div className="active-filters">
                   {companyNode && <button className="chip active" onClick={() => setCompany('')}>{companyNode.name} ✕</button>}
@@ -407,17 +404,17 @@ export default function App() {
                   : view === 'cards'
                     ? <div className={`grid ${density} ${settings.cardStyle === 'text' ? 'text-style' : ''}`}>{filtered.map(work => <WorkCard key={work.id} work={work} t={t} posters={posters} onSelect={setSelected}/>)}</div>
                     : view === 'timeline'
-                      ? <TimelineView works={filtered} scale={settings.timelineScale} onScale={scale => settings.set({timelineScale: scale})} t={t} posters={posters} onSelect={setSelected}/>
+                      ? <TimelineView works={filtered} t={t} posters={posters} onSelect={setSelected}/>
                       : view === 'sequence'
-                        ? <SequenceView dataset={dataset} works={filtered} t={t} posters={posters} onSelect={setSelected} openId={seq} focusWork={at}
-                          axis={axis} onAxis={setAxis} scale={axisScale} onScale={setAxisScale}/>
+                        ? <SequenceView dataset={dataset} works={filtered} t={t} posters={posters} medium={medium} onSelect={setSelected} openId={seq} focusWork={at}
+                          axis={axis} onAxis={setAxis}/>
                         : <HierarchyView dataset={dataset} t={t} onFranchise={pickFranchise} focusCompany={company}/>}
               </section>
 
               <footer>
                 <span>FRAME ✳</span>
                 <p>{t('footer.warning')}</p>
-                {dataset.chronologySources.length > 0 && <p className="chronology-attribution">
+                {medium === 'video' && dataset.chronologySources.length > 0 && <p className="chronology-attribution">
                   {t('inworld.footer')} {dataset.chronologySources.map(source =>
                     <a key={source.name} href={source.licenceUrl || undefined} target="_blank" rel="noreferrer">{source.name} · {source.licence}</a>)}
                 </p>}
@@ -449,6 +446,7 @@ export default function App() {
       onPosterSaved={refreshPosters}
       onClose={closeDetail}
     />}
+    {densityOpen && <DensityPanel t={t} onClose={() => setDensityOpen(false)}/>}
     {settingsOpen && <SettingsPanel onClose={closeSettings} posterCount={posters.ids.size} configured={tmdbConfigured}/>}
   </div>;
 }

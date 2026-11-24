@@ -1,23 +1,17 @@
 import {useState} from 'react';
 import type {Work} from '../data';
 import {qty, type TFn} from '../i18n';
-import type {TimelineScale} from '../settings';
+import {useSettings} from '../settings';
+import {gapFor} from '../chronology';
 import {MiniWork, type PosterLookup} from './WorkCard';
 
-function gapFor(delta: number, scale: TimelineScale): number {
-  if (scale === 'equal') return 30;
-  if (scale === 'log') return Math.min(260, Math.max(24, Math.log2(delta + 1) * 46));
-  return Math.min(340, Math.max(24, delta * 16));
-}
-
-export function TimelineView({works, scale, onScale, t, posters, onSelect}: {
+export function TimelineView({works, t, posters, onSelect}: {
   works: Work[];
-  scale: TimelineScale;
-  onScale: (scale: TimelineScale) => void;
   t: TFn;
   posters: PosterLookup;
   onSelect: (id: string) => void;
 }) {
+  const {timelineScale: scale, density} = useSettings();
   const dated = works.filter((work): work is Work & {year: number} => work.year !== null);
   const years = [...new Set(dated.map(work => work.year))].sort((a, b) => a - b);
   const undated = works.filter(work => work.year === null);
@@ -28,15 +22,9 @@ export function TimelineView({works, scale, onScale, t, posters, onSelect}: {
     return next;
   });
 
-  return <section className="timeline">
+  return <section className={`timeline ${density}`}>
     <header className="timeline-head">
       <p>{t('timeline.note')}</p>
-      <div className="segmented" role="group" aria-label={t('timeline.scale')}>
-        {(['equal', 'proportional', 'log'] as TimelineScale[]).map(option =>
-          <button key={option} className={scale === option ? 'selected' : ''} aria-pressed={scale === option} onClick={() => onScale(option)}>
-            {t(`timeline.${option}`)}
-          </button>)}
-      </div>
     </header>
     {years.length === 0 ? <div className="empty">{t('timeline.empty')}</div> : <>
       <p className="timeline-count">{qty(t, years.length, 'noun.year', 'noun.years')}</p>

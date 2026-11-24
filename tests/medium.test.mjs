@@ -179,7 +179,7 @@ describe('clampView and clampFormat', () => {
     assert.equal(clampView('sequence', 'video'), 'sequence');
     assert.equal(clampView('hierarchy', 'video'), 'hierarchy');
     assert.equal(clampView('timeline', 'text'), 'timeline');
-    assert.equal(clampView('sequence', 'text'), 'cards');
+    assert.equal(clampView('sequence', 'text'), 'sequence');
     assert.equal(clampView('hierarchy', 'text'), 'cards');
     assert.equal(clampView('nonsense', 'video'), 'cards');
   });

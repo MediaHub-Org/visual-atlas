@@ -101,3 +101,8 @@ corporate cycle and no ownership is inferred from `catalog_association`.
 
 ## Text card style (2026-11-24)
 - One global preference `cardStyle` (`poster` | `text`, saved in the browser settings, toggle "Cards: Posters/Text" in the toolbar and in Settings) applies the same way in Cards, In-universe order and Release timeline. Text cards drop the poster and show title, year, franchise/continuity, format and anime flags, in-world-date and adaptation-link icons and the director (video) or creators (comics/manga). Logic in `src/facts.ts` (`tests/facts.test.mjs`).
+
+## Density panel, Read in-universe order, collection pills (2026-11-24)
+- The toolbar "Density" chip opens a right-hand panel (`DensityPanel`) with card size (comfortable/compact) and timeline spacing (equal/proportional/logarithmic); both are saved preferences. Card size applies to Cards, In-universe order and Release timeline; spacing to the Release timeline and the Star Wars calendar axis (the inline scale buttons are gone; `gapFor` in `src/chronology.ts` now has `log`). Cards have no spacing scale.
+- Read mode has "In-universe order": blocks per series/family (Marvel and DC include their comics, added to `universe_families.json`; DC renamed from "DC (live action)"), works unordered, honest note that no comics order exists.
+- Collections (editorial tags) are pills above the results, not a sidebar list; the tag dropdown was removed. Toolbar buttons use the same chip look.

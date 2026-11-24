@@ -59,9 +59,10 @@ export function axisGroups<T extends { id: string; periods: Period[] }>(
   return { groups, undated };
 }
 
-/** Vertical gap in pixels between two axis rows `delta` years apart. */
-export function gapFor(delta: number, scale: 'equal' | 'proportional'): number {
+/** Vertical gap in pixels between two rows `delta` years apart (timeline and calendar axis). */
+export function gapFor(delta: number, scale: 'equal' | 'proportional' | 'log'): number {
   if (scale === 'equal') return 30;
+  if (scale === 'log') return Math.min(260, Math.max(24, Math.log2(delta + 1) * 46));
   return Math.min(340, Math.max(24, delta * 16));
 }
 

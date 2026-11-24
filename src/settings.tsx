@@ -6,6 +6,8 @@ export type CalendarId = 'gregory' | 'hebrew' | 'islamic-civil' | 'islamic-umalq
 export type TimelineScale = 'equal' | 'proportional' | 'log';
 /** How every work card looks, in every tab: with a poster, or text only with extra facts and icons. */
 export type CardStyle = 'poster' | 'text';
+/** Card size in Cards, In-universe order and Release timeline. */
+export type Density = 'comfortable' | 'compact';
 
 export type Preferences = {
   language: Language;
@@ -13,6 +15,7 @@ export type Preferences = {
   calendar: CalendarId;
   timelineScale: TimelineScale;
   cardStyle: CardStyle;
+  density: Density;
 };
 
 export const CALENDARS: {id: CalendarId; en: string; es: string}[] = [
@@ -23,7 +26,7 @@ export const CALENDARS: {id: CalendarId; en: string; es: string}[] = [
   {id: 'islamic-tbla', en: 'Islamic astronomical tabular', es: 'Islámico astronómico tabular'},
 ];
 
-const DEFAULTS: Preferences = {language: 'en', theme: 'dark', calendar: 'gregory', timelineScale: 'proportional', cardStyle: 'poster'};
+const DEFAULTS: Preferences = {language: 'en', theme: 'dark', calendar: 'gregory', timelineScale: 'proportional', cardStyle: 'poster', density: 'comfortable'};
 const STORAGE_KEY = 'atlas.preferences.v1';
 
 function readPreferences(): Preferences {
@@ -37,6 +40,7 @@ function readPreferences(): Preferences {
       calendar: CALENDARS.some(entry => entry.id === parsed.calendar) ? parsed.calendar! : DEFAULTS.calendar,
       timelineScale: parsed.timelineScale === 'equal' || parsed.timelineScale === 'log' ? parsed.timelineScale : 'proportional',
       cardStyle: parsed.cardStyle === 'text' ? 'text' : 'poster',
+      density: parsed.density === 'compact' ? 'compact' : 'comfortable',
     };
   } catch {
     return DEFAULTS;

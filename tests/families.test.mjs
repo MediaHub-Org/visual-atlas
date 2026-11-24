@@ -54,7 +54,8 @@ describe('the committed families file', () => {
   const file = JSON.parse(readFileSync(new URL('../public/data/universe_families.json', import.meta.url), 'utf8'));
   const seed = JSON.parse(readFileSync(new URL('../public/data/media_atlas_seed.json', import.meta.url), 'utf8'));
   it('only names franchises and continuities that exist in the seed', () => {
-    const franchiseIds = new Set(seed.franchises.map(f => f.id));
+    const text = JSON.parse(readFileSync(new URL('../public/data/media_text_seed.json', import.meta.url), 'utf8'));
+    const franchiseIds = new Set([...seed.franchises, ...text.franchises].map(f => f.id));
     const continuityIds = new Set(seed.continuities.map(c => c.id));
     for (const family of parseFamilies(file)) {
       for (const id of family.franchiseIds) assert.ok(franchiseIds.has(id), id);

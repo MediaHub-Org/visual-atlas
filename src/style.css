@@ -460,3 +460,15 @@ a.brand { display: block; color: inherit; text-decoration: none; }
 .mini-work.text-only { align-items: flex-start; }
 .mini-work.text-only .mini-text strong { white-space: normal; }
 .mini-work.text-only .facts { margin-top: 4px; }
+
+/* Toolbar buttons and collection pills share the chip look. */
+.toolbar .chip { font-size: 11px; }
+.pill-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
+.pill-label { font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+.chip span { margin-left: 4px; }
+.timeline.compact .tl-works { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 6px; }
+.timeline.compact .mini-work { padding: 5px 6px; }
+.universe-blocks.compact .lane-works { gap: 5px; }
+.universe-blocks.compact .lanes { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.universe-blocks.compact .lane-works.wide { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); }
+.setting-row .segmented { margin-top: 6px; }

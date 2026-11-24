@@ -157,7 +157,7 @@ export function franchiseWorkIds(
 /** Views a URL may open in each catalogue (text media has no in-world order or company tree yet). */
 const VIEWS_BY_MEDIUM: Record<Medium, string[]> = {
   video: ['cards', 'sequence', 'timeline', 'hierarchy'],
-  text: ['cards', 'timeline'],
+  text: ['cards', 'sequence', 'timeline'],
 };
 /** Format filter values of each catalogue. */
 export const FORMATS_BY_MEDIUM: Record<Medium, string[]> = {

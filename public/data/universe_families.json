@@ -1,22 +1,52 @@
 {
   "approved_by_owner": true,
   "approved_on": "2026-11-24",
-  "note": "A family groups franchises the owner says share one fictional world. It never merges continuities: each keeps its own lane. same_world only labels a lane as the same world as another; it does not move works. Source: docs/proposals/universe-families.md.",
+  "note": "A family groups franchises the owner says share one fictional world. It never merges continuities: each keeps its own lane. same_world only labels a lane as the same world as another; it does not move works. Source: docs/proposals/universe-families.md. 2026-11-24: the comics franchises of Marvel and DC were added to the approved families (owner: \"muchos otros de Marvel\"); DC is no longer labelled live action.",
   "families": [
     {
       "id": "marvel",
       "name": "Marvel",
-      "franchises": ["marvel", "x-men", "spider-man"],
+      "franchises": [
+        "marvel",
+        "x-men",
+        "spider-man",
+        "avengers",
+        "fantastic-four",
+        "captain-america",
+        "iron-man",
+        "thor",
+        "daredevil",
+        "hulk"
+      ],
       "same_world": [
-        { "franchise": "spider-man", "continuity": "spider-man--mcu-solo-films", "as_franchise": "marvel", "as_continuity": "marvel--main-universe" }
+        {
+          "franchise": "spider-man",
+          "continuity": "spider-man--mcu-solo-films",
+          "as_franchise": "marvel",
+          "as_continuity": "marvel--main-universe"
+        }
       ]
     },
     {
       "id": "dc",
-      "name": "DC (live action)",
-      "franchises": ["dceu", "batman", "superman"],
+      "name": "DC",
+      "franchises": [
+        "dceu",
+        "batman",
+        "superman",
+        "wonder-woman",
+        "justice-league",
+        "flash",
+        "green-lantern",
+        "sandman"
+      ],
       "same_world": [
-        { "franchise": "superman", "continuity": "superman--dceu-solo-film", "as_franchise": "dceu", "as_continuity": "dceu--dceu" }
+        {
+          "franchise": "superman",
+          "continuity": "superman--dceu-solo-film",
+          "as_franchise": "dceu",
+          "as_continuity": "dceu--dceu"
+        }
       ]
     }
   ]

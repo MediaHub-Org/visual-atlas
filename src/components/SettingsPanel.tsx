@@ -105,18 +105,11 @@ export function SettingsPanel({onClose, posterCount, configured}: {onClose: () =
         </label>
         <p className="muted">{t('settings.calendarNote')}</p>
 
-        <h3>{t('settings.timeline')}</h3>
+        <h3>{t('settings.cards')}</h3>
         <label className="setting-row">{t('card.style')}
           <select value={settings.cardStyle} onChange={event => settings.set({cardStyle: event.target.value === 'text' ? 'text' : 'poster'})}>
             <option value="poster">{t('card.poster')}</option>
             <option value="text">{t('card.text')}</option>
-          </select>
-        </label>
-        <label className="setting-row">{t('timeline.scale')}
-          <select value={settings.timelineScale} onChange={event => settings.set({timelineScale: event.target.value as 'equal' | 'proportional' | 'log'})}>
-            <option value="equal">{t('timeline.equal')}</option>
-            <option value="proportional">{t('timeline.proportional')}</option>
-            <option value="log">{t('timeline.log')}</option>
           </select>
         </label>
 

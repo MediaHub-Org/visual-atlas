@@ -1,22 +1,24 @@
 import {useEffect, useState} from 'react';
 import type {Dataset, Work} from '../data';
-import type {TFn} from '../i18n';
+import {qty, type TFn} from '../i18n';
 import {CompanyTree} from './CompanyTree';
-import {AxisView, type AxisScale} from './AxisView';
+import {AxisView} from './AxisView';
+import {useSettings} from '../settings';
+import type {Medium} from '../medium';
 import {buildBlocks} from '../families';
 import {MiniWork, type PosterLookup} from './WorkCard';
 
-export function SequenceView({dataset, works, t, posters, onSelect, openId = '', focusWork = '', axis = false, onAxis, scale = 'proportional', onScale}: {
+export function SequenceView({dataset, works, t, posters, medium = 'video', onSelect, openId = '', focusWork = '', axis = false, onAxis}: {
   dataset: Dataset;
   works: Work[];
   t: TFn;
   posters: PosterLookup;
+  /** Read mode has no in-world order yet: it lists works grouped by series, unordered. */
+  medium?: Medium;
   onSelect: (id: string) => void;
   /** Show each universe on its own calendar axis instead of the editorial lists. */
   axis?: boolean;
   onAxis?: (axis: boolean) => void;
-  scale?: AxisScale;
-  onScale?: (scale: AxisScale) => void;
   /** The one sequence to show open (arriving from a work's card); none opens by default. */
   openId?: string;
   focusWork?: string;
@@ -32,7 +34,9 @@ export function SequenceView({dataset, works, t, posters, onSelect, openId = '',
     .filter(sequence => sequence.items.length > 0);
   const placed = new Set(sequences.flatMap(sequence => sequence.items.map(item => item.workId)));
   const calendars = [...dataset.calendars.values()];
-  const showAxis = axis && calendars.length > 0;
+  const {density} = useSettings();
+  const read = medium === 'text';
+  const showAxis = axis && calendars.length > 0 && !read;
   const franchiseOf = new Map(dataset.franchises.map(franchise => [franchise.id, franchise]));
   const continuityLabel = new Map(dataset.sequences.map(sequence => [sequence.continuityId, `${sequence.franchise} / ${sequence.continuity}`]));
 
@@ -57,12 +61,12 @@ export function SequenceView({dataset, works, t, posters, onSelect, openId = '',
     focus={work.id === focusWork && sequenceId === openId}
     badge={position} note={`${work.year ?? t('detail.yearUnknown')} · ${t(`format.${work.format}`)}${extra}`}/>;
 
-  return <div className="groups universe-blocks">
-    {calendars.length > 0 && onAxis && <div className="segmented" role="group" aria-label={t('view.sequence')}>
+  return <div className={`groups universe-blocks ${density}`}>
+    {calendars.length > 0 && onAxis && !read && <div className="segmented" role="group" aria-label={t('view.sequence')}>
       <button className={!showAxis ? 'selected' : ''} aria-pressed={!showAxis} onClick={() => onAxis(false)}>{t('universe.lanes')}</button>
       <button className={showAxis ? 'selected' : ''} aria-pressed={showAxis} onClick={() => onAxis(true)}>{t('view.axis')}</button>
     </div>}
-    <p>{t('sequence.note')}</p>
+    <p>{t(read ? 'universe.readNote' : 'sequence.note')}</p>
     {showAxis && !hasDates && <div className="empty">{t('axis.none')}</div>}
     {blocks.map(block => {
       const onAxisNow = showAxis && block.calendar !== undefined;
@@ -70,14 +74,13 @@ export function SequenceView({dataset, works, t, posters, onSelect, openId = '',
         open={openByDefault || block.lanes.some(lane => lane.id === openId) || onAxisNow}>
         <summary>
           <strong>{block.name}</strong>
-          <small className="basis">{block.lanes.length} {t('universe.lanesCount')} · {block.members.length} {t('universe.works')}</small>
+          <small className="basis">{read ? '' : `${block.lanes.length} ${t('universe.lanesCount')} · `}{qty(t, block.members.length, 'noun.work', 'noun.works')}</small>
           {block.family && <span className="badge" title={t('universe.familyHint')}>{t('universe.family')}</span>}
-          <span className="badge proposal" title={t('sequence.badgeHint')}>{t('sequence.badge')}</span>
+          {!read && <span className="badge proposal" title={t('sequence.badgeHint')}>{t('sequence.badge')}</span>}
         </summary>
-        {onAxisNow && block.calendar && <AxisView dataset={dataset} works={works} calendarId={block.calendar.id} scale={scale} posters={posters}
-          onScale={next => onScale?.(next)} t={t} onSelect={onSelect}/>}
+        {onAxisNow && block.calendar && <AxisView dataset={dataset} works={works} calendarId={block.calendar.id} posters={posters} t={t} onSelect={onSelect}/>}
         {!onAxisNow && <>
-          {!block.calendar && <p className="lane-note">{t('universe.noDates')}</p>}
+          {!block.calendar && !read && <p className="lane-note">{t('universe.noDates')}</p>}
           <div className="lanes">
             {block.lanes.map(lane => {
               const same = block.notes.get(lane.continuityId);
@@ -89,7 +92,9 @@ export function SequenceView({dataset, works, t, posters, onSelect, openId = '',
               </section>;
             })}
           </div>
-          {block.unplaced.length > 0 && <details>
+          {/* Read mode has no order at all, so its works are the content, not a hidden leftover. */}
+          {read && <div className="lane-works wide">{block.unplaced.map(work => card(work, work.id))}</div>}
+          {!read && block.unplaced.length > 0 && <details>
             <summary>{t('sequence.unpositioned')} · {block.unplaced.length}</summary>
             <div className="lane-works wide">{block.unplaced.map(work => card(work, work.id, '', undefined, ` · ${t('sequence.positionUnknown')}`))}</div>
           </details>}

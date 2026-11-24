@@ -1,9 +1,9 @@
 import type {Dataset, Work} from '../data';
 import type {TFn} from '../i18n';
 import {MiniWork, type PosterLookup} from './WorkCard';
+import {useSettings} from '../settings';
 import {axisGroups, formatSpan, formatYear, gapFor, orderConflicts, primaryOf, type Period} from '../chronology';
 
-export type AxisScale = 'equal' | 'proportional';
 
 /**
  * One universe on its own calendar: works sit on an axis by the start of their
@@ -11,16 +11,15 @@ export type AxisScale = 'equal' | 'proportional';
  * apart (never dropped). Where the seed's list order disagrees with the dates the
  * pair is flagged; the dates never rewrite the list.
  */
-export function AxisView({dataset, works, calendarId, scale, onScale, t, posters, onSelect}: {
+export function AxisView({dataset, works, calendarId, t, posters, onSelect}: {
   dataset: Dataset;
   posters: PosterLookup;
   works: Work[];
   calendarId: string;
-  scale: AxisScale;
-  onScale: (scale: AxisScale) => void;
   t: TFn;
   onSelect: (id: string) => void;
 }) {
+  const {timelineScale: scale} = useSettings();
   const calendar = dataset.calendars.get(calendarId);
   if (!calendar) return null;
   const members = works.filter(work => work.memberships.some(m => m.franchise === calendar.franchise));
@@ -44,12 +43,6 @@ export function AxisView({dataset, works, calendarId, scale, onScale, t, posters
   return <section className="axis">
     <header className="axis-head">
       <h3>{calendar.franchise} · {calendar.name}</h3>
-      <div className="segmented" role="group" aria-label={t('timeline.scale')}>
-        {(['equal', 'proportional'] as AxisScale[]).map(option =>
-          <button key={option} className={scale === option ? 'selected' : ''} aria-pressed={scale === option} onClick={() => onScale(option)}>
-            {t(`timeline.${option}`)}
-          </button>)}
-      </div>
     </header>
     <p className="muted">{t('axis.note')}</p>
     {dataset.chronologySources.length > 0 && <p className="muted axis-source">

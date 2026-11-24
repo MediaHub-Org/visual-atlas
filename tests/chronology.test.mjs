@@ -66,6 +66,14 @@ describe('gapFor', () => {
     assert.equal(gapFor(10, 'proportional'), 160);
     assert.equal(gapFor(100, 'proportional'), 340);
   });
+  it('grows with the distance but flattens out when logarithmic, and is clamped', () => {
+    assert.equal(gapFor(0, 'log'), 24);
+    assert.equal(gapFor(1, 'log'), 46);
+    assert.equal(gapFor(3, 'log'), 92);
+    assert.ok(gapFor(30, 'log') > gapFor(10, 'log'));
+    assert.ok(gapFor(30, 'log') < gapFor(30, 'proportional'));
+    assert.equal(gapFor(100000, 'log'), 260);
+  });
 });
 
 describe('orderConflicts', () => {

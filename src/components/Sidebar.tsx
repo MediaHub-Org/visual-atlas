@@ -12,7 +12,7 @@ export function MediaSwitch({medium, onMedium, t}: {medium: Medium; onMedium: (m
   </div>;
 }
 
-export function Sidebar({dataset, t, franchise, medium, onMedium, format, onFormat, onHome, tag, tags, onFranchise, onCompany, onAllCompanies, onTag, onView, onSettings}: {
+export function Sidebar({dataset, t, franchise, medium, onMedium, format, onFormat, onHome, onFranchise, onCompany, onAllCompanies, onView, onSettings}: {
   dataset: Dataset;
   t: TFn;
   franchise: string;
@@ -21,18 +21,15 @@ export function Sidebar({dataset, t, franchise, medium, onMedium, format, onForm
   format: string;
   onFormat: (format: string) => void;
   onHome: () => void;
-  tag: string;
-  tags: {id: string; name: string; count: number}[];
   onFranchise: (name: string) => void;
   onCompany: (id: string) => void;
   onAllCompanies: () => void;
-  onTag: (id: string) => void;
   onView: (view: 'cards' | 'sequence' | 'timeline' | 'hierarchy') => void;
   onSettings: () => void;
 }) {
   // Watch and Read share one structure: Discover, Format, Series & sagas. The two lists narrow
   // each other, so choosing a format changes the series list and the reverse. Companies and
-  // collections only exist for Watch (no publisher or editorial-tag data for comics yet).
+  // collections are pills above the results, not a sidebar list (and only exist for Watch).
   const facets = facetLists(dataset.works, medium, format, franchise);
   const total = dataset.works.filter(work => work.medium === medium && (franchise === 'All' || work.memberships.some(m => m.franchise === franchise))).length;
   return <aside className="sidebar">
@@ -43,7 +40,7 @@ export function Sidebar({dataset, t, franchise, medium, onMedium, format, onForm
       <MediaSwitch medium={medium} onMedium={onMedium} t={t}/>
       <div className="side-section">{t('nav.discover')}</div>
       <button className="side-link" onClick={() => onView('cards')}>◈ <span>{t('nav.explore')}</span></button>
-      {medium === 'video' && <button className="side-link" onClick={() => onView('sequence')}>↝ <span>{t('nav.sequences')}</span></button>}
+      <button className="side-link" onClick={() => onView('sequence')}>↝ <span>{t('nav.sequences')}</span></button>
       <button className="side-link" onClick={() => onView('timeline')}>◷ <span>{t('nav.timeline')}</span></button>
 
       <div className="side-section">{t('nav.formats')}</div>
@@ -64,14 +61,6 @@ export function Sidebar({dataset, t, franchise, medium, onMedium, format, onForm
         <CompanySidebar dataset={dataset} t={t} onFranchise={onFranchise} onCompany={onCompany} onAll={onAllCompanies}/>
       </>}
       {franchise !== 'All' && <button className="side-link clear" onClick={() => onFranchise('All')}>✕ <span>{franchise}</span></button>}
-
-      {tags.length > 0 && <>
-        <div className="side-section">{t('nav.collections')}</div>
-        {tags.map(entry => <button key={entry.id} className={`side-link ${tag === entry.id ? 'current' : ''}`} onClick={() => onTag(entry.id)}>
-          <span className="side-dot" style={{background: 'var(--accent)'}}/>
-          <span>{entry.name}</span><small>{entry.count}</small>
-        </button>)}
-      </>}
     </div>
 
     <div className="sidebar-footer">
