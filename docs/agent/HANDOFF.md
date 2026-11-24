@@ -41,6 +41,17 @@ with the work highlighted; the other lists start collapsed. There are no in-worl
 dates yet: `narrative_periods` is empty and `calendar_systems` only has real-world
 calendars. See the owner's chronology goal in the next section before adding dates.
 
+**In-world chronology pilot (2026-11-24, Star Wars).** 18 of 18 Star Wars works have
+BBY/ABY dates from Wookieepedia canon (`public/data/chronology/star-wars.json`,
+committed, CC BY-SA 3.0 with page/revision/licence per entry). Migration
+`004_inworld_chronology.sql` (`fictional_calendars`, `narrative_periods` columns) and a
+fourth import pass load it: `estimated` (or `unknown` when open-ended), `needs_review`,
+reviewed rows frozen. The app shows the date in the detail panel and a **Calendar axis**
+mode in the in-universe view (ties grouped, undated listed apart, list-vs-dates conflict
+note; the real data shows none). Decisions: the data file is committed, not a cache;
+certainty `estimated`. Unverified: every date is Wookieepedia's claim. Next: Legends is
+out of scope; a second franchise reuses the same pieces (README, "In-world chronology").
+
 ## Next (beyond the basics)
 
 1. Verify representative seed records against independent, licensed sources.

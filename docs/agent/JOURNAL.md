@@ -2,6 +2,17 @@
 
 Newest first. The live state is in [`HANDOFF.md`](HANDOFF.md).
 
+## 2026-11-24
+
+- **In-world chronology pilot (Star Wars).** Spec and plan under
+  `docs/superpowers/`. Strict parser for Wookieepedia's `canon_timeline`/`timeline`
+  (`scripts/chronology/wookieepedia.mjs`), reviewed page map, fetcher and the committed
+  data file; migration 004 and a fourth import pass; `src/chronology.ts` (pure helpers);
+  detail-panel dates with attribution and a Calendar axis in the in-universe view.
+- Also today: sequences imported as `unknown` editorial proposals (migration 003) and
+  labelled in the UI; TMDB credits (director, writer/creator, cast) with a person filter;
+  «Open the full order» from a work's card.
+
 ## 2026-11-23
 
 - **Relations and claims import, second pass.** Migration

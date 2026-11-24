@@ -93,6 +93,25 @@ catalogue duplicates share title and year, and refuses event/premiere titles.
 `scripts/title-rules.mjs` holds the explicit, reviewable overrides for seed
 labels such as «Doctor Who: original series» or «Doraemon: 1979 series».
 
+## In-world chronology
+
+The release timeline orders works by real-world year; the **in-universe order** view
+orders them inside their story. For a universe with a calendar, a **Calendar axis**
+mode places works on that universe's own calendar. The pilot is Star Wars: BBY/ABY
+(years before/after the Battle of Yavin), with the dates taken from Wookieepedia's
+canon timeline (`canon_timeline`/`timeline`, never Legends) and kept in the committed
+file `public/data/chronology/star-wars.json`. Each entry carries the page, its URL,
+the revision id, the retrieval date, the licence (**CC BY-SA 3.0**) and the raw
+infobox string; the detail panel and the footer credit Wookieepedia. They are that
+wiki's claim, not verified facts: in the database they are `estimated` (or `unknown`
+when open-ended) and `needs_review`. Where the seed's list order disagrees with the
+dates the axis says so; the dates never rewrite the list.
+
+Refresh with `node scripts/fetch-wookieepedia-dates.mjs`. A second franchise needs a
+file like `scripts/chronology/star-wars-pages.mjs` (calendar block + reviewed page map),
+a fetch run and its name added to `CHRONOLOGY_FILES` in `src/data.ts`. A date the
+parser cannot read is stored raw with no value, never guessed.
+
 ## Imported credits
 
 `scripts/fetch-credits.mjs` imports directors, writers (a series' creators) and the
