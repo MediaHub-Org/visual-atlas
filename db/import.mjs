@@ -133,6 +133,7 @@ const MEMBERSHIP_TYPES = new Set(['included', 'related_series']);
 
 /** The arrays the text seed may add to the video seed; its adaptations are handled in their own pass. */
 const TEXT_ARRAYS = ['works', 'franchises', 'continuities', 'memberships'];
+const TEXT_FORMATS = new Set(['comic_series', 'manga_series', 'graphic_novel']);
 
 /**
  * The video seed with the text seed's works, franchises, continuities and
@@ -141,15 +142,34 @@ const TEXT_ARRAYS = ['works', 'franchises', 'continuities', 'memberships'];
  */
 function withText(seed, text) {
   if (!text) return seed;
-  const merged = { ...seed, adaptations: text.adaptations ?? [] };
+  const merged = { ...seed, adaptations: [...(seed.adaptations ?? []), ...(text.adaptations ?? [])] };
   for (const array of TEXT_ARRAYS) {
+    // Every id is unique across both seeds and inside the text seed (a membership id keys its audit row).
     const taken = new Set((seed[array] ?? []).map((row) => row.id));
     for (const row of text[array] ?? []) {
-      if (array !== 'memberships' && taken.has(row.id)) {
-        throw new Error(`text seed ${array} "${row.id}" is already in the video seed`);
+      if (taken.has(row.id)) {
+        throw new Error(
+          array === 'memberships'
+            ? `text seed membership id "${row.id}" is already used`
+            : `text seed ${array} "${row.id}" is already in the video seed`
+        );
       }
+      taken.add(row.id);
     }
     merged[array] = [...(seed[array] ?? []), ...(text[array] ?? [])];
+  }
+  // The text seed may only add text works, and may only join its own works to franchises.
+  const textWorkIds = new Set();
+  for (const work of text.works ?? []) {
+    if (!TEXT_FORMATS.has(work.format)) {
+      throw new Error(`text seed work "${work.id}" has format "${work.format}", which is not a text format`);
+    }
+    textWorkIds.add(work.id);
+  }
+  for (const membership of text.memberships ?? []) {
+    if (!textWorkIds.has(membership.work_id)) {
+      throw new Error(`text seed membership "${membership.id}" joins "${membership.work_id}", which is not a text work`);
+    }
   }
   return merged;
 }

@@ -1,6 +1,6 @@
 import type { Calendar, Period, Qualifier } from './chronology';
 import { parseFamilies, type Family } from './families';
-import { catalogueFranchises, mediumOfFormat, mergeTextSeed, textMetadataFor, type Adaptation, type Medium } from './medium';
+import { catalogueFranchises, franchiseWorkIds, mediumOfFormat, mergeTextSeed, textMetadataFor, type Adaptation, type Medium } from './medium';
 
 export type Person = { id: number; name: string };
 export type Credits = {
@@ -274,7 +274,8 @@ export function buildDataset(videoSeed: Seed, metadata?: ImportedMetadata | null
     id: franchise.id,
     name: franchise.name,
     companyIds: seed.franchise_company_associations.filter(a => a.franchise_id === franchise.id).map(a => a.company_id),
-    workIds: [...new Set(seed.memberships.filter(m => m.franchise_id === franchise.id).map(m => m.work_id))],
+    // Video works only: a franchise's count in the video catalogue must not change when text works are present.
+    workIds: franchiseWorkIds(franchise.id, seed.memberships, new Map(works.map(work => [work.id, work.medium])), 'video'),
   }));
 
   const parentOf = new Map<string, string>();

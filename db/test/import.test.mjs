@@ -645,4 +645,28 @@ describe('text media import', () => {
       assert.deepEqual(counts.adaptations, { inserted: 0, updated: 0 });
     });
   });
+  it('refuses a text-seed work that is not a text format', async () => {
+    await withDb(async (db) => {
+      const t = text();
+      t.works[0].format = 'film';
+      await assert.rejects(() => load(db, t), /not a text format/);
+    });
+  });
+  it('refuses a text-seed membership of a video work', async () => {
+    await withDb(async (db) => {
+      const t = text();
+      t.memberships.push({ id: 'text-m3', work_id: 'series--dragon-ball', franchise_id: 'dragon-ball', continuity_id: null, source_ids: [] });
+      await assert.rejects(() => load(db, t), /not a text work/);
+    });
+  });
+  it('refuses a membership id that the video seed or the text seed already uses', async () => {
+    await withDb(async (db) => {
+      const clash = text();
+      clash.memberships[0].id = seed.memberships[0].id;
+      await assert.rejects(() => load(db, clash), /membership id/);
+      const twice = text();
+      twice.memberships[1].id = twice.memberships[0].id;
+      await assert.rejects(() => load(db, twice), /membership id/);
+    });
+  });
 });

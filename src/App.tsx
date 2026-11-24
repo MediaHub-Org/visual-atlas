@@ -2,7 +2,7 @@ import {useCallback, useEffect, useMemo, useState} from 'react';
 import {loadAtlas, type Dataset, type Work} from './data';
 import {useSettings} from './settings';
 import {qty} from './i18n';
-import {adaptationsFor, catalogueFranchises, parseMedium, type Medium} from './medium';
+import {adaptationsFor, catalogueFranchises, clampFormat, clampView, FORMATS_BY_MEDIUM, parseMedium, type Medium} from './medium';
 import {MediaSwitch, Sidebar} from './components/Sidebar';
 import {WorkCard, type PosterLookup} from './components/WorkCard';
 import {TimelineView} from './components/TimelineView';
@@ -13,7 +13,7 @@ import {SettingsPanel} from './components/SettingsPanel';
 type View = 'cards' | 'hierarchy' | 'sequence' | 'timeline';
 type Sort = 'releaseAsc' | 'releaseDesc' | 'title';
 type Format = 'All' | 'Film' | 'Series' | 'Anime' | 'Comic' | 'Manga' | 'Graphic novel';
-const FORMATS: Record<Medium, Exclude<Format, 'All'>[]> = {video: ['Film', 'Series', 'Anime'], text: ['Manga', 'Comic', 'Graphic novel']};
+const FORMATS = FORMATS_BY_MEDIUM as Record<Medium, Exclude<Format, 'All'>[]>;
 /** Tabs per catalogue: text media has no in-world order yet. */
 const VIEWS_BY_MEDIUM: Record<Medium, View[]> = {video: ['cards', 'sequence', 'timeline'], text: ['cards', 'timeline']};
 
@@ -26,7 +26,9 @@ function readUrl() {
   const params = new URLSearchParams(location.search);
   const view = params.get('view') as View | null;
   const sort = params.get('sort') as Sort | null;
-  const format = params.get('format') as Format | null;
+  const format = params.get('format');
+  // The catalogue decides which views and formats exist: a URL cannot ask for a hidden one.
+  const media = parseMedium(params.get('media'));
   return {
     query: params.get('q') ?? '',
     franchise: params.get('franchise') ?? 'All',
@@ -36,10 +38,10 @@ function readUrl() {
     seq: params.get('seq') ?? '',
     at: params.get('at') ?? '',
     axis: params.get('axis') === '1',
-    media: parseMedium(params.get('media')),
-    format: format && ['All', ...FORMATS.video, ...FORMATS.text].includes(format) ? format : 'All' as Format,
+    media,
+    format: clampFormat(format ?? 'All', media) as Format,
     sort: sort && SORTS.includes(sort) ? sort : 'releaseAsc' as Sort,
-    view: view && ROUTABLE.includes(view) ? view : 'cards' as View,
+    view: clampView(view && ROUTABLE.includes(view) ? view : 'cards', media) as View,
     density: params.get('density') === 'compact' ? 'compact' as const : 'comfortable' as const,
     work: params.get('work') ?? '',
     needsPoster: params.get('noposter') === '1',
@@ -139,9 +141,20 @@ export default function App() {
 
   /** Open one universe's in-world order at a work, clearing filters that would hide part of it. */
   function openOrder(sequenceId: string, workId: string) {
-    setSeq(sequenceId); setAt(workId); setAxis(false); setView('sequence'); setSelected('');
+    setMedium('video'); setSeq(sequenceId); setAt(workId); setAxis(false); setView('sequence'); setSelected('');
     setQuery(''); setFranchise('All'); setCompany(''); setTag(''); setPerson(''); setFormat('All'); setNeedsPoster(false);
   }
+  // A link or reload can name a work or franchise of the other catalogue: follow the work's medium
+  // and drop a franchise this catalogue does not have, once the data is known.
+  useEffect(() => {
+    if (!dataset) return;
+    const work = selected ? dataset.worksById.get(selected) : undefined;
+    const next = work ? work.medium : medium;
+    if (next !== medium) setMedium(next);
+    if (franchise !== 'All' && !catalogueFranchises(dataset.franchises, dataset.works, next).some(entry => entry.name === franchise)) setFranchise('All');
+    setView(current => clampView(current, next) as View);
+  }, [dataset, selected]); // eslint-disable-line react-hooks/exhaustive-deps
+
   /** Switch catalogue: filters of the other catalogue no longer apply, and a hidden view falls back to cards. */
   function switchMedium(next: Medium) {
     if (next === medium) return;

@@ -53,7 +53,9 @@ type Row = Record<string, unknown>;
 const isRow = (value: unknown): value is Row => typeof value === 'object' && value !== null && !Array.isArray(value);
 const isText = (value: unknown): value is string => typeof value === 'string' && value.length > 0;
 const rowsOf = (value: unknown): Row[] => (Array.isArray(value) ? value.filter(isRow) : []);
-const CERTAINTIES = ['unknown', 'estimated', 'confirmed'];
+// A seed link is never 'confirmed': only a reviewer in the database sets that (the import refuses it too).
+const CERTAINTIES = ['unknown', 'estimated'];
+const KINDS = ['anime', 'film', 'live_action', 'series', 'comic', 'novelisation', 'other'];
 
 /**
  * The video seed plus the text seed's works, franchises, continuities and
@@ -88,10 +90,18 @@ export function mergeTextSeed<S extends { works: Row[]; franchises: Row[]; conti
   });
   const memberships = rowsOf(raw.memberships).filter(row =>
     isText(row.work_id) && textWorkIds.has(row.work_id) && isText(row.franchise_id) && franchiseIds.has(row.franchise_id));
+  const seenLinks = new Set<string>();
   const adaptations = rowsOf(raw.adaptations)
-    .filter(row => isText(row.id) && isText(row.source_work_id) && isText(row.adapted_work_id) && isText(row.kind)
-      && workIds.has(row.source_work_id) && workIds.has(row.adapted_work_id) && row.source_work_id !== row.adapted_work_id
-      && CERTAINTIES.includes((row.certainty ?? 'unknown') as string))
+    .filter(row => {
+      if (!isText(row.id) || !isText(row.source_work_id) || !isText(row.adapted_work_id) || !isText(row.kind)) return false;
+      if (!KINDS.includes(row.kind) || !workIds.has(row.source_work_id) || !workIds.has(row.adapted_work_id) || row.source_work_id === row.adapted_work_id) return false;
+      if (!CERTAINTIES.includes((row.certainty ?? 'unknown') as string)) return false;
+      // One link per id and per (source, adapted, kind), as the database enforces.
+      const keys = [`id:${row.id}`, `pair:${row.source_work_id}|${row.adapted_work_id}|${row.kind}`];
+      if (keys.some(key => seenLinks.has(key))) return false;
+      keys.forEach(key => seenLinks.add(key));
+      return true;
+    })
     .map(row => ({
       id: row.id as string,
       sourceId: row.source_work_id as string,
@@ -128,4 +138,39 @@ export function textMetadataFor(cache: unknown, workId: string, now = Date.now()
     ? rowsOf(entry.creators).filter(row => isText(row.name)).map(row => ({ name: row.name as string, role: typeof row.role === 'string' ? row.role : '' }))
     : [];
   return { source: typeof entry.source === 'string' ? entry.source : '', year, creators };
+}
+
+/** A franchise's works of one medium, each once (membership rows can repeat a pair). */
+export function franchiseWorkIds(
+  franchiseId: string,
+  memberships: { work_id: string; franchise_id: string }[],
+  mediumByWork: Map<string, Medium>,
+  medium: Medium,
+): string[] {
+  const ids = new Set<string>();
+  for (const row of memberships) {
+    if (row.franchise_id === franchiseId && mediumByWork.get(row.work_id) === medium) ids.add(row.work_id);
+  }
+  return [...ids];
+}
+
+/** Views a URL may open in each catalogue (text media has no in-world order or company tree yet). */
+const VIEWS_BY_MEDIUM: Record<Medium, string[]> = {
+  video: ['cards', 'sequence', 'timeline', 'hierarchy'],
+  text: ['cards', 'timeline'],
+};
+/** Format filter values of each catalogue. */
+export const FORMATS_BY_MEDIUM: Record<Medium, string[]> = {
+  video: ['Film', 'Series', 'Anime'],
+  text: ['Manga', 'Comic', 'Graphic novel'],
+};
+
+/** A view the medium does not offer (or an unknown one) becomes 'cards'. */
+export function clampView(view: string, medium: Medium): string {
+  return VIEWS_BY_MEDIUM[medium].includes(view) ? view : 'cards';
+}
+
+/** A format filter the medium does not offer becomes 'All'. */
+export function clampFormat(format: string, medium: Medium): string {
+  return FORMATS_BY_MEDIUM[medium].includes(format) ? format : 'All';
 }

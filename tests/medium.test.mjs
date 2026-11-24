@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { adaptationsFor, catalogueFranchises, mediumOfFormat, mergeTextSeed, parseMedium } from '../src/medium.ts';
+import { adaptationsFor, catalogueFranchises, clampFormat, clampView, franchiseWorkIds, mediumOfFormat, mergeTextSeed, parseMedium } from '../src/medium.ts';
 
 describe('mediumOfFormat', () => {
   it('maps the four video formats and the three text formats', () => {
@@ -106,7 +106,7 @@ describe('mergeTextSeed', () => {
     assert.deepEqual(seed.works.map(w => w.id), ['series--dragon-ball', 'text--db', 'text--maus']);
     assert.equal(seed.works[0].format, 'series');
   });
-  it('drops links with a missing endpoint or an unknown certainty, keeps all three valid certainties', () => {
+  it('drops links with a missing endpoint or a certainty other than unknown/estimated', () => {
     const t = text();
     t.adaptations.push(
       { id: 'ad2', source_work_id: 'text--db', adapted_work_id: 'nowhere', kind: 'anime', certainty: 'unknown' },
@@ -114,11 +114,80 @@ describe('mergeTextSeed', () => {
       { id: 'ad4', source_work_id: 'text--maus', adapted_work_id: 'series--dragon-ball', kind: 'other', certainty: 'confirmed' },
     );
     const { adaptations } = mergeTextSeed(video, t);
-    assert.deepEqual(adaptations.map(a => a.id), ['ad1', 'ad4']);
+    assert.deepEqual(adaptations.map(a => a.id), ['ad1']);
   });
   it('drops a membership to a work or franchise that does not exist', () => {
     const t = text();
     t.memberships.push({ work_id: 'text--db', franchise_id: 'ghost', continuity_id: null }, { work_id: 'ghost', franchise_id: 'maus', continuity_id: null });
     assert.equal(mergeTextSeed(video, t).seed.memberships.length, 3);
+  });
+});
+
+describe('review fixes: merge', () => {
+  const video = {
+    works: [{ id: 'series--a', format: 'series', title: 'A' }],
+    franchises: [{ id: 'f', name: 'F' }],
+    continuities: [],
+    memberships: [{ work_id: 'series--a', franchise_id: 'f' }],
+  };
+  const base = () => ({
+    works: [{ id: 'text--m', format: 'manga_series', title: 'M' }],
+    franchises: [],
+    continuities: [],
+    memberships: [{ work_id: 'text--m', franchise_id: 'f' }],
+    adaptations: [],
+  });
+  const link = (id, extra = {}) => ({ id, source_work_id: 'text--m', adapted_work_id: 'series--a', kind: 'anime', certainty: 'unknown', ...extra });
+
+  it('never shows a confirmed link: only unknown or estimated survive', () => {
+    const t = base();
+    t.adaptations = [link('a', { certainty: 'confirmed' }), link('b', { kind: 'film', certainty: 'estimated' }), link('c', { kind: 'series' })];
+    assert.deepEqual(mergeTextSeed(video, t).adaptations.map(a => a.id), ['b', 'c']);
+  });
+  it('drops duplicate ids and duplicate (source, adapted, kind) links and unknown kinds', () => {
+    const t = base();
+    t.adaptations = [link('a'), link('a', { kind: 'film' }), link('b'), link('c', { kind: 'musical' }), link('d', { kind: 'film' })];
+    assert.deepEqual(mergeTextSeed(video, t).adaptations.map(a => a.id), ['a', 'd']);
+  });
+  it('drops a text membership that points at a video work', () => {
+    const t = base();
+    t.memberships.push({ work_id: 'series--a', franchise_id: 'f' });
+    assert.equal(mergeTextSeed(video, t).seed.memberships.length, 2);
+  });
+});
+
+describe('franchiseWorkIds', () => {
+  const memberships = [
+    { work_id: 'v1', franchise_id: 'f' },
+    { work_id: 't1', franchise_id: 'f' },
+    { work_id: 'v1', franchise_id: 'f' },
+    { work_id: 'v2', franchise_id: 'g' },
+  ];
+  const mediumByWork = new Map([['v1', 'video'], ['v2', 'video'], ['t1', 'text']]);
+  it('lists a franchise\'s works of one medium, each once', () => {
+    assert.deepEqual(franchiseWorkIds('f', memberships, mediumByWork, 'video'), ['v1']);
+    assert.deepEqual(franchiseWorkIds('f', memberships, mediumByWork, 'text'), ['t1']);
+  });
+  it('is identical for video with and without text works present', () => {
+    const videoOnly = memberships.filter(m => m.work_id !== 't1');
+    assert.deepEqual(franchiseWorkIds('f', memberships, mediumByWork, 'video'), franchiseWorkIds('f', videoOnly, mediumByWork, 'video'));
+  });
+});
+
+describe('clampView and clampFormat', () => {
+  it('keeps a view the medium offers and falls back to cards otherwise', () => {
+    assert.equal(clampView('sequence', 'video'), 'sequence');
+    assert.equal(clampView('hierarchy', 'video'), 'hierarchy');
+    assert.equal(clampView('timeline', 'text'), 'timeline');
+    assert.equal(clampView('sequence', 'text'), 'cards');
+    assert.equal(clampView('hierarchy', 'text'), 'cards');
+    assert.equal(clampView('nonsense', 'video'), 'cards');
+  });
+  it('keeps a format the medium offers and falls back to All otherwise', () => {
+    assert.equal(clampFormat('Film', 'video'), 'Film');
+    assert.equal(clampFormat('Manga', 'text'), 'Manga');
+    assert.equal(clampFormat('Manga', 'video'), 'All');
+    assert.equal(clampFormat('Film', 'text'), 'All');
+    assert.equal(clampFormat('All', 'text'), 'All');
   });
 });
