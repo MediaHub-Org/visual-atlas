@@ -20,7 +20,7 @@ export function WorkCard({work, t, posters, onSelect}: {work: Work; t: TFn; post
     <span className="card-title">{work.title} <span>
       {work.year === null
         ? `(${t('detail.yearUnknown').toLowerCase()})`
-        : <> ({work.year}{work.yearImported && <span className="imported-mark" title={t('detail.yearImported')}>*</span>})</>}
+        : <> ({work.year}{work.yearImported && <span className="imported-mark" title={t(work.medium === 'text' ? 'detail.yearImportedText' : 'detail.yearImported')}>*</span>})</>}
     </span></span>
     {continuity && <span className="badge">{continuity}</span>}
   </button>;

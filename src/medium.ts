@@ -112,3 +112,20 @@ export function mergeTextSeed<S extends { works: Row[]; franchises: Row[]; conti
     adaptations,
   };
 }
+
+export type TextMetadata = { source: string; year: number | null; creators: { name: string; role: string }[] };
+
+/**
+ * A work's entry in the local text-metadata cache, or null when there is none, it is
+ * past its `expires` date (the sources' caching limits), or the cache is malformed.
+ */
+export function textMetadataFor(cache: unknown, workId: string, now = Date.now()): TextMetadata | null {
+  const entries = isRow(cache) && isRow(cache.entries) ? cache.entries : null;
+  const entry = entries?.[workId];
+  if (!isRow(entry) || typeof entry.expires !== 'string' || !(Date.parse(entry.expires) > now)) return null;
+  const year = Number.isInteger(entry.year) && (entry.year as number) > 1800 && (entry.year as number) < 2200 ? (entry.year as number) : null;
+  const creators = Array.isArray(entry.creators)
+    ? rowsOf(entry.creators).filter(row => isText(row.name)).map(row => ({ name: row.name as string, role: typeof row.role === 'string' ? row.role : '' }))
+    : [];
+  return { source: typeof entry.source === 'string' ? entry.source : '', year, creators };
+}

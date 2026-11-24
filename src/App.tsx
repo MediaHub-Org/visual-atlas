@@ -246,7 +246,7 @@ export default function App() {
 
   return <div className="app">
     <Sidebar
-      dataset={dataset ?? {works: [], worksById: new Map(), people: new Map(), calendars: new Map(), families: [], adaptations: [], chronologySources: [], franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, textWorks: 0, franchises: 0, companies: 0}}}
+      dataset={dataset ?? {works: [], worksById: new Map(), people: new Map(), calendars: new Map(), families: [], adaptations: [], textSources: [], chronologySources: [], franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, textWorks: 0, franchises: 0, companies: 0}}}
       t={t}
       franchise={franchise}
       medium={medium}
@@ -392,6 +392,9 @@ export default function App() {
                 {dataset.chronologySources.length > 0 && <p className="chronology-attribution">
                   {t('inworld.footer')} {dataset.chronologySources.map(source =>
                     <a key={source.name} href={source.licenceUrl || undefined} target="_blank" rel="noreferrer">{source.name} · {source.licence}</a>)}
+                </p>}
+                {medium === 'text' && dataset.textSources.length > 0 && <p className="chronology-attribution">
+                  {dataset.textSources.map(source => <a key={source} href={source === 'anilist' ? 'https://anilist.co/' : 'https://comicvine.gamespot.com/'} target="_blank" rel="noreferrer">{t(`textSource.${source}`)} </a>)}
                 </p>}
                 <div className="tmdb-attribution">
                   <a href="https://www.themoviedb.org/"><img src="/tmdb-logo.svg" alt="TMDB" width="60"/></a><br/>

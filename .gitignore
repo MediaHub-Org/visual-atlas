@@ -8,6 +8,8 @@ public/posters/
 # Local TMDB cache: TMDB terms forbid redistributing it (see README).
 public/data/tmdb_metadata.json
 public/data/tmdb_credits.json
+public/data/text_metadata.json
+public/data/text_adaptation_proposals.json
 
 db/.data/
 

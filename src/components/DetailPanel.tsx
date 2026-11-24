@@ -68,7 +68,8 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
         <p className="detail-meta">
           {work.year ?? t('detail.yearUnknown')} · {t(`format.${work.format}`)}{work.anime && ` · ${t('format.Anime')}`}
         </p>
-        {work.yearImported && <p className="muted">{t('detail.yearImported')}</p>}
+        {work.yearImported && <p className="muted">{t(work.medium === 'text' ? 'detail.yearImportedText' : 'detail.yearImported')}</p>}
+        {work.medium === 'text' && !work.creators.startsWith('Not supplied') && <p className="muted">{t('detail.creators')}: {work.creators}</p>}
         {work.memberships.map(membership => <p key={`${membership.franchise}/${membership.continuity}`}>
           <span className="badge">{membership.franchise} / {membership.continuity}</span>
         </p>)}

@@ -34,7 +34,7 @@ function localPosters(): Plugin {
             const dir = join(process.cwd(), 'public', 'posters');
             const files = await readdir(dir).catch(() => [] as string[]);
             const posters: string[] = [];
-            for (const file of files.filter(f => /^(film|series)--[a-z0-9-]+\.jpg$/.test(f))) {
+            for (const file of files.filter(f => /^(film|series|text)--[a-z0-9-]+\.jpg$/.test(f))) {
               const path = join(dir, file);
               try {
                 const meta = JSON.parse(await readFile(`${path}.json`, 'utf8')) as {expires: string; sha256: string};
@@ -108,6 +108,8 @@ function stripTmdbCache(): Plugin {
       await rm(join(outDir, 'posters'), {recursive: true, force: true});
       await rm(join(outDir, 'data', 'tmdb_metadata.json'), {force: true});
       await rm(join(outDir, 'data', 'tmdb_credits.json'), {force: true});
+      await rm(join(outDir, 'data', 'text_metadata.json'), {force: true});
+      await rm(join(outDir, 'data', 'text_adaptation_proposals.json'), {force: true});
     },
   };
 }

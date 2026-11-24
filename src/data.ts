@@ -1,6 +1,6 @@
 import type { Calendar, Period, Qualifier } from './chronology';
 import { parseFamilies, type Family } from './families';
-import { catalogueFranchises, mediumOfFormat, mergeTextSeed, type Adaptation, type Medium } from './medium';
+import { catalogueFranchises, mediumOfFormat, mergeTextSeed, textMetadataFor, type Adaptation, type Medium } from './medium';
 
 export type Person = { id: number; name: string };
 export type Credits = {
@@ -66,6 +66,8 @@ export type Dataset = {
   families: Family[];
   /** Links between a text work and a video work (public/data/media_text_seed.json). */
   adaptations: Adaptation[];
+  /** Sources of the local text-metadata cache actually used, for the footer credit. */
+  textSources: ('anilist' | 'comicvine')[];
   chronologySources: { name: string; licence: string; licenceUrl: string }[];
   franchises: Franchise[];
   companies: Map<string, Company>;
@@ -170,9 +172,9 @@ function validPeriod(raw: unknown): Period | null {
 }
 
 export async function loadAtlas(url = '/data/media_atlas_seed.json'): Promise<Dataset> {
-  const [seedResponse, metadata, credits, chronology, familiesFile, textSeed] = await Promise.all([fetch(url), loadImportedMetadata(), loadImportedCredits(), loadChronology(), loadLocalJson<unknown>('/data/universe_families.json'), loadLocalJson<unknown>('/data/media_text_seed.json')]);
+  const [seedResponse, metadata, credits, chronology, familiesFile, textSeed, textCache] = await Promise.all([fetch(url), loadImportedMetadata(), loadImportedCredits(), loadChronology(), loadLocalJson<unknown>('/data/universe_families.json'), loadLocalJson<unknown>('/data/media_text_seed.json'), loadLocalJson<unknown>('/data/text_metadata.json')]);
   if (!seedResponse.ok) throw new Error(`Unable to load the atlas dataset (${seedResponse.status}).`);
-  return buildDataset(await seedResponse.json() as Seed, metadata, credits, chronology, parseFamilies(familiesFile), textSeed);
+  return buildDataset(await seedResponse.json() as Seed, metadata, credits, chronology, parseFamilies(familiesFile), textSeed, textCache);
 }
 
 /** Credits past their cache limit are not shown; fetch-credits.mjs re-fetches them. */
@@ -190,7 +192,7 @@ function freshCredits(entry?: ImportedCreditsEntry): Credits | undefined {
 
 const FORMATS: Record<string, Work['format']> = { film: 'Film', comic_series: 'Comic', manga_series: 'Manga', graphic_novel: 'Graphic novel' };
 
-export function buildDataset(videoSeed: Seed, metadata?: ImportedMetadata | null, credits?: ImportedCredits | null, chronology: ChronologyFile[] = [], families: Family[] = [], textSeed?: unknown): Dataset {
+export function buildDataset(videoSeed: Seed, metadata?: ImportedMetadata | null, credits?: ImportedCredits | null, chronology: ChronologyFile[] = [], families: Family[] = [], textSeed?: unknown, textCache?: unknown): Dataset {
   // Comics and manga ride in the same arrays; with no (or a malformed) text seed this is the video seed itself.
   const { seed, adaptations } = mergeTextSeed(videoSeed, textSeed);
   const franchiseNames = new Map(seed.franchises.map(f => [f.id, f.name]));
@@ -238,23 +240,28 @@ export function buildDataset(videoSeed: Seed, metadata?: ImportedMetadata | null
     byWork.set(membership.work_id, list);
   }
 
+  const textSources = new Set<'anilist' | 'comicvine'>();
   const works: Work[] = seed.works.map((work, index) => {
     const imported = metadata?.entries?.[work.id];
     const importedYear = imported?.year;
     // TMDB data past its cache limit is not shown; fetch-metadata.mjs re-fetches it.
     const fresh = Boolean(imported?.expires) && Date.parse(imported!.expires!) > Date.now();
+    // Comics and manga: year and creators from the local AniList / Comic Vine cache, never over a seed value.
+    const text = mediumOfFormat(work.format) === 'text' ? textMetadataFor(textCache, work.id) : null;
+    if (text?.source === 'anilist' || text?.source === 'comicvine') textSources.add(text.source);
+    const textYear = work.release_year === null ? text?.year ?? null : null;
     const useImported = work.release_year === null && fresh && Number.isInteger(importedYear) && importedYear! > 1800 && importedYear! < 2200;
     return {
       id: work.id,
       title: work.title,
-      year: useImported ? importedYear! : work.release_year,
-      yearImported: useImported || undefined,
+      year: useImported ? importedYear! : (textYear ?? work.release_year),
+      yearImported: useImported || textYear !== null || undefined,
       format: FORMATS[work.format] ?? 'Series',
       medium: mediumOfFormat(work.format),
       memberships: byWork.get(work.id) ?? [],
       anime: work.animation_classification === 'anime',
       animated: work.animation_classification === 'anime' || work.animation_classification === 'animation',
-      creators: 'Not supplied in seed',
+      creators: text?.creators.length ? text.creators.map(entry => entry.role ? `${entry.name} (${entry.role})` : entry.name).join(', ') : 'Not supplied in seed',
       credits: freshCredits(credits?.entries?.[work.id]),
       inWorld: inWorldByWork.get(work.id),
       description: work.synopsis ?? 'Synopsis not supplied in seed.',
@@ -389,6 +396,7 @@ export function buildDataset(videoSeed: Seed, metadata?: ImportedMetadata | null
     calendars,
     families,
     adaptations,
+    textSources: [...textSources],
     chronologySources,
     franchises,
     companies,
