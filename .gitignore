@@ -10,3 +10,6 @@ public/data/tmdb_metadata.json
 public/data/tmdb_credits.json
 
 db/.data/
+
+# Executing-plans scratch (ledger, briefs)
+.superpowers/
