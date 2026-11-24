@@ -379,6 +379,9 @@ export default function App() {
                   <button className={`chip ${needsPoster ? 'active' : ''}`} aria-pressed={needsPoster} onClick={() => setNeedsPoster(value => !value)}>
                     {t('filter.noPoster')}
                   </button>
+                  <button className="density" onClick={() => settings.set({cardStyle: settings.cardStyle === 'text' ? 'poster' : 'text'})}>
+                    {t('card.style')}: {t(`card.${settings.cardStyle}`)}
+                  </button>
                   <button className="density" onClick={() => setDensity(density === 'compact' ? 'comfortable' : 'compact')}>
                     {t('density.label')}: {t(`density.${density}`)}
                   </button>
@@ -402,7 +405,7 @@ export default function App() {
                 {filtered.length === 0
                   ? <div className="empty">{t('common.empty')}</div>
                   : view === 'cards'
-                    ? <div className={`grid ${density}`}>{filtered.map(work => <WorkCard key={work.id} work={work} t={t} posters={posters} onSelect={setSelected}/>)}</div>
+                    ? <div className={`grid ${density} ${settings.cardStyle === 'text' ? 'text-style' : ''}`}>{filtered.map(work => <WorkCard key={work.id} work={work} t={t} posters={posters} onSelect={setSelected}/>)}</div>
                     : view === 'timeline'
                       ? <TimelineView works={filtered} scale={settings.timelineScale} onScale={scale => settings.set({timelineScale: scale})} t={t} posters={posters} onSelect={setSelected}/>
                       : view === 'sequence'

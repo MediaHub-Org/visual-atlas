@@ -98,3 +98,6 @@ corporate cycle and no ownership is inferred from `catalog_association`.
 - Sidebar structure is shared: Discover, Format (All + formats, counts) and Series & sagas (franchises, counts), narrowing each other (`facetLists` in `src/medium.ts`). Watch also keeps Companies and Collections; Read has none yet (no publisher/tag data; Comic Vine's `publisher` field could feed a Read "Publishers" section later).
 - "In-universe order" lanes, the Star Wars calendar axis and unplaced lists now use the release timeline's `MiniWork` cards (poster, title, year; lanes show the position as a badge).
 - The sidebar brand is a link to `/` and resets to a fresh Watch visit.
+
+## Text card style (2026-11-24)
+- One global preference `cardStyle` (`poster` | `text`, saved in the browser settings, toggle "Cards: Posters/Text" in the toolbar and in Settings) applies the same way in Cards, In-universe order and Release timeline. Text cards drop the poster and show title, year, franchise/continuity, format and anime flags, in-world-date and adaptation-link icons and the director (video) or creators (comics/manga). Logic in `src/facts.ts` (`tests/facts.test.mjs`).

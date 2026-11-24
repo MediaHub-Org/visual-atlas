@@ -32,6 +32,8 @@ export type Work = {
   format: 'Film' | 'Series' | 'Comic' | 'Manga' | 'Graphic novel';
   /** Derived from the format: video (films, series) or text (comics, manga). */
   medium: Medium;
+  /** Adaptation links to or from this work (both directions). */
+  links: number;
   memberships: Membership[];
   anime: boolean;
   animated: boolean;
@@ -241,6 +243,11 @@ export function buildDataset(videoSeed: Seed, metadata?: ImportedMetadata | null
   }
 
   const textSources = new Set<'anilist' | 'comicvine'>();
+  const linkCount = new Map<string, number>();
+  for (const link of adaptations) {
+    linkCount.set(link.sourceId, (linkCount.get(link.sourceId) ?? 0) + 1);
+    linkCount.set(link.adaptedId, (linkCount.get(link.adaptedId) ?? 0) + 1);
+  }
   const works: Work[] = seed.works.map((work, index) => {
     const imported = metadata?.entries?.[work.id];
     const importedYear = imported?.year;
@@ -258,6 +265,7 @@ export function buildDataset(videoSeed: Seed, metadata?: ImportedMetadata | null
       yearImported: useImported || textYear !== null || undefined,
       format: FORMATS[work.format] ?? 'Series',
       medium: mediumOfFormat(work.format),
+      links: linkCount.get(work.id) ?? 0,
       memberships: byWork.get(work.id) ?? [],
       anime: work.animation_classification === 'anime',
       animated: work.animation_classification === 'anime' || work.animation_classification === 'animation',
