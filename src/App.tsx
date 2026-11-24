@@ -29,6 +29,7 @@ function readUrl() {
     person: params.get('person') ?? '',
     seq: params.get('seq') ?? '',
     at: params.get('at') ?? '',
+    axis: params.get('axis') === '1',
     format: format && ['All', 'Film', 'Series', 'Anime'].includes(format) ? format : 'All' as Format,
     sort: sort && SORTS.includes(sort) ? sort : 'releaseAsc' as Sort,
     view: view && VIEWS.includes(view) ? view : 'cards' as View,
@@ -64,6 +65,7 @@ export default function App() {
   const [person, setPerson] = useState(initial.person);
   const [seq, setSeq] = useState(initial.seq);
   const [at, setAt] = useState(initial.at);
+  const [axis, setAxis] = useState(initial.axis);
   const [format, setFormat] = useState<Format>(initial.format);
   const [sort, setSort] = useState<Sort>(initial.sort);
   const [view, setView] = useState<View>(initial.view);
@@ -101,6 +103,7 @@ export default function App() {
     if (person) params.set('person', person);
     if (seq) params.set('seq', seq);
     if (at) params.set('at', at);
+    if (axis) params.set('axis', '1');
     if (format !== 'All') params.set('format', format);
     if (sort !== 'releaseAsc') params.set('sort', sort);
     if (view !== 'cards') params.set('view', view);
@@ -109,12 +112,12 @@ export default function App() {
     if (needsPoster) params.set('noposter', '1');
     const next = `${location.pathname}${params.size ? `?${params}` : ''}`;
     if (next !== `${location.pathname}${location.search}`) history.replaceState(null, '', next);
-  }, [query, franchise, company, tag, person, seq, at, format, sort, view, density, selected, needsPoster]);
+  }, [query, franchise, company, tag, person, seq, at, axis, format, sort, view, density, selected, needsPoster]);
 
   useEffect(() => {
     const onPop = () => {
       const next = readUrl();
-      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setTag(next.tag); setPerson(next.person); setSeq(next.seq); setAt(next.at);
+      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setTag(next.tag); setPerson(next.person); setSeq(next.seq); setAt(next.at); setAxis(next.axis);
       setFormat(next.format); setSort(next.sort); setView(next.view);
       setDensity(next.density); setSelected(next.work); setNeedsPoster(next.needsPoster);
     };
@@ -126,7 +129,7 @@ export default function App() {
 
   /** Open one universe's in-world order at a work, clearing filters that would hide part of it. */
   function openOrder(sequenceId: string, workId: string) {
-    setSeq(sequenceId); setAt(workId); setView('sequence'); setSelected('');
+    setSeq(sequenceId); setAt(workId); setAxis(false); setView('sequence'); setSelected('');
     setQuery(''); setFranchise('All'); setCompany(''); setTag(''); setPerson(''); setFormat('All'); setNeedsPoster(false);
   }
   const closeSettings = useCallback(() => setSettingsOpen(false), []);
@@ -328,7 +331,9 @@ export default function App() {
                       : view === 'timeline'
                         ? <TimelineView works={filtered} scale={settings.timelineScale} onScale={scale => settings.set({timelineScale: scale})} t={t} posters={posters} onSelect={setSelected}/>
                         : view === 'sequence'
-                          ? <SequenceView dataset={dataset} works={filtered} t={t} onSelect={setSelected} openId={seq} focusWork={at}/>
+                          ? <SequenceView dataset={dataset} works={filtered} t={t} onSelect={setSelected} openId={seq} focusWork={at}
+                            axis={axis} onAxis={setAxis} scale={settings.timelineScale === 'equal' ? 'equal' : 'proportional'}
+                            onScale={scale => settings.set({timelineScale: scale})}/>
                           : <HierarchyView dataset={dataset} t={t} onFranchise={pickFranchise} focusCompany={company}/>}
               </section>
 

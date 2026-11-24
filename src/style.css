@@ -393,3 +393,19 @@ button.person:hover { color: var(--accent); border-bottom-color: var(--accent); 
 .inworld small { color: var(--muted); }
 .chronology-attribution { font-size: 11px; color: var(--muted); }
 .chronology-attribution a { color: inherit; margin-left: 6px; }
+
+.axis { margin: 18px 0 28px; }
+.axis-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.axis-head h3 { margin: 0; font-size: 15px; }
+.axis-track { border-left: 1px solid var(--line-strong); margin: 14px 0 0 8px; padding-left: 18px; }
+.axis-row { position: relative; display: grid; grid-template-columns: 110px 1fr; gap: 12px; }
+.axis-year { display: flex; flex-direction: column; gap: 2px; }
+.axis-year strong { font-size: 13px; }
+.axis-year small { color: var(--muted); font-size: 10px; }
+.axis-works { display: grid; gap: 6px; }
+.axis-work { display: flex; align-items: flex-start; gap: 10px; text-align: left; background: none; border: 0; color: var(--text); font-size: 13px; padding: 2px 0; cursor: pointer; }
+.axis-work:hover { color: var(--accent); }
+.axis-work small { color: var(--muted); }
+.axis-bar { display: inline-block; width: 4px; background: var(--accent); border-radius: 2px; flex: none; }
+.axis-conflicts { border: 1px dashed var(--accent); border-radius: 4px; padding: 8px 12px 8px 26px; margin: 12px 0; font-size: 12px; }
+.axis-undated { margin-top: 20px; }

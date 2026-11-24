@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import type {Dataset, Work} from '../data';
 import type {TFn} from '../i18n';
 import {CompanyTree} from './CompanyTree';
+import {AxisView, type AxisScale} from './AxisView';
 
 export function TableView({works, t, onSelect}: {works: Work[]; t: TFn; onSelect: (id: string) => void}) {
   return <div className="table-wrap"><table>
@@ -15,11 +16,16 @@ export function TableView({works, t, onSelect}: {works: Work[]; t: TFn; onSelect
   </table></div>;
 }
 
-export function SequenceView({dataset, works, t, onSelect, openId = '', focusWork = ''}: {
+export function SequenceView({dataset, works, t, onSelect, openId = '', focusWork = '', axis = false, onAxis, scale = 'proportional', onScale}: {
   dataset: Dataset;
   works: Work[];
   t: TFn;
   onSelect: (id: string) => void;
+  /** Show each universe on its own calendar axis instead of the editorial lists. */
+  axis?: boolean;
+  onAxis?: (axis: boolean) => void;
+  scale?: AxisScale;
+  onScale?: (scale: AxisScale) => void;
   /** The one sequence to show open (arriving from a work's card); none opens by default. */
   openId?: string;
   focusWork?: string;
@@ -35,7 +41,16 @@ export function SequenceView({dataset, works, t, onSelect, openId = '', focusWor
     .filter(sequence => sequence.items.length > 0);
   const placed = new Set(sequences.flatMap(sequence => sequence.items.map(item => item.workId)));
   const unplaced = works.filter(work => !placed.has(work.id));
+  const calendars = [...dataset.calendars.keys()];
+  const showAxis = axis && calendars.length > 0;
   return <div className="groups">
+    {calendars.length > 0 && onAxis && <div className="segmented" role="group" aria-label={t('view.sequence')}>
+      <button className={!showAxis ? 'selected' : ''} aria-pressed={!showAxis} onClick={() => onAxis(false)}>{t('view.list')}</button>
+      <button className={showAxis ? 'selected' : ''} aria-pressed={showAxis} onClick={() => onAxis(true)}>{t('view.axis')}</button>
+    </div>}
+    {showAxis && calendars.map(id => <AxisView key={id} dataset={dataset} works={works} calendarId={id} scale={scale}
+      onScale={next => onScale?.(next)} t={t} onSelect={onSelect}/>)}
+    {!showAxis && <>
     <p>{t('sequence.note')}</p>
     {sequences.map(sequence => <details key={`${sequence.id}:${openId}`} id={`seq-${sequence.id}`} open={sequence.id === openId}>
       <summary>
@@ -56,6 +71,7 @@ export function SequenceView({dataset, works, t, onSelect, openId = '', focusWor
         {work.title} <small>· {t('sequence.positionUnknown')}</small>
       </button>)}</div>
     </details>}
+    </>}
   </div>;
 }
 
