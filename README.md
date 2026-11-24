@@ -21,7 +21,7 @@ has no backend, database, admin authentication or editing. See
   expired years and drops expired unchanged posters on start, and the scripts
   re-fetch them.
 - **No redistribution.** The cache (`public/posters/`,
-  `public/data/tmdb_metadata.json`) is ignored by Git, and `npm run build` strips
+  `public/data/tmdb_metadata.json`, `public/data/tmdb_credits.json`) is ignored by Git, and `npm run build` strips
   it from `dist/`, so neither the repo nor a build ever contains TMDB data.
 
 `db/schema.sql` contains a proposed data model, not an applied migration. The
@@ -92,6 +92,18 @@ exact title (festival vs. wide release), prefers the popular entry when two
 catalogue duplicates share title and year, and refuses event/premiere titles.
 `scripts/title-rules.mjs` holds the explicit, reviewable overrides for seed
 labels such as «Doctor Who: original series» or «Doraemon: 1979 series».
+
+## Imported credits
+
+`scripts/fetch-credits.mjs` imports directors, writers (a series' creators) and the
+eight top-billed cast with their characters into `public/data/tmdb_credits.json`
+(same local-only cache and 150-day expiry as the years and posters). It only looks up
+works whose TMDB id is already known from a saved poster or an imported year, never
+by title, and keeps that id in each entry: the detail panel shows it as «TMDB #id»
+with a link, so a wrong poster match is visible instead of spreading to the credits.
+Run `node --env-file-if-exists=.env scripts/fetch-credits.mjs` (`--limit N`,
+`--force`). Names in the panel filter the collection by person (`?person=<id>`), and
+the search box also matches them. Nothing here is verified.
 
 ## Imported metadata
 

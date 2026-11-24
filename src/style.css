@@ -368,3 +368,13 @@ footer p { margin: 8px 0 14px; font-size: 8px; }
 
 .badge.proposal { margin-left: 10px; border-style: dashed; color: var(--muted); }
 .groups summary .basis { margin-left: 10px; text-transform: capitalize; }
+
+.credits { display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; font-size: 12px; margin: 0 0 8px; }
+.credits dt { color: var(--muted); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding-top: 3px; }
+.credits dd { margin: 0; line-height: 1.7; }
+.credits small { color: var(--muted); }
+button.person { background: none; border: 0; padding: 0; color: var(--text); font: inherit; border-bottom: 1px dotted var(--line-strong); cursor: pointer; }
+button.person:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.detail-art { position: relative; }
+.poster-jump { position: absolute; right: 12px; bottom: 12px; font-size: 10px; padding: 6px 10px; border: 1px solid var(--line-strong); background: var(--bg); color: var(--text); border-radius: 3px; cursor: pointer; }
+.poster-jump:hover { border-color: var(--accent); color: var(--accent); }

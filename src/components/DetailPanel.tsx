@@ -5,10 +5,11 @@ import {posterUrl, type PosterLookup} from './WorkCard';
 
 type Candidate = {id: number; title: string; date?: string; poster: string};
 
-export function DetailPanel({work, t, tags, posters, tmdbConfigured, onPosterSaved, onClose}: {
+export function DetailPanel({work, t, tags, onPerson, posters, tmdbConfigured, onPosterSaved, onClose}: {
   work: Work;
   t: TFn;
   tags: {id: string; name: string}[];
+  onPerson: (id: number) => void;
   posters: PosterLookup;
   tmdbConfigured: boolean;
   onPosterSaved: (id: string) => void;
@@ -47,6 +48,11 @@ export function DetailPanel({work, t, tags, posters, tmdbConfigured, onPosterSav
         {poster && <img className="detail-poster" src={poster} alt=""/>}
         <span>FRAME / {work.format.toUpperCase()}</span>
         <strong>{work.title}</strong>
+        <button className="poster-jump" onClick={() => {
+          const editor = document.getElementById('poster-editor');
+          editor?.scrollIntoView({behavior: 'smooth', block: 'center'});
+          editor?.querySelector('input')?.focus({preventScroll: true});
+        }}>{t('poster.change')}</button>
       </div>
       <div className="detail-body">
         <span className="eyebrow">{t('detail.collection')} / {t('detail.seed')}</span>
@@ -60,8 +66,7 @@ export function DetailPanel({work, t, tags, posters, tmdbConfigured, onPosterSav
         </p>)}
         <h3>{t('detail.story')}</h3>
         <p>{work.description}</p>
-        <h3>{t('detail.credits')}</h3>
-        <p>{work.creators}</p>
+        <Credits work={work} t={t} onPerson={onPerson}/>
         {tags.length > 0 && <>
           <h3>{t('detail.tags')}</h3>
           <div className="franchise-chips">{tags.map(entry => <span className="chip" key={entry.id}>{entry.name}</span>)}</div>
@@ -73,6 +78,32 @@ export function DetailPanel({work, t, tags, posters, tmdbConfigured, onPosterSav
       </div>
     </aside>
   </div>;
+}
+
+function PersonLinks({people, t, onPerson}: {people: {id: number; name: string; character?: string | null}[]; t: TFn; onPerson: (id: number) => void}) {
+  return <>{people.map((entry, index) => <span key={entry.id}>
+    {index > 0 && ', '}
+    <button className="person" title={t('credits.filter', {name: entry.name})} onClick={() => onPerson(entry.id)}>{entry.name}</button>
+    {entry.character && <small> {t('credits.as')} {entry.character}</small>}
+  </span>)}</>;
+}
+
+function Credits({work, t, onPerson}: {work: Work; t: TFn; onPerson: (id: number) => void}) {
+  const credits = work.credits;
+  if (!credits) return <>
+    <h3>{t('detail.credits')}</h3>
+    <p className="muted">{t('credits.none')}</p>
+  </>;
+  const creators = credits.kind === 'tv';
+  return <>
+    <h3>{t('detail.credits')}</h3>
+    <dl className="credits">
+      {credits.directors.length > 0 && <><dt>{t('credits.director')}</dt><dd><PersonLinks people={credits.directors} t={t} onPerson={onPerson}/></dd></>}
+      {credits.writers.length > 0 && <><dt>{creators ? t('credits.creator') : t('credits.writer')}</dt><dd><PersonLinks people={credits.writers} t={t} onPerson={onPerson}/></dd></>}
+      {credits.cast.length > 0 && <><dt>{t('credits.cast')}</dt><dd><PersonLinks people={credits.cast} t={t} onPerson={onPerson}/></dd></>}
+    </dl>
+    <p className="muted">{t('credits.source')} <a href={`https://www.themoviedb.org/${credits.kind}/${credits.tmdbId}`} target="_blank" rel="noreferrer">TMDB #{credits.tmdbId}</a></p>
+  </>;
 }
 
 function PosterEditor({work, t, configured, onSaved}: {work: Work; t: TFn; configured: boolean; onSaved: (id: string) => void}) {
@@ -125,7 +156,7 @@ function PosterEditor({work, t, configured, onSaved}: {work: Work; t: TFn; confi
     }
   }
 
-  return <section className="poster-editor">
+  return <section className="poster-editor" id="poster-editor">
     <h3>{t('poster.title')}</h3>
     <p>{t('poster.note')}</p>
     {!configured && <p>{t('poster.noKey')}</p>}

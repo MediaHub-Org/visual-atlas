@@ -1,3 +1,13 @@
+export type Person = { id: number; name: string };
+export type Credits = {
+  tmdbId: number;
+  kind: 'movie' | 'tv';
+  directors: Person[];
+  /** Writers of a film, or the creators of a series (job "Creator"). */
+  writers: (Person & { job: string })[];
+  cast: (Person & { character: string | null })[];
+};
+
 export type Membership = { franchiseId: string; franchise: string; continuity: string };
 export type Work = {
   id: string;
@@ -10,6 +20,8 @@ export type Work = {
   anime: boolean;
   animated: boolean;
   creators: string;
+  /** Imported from TMDB, absent until `scripts/fetch-credits.mjs` has run or once expired. */
+  credits?: Credits;
   description: string;
   color: string;
 };
@@ -28,6 +40,8 @@ export type EditorialTag = { id: string; name: string; rationale: string };
 export type Dataset = {
   works: Work[];
   worksById: Map<string, Work>;
+  /** Imported people (TMDB id -> name) for the person filter and search. */
+  people: Map<number, string>;
   franchises: Franchise[];
   companies: Map<string, Company>;
   roots: string[];
@@ -68,6 +82,9 @@ type Seed = {
 
 const COLORS = ['#94674f', '#4b6877', '#a28255', '#707856', '#687481', '#566653', '#706479', '#a36b59'];
 
+type ImportedCreditsEntry = Partial<Credits> & {expires?: string};
+type ImportedCredits = {entries?: Record<string, ImportedCreditsEntry>};
+
 type ImportedMetadata = {
   entries?: Record<string, {year?: number; date?: string; title?: string; origin?: string; expires?: string}>;
 };
@@ -77,23 +94,39 @@ type ImportedMetadata = {
  * from builds), and a missing file comes back from the dev server as HTML, so
  * anything that is not JSON simply means "no imported years".
  */
-async function loadImportedMetadata(): Promise<ImportedMetadata | null> {
+async function loadLocalJson<T>(url: string): Promise<T | null> {
   try {
-    const response = await fetch('/data/tmdb_metadata.json');
+    const response = await fetch(url);
     if (!response.ok || !response.headers.get('content-type')?.includes('json')) return null;
-    return await response.json() as ImportedMetadata;
+    return await response.json() as T;
   } catch {
     return null;
   }
 }
 
+const loadImportedMetadata = () => loadLocalJson<ImportedMetadata>('/data/tmdb_metadata.json');
+const loadImportedCredits = () => loadLocalJson<ImportedCredits>('/data/tmdb_credits.json');
+
 export async function loadAtlas(url = '/data/media_atlas_seed.json'): Promise<Dataset> {
-  const [seedResponse, metadata] = await Promise.all([fetch(url), loadImportedMetadata()]);
+  const [seedResponse, metadata, credits] = await Promise.all([fetch(url), loadImportedMetadata(), loadImportedCredits()]);
   if (!seedResponse.ok) throw new Error(`Unable to load the atlas dataset (${seedResponse.status}).`);
-  return buildDataset(await seedResponse.json() as Seed, metadata);
+  return buildDataset(await seedResponse.json() as Seed, metadata, credits);
 }
 
-export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null): Dataset {
+/** Credits past their cache limit are not shown; fetch-credits.mjs re-fetches them. */
+function freshCredits(entry?: ImportedCreditsEntry): Credits | undefined {
+  if (!entry?.expires || !(Date.parse(entry.expires) > Date.now())) return undefined;
+  if (typeof entry.tmdbId !== 'number' || !Array.isArray(entry.cast)) return undefined;
+  return {
+    tmdbId: entry.tmdbId,
+    kind: entry.kind === 'tv' ? 'tv' : 'movie',
+    directors: entry.directors ?? [],
+    writers: entry.writers ?? [],
+    cast: entry.cast,
+  };
+}
+
+export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, credits?: ImportedCredits | null): Dataset {
   const franchiseNames = new Map(seed.franchises.map(f => [f.id, f.name]));
   const continuityNames = new Map(seed.continuities.map(c => [c.id, c.name]));
 
@@ -125,6 +158,7 @@ export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null): Da
       anime: work.animation_classification === 'anime',
       animated: work.animation_classification === 'anime' || work.animation_classification === 'animation',
       creators: 'Not supplied in seed',
+      credits: freshCredits(credits?.entries?.[work.id]),
       description: work.synopsis ?? 'Synopsis not supplied in seed.',
       color: COLORS[index % COLORS.length],
     };
@@ -241,9 +275,17 @@ export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null): Da
     workTags.set(entry.work_id, list);
   }
 
+  const people = new Map<number, string>();
+  for (const work of works) {
+    for (const entry of [...(work.credits?.directors ?? []), ...(work.credits?.writers ?? []), ...(work.credits?.cast ?? [])]) {
+      people.set(entry.id, entry.name);
+    }
+  }
+
   return {
     works,
     worksById,
+    people,
     franchises,
     companies,
     roots,

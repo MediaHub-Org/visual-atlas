@@ -14,7 +14,9 @@ WebAssembly, 38/38. No remote; the working tree is clean.
 
 TMDB cache, local only and within TMDB's terms (README, "TMDB terms"): 871 of
 909 posters in `public/posters/` and imported years for the 92 undated series in
-`public/data/tmdb_metadata.json`. Both are ignored by Git, expire after 150 days
+`public/data/tmdb_metadata.json`. Credits (director, writer/creator, top cast with characters) live in
+`public/data/tmdb_credits.json` (`scripts/fetch-credits.mjs`, TMDB id taken from the
+poster/metadata caches, never matched by title). All three are ignored by Git, expire after 150 days
 (`scripts/tmdb-cache.mjs`), and are stripped from `dist/` by the build. Keep the
 app non-commercial. The dev server's poster adapter has no authentication: never
 expose it beyond `127.0.0.1`.
@@ -26,6 +28,10 @@ expose it beyond `127.0.0.1`.
   Warner Bros.) or its chronology as fact; do not publish it as a catalogue.
 - Imported years are marked in the UI and never overwrite curated seed fields.
 - `db/schema.sql` is a proposal, never applied; the frontend does not use it.
+
+The detail panel shows the credits with a source line and TMDB link; each name filters
+by person (`?person=<tmdb id>`). The poster search is also reachable from a
+«Change poster» button on the poster (it used to sit unseen at the bottom of the panel).
 
 ## Next (beyond the basics)
 

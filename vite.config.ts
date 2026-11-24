@@ -96,7 +96,7 @@ function localPosters(): Plugin {
     }
   };
 }
-// Vite copies public/ into the build. The TMDB cache (posters and imported years)
+// Vite copies public/ into the build. The TMDB cache (posters, imported years and credits)
 // is local-only: TMDB's terms forbid redistributing it, so a build never ships it.
 function stripTmdbCache(): Plugin {
   let outDir = 'dist';
@@ -107,6 +107,7 @@ function stripTmdbCache(): Plugin {
     async closeBundle() {
       await rm(join(outDir, 'posters'), {recursive: true, force: true});
       await rm(join(outDir, 'data', 'tmdb_metadata.json'), {force: true});
+      await rm(join(outDir, 'data', 'tmdb_credits.json'), {force: true});
     },
   };
 }

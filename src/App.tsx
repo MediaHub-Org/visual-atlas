@@ -26,6 +26,7 @@ function readUrl() {
     franchise: params.get('franchise') ?? 'All',
     company: params.get('company') ?? '',
     tag: params.get('tag') ?? '',
+    person: params.get('person') ?? '',
     format: format && ['All', 'Film', 'Series', 'Anime'].includes(format) ? format : 'All' as Format,
     sort: sort && SORTS.includes(sort) ? sort : 'releaseAsc' as Sort,
     view: view && VIEWS.includes(view) ? view : 'cards' as View,
@@ -33,6 +34,18 @@ function readUrl() {
     work: params.get('work') ?? '',
     needsPoster: params.get('noposter') === '1',
   };
+}
+
+function hasPerson(work: Work, id: number) {
+  const credits = work.credits;
+  return !!credits && [...credits.directors, ...credits.writers, ...credits.cast].some(entry => entry.id === id);
+}
+
+/** What the search box matches: title, franchises and the imported credits. */
+function searchText(work: Work) {
+  const credits = work.credits;
+  const people = credits ? [...credits.directors, ...credits.writers, ...credits.cast].map(entry => entry.name) : [];
+  return `${work.title} ${work.memberships.map(m => m.franchise).join(' ')} ${people.join(' ')}`.toLowerCase();
 }
 
 export default function App() {
@@ -46,6 +59,7 @@ export default function App() {
   const [franchise, setFranchise] = useState(initial.franchise);
   const [company, setCompany] = useState(initial.company);
   const [tag, setTag] = useState(initial.tag);
+  const [person, setPerson] = useState(initial.person);
   const [format, setFormat] = useState<Format>(initial.format);
   const [sort, setSort] = useState<Sort>(initial.sort);
   const [view, setView] = useState<View>(initial.view);
@@ -80,6 +94,7 @@ export default function App() {
     if (franchise !== 'All') params.set('franchise', franchise);
     if (company) params.set('company', company);
     if (tag) params.set('tag', tag);
+    if (person) params.set('person', person);
     if (format !== 'All') params.set('format', format);
     if (sort !== 'releaseAsc') params.set('sort', sort);
     if (view !== 'cards') params.set('view', view);
@@ -88,12 +103,12 @@ export default function App() {
     if (needsPoster) params.set('noposter', '1');
     const next = `${location.pathname}${params.size ? `?${params}` : ''}`;
     if (next !== `${location.pathname}${location.search}`) history.replaceState(null, '', next);
-  }, [query, franchise, company, tag, format, sort, view, density, selected, needsPoster]);
+  }, [query, franchise, company, tag, person, format, sort, view, density, selected, needsPoster]);
 
   useEffect(() => {
     const onPop = () => {
       const next = readUrl();
-      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setTag(next.tag);
+      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setTag(next.tag); setPerson(next.person);
       setFormat(next.format); setSort(next.sort); setView(next.view);
       setDensity(next.density); setSelected(next.work); setNeedsPoster(next.needsPoster);
     };
@@ -116,8 +131,9 @@ export default function App() {
         (!allowedFranchises || work.memberships.some(m => allowedFranchises.has(m.franchiseId))) &&
         (format === 'All' || (format === 'Anime' ? work.anime : work.format === format)) &&
         (!tag || dataset.workTags.get(work.id)?.includes(tag)) &&
+        (!person || hasPerson(work, Number(person))) &&
         (!needsPoster || !posters.ids.has(work.id)) &&
-        (!needle || `${work.title} ${work.memberships.map(m => m.franchise).join(' ')}`.toLowerCase().includes(needle)))
+        (!needle || searchText(work).includes(needle)))
       .sort((a, b) => {
         if (sort === 'title') return a.title.localeCompare(b.title);
         if (a.year === null && b.year === null) return a.title.localeCompare(b.title);
@@ -125,7 +141,7 @@ export default function App() {
         if (b.year === null) return -1;
         return sort === 'releaseDesc' ? b.year - a.year : a.year - b.year;
       });
-  }, [dataset, query, franchise, allowedFranchises, format, tag, needsPoster, posters, sort]);
+  }, [dataset, query, franchise, allowedFranchises, format, tag, person, needsPoster, posters, sort]);
 
   const tagOptions = useMemo(() => {
     if (!dataset) return [];
@@ -156,7 +172,7 @@ export default function App() {
 
   return <div className="app">
     <Sidebar
-      dataset={dataset ?? {works: [], worksById: new Map(), franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, franchises: 0, companies: 0}}}
+      dataset={dataset ?? {works: [], worksById: new Map(), people: new Map(), franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, franchises: 0, companies: 0}}}
       t={t}
       franchise={franchise}
       tag={tag}
@@ -257,10 +273,11 @@ export default function App() {
                   </button>
                 </div>
 
-                {(companyNode || franchise !== 'All' || tag) && <div className="active-filters">
+                {(companyNode || franchise !== 'All' || tag || person) && <div className="active-filters">
                   {companyNode && <button className="chip active" onClick={() => setCompany('')}>{companyNode.name} ✕</button>}
                   {franchise !== 'All' && <button className="chip active" onClick={() => setFranchise('All')}>{franchise} ✕</button>}
                   {tag && <button className="chip active" onClick={() => setTag('')}>{tagOptions.find(entry => entry.id === tag)?.name ?? tag} ✕</button>}
+                  {person && <button className="chip active" onClick={() => setPerson('')}>{dataset.people.get(Number(person)) ?? person} ✕</button>}
                 </div>}
 
                 <div className="viewbar">
@@ -300,6 +317,7 @@ export default function App() {
       work={selectedWork}
       t={t}
       tags={selectedTags}
+      onPerson={id => { setPerson(String(id)); setSelected(''); setView('cards'); }}
       posters={posters}
       tmdbConfigured={tmdbConfigured}
       onPosterSaved={id => setPosters(current => ({ids: new Set(current.ids).add(id), version: Date.now()}))}
