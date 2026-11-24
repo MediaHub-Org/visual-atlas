@@ -76,3 +76,8 @@ and work/tag links with the same draft state. `npm test` is 54/54. The third pas
 `db/.data` holds the imported copy (2,413 payloads); it is ignored by Git. Claims
 are rows in claim tables, never reviewed facts: the cycle trigger still refuses a
 corporate cycle and no ownership is inferred from `catalog_association`.
+
+## In-universe order by world (2026-11-24)
+- "In-universe order" shows one block per universe family (Marvel, DC live action: `public/data/universe_families.json`, owner-approved 2026-11-24, Insidious excluded) or per franchise, with one lane per continuity. Continuities are never merged; `same_world` only labels a lane.
+- Star Wars is the only block with a calendar: "Calendar axis" switches it to the BBY/ABY axis. Other blocks say they have no in-world dates.
+- Code: `src/families.ts` (parse + `buildBlocks`, tested in `tests/families.test.mjs`), `SequenceView` in `src/components/Views.tsx`. Proposal record: `docs/proposals/universe-families.md`.

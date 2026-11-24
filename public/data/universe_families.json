@@ -1,0 +1,23 @@
+{
+  "approved_by_owner": true,
+  "approved_on": "2026-11-24",
+  "note": "A family groups franchises the owner says share one fictional world. It never merges continuities: each keeps its own lane. same_world only labels a lane as the same world as another; it does not move works. Source: docs/proposals/universe-families.md.",
+  "families": [
+    {
+      "id": "marvel",
+      "name": "Marvel",
+      "franchises": ["marvel", "x-men", "spider-man"],
+      "same_world": [
+        { "franchise": "spider-man", "continuity": "spider-man--mcu-solo-films", "as_franchise": "marvel", "as_continuity": "marvel--main-universe" }
+      ]
+    },
+    {
+      "id": "dc",
+      "name": "DC (live action)",
+      "franchises": ["dceu", "batman", "superman"],
+      "same_world": [
+        { "franchise": "superman", "continuity": "superman--dceu-solo-film", "as_franchise": "dceu", "as_continuity": "dceu--dceu" }
+      ]
+    }
+  ]
+}

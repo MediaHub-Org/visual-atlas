@@ -409,3 +409,15 @@ button.person:hover { color: var(--accent); border-bottom-color: var(--accent); 
 .axis-bar { display: inline-block; width: 4px; background: var(--accent); border-radius: 2px; flex: none; }
 .axis-conflicts { border: 1px dashed var(--accent); border-radius: 4px; padding: 8px 12px 8px 26px; margin: 12px 0; font-size: 12px; }
 .axis-undated { margin-top: 20px; }
+
+.universe-block { padding: 14px 0; }
+.universe-block > summary strong { color: var(--text); font-size: 15px; margin-right: 6px; }
+.lanes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; padding-top: 12px; }
+.lane { border-left: 2px solid var(--line); padding-left: 12px; min-width: 0; }
+.lane.open { border-left-color: var(--accent); }
+.lane h4 { margin: 0; font-size: 13px; font-weight: 600; }
+.lane h4 > small { display: block; color: var(--muted); font-weight: 400; }
+.lane h4 .basis { display: inline; margin-left: 8px; text-transform: capitalize; }
+.lane .group-items { padding-left: 0; }
+.lane-note { font-size: 11px; color: var(--muted); margin: 6px 0 0; }
+.universe-block > summary .basis { text-transform: none; }

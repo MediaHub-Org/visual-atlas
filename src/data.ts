@@ -1,4 +1,5 @@
 import type { Calendar, Period, Qualifier } from './chronology';
+import { parseFamilies, type Family } from './families';
 
 export type Person = { id: number; name: string };
 export type Credits = {
@@ -58,13 +59,17 @@ export type Dataset = {
   people: Map<number, string>;
   /** In-world calendars by id (`franchise` is the franchise name), and where their dates come from. */
   calendars: Map<string, Calendar & { franchise: string }>;
+  /** Owner-approved groups of franchises sharing one world (public/data/universe_families.json). */
+  families: Family[];
   chronologySources: { name: string; licence: string; licenceUrl: string }[];
   franchises: Franchise[];
   companies: Map<string, Company>;
   roots: string[];
   sequences: {
     id: string;
+    franchiseId: string;
     franchise: string;
+    continuityId: string;
     continuity: string;
     name: string;
     basis: string;
@@ -160,9 +165,9 @@ function validPeriod(raw: unknown): Period | null {
 }
 
 export async function loadAtlas(url = '/data/media_atlas_seed.json'): Promise<Dataset> {
-  const [seedResponse, metadata, credits, chronology] = await Promise.all([fetch(url), loadImportedMetadata(), loadImportedCredits(), loadChronology()]);
+  const [seedResponse, metadata, credits, chronology, familiesFile] = await Promise.all([fetch(url), loadImportedMetadata(), loadImportedCredits(), loadChronology(), loadLocalJson<unknown>('/data/universe_families.json')]);
   if (!seedResponse.ok) throw new Error(`Unable to load the atlas dataset (${seedResponse.status}).`);
-  return buildDataset(await seedResponse.json() as Seed, metadata, credits, chronology);
+  return buildDataset(await seedResponse.json() as Seed, metadata, credits, chronology, parseFamilies(familiesFile));
 }
 
 /** Credits past their cache limit are not shown; fetch-credits.mjs re-fetches them. */
@@ -178,7 +183,7 @@ function freshCredits(entry?: ImportedCreditsEntry): Credits | undefined {
   };
 }
 
-export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, credits?: ImportedCredits | null, chronology: ChronologyFile[] = []): Dataset {
+export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, credits?: ImportedCredits | null, chronology: ChronologyFile[] = [], families: Family[] = []): Dataset {
   const franchiseNames = new Map(seed.franchises.map(f => [f.id, f.name]));
 
   const calendars = new Map<string, Calendar & { franchise: string }>();
@@ -334,7 +339,9 @@ export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, cre
     .filter(sequence => sequence.sequence_type === 'narrative')
     .map(sequence => ({
       id: sequence.id,
+      franchiseId: sequence.franchise_id,
       franchise: franchiseNames.get(sequence.franchise_id) ?? 'Unknown franchise',
+      continuityId: sequence.continuity_id,
       continuity: continuityNames.get(sequence.continuity_id) ?? 'Continuity not specified',
       name: sequence.name,
       basis: sequence.ordering_basis,
@@ -370,6 +377,7 @@ export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, cre
     worksById,
     people,
     calendars,
+    families,
     chronologySources,
     franchises,
     companies,

@@ -3,6 +3,7 @@ import type {Dataset, Work} from '../data';
 import type {TFn} from '../i18n';
 import {CompanyTree} from './CompanyTree';
 import {AxisView, type AxisScale} from './AxisView';
+import {buildBlocks} from '../families';
 
 export function SequenceView({dataset, works, t, onSelect, openId = '', focusWork = '', axis = false, onAxis, scale = 'proportional', onScale}: {
   dataset: Dataset;
@@ -28,39 +29,74 @@ export function SequenceView({dataset, works, t, onSelect, openId = '', focusWor
     .map(sequence => ({...sequence, items: sequence.items.filter(item => visible.has(item.workId))}))
     .filter(sequence => sequence.items.length > 0);
   const placed = new Set(sequences.flatMap(sequence => sequence.items.map(item => item.workId)));
-  const unplaced = works.filter(work => !placed.has(work.id));
-  const calendars = [...dataset.calendars.keys()];
+  const calendars = [...dataset.calendars.values()];
   const showAxis = axis && calendars.length > 0;
-  return <div className="groups">
+  const franchiseOf = new Map(dataset.franchises.map(franchise => [franchise.id, franchise]));
+  const continuityLabel = new Map(dataset.sequences.map(sequence => [sequence.continuityId, `${sequence.franchise} / ${sequence.continuity}`]));
+
+  // One block per family (Marvel, DC) or franchise; one lane per continuity. Blocks
+  // with no visible work are not shown, and lanes are never merged.
+  const blocks = buildBlocks(dataset.franchises, dataset.families).map(block => {
+    const ids = new Set(block.franchiseIds);
+    const lanes = block.franchiseIds.flatMap(id => sequences.filter(sequence => sequence.franchiseId === id));
+    const members = works.filter(work => work.memberships.some(m => ids.has(m.franchiseId)));
+    const unplaced = members.filter(work => !placed.has(work.id));
+    const calendar = calendars.find(entry => block.franchiseIds.some(id => franchiseOf.get(id)?.name === entry.franchise));
+    const notes = new Map((dataset.families.find(family => family.id === block.id)?.sameWorld ?? []).map(note => [note.continuityId, note.asContinuityId]));
+    return {...block, lanes, members, unplaced, calendar, notes};
+  }).filter(block => block.members.length > 0 || block.lanes.length > 0);
+  const orphans = works.filter(work => !placed.has(work.id) && !blocks.some(block => block.members.includes(work)));
+  const openByDefault = blocks.length <= 3;
+  const hasDates = calendars.some(calendar => works.some(work => work.inWorld?.calendarId === calendar.id));
+  const workButton = (work: Work | undefined, extra: string, key: string, sequenceId = '', position?: number) => work && <button key={key}
+    id={sequenceId ? `seq-${sequenceId}-${work.id}` : undefined}
+    className={work.id === focusWork && sequenceId === openId ? 'focus' : ''} onClick={() => onSelect(work.id)}>
+    {position !== undefined && <span>{position}</span>}{work.title} <small>({work.year ?? t('detail.yearUnknown')}){extra}</small>
+  </button>;
+
+  return <div className="groups universe-blocks">
     {calendars.length > 0 && onAxis && <div className="segmented" role="group" aria-label={t('view.sequence')}>
-      <button className={!showAxis ? 'selected' : ''} aria-pressed={!showAxis} onClick={() => onAxis(false)}>{t('view.list')}</button>
+      <button className={!showAxis ? 'selected' : ''} aria-pressed={!showAxis} onClick={() => onAxis(false)}>{t('universe.lanes')}</button>
       <button className={showAxis ? 'selected' : ''} aria-pressed={showAxis} onClick={() => onAxis(true)}>{t('view.axis')}</button>
     </div>}
-    {showAxis && !calendars.some(id => works.some(work => work.inWorld?.calendarId === id)) && <div className="empty">{t('axis.none')}</div>}
-    {showAxis && calendars.map(id => <AxisView key={id} dataset={dataset} works={works} calendarId={id} scale={scale}
-      onScale={next => onScale?.(next)} t={t} onSelect={onSelect}/>)}
-    {!showAxis && <>
     <p>{t('sequence.note')}</p>
-    {sequences.map(sequence => <details key={`${sequence.id}:${openId}`} id={`seq-${sequence.id}`} open={sequence.id === openId}>
-      <summary>
-        {sequence.franchise} / {sequence.continuity}
-        <span className="badge proposal" title={t('sequence.badgeHint')}>{t('sequence.badge')}</span>
-        <small className="basis">{sequence.basis.replace(/_/g, ' ')} · {sequence.items.length}</small>
-      </summary>
-      <div className="group-items">{sequence.items.map(item => {
-        const work = dataset.worksById.get(item.workId);
-        return work && <button key={work.id} id={`seq-${sequence.id}-${work.id}`} className={work.id === focusWork && sequence.id === openId ? 'focus' : ''} onClick={() => onSelect(work.id)}>
-          <span>{item.position}</span>{work.title} <small>({work.year ?? t('detail.yearUnknown')}) · {t('sequence.review')}</small>
-        </button>;
-      })}</div>
-    </details>)}
-    {unplaced.length > 0 && <details>
-      <summary>{t('sequence.unpositioned')}</summary>
-      <div className="group-items">{unplaced.map(work => <button key={work.id} onClick={() => onSelect(work.id)}>
-        {work.title} <small>· {t('sequence.positionUnknown')}</small>
-      </button>)}</div>
+    {showAxis && !hasDates && <div className="empty">{t('axis.none')}</div>}
+    {blocks.map(block => {
+      const onAxisNow = showAxis && block.calendar !== undefined;
+      return <details key={`${block.id}:${openId}`} id={`block-${block.id}`} className="universe-block"
+        open={openByDefault || block.lanes.some(lane => lane.id === openId) || onAxisNow}>
+        <summary>
+          <strong>{block.name}</strong>
+          <small className="basis">{block.lanes.length} {t('universe.lanesCount')} · {block.members.length} {t('universe.works')}</small>
+          {block.family && <span className="badge" title={t('universe.familyHint')}>{t('universe.family')}</span>}
+          <span className="badge proposal" title={t('sequence.badgeHint')}>{t('sequence.badge')}</span>
+        </summary>
+        {onAxisNow && block.calendar && <AxisView dataset={dataset} works={works} calendarId={block.calendar.id} scale={scale}
+          onScale={next => onScale?.(next)} t={t} onSelect={onSelect}/>}
+        {!onAxisNow && <>
+          {!block.calendar && <p className="lane-note">{t('universe.noDates')}</p>}
+          <div className="lanes">
+            {block.lanes.map(lane => {
+              const same = block.notes.get(lane.continuityId);
+              return <section key={lane.id} id={`seq-${lane.id}`} className={`lane ${lane.id === openId ? 'open' : ''}`}>
+                <h4>{block.franchiseIds.length > 1 && <small>{lane.franchise}</small>}{lane.continuity}
+                  <small className="basis">{lane.basis.replace(/_/g, ' ')} · {lane.items.length}</small></h4>
+                {same && <p className="lane-note">{t('universe.sameWorld')} {continuityLabel.get(same) ?? same}</p>}
+                <div className="group-items">{lane.items.map(item => workButton(dataset.worksById.get(item.workId), ` · ${t('sequence.review')}`, item.workId, lane.id, item.position))}</div>
+              </section>;
+            })}
+          </div>
+          {block.unplaced.length > 0 && <details>
+            <summary>{t('sequence.unpositioned')} · {block.unplaced.length}</summary>
+            <div className="group-items">{block.unplaced.map(work => workButton(work, ` · ${t('sequence.positionUnknown')}`, work.id))}</div>
+          </details>}
+        </>}
+      </details>;
+    })}
+    {orphans.length > 0 && <details>
+      <summary>{t('sequence.unpositioned')} · {orphans.length}</summary>
+      <div className="group-items">{orphans.map(work => workButton(work, ` · ${t('sequence.positionUnknown')}`, work.id))}</div>
     </details>}
-    </>}
   </div>;
 }
 
