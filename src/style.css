@@ -387,3 +387,9 @@ button.person:hover { color: var(--accent); border-bottom-color: var(--accent); 
 .universe-nav button:disabled { opacity: .35; cursor: default; }
 .universe-nav button.primary { border-color: var(--accent); color: var(--accent); margin-left: auto; }
 .group-items button.focus { background: var(--accent-soft); outline: 1px solid var(--accent); }
+
+.inworld ul { list-style: none; margin: 0 0 6px; padding: 0; }
+.inworld li { font-size: 13px; padding: 2px 0; }
+.inworld small { color: var(--muted); }
+.chronology-attribution { font-size: 11px; color: var(--muted); }
+.chronology-attribution a { color: inherit; margin-left: 6px; }

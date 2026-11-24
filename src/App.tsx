@@ -203,7 +203,7 @@ export default function App() {
 
   return <div className="app">
     <Sidebar
-      dataset={dataset ?? {works: [], worksById: new Map(), people: new Map(), franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, franchises: 0, companies: 0}}}
+      dataset={dataset ?? {works: [], worksById: new Map(), people: new Map(), calendars: new Map(), chronologySources: [], franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, franchises: 0, companies: 0}}}
       t={t}
       franchise={franchise}
       tag={tag}
@@ -335,6 +335,10 @@ export default function App() {
               <footer>
                 <span>FRAME ✳</span>
                 <p>{t('footer.warning')}</p>
+                {dataset.chronologySources.length > 0 && <p className="chronology-attribution">
+                  {t('inworld.footer')} {dataset.chronologySources.map(source =>
+                    <a key={source.name} href={source.licenceUrl || undefined} target="_blank" rel="noreferrer">{source.name} · {source.licence}</a>)}
+                </p>}
                 <div className="tmdb-attribution">
                   <a href="https://www.themoviedb.org/"><img src="/tmdb-logo.svg" alt="TMDB" width="60"/></a><br/>
                   {t('poster.attribution')}
@@ -350,6 +354,7 @@ export default function App() {
       tags={selectedTags}
       onPerson={id => { setPerson(String(id)); setSelected(''); setView('cards'); }}
       universe={selectedUniverse}
+      calendar={selectedWork?.inWorld ? dataset?.calendars.get(selectedWork.inWorld.calendarId) : undefined}
       onOpenOrder={openOrder}
       onWork={setSelected}
       posters={posters}

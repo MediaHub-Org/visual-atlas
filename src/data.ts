@@ -1,3 +1,5 @@
+import type { Calendar, Period, Qualifier } from './chronology';
+
 export type Person = { id: number; name: string };
 export type Credits = {
   tmdbId: number;
@@ -6,6 +8,15 @@ export type Credits = {
   /** Writers of a film, or the creators of a series (job "Creator"). */
   writers: (Person & { job: string })[];
   cast: (Person & { character: string | null })[];
+};
+
+/** In-world dates of a work, imported from Wookieepedia (public/data/chronology). */
+export type InWorld = {
+  calendarId: string;
+  page: string;
+  url: string;
+  revision: number | null;
+  periods: Period[];
 };
 
 export type Membership = { franchiseId: string; franchise: string; continuity: string };
@@ -20,6 +31,8 @@ export type Work = {
   anime: boolean;
   animated: boolean;
   creators: string;
+  /** In-world dates; absent when the chronology file has none for this work. */
+  inWorld?: InWorld;
   /** Imported from TMDB, absent until `scripts/fetch-credits.mjs` has run or once expired. */
   credits?: Credits;
   description: string;
@@ -42,6 +55,9 @@ export type Dataset = {
   worksById: Map<string, Work>;
   /** Imported people (TMDB id -> name) for the person filter and search. */
   people: Map<number, string>;
+  /** In-world calendars by id (`franchise` is the franchise name), and where their dates come from. */
+  calendars: Map<string, Calendar & { franchise: string }>;
+  chronologySources: { name: string; licence: string; licenceUrl: string }[];
   franchises: Franchise[];
   companies: Map<string, Company>;
   roots: string[];
@@ -107,10 +123,41 @@ async function loadLocalJson<T>(url: string): Promise<T | null> {
 const loadImportedMetadata = () => loadLocalJson<ImportedMetadata>('/data/tmdb_metadata.json');
 const loadImportedCredits = () => loadLocalJson<ImportedCredits>('/data/tmdb_credits.json');
 
+/** The shape of public/data/chronology/<franchise>.json (see scripts/fetch-wookieepedia-dates.mjs). */
+export type ChronologyFile = {
+  source?: { name?: string; licence?: string; licence_url?: string };
+  calendar?: { id?: string; name?: string; franchise?: string; anchor_event?: string; era_before?: string; era_after?: string };
+  entries?: Record<string, { parsed?: boolean; page?: string; url?: string; revision?: number | null; periods?: unknown }>;
+};
+
+const CHRONOLOGY_FILES = ['star-wars'];
+const QUALIFIERS: Qualifier[] = ['exact', 'circa', 'open_after', 'days_before'];
+
+async function loadChronology(): Promise<ChronologyFile[]> {
+  const files = await Promise.all(CHRONOLOGY_FILES.map(name => loadLocalJson<ChronologyFile>(`/data/chronology/${name}.json`)));
+  return files.filter((file): file is ChronologyFile => file !== null && typeof file === 'object');
+}
+
+/** A period the file claims, or null when it is malformed (a bad row never reaches the UI). */
+function validPeriod(raw: unknown): Period | null {
+  if (!raw || typeof raw !== 'object') return null;
+  const row = raw as Record<string, unknown>;
+  const number = (value: unknown) => (typeof value === 'number' && Number.isFinite(value) ? value : null);
+  const start = number(row.start);
+  if (start === null || !QUALIFIERS.includes(row.qualifier as Qualifier)) return null;
+  return {
+    label: typeof row.label === 'string' ? row.label : null,
+    start,
+    end: number(row.end),
+    qualifier: row.qualifier as Qualifier,
+    primary: row.primary === true,
+  };
+}
+
 export async function loadAtlas(url = '/data/media_atlas_seed.json'): Promise<Dataset> {
-  const [seedResponse, metadata, credits] = await Promise.all([fetch(url), loadImportedMetadata(), loadImportedCredits()]);
+  const [seedResponse, metadata, credits, chronology] = await Promise.all([fetch(url), loadImportedMetadata(), loadImportedCredits(), loadChronology()]);
   if (!seedResponse.ok) throw new Error(`Unable to load the atlas dataset (${seedResponse.status}).`);
-  return buildDataset(await seedResponse.json() as Seed, metadata, credits);
+  return buildDataset(await seedResponse.json() as Seed, metadata, credits, chronology);
 }
 
 /** Credits past their cache limit are not shown; fetch-credits.mjs re-fetches them. */
@@ -126,8 +173,33 @@ function freshCredits(entry?: ImportedCreditsEntry): Credits | undefined {
   };
 }
 
-export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, credits?: ImportedCredits | null): Dataset {
+export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, credits?: ImportedCredits | null, chronology: ChronologyFile[] = []): Dataset {
   const franchiseNames = new Map(seed.franchises.map(f => [f.id, f.name]));
+
+  const calendars = new Map<string, Calendar & { franchise: string }>();
+  const chronologySources: Dataset['chronologySources'] = [];
+  const inWorldByWork = new Map<string, InWorld>();
+  for (const file of chronology) {
+    const calendar = file.calendar;
+    if (!calendar?.id || !calendar.era_before || !calendar.era_after) continue;
+    calendars.set(calendar.id, {
+      id: calendar.id,
+      name: calendar.name ?? calendar.id,
+      eraBefore: calendar.era_before,
+      eraAfter: calendar.era_after,
+      anchorEvent: calendar.anchor_event ?? '',
+      franchise: franchiseNames.get(calendar.franchise ?? '') ?? calendar.franchise ?? '',
+    });
+    if (file.source?.name && file.source.licence) {
+      chronologySources.push({ name: file.source.name, licence: file.source.licence, licenceUrl: file.source.licence_url ?? '' });
+    }
+    for (const [workId, entry] of Object.entries(file.entries ?? {})) {
+      if (!entry?.parsed || !Array.isArray(entry.periods) || typeof entry.page !== 'string' || typeof entry.url !== 'string') continue;
+      const periods = entry.periods.map(validPeriod).filter((period): period is Period => period !== null);
+      if (periods.length === 0) continue;
+      inWorldByWork.set(workId, { calendarId: calendar.id, page: entry.page, url: entry.url, revision: entry.revision ?? null, periods });
+    }
+  }
   const continuityNames = new Map(seed.continuities.map(c => [c.id, c.name]));
 
   const byWork = new Map<string, Membership[]>();
@@ -159,6 +231,7 @@ export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, cre
       animated: work.animation_classification === 'anime' || work.animation_classification === 'animation',
       creators: 'Not supplied in seed',
       credits: freshCredits(credits?.entries?.[work.id]),
+      inWorld: inWorldByWork.get(work.id),
       description: work.synopsis ?? 'Synopsis not supplied in seed.',
       color: COLORS[index % COLORS.length],
     };
@@ -286,6 +359,8 @@ export function buildDataset(seed: Seed, metadata?: ImportedMetadata | null, cre
     works,
     worksById,
     people,
+    calendars,
+    chronologySources,
     franchises,
     companies,
     roots,

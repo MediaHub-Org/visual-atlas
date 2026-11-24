@@ -2,14 +2,16 @@ import {useEffect, useRef, useState} from 'react';
 import type {Work} from '../data';
 import type {TFn} from '../i18n';
 import {posterUrl, type PosterLookup} from './WorkCard';
+import {formatSpan, type Calendar} from '../chronology';
 
 type Candidate = {id: number; title: string; date?: string; poster: string};
 
-export function DetailPanel({work, t, tags, onPerson, universe, onOpenOrder, onWork, posters, tmdbConfigured, onPosterSaved, onClose}: {
+export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpenOrder, onWork, posters, tmdbConfigured, onPosterSaved, onClose}: {
   work: Work;
   t: TFn;
   tags: {id: string; name: string}[];
   onPerson: (id: number) => void;
+  calendar?: Calendar;
   universe: {id: string; label: string; position: number; total: number; prev?: {id: string; title: string}; next?: {id: string; title: string}}[];
   onOpenOrder: (sequenceId: string, workId: string) => void;
   onWork: (id: string) => void;
@@ -67,6 +69,7 @@ export function DetailPanel({work, t, tags, onPerson, universe, onOpenOrder, onW
         {work.memberships.map(membership => <p key={`${membership.franchise}/${membership.continuity}`}>
           <span className="badge">{membership.franchise} / {membership.continuity}</span>
         </p>)}
+        {work.inWorld && calendar && <InWorldDates work={work} calendar={calendar} t={t}/>}
         {universe.length > 0 && <section className="universe">
           <h3>{t('universe.title')}</h3>
           {universe.map(entry => <div className="universe-row" key={entry.id}>
@@ -94,6 +97,23 @@ export function DetailPanel({work, t, tags, onPerson, universe, onOpenOrder, onW
       </div>
     </aside>
   </div>;
+}
+
+const QUALIFIER_KEYS = {
+  circa: 'inworld.circa', open_after: 'inworld.openAfter', days_before: 'inworld.daysBefore',
+} as const;
+
+function InWorldDates({work, calendar, t}: {work: Work; calendar: Calendar; t: TFn}) {
+  const inWorld = work.inWorld!;
+  return <section className="inworld">
+    <h3>{t('inworld.title')}</h3>
+    <ul>{inWorld.periods.map((period, index) => <li key={index}>
+      <strong>{formatSpan(period, calendar)}</strong>
+      {period.qualifier !== 'exact' && <small> · {t(QUALIFIER_KEYS[period.qualifier])}</small>}
+      {period.label && <small> · {period.label}</small>}
+    </li>)}</ul>
+    <p className="muted">{t('inworld.source')} <a href={inWorld.url} target="_blank" rel="noreferrer">{inWorld.page}</a> (CC BY-SA 3.0)</p>
+  </section>;
 }
 
 function PersonLinks({people, t, onPerson}: {people: {id: number; name: string; character?: string | null}[]; t: TFn; onPerson: (id: number) => void}) {
