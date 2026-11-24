@@ -79,7 +79,7 @@ describe('migrations', () => {
       const applied = await db.query('select name from schema_migrations order by name');
       assert.deepEqual(
         applied.rows.map((row) => row.name),
-        ['001_review_and_seed_key.sql', '002_relations_and_claims.sql', '003_sequences.sql', '004_inworld_chronology.sql', 'base:schema.sql']
+        ['001_review_and_seed_key.sql', '002_relations_and_claims.sql', '003_sequences.sql', '004_inworld_chronology.sql', '005_text_media.sql', 'base:schema.sql']
       );
     });
   });
