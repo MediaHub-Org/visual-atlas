@@ -5,15 +5,17 @@ import {qty} from './i18n';
 import {Sidebar} from './components/Sidebar';
 import {WorkCard, type PosterLookup} from './components/WorkCard';
 import {TimelineView} from './components/TimelineView';
-import {HierarchyView, SequenceView, TableView} from './components/Views';
+import {HierarchyView, SequenceView} from './components/Views';
 import {DetailPanel} from './components/DetailPanel';
 import {SettingsPanel} from './components/SettingsPanel';
 
-type View = 'cards' | 'list' | 'hierarchy' | 'sequence' | 'timeline';
+type View = 'cards' | 'hierarchy' | 'sequence' | 'timeline';
 type Sort = 'releaseAsc' | 'releaseDesc' | 'title';
 type Format = 'All' | 'Film' | 'Series' | 'Anime';
 
-const VIEWS: View[] = ['cards', 'list', 'hierarchy', 'sequence', 'timeline'];
+/** The dashboard's tabs. Hierarchy is no longer a tab: only the sidebar's "+N more" companies link opens it. */
+const VIEWS: View[] = ['cards', 'sequence', 'timeline'];
+const ROUTABLE: View[] = [...VIEWS, 'hierarchy'];
 const SORTS: Sort[] = ['releaseAsc', 'releaseDesc', 'title'];
 
 function readUrl() {
@@ -32,7 +34,7 @@ function readUrl() {
     axis: params.get('axis') === '1',
     format: format && ['All', 'Film', 'Series', 'Anime'].includes(format) ? format : 'All' as Format,
     sort: sort && SORTS.includes(sort) ? sort : 'releaseAsc' as Sort,
-    view: view && VIEWS.includes(view) ? view : 'cards' as View,
+    view: view && ROUTABLE.includes(view) ? view : 'cards' as View,
     density: params.get('density') === 'compact' ? 'compact' as const : 'comfortable' as const,
     work: params.get('work') ?? '',
     needsPoster: params.get('noposter') === '1',
@@ -327,14 +329,12 @@ export default function App() {
                   ? <div className="empty">{t('common.empty')}</div>
                   : view === 'cards'
                     ? <div className={`grid ${density}`}>{filtered.map(work => <WorkCard key={work.id} work={work} t={t} posters={posters} onSelect={setSelected}/>)}</div>
-                    : view === 'list'
-                      ? <TableView works={filtered} t={t} onSelect={setSelected}/>
-                      : view === 'timeline'
-                        ? <TimelineView works={filtered} scale={settings.timelineScale} onScale={scale => settings.set({timelineScale: scale})} t={t} posters={posters} onSelect={setSelected}/>
-                        : view === 'sequence'
-                          ? <SequenceView dataset={dataset} works={filtered} t={t} onSelect={setSelected} openId={seq} focusWork={at}
-                            axis={axis} onAxis={setAxis} scale={axisScale} onScale={setAxisScale}/>
-                          : <HierarchyView dataset={dataset} t={t} onFranchise={pickFranchise} focusCompany={company}/>}
+                    : view === 'timeline'
+                      ? <TimelineView works={filtered} scale={settings.timelineScale} onScale={scale => settings.set({timelineScale: scale})} t={t} posters={posters} onSelect={setSelected}/>
+                      : view === 'sequence'
+                        ? <SequenceView dataset={dataset} works={filtered} t={t} onSelect={setSelected} openId={seq} focusWork={at}
+                          axis={axis} onAxis={setAxis} scale={axisScale} onScale={setAxisScale}/>
+                        : <HierarchyView dataset={dataset} t={t} onFranchise={pickFranchise} focusCompany={company}/>}
               </section>
 
               <footer>

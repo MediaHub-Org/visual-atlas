@@ -4,18 +4,6 @@ import type {TFn} from '../i18n';
 import {CompanyTree} from './CompanyTree';
 import {AxisView, type AxisScale} from './AxisView';
 
-export function TableView({works, t, onSelect}: {works: Work[]; t: TFn; onSelect: (id: string) => void}) {
-  return <div className="table-wrap"><table>
-    <thead><tr><th>{t('common.work')}</th><th>{t('common.year')}</th><th>{t('filter.format')}</th><th>{t('common.continuity')}</th></tr></thead>
-    <tbody>{works.map(work => <tr key={work.id}>
-      <td><button onClick={() => onSelect(work.id)}>{work.title}</button></td>
-      <td>{work.year ?? '—'}</td>
-      <td>{t(`format.${work.format}`)}</td>
-      <td>{work.memberships.map(m => `${m.franchise} / ${m.continuity}`).join('; ') || '—'}</td>
-    </tr>)}</tbody>
-  </table></div>;
-}
-
 export function SequenceView({dataset, works, t, onSelect, openId = '', focusWork = '', axis = false, onAxis, scale = 'proportional', onScale}: {
   dataset: Dataset;
   works: Work[];

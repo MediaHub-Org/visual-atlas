@@ -52,6 +52,10 @@ note; the real data shows none). Decisions: the data file is committed, not a ca
 certainty `estimated`. Unverified: every date is Wookieepedia's claim. Next: Legends is
 out of scope; a second franchise reuses the same pieces (README, "In-world chronology").
 
+The dashboard tabs are now Cards, In-universe order and Release timeline: the owner
+removed List and Hierarchy (2026-11-24). Hierarchy stays reachable only from the
+sidebar's «+N more» companies link, so the company tree is not lost.
+
 ## Next (beyond the basics)
 
 1. Verify representative seed records against independent, licensed sources.
