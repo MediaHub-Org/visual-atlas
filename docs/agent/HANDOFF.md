@@ -35,7 +35,7 @@ expose it beyond `127.0.0.1`.
 3. Sequences are imported (owner's rule, 2026-11-24): `certainty = 'unknown'`,
    `origin = 'editorial_proposal'`, all `needs_review` (migration 003). Still open:
    `chronology_entries` / `chronology_relations` stay empty until a verified order
-   exists, and the UI should label these sequences as proposals.
+   exists, The sequence view labels each sequence "Editorial proposal · unverified" (en/es).
 4. Then: users/roles/RLS; authenticated editing; `episode_count` reconciliation.
 
 The first import pass is in (`db/migrate.mjs`, `db/import.mjs`, migration

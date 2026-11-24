@@ -365,3 +365,6 @@ footer p { margin: 8px 0 14px; font-size: 8px; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+.badge.proposal { margin-left: 10px; border-style: dashed; color: var(--muted); }
+.groups summary .basis { margin-left: 10px; text-transform: capitalize; }

@@ -30,7 +30,11 @@ export function SequenceView({dataset, works, t, onSelect}: {
   return <div className="groups">
     <p>{t('sequence.note')}</p>
     {sequences.map(sequence => <details key={sequence.id} open>
-      <summary>{sequence.franchise} / {sequence.continuity}</summary>
+      <summary>
+        {sequence.franchise} / {sequence.continuity}
+        <span className="badge proposal" title={t('sequence.badgeHint')}>{t('sequence.badge')}</span>
+        <small className="basis">{sequence.basis.replace(/_/g, ' ')}</small>
+      </summary>
       <div className="group-items">{sequence.items.map(item => {
         const work = dataset.worksById.get(item.workId);
         return work && <button key={work.id} onClick={() => onSelect(work.id)}>
