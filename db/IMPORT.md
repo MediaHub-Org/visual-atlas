@@ -86,6 +86,19 @@ in the verbatim payload. Items must belong to the sequence's continuity
 order and narrative order of one continuity are two sequences, which is why they
 do not go into `chronology_entries`.
 
+## Fourth pass: in-world dates (2026-11-24)
+
+`public/data/chronology/*.json` (Star Wars from Wookieepedia, CC BY-SA 3.0, written by
+`scripts/fetch-wookieepedia-dates.mjs`) loads into `fictional_calendars` and
+`narrative_periods` (migration `004_inworld_chronology.sql`). A period holds signed
+years on the calendar's own line (N BBY = -N), the qualifier the source used
+(`exact`, `circa`, `open_after`, `days_before`), the raw string and the page,
+revision, retrieval date and licence. Certainty is `estimated` for a stated date and
+`unknown` for an open-ended one, never `confirmed`; every row is `needs_review` and a
+`reviewed` row is frozen on re-import. A date the parser could not read creates no
+row (its raw string stays in the verbatim payload). The seed's editorial sequences are
+not rewritten by these dates.
+
 ## Still out, on purpose
 
 - **Chronology.** `chronology_entries` and `chronology_relations` stay empty: a

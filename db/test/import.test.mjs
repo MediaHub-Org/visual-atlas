@@ -11,6 +11,13 @@ const seed = JSON.parse(
   readFileSync(new URL('../../public/data/media_atlas_seed.json', import.meta.url), 'utf8')
 );
 
+const chronology = JSON.parse(
+  readFileSync(new URL('../../public/data/chronology/star-wars.json', import.meta.url), 'utf8')
+);
+const PERIODS = Object.values(chronology.entries)
+  .filter((entry) => entry.parsed)
+  .reduce((sum, entry) => sum + entry.periods.length, 0);
+
 const unique = (rows, key) => new Set(rows.map(key)).size;
 
 const TOTALS = {
@@ -72,7 +79,7 @@ describe('migrations', () => {
       const applied = await db.query('select name from schema_migrations order by name');
       assert.deepEqual(
         applied.rows.map((row) => row.name),
-        ['001_review_and_seed_key.sql', '002_relations_and_claims.sql', '003_sequences.sql', 'base:schema.sql']
+        ['001_review_and_seed_key.sql', '002_relations_and_claims.sql', '003_sequences.sql', '004_inworld_chronology.sql', 'base:schema.sql']
       );
     });
   });
@@ -395,6 +402,103 @@ describe('seed import', () => {
       assert.equal(await count(db, 'works'), 0);
       assert.equal(await count(db, 'company_relationships'), 0);
       assert.equal(await count(db, 'imported_metadata'), 0);
+    });
+  });
+});
+
+describe('in-world chronology import', () => {
+  const load = (db) => importSeed(db, seed, { chronology: [chronology] });
+
+  it('creates the calendar and one draft period per parsed date', async () => {
+    await withDb(async (db) => {
+      const counts = await load(db);
+      assert.deepEqual(counts.fictional_calendars, { inserted: 1, updated: 0 });
+      assert.equal(counts.narrative_periods.inserted, PERIODS);
+      assert.equal(await count(db, 'narrative_periods'), PERIODS);
+      const calendar = (await db.query('select * from fictional_calendars')).rows[0];
+      assert.equal(calendar.id, 'star-wars-yavin');
+      assert.equal(calendar.era_before, 'BBY');
+      assert.equal(calendar.era_after, 'ABY');
+      const states = (await db.query('select distinct review_status from narrative_periods')).rows;
+      assert.deepEqual(states, [{ review_status: 'needs_review' }]);
+    });
+  });
+
+  it('is estimated for a stated date, unknown when open-ended, never confirmed', async () => {
+    await withDb(async (db) => {
+      await load(db);
+      const rows = (await db.query('select qualifier, certainty, count(*)::int as n from narrative_periods group by 1, 2')).rows;
+      assert.ok(rows.every((row) => row.certainty !== 'confirmed'));
+      assert.ok(rows.filter((row) => row.qualifier === 'open_after').every((row) => row.certainty === 'unknown'));
+      assert.ok(rows.filter((row) => row.qualifier !== 'open_after').every((row) => row.certainty === 'estimated'));
+      const ahsoka = (await db.query(
+        `select p.start_value, p.end_value from narrative_periods p join works w on w.id = p.work_id
+          where w.seed_key = 'series--ahsoka'`)).rows[0];
+      assert.deepEqual(ahsoka, { start_value: 9, end_value: null });
+    });
+  });
+
+  it('keeps provenance and at most one primary period per work', async () => {
+    await withDb(async (db) => {
+      await load(db);
+      const row = (await db.query(
+        `select p.source_page, p.source_revision, p.licence, p.raw_text, p.is_primary
+           from narrative_periods p join works w on w.id = p.work_id
+          where w.seed_key = 'film--a-new-hope--1977'`)).rows[0];
+      assert.equal(row.source_page, 'Star Wars: Episode IV A New Hope');
+      assert.ok(Number(row.source_revision) > 0);
+      assert.equal(row.licence, 'CC BY-SA 3.0');
+      assert.equal(row.is_primary, true);
+      const solo = (await db.query(
+        `select count(*)::int as n from narrative_periods p join works w on w.id = p.work_id
+          where w.seed_key = 'film--solo-a-star-wars-story--2018'`)).rows[0].n;
+      assert.equal(solo, 2);
+    });
+  });
+
+  it('does not overwrite a period a person marked reviewed', async () => {
+    await withDb(async (db) => {
+      await load(db);
+      await db.query(
+        `update narrative_periods set label = 'Edited by hand', review_status = 'reviewed', reviewed_at = current_date
+          where seed_key = 'film--a-new-hope--1977#0'`);
+      const again = await load(db);
+      assert.equal(again.narrative_periods.inserted, 0);
+      assert.equal((await db.query("select label from narrative_periods where seed_key = 'film--a-new-hope--1977#0'")).rows[0].label, 'Edited by hand');
+      assert.equal(await count(db, 'narrative_periods'), PERIODS);
+    });
+  });
+
+  it('creates nothing for a date that could not be parsed and refuses an unknown work', async () => {
+    await withDb(async (db) => {
+      const odd = structuredClone(chronology);
+      odd.entries['film--a-new-hope--1977'] = { ...odd.entries['film--a-new-hope--1977'], parsed: false, periods: [] };
+      await importSeed(db, seed, { chronology: [odd] });
+      assert.equal(await count(db, 'narrative_periods'), PERIODS - chronology.entries['film--a-new-hope--1977'].periods.length);
+    });
+    await withDb(async (db) => {
+      const bad = structuredClone(chronology);
+      bad.entries['film--not-in-the-seed--1900'] = bad.entries['film--a-new-hope--1977'];
+      await assert.rejects(() => importSeed(db, seed, { chronology: [bad] }), /is not in the imported seed/);
+    });
+  });
+
+  it('refuses a period that ends before it starts', async () => {
+    await withDb(async (db) => {
+      await load(db);
+      await assert.rejects(
+        () => db.query("update narrative_periods set start_value = 5, end_value = 1 where seed_key = 'film--a-new-hope--1977#0'"),
+        (error) => error.code === '23514'
+      );
+    });
+  });
+
+  it('a dry run reports the periods and keeps nothing', async () => {
+    await withDb(async (db) => {
+      const counts = await importSeed(db, seed, { dryRun: true, chronology: [chronology] });
+      assert.equal(counts.narrative_periods.inserted, PERIODS);
+      assert.equal(await count(db, 'narrative_periods'), 0);
+      assert.equal(await count(db, 'fictional_calendars'), 0);
     });
   });
 });

@@ -8,7 +8,7 @@
 //    'needs_review', so a person's correction survives;
 //  - the import never writes review_status itself;
 //  - a seed section with no mapping is an error, not a silent skip.
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { PGlite } from '@electric-sql/pglite';
@@ -16,6 +16,7 @@ import { migrate } from './migrate.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SEED_FILE = join(here, '..', 'public', 'data', 'media_atlas_seed.json');
+const CHRONOLOGY_DIR = join(here, '..', 'public', 'data', 'chronology');
 
 /**
  * The first pass (approved 2026-11-22): the five entities with no claim
@@ -97,6 +98,8 @@ const RELATION_TABLES = [
   'work_tags',
   'sequences',
   'sequence_items',
+  'fictional_calendars',
+  'narrative_periods',
 ];
 
 /** Sections that exist in the export and are deliberately not imported yet. */
@@ -182,7 +185,7 @@ async function keepPayload(query, array, raw, externalId = raw.id, workId = null
  * work happens inside a transaction that is rolled back, so the numbers are
  * real but nothing is kept.
  */
-export async function importSeed(db, seed, { dryRun = false } = {}) {
+export async function importSeed(db, seed, { dryRun = false, chronology = [] } = {}) {
   checkSections(seed);
   const counts = {};
   for (const table of [...PLAN.map((step) => step.table), ...RELATION_TABLES]) {
@@ -408,6 +411,52 @@ export async function importSeed(db, seed, { dryRun = false } = {}) {
       tally('sequence_items', result.rows[0].inserted);
       await keepPayload(query, 'sequence_items', raw, `${raw.sequence_id}:${raw.work_id}`, workId);
     }
+
+    // In-world dates (public/data/chronology/*.json, from Wookieepedia): a
+    // calendar row per file and one draft period per parsed date. A stated date
+    // is 'estimated', an open-ended one 'unknown', never 'confirmed'; an entry the
+    // parser could not read creates nothing (the raw string stays in the payload).
+    for (const file of chronology) {
+      const calendar = file.calendar;
+      const calendarResult = await query.query(
+        `insert into fictional_calendars
+           (id, name, franchise_id, anchor_event, unit, era_before, era_after, zero_year_exists)
+         values ($1, $2, $3, $4, $5, $6, $7, $8)
+         on conflict (id) do update set
+           name = excluded.name, franchise_id = excluded.franchise_id,
+           anchor_event = excluded.anchor_event, unit = excluded.unit,
+           era_before = excluded.era_before, era_after = excluded.era_after,
+           zero_year_exists = excluded.zero_year_exists
+         returning (xmax = 0) as inserted`,
+        [calendar.id, calendar.name, ref(ids.franchises, calendar.franchise, 'franchise'),
+         calendar.anchor_event, calendar.unit, calendar.era_before, calendar.era_after,
+         calendar.zero_year_exists ?? true]
+      );
+      tally('fictional_calendars', calendarResult.rows[0].inserted);
+
+      for (const [seedWorkId, entry] of Object.entries(file.entries ?? {})) {
+        const workId = ref(ids.works, seedWorkId, 'work');
+        await keepPayload(query, 'chronology', entry, seedWorkId, workId);
+        if (!entry.parsed) continue;
+        for (const [index, period] of entry.periods.entries()) {
+          const result = await query.query(
+            upsertSql('narrative_periods', [
+              'work_id', 'label', 'calendar', 'calendar_id', 'start_value', 'end_value',
+              'qualifier', 'certainty', 'is_primary', 'raw_text', 'source_page',
+              'source_revision', 'retrieved_at', 'licence',
+            ]),
+            [
+              `${seedWorkId}#${index}`, workId, period.label ?? 'Story', calendar.id, calendar.id,
+              period.start, period.end, period.qualifier,
+              period.qualifier === 'open_after' ? 'unknown' : 'estimated',
+              period.primary, entry.raw, entry.page, entry.revision ?? null,
+              entry.retrievedAt ?? null, file.source?.licence ?? null,
+            ]
+          );
+          tally('narrative_periods', result.rows[0].inserted);
+        }
+      }
+    }
   };
 
   if (dryRun) {
@@ -432,7 +481,12 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   try {
     await migrate(db);
     const seed = JSON.parse(readFileSync(SEED_FILE, 'utf8'));
-    const counts = await importSeed(db, seed, { dryRun });
+    const chronology = existsSync(CHRONOLOGY_DIR)
+      ? readdirSync(CHRONOLOGY_DIR)
+          .filter((name) => name.endsWith('.json'))
+          .map((name) => JSON.parse(readFileSync(join(CHRONOLOGY_DIR, name), 'utf8')))
+      : [];
+    const counts = await importSeed(db, seed, { dryRun, chronology });
     console.log(JSON.stringify({ dryRun, counts }, null, 2));
   } finally {
     await db.close();
