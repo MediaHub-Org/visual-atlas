@@ -246,3 +246,12 @@ describe('facetLists in the Watch catalogue and matchesFormat', () => {
     assert.equal(matchesFormat({ format: 'Series' }, 'Film'), false);
   });
 });
+
+describe('facetLists with a chosen universe', () => {
+  const v = (id, format, ...franchises) => ({ id, medium: 'video', format, anime: false, memberships: franchises.map(name => ({ franchiseId: name.toLowerCase(), franchise: name })) });
+  const works = [v('a', 'Film', 'Thor'), v('b', 'Series', 'Hulk'), v('c', 'Series', 'Alien')];
+  it('counts formats only inside the universe franchise ids', () => {
+    assert.deepEqual(facetLists(works, 'video', 'All', 'All', ['thor', 'hulk']).formats, [{ id: 'Film', count: 1 }, { id: 'Series', count: 1 }]);
+    assert.deepEqual(facetLists(works, 'video', 'All', 'All', null).formats, [{ id: 'Film', count: 1 }, { id: 'Series', count: 2 }]);
+  });
+});

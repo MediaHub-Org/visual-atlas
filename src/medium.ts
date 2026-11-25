@@ -192,9 +192,12 @@ export function facetLists(
   medium: Medium,
   format: string,
   franchise: string,
+  /** Franchise ids of the chosen universe family (Marvel, DC), or null for none. */
+  universeIds: string[] | null = null,
 ): { formats: { id: string; count: number }[]; franchises: { id: string; name: string; count: number }[] } {
   const inMedium = works.filter(work => work.medium === medium);
-  const inFranchise = inMedium.filter(work => franchise === 'All' || work.memberships.some(m => m.franchise === franchise));
+  const inUniverse = universeIds ? inMedium.filter(work => work.memberships.some(m => universeIds.includes(m.franchiseId))) : inMedium;
+  const inFranchise = inUniverse.filter(work => franchise === 'All' || work.memberships.some(m => m.franchise === franchise));
   const inFormat = inMedium.filter(work => matchesFormat(work, format));
   const formats = FORMATS_BY_MEDIUM[medium]
     .map(id => ({ id, count: inFranchise.filter(work => matchesFormat(work, id)).length }))

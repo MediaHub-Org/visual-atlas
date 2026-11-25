@@ -34,6 +34,7 @@ function readUrl() {
     query: params.get('q') ?? '',
     franchise: params.get('franchise') ?? 'All',
     company: params.get('company') ?? '',
+    universe: params.get('universe') ?? '',
     tag: params.get('tag') ?? '',
     person: params.get('person') ?? '',
     seq: params.get('seq') ?? '',
@@ -70,6 +71,7 @@ export default function App() {
   const [query, setQuery] = useState(initial.query);
   const [franchise, setFranchise] = useState(initial.franchise);
   const [company, setCompany] = useState(initial.company);
+  const [universe, setUniverse] = useState(initial.universe);
   const [tag, setTag] = useState(initial.tag);
   const [person, setPerson] = useState(initial.person);
   const [seq, setSeq] = useState(initial.seq);
@@ -111,6 +113,7 @@ export default function App() {
     if (query) params.set('q', query);
     if (franchise !== 'All') params.set('franchise', franchise);
     if (company) params.set('company', company);
+    if (universe) params.set('universe', universe);
     if (tag) params.set('tag', tag);
     if (person) params.set('person', person);
     if (seq) params.set('seq', seq);
@@ -124,12 +127,12 @@ export default function App() {
     if (needsPoster) params.set('noposter', '1');
     const next = `${location.pathname}${params.size ? `?${params}` : ''}`;
     if (next !== `${location.pathname}${location.search}`) history.replaceState(null, '', next);
-  }, [query, franchise, company, tag, person, seq, at, axis, medium, format, sort, view, selected, needsPoster]);
+  }, [query, franchise, company, universe, tag, person, seq, at, axis, medium, format, sort, view, selected, needsPoster]);
 
   useEffect(() => {
     const onPop = () => {
       const next = readUrl();
-      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setTag(next.tag); setPerson(next.person); setSeq(next.seq); setAt(next.at); setAxis(next.axis);
+      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setUniverse(next.universe); setTag(next.tag); setPerson(next.person); setSeq(next.seq); setAt(next.at); setAxis(next.axis);
       setMedium(next.media); setFormat(next.format); setSort(next.sort); setView(next.view);
       setSelected(next.work); setNeedsPoster(next.needsPoster);
     };
@@ -142,7 +145,7 @@ export default function App() {
   /** Open one universe's in-world order at a work, clearing filters that would hide part of it. */
   function openOrder(sequenceId: string, workId: string) {
     setMedium('video'); setSeq(sequenceId); setAt(workId); setAxis(false); setView('sequence'); setSelected('');
-    setQuery(''); setFranchise('All'); setCompany(''); setTag(''); setPerson(''); setFormat('All'); setNeedsPoster(false);
+    setQuery(''); setFranchise('All'); setCompany(''); setUniverse(''); setTag(''); setPerson(''); setFormat('All'); setNeedsPoster(false);
   }
   // A link or reload can name a work or franchise of the other catalogue: follow the work's medium
   // and drop a franchise this catalogue does not have, once the data is known.
@@ -157,7 +160,7 @@ export default function App() {
 
   /** The brand link: back to the root index, as a fresh visit (Watch, no filters). */
   function goHome() {
-    setMedium('video'); setQuery(''); setFranchise('All'); setCompany(''); setTag(''); setPerson(''); setFormat('All');
+    setMedium('video'); setQuery(''); setFranchise('All'); setCompany(''); setUniverse(''); setTag(''); setPerson(''); setFormat('All');
     setSeq(''); setAt(''); setAxis(false); setSort('releaseAsc'); setView('cards'); setSelected(''); setNeedsPoster(false);
     setSettingsOpen(false);
     window.scrollTo({top: 0});
@@ -167,7 +170,7 @@ export default function App() {
   function switchMedium(next: Medium) {
     if (next === medium) return;
     setMedium(next);
-    setFranchise('All'); setCompany(''); setTag(''); setPerson(''); setFormat('All'); setNeedsPoster(false);
+    setFranchise('All'); setCompany(''); setUniverse(''); setTag(''); setPerson(''); setFormat('All'); setNeedsPoster(false);
     setSeq(''); setAt(''); setAxis(false); setSelected('');
     if (!VIEWS_BY_MEDIUM[next].includes(view)) setView('cards');
   }
@@ -181,6 +184,7 @@ export default function App() {
   const closeSettings = useCallback(() => setSettingsOpen(false), []);
 
   const companyNode = company ? dataset?.companies.get(company) : undefined;
+  const family = dataset?.families.find(entry => entry.id === universe);
   const allowedFranchises = useMemo(() => companyNode ? new Set(companyNode.subtreeFranchiseIds) : null, [companyNode]);
 
   const filtered = useMemo(() => {
@@ -190,6 +194,7 @@ export default function App() {
       .filter(work =>
         work.medium === medium &&
         (franchise === 'All' || work.memberships.some(m => m.franchise === franchise)) &&
+        (!family || work.memberships.some(m => family.franchiseIds.includes(m.franchiseId))) &&
         (!allowedFranchises || work.memberships.some(m => allowedFranchises.has(m.franchiseId))) &&
         matchesFormat(work, format) &&
         (!tag || dataset.workTags.get(work.id)?.includes(tag)) &&
@@ -203,7 +208,16 @@ export default function App() {
         if (b.year === null) return -1;
         return sort === 'releaseDesc' ? b.year - a.year : a.year - b.year;
       });
-  }, [dataset, medium, query, franchise, allowedFranchises, format, tag, person, needsPoster, posters, sort]);
+  }, [dataset, medium, query, franchise, family, allowedFranchises, format, tag, person, needsPoster, posters, sort]);
+
+  // Companies: the top-level owners, each with the number of works under it (Watch only).
+  const companyPills = useMemo(() => {
+    if (!dataset) return [];
+    return dataset.roots.map(id => dataset.companies.get(id)).filter(Boolean).map(node => {
+      const ids = new Set(node!.subtreeFranchiseIds);
+      return {id: node!.id, name: node!.name, count: dataset.works.filter(work => work.medium === 'video' && work.memberships.some(m => ids.has(m.franchiseId))).length};
+    }).filter(entry => entry.count > 0).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+  }, [dataset]);
 
   const tagOptions = useMemo(() => {
     if (!dataset) return [];
@@ -249,10 +263,13 @@ export default function App() {
   const selectedTags = selectedWork && dataset
     ? dataset.tags.filter(entry => dataset.workTags.get(selectedWork.id)?.includes(entry.id))
     : [];
-  const showHero = view === 'cards' && !query && franchise === 'All' && !company && !tag && !needsPoster;
+  const showHero = view === 'cards' && !query && franchise === 'All' && !universe && !company && !tag && !needsPoster;
 
   function pickFranchise(name: string) {
     setFranchise(name === franchise ? 'All' : name);
+    // a franchise outside the chosen universe replaces it; one inside keeps it
+    const id = dataset?.franchises.find(entry => entry.name === name)?.id;
+    if (!dataset?.families.some(entry => entry.id === universe && id && entry.franchiseIds.includes(id))) setUniverse('');
     setCompany('');
     setView('cards');
     setSelected('');
@@ -260,7 +277,7 @@ export default function App() {
 
   function pickCompany(id: string) {
     setCompany(id === company ? '' : id);
-    setFranchise('All');
+    setFranchise('All'); setUniverse('');
     setView('cards');
     setSelected('');
   }
@@ -270,14 +287,14 @@ export default function App() {
       dataset={dataset ?? {works: [], worksById: new Map(), people: new Map(), calendars: new Map(), families: [], adaptations: [], textSources: [], chronologySources: [], franchises: [], companies: new Map(), roots: [], sequences: [], tags: [], workTags: new Map(), stats: {films: 0, series: 0, textWorks: 0, franchises: 0, companies: 0}}}
       t={t}
       franchise={franchise}
+      universe={universe}
+      onUniverse={id => { setUniverse(id); setFranchise('All'); setCompany(''); setView('cards'); setSelected(''); }}
       medium={medium}
       onMedium={switchMedium}
       format={format}
       onFormat={id => { setFormat(id === format ? 'All' : id as Format); setView('cards'); setSelected(''); }}
       onHome={goHome}
       onFranchise={pickFranchise}
-      onCompany={pickCompany}
-      onAllCompanies={() => { setView('hierarchy'); setCompany(''); setFranchise('All'); }}
       onView={target => { setView(target); if (target === 'sequence') { setSeq(''); setAt(''); } }}
       onSettings={() => setSettingsOpen(true)}
     />
@@ -286,7 +303,7 @@ export default function App() {
         <div className="crumb">
           <button onClick={() => { setFranchise('All'); setCompany(''); setView('cards'); }}>Atlas</button>
           <span>/</span>
-          <strong>{companyNode?.name ?? (franchise === 'All' ? t('nav.explore') : franchise)}</strong>
+          <strong>{companyNode?.name ?? (franchise === 'All' ? (family?.name ?? t('nav.explore')) : franchise)}</strong>
         </div>
         <div className="top-actions">
           <span className="top-note">{t('top.note')} <b>✳</b></span>
@@ -331,7 +348,7 @@ export default function App() {
                 <div className="section-heading">
                   <div>
                     <div className="eyebrow"><span/>{t('collection.eyebrow')}</div>
-                    <h2>{companyNode?.name ?? (franchise === 'All' ? t('collection.title') : franchise)}</h2>
+                    <h2>{companyNode?.name ?? (franchise === 'All' ? (family?.name ?? t('collection.title')) : franchise)}</h2>
                     <p aria-live="polite">{filtered.length ? [
                       qty(t, filtered.length, 'noun.work', 'noun.works'),
                       ...(medium === 'text'
@@ -377,6 +394,13 @@ export default function App() {
                   </button>
                 </div>
 
+                {medium === 'video' && companyPills.length > 0 && <div className="pill-row" role="group" aria-label={t('nav.companies')}>
+                  <span className="pill-label">{t('nav.companies')}</span>
+                  {companyPills.map(entry => <button key={entry.id} className={`chip ${company === entry.id ? 'active' : ''}`} aria-pressed={company === entry.id} onClick={() => pickCompany(entry.id)}>
+                    {entry.name} <span>{entry.count}</span>
+                  </button>)}
+                </div>}
+
                 {tagOptions.length > 0 && <div className="pill-row" role="group" aria-label={t('nav.collections')}>
                   <span className="pill-label">{t('nav.collections')}</span>
                   {tagOptions.map(entry => <button key={entry.id} className={`chip ${tag === entry.id ? 'active' : ''}`} aria-pressed={tag === entry.id} onClick={() => setTag(tag === entry.id ? '' : entry.id)}>
@@ -384,7 +408,8 @@ export default function App() {
                   </button>)}
                 </div>}
 
-                {(companyNode || franchise !== 'All' || tag || person) && <div className="active-filters">
+                {(companyNode || family || franchise !== 'All' || tag || person) && <div className="active-filters">
+                  {family && <button className="chip active" onClick={() => setUniverse('')}>{family.name} ✕</button>}
                   {companyNode && <button className="chip active" onClick={() => setCompany('')}>{companyNode.name} ✕</button>}
                   {franchise !== 'All' && <button className="chip active" onClick={() => setFranchise('All')}>{franchise} ✕</button>}
                   {tag && <button className="chip active" onClick={() => setTag('')}>{tagOptions.find(entry => entry.id === tag)?.name ?? tag} ✕</button>}
