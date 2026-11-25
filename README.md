@@ -37,7 +37,11 @@ narrative sequences and a vertical release timeline. The sidebar offers Format a
 stand alone, and the two lists narrow each other. **Companies** and editorial
 **collections** (tags from the seed) are pills above the results (on narrow screens the
 universes get a pill row too); they are collections, not ownership or verified influence
-claims. The Watch format filter is Film, Series, Anime and Cartoon (Anime and Cartoon are flags across film and series). The **Density** chip opens a right-hand panel: card size (comfortable or compact)
+claims. Remasters (3D re-releases of Disney and Fox films, special editions, restored series) are separate works that
+re-release a film or series; the **Remasters** chip in Watch shows or hides them (hidden by default, saved) and
+they carry a mark next to the title. Announced works (Bond 26, the HBO Harry Potter series) carry an "Announced" mark.
+Comics and manga have no remasters. Curated `creators` and `release_year` in `media_text_seed.json` win over the
+imported ones. The Watch format filter is Film, Series, Anime and Cartoon (Anime and Cartoon are flags across film and series). The **Density** chip opens a right-hand panel: card size (comfortable or compact)
 for Cards, In-universe order and Release timeline, and the spacing of years
 (equal, proportional or logarithmic) on the release timeline and the calendar axis; both are saved
 preferences. The timeline uses the full width for works released in the same year. Company groups come from the seed's unverified

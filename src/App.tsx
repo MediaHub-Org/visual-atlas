@@ -2,7 +2,7 @@ import {useCallback, useEffect, useMemo, useState} from 'react';
 import {loadAtlas, type Dataset, type Work} from './data';
 import {useSettings} from './settings';
 import {qty} from './i18n';
-import {adaptationsFor, catalogueFranchises, clampFormat, clampView, FORMATS_BY_MEDIUM, matchesFormat, parseMedium, type Medium} from './medium';
+import {adaptationsFor, catalogueFranchises, clampFormat, clampView, FORMATS_BY_MEDIUM, matchesFormat, parseMedium, withoutRemasters, type Medium} from './medium';
 import {MediaSwitch, Sidebar} from './components/Sidebar';
 import {WorkCard, type PosterLookup} from './components/WorkCard';
 import {TimelineView} from './components/TimelineView';
@@ -64,7 +64,10 @@ function searchText(work: Work) {
 export default function App() {
   const settings = useSettings();
   const {t} = settings;
-  const [dataset, setDataset] = useState<Dataset | null>(null);
+  const [loaded, setDataset] = useState<Dataset | null>(null);
+  // Remasters are separate works; the user's switch decides whether every list, count and view sees them.
+  const dataset = useMemo(() => loaded && {...loaded, works: withoutRemasters(loaded.works, settings.remasters)}, [loaded, settings.remasters]);
+  const remasterCount = useMemo(() => loaded?.works.filter(work => work.remasterOf).length ?? 0, [loaded]);
   const [error, setError] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const initial = useMemo(readUrl, []);
@@ -393,6 +396,9 @@ export default function App() {
                   <button className={`chip ${needsPoster ? 'active' : ''}`} aria-pressed={needsPoster} onClick={() => setNeedsPoster(value => !value)}>
                     {t('filter.noPoster')}
                   </button>
+                  {medium === 'video' && remasterCount > 0 && <button className={`chip ${settings.remasters ? 'active' : ''}`} aria-pressed={settings.remasters} title={t('remaster.hint')} onClick={() => settings.set({remasters: !settings.remasters})}>
+                    {t('remaster.label')}: {t(settings.remasters ? 'remaster.on' : 'remaster.off')} ({remasterCount})
+                  </button>}
                   <button className="chip" onClick={() => settings.set({cardStyle: settings.cardStyle === 'text' ? 'poster' : 'text'})}>
                     {t('card.style')}: {t(`card.${settings.cardStyle}`)}
                   </button>
@@ -479,6 +485,7 @@ export default function App() {
       calendar={selectedWork?.inWorld ? dataset?.calendars.get(selectedWork.inWorld.calendarId) : undefined}
       onOpenOrder={openOrder}
       onWork={setSelected}
+      remasterOriginal={selectedWork.remasterOf ? loaded?.worksById.get(selectedWork.remasterOf) : undefined}
       links={links}
       onAdaptation={openAdaptation}
       posters={posters}

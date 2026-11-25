@@ -6,7 +6,7 @@ import {formatSpan, type Calendar} from '../chronology';
 
 export type AdaptationLink = {workId: string; title: string; year: number | null; kind: string; certainty: 'unknown' | 'estimated' | 'confirmed'};
 
-export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpenOrder, onWork, links, onAdaptation, posters, onPosterSaved, onClose}: {
+export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpenOrder, onWork, links, onAdaptation, posters, remasterOriginal, onPosterSaved, onClose}: {
   work: Work;
   t: TFn;
   tags: {id: string; name: string}[];
@@ -18,6 +18,8 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
   links: {asSource: AdaptationLink[]; asAdapted: AdaptationLink[]};
   onAdaptation: (id: string) => void;
   posters: PosterLookup;
+  /** The film or series this work re-releases, when it is a remaster. */
+  remasterOriginal?: Work;
   onPosterSaved: () => void;
   onClose: () => void;
 }) {
@@ -62,6 +64,8 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
         <p className="detail-meta">
           {work.year ?? t('detail.yearUnknown')} · {t(`format.${work.format}`)}{work.anime && ` · ${t('format.Anime')}`}{work.cartoon && ` · ${t('format.Cartoon')}`}
         </p>
+        {work.remasterKind && <p className="muted">{t(`remaster.${work.remasterKind}`)}{remasterOriginal && <> · {t('remaster.of')} <button className="linklike" onClick={() => onWork(remasterOriginal.id)}>{remasterOriginal.title}</button></>}. {t('remaster.hint')}</p>}
+        {work.announced && <p className="muted"><span className="mark">{t('status.announced')}</span> {t('status.announcedHint')}</p>}
         {work.yearImported && <p className="muted">{t(work.medium === 'text' ? 'detail.yearImportedText' : 'detail.yearImported')}</p>}
         {work.medium === 'text' && !work.creators.startsWith('Not supplied') && <p className="muted">{t('detail.creators')}: {work.creators}</p>}
         {work.memberships.filter(m => work.medium === 'video' || m.continuity !== 'Continuity not specified').map(membership => <p key={`${membership.franchise}/${membership.continuity}`}>

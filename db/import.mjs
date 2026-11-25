@@ -64,6 +64,8 @@ const PLAN = [
       is_anime: work.animation_classification === 'anime',
       // Earth or a fictional world; absent means not classified yet (migration 006).
       setting: settingOf(work),
+      // 'announced' for a work with no release yet (migration 007); remasters are linked after all works exist.
+      release_status: statusOf(work),
       episode_count: work.format === 'series' ? (work.episode_count ?? null) : null,
       synopsis: work.synopsis ?? null,
     }),
@@ -79,6 +81,14 @@ const PLAN = [
     }),
   },
 ];
+
+const STATUSES = new Set(['released', 'announced']);
+
+function statusOf(work) {
+  if (work.release_status === undefined || work.release_status === null) return 'released';
+  if (!STATUSES.has(work.release_status)) throw new Error(`works: ${work.id} has an invalid release_status ${JSON.stringify(work.release_status)}`);
+  return work.release_status;
+}
 
 const SETTINGS = new Set(['earth', 'fictional_world']);
 
@@ -468,6 +478,21 @@ export async function importSeed(db, seed, { dryRun = false, chronology = [], te
       );
       tally('sequence_items', result.rows[0].inserted);
       await keepPayload(query, 'sequence_items', raw, `${raw.sequence_id}:${raw.work_id}`, workId);
+    }
+
+    // Remasters: a film or series that re-releases another one. Linked here because both works
+    // exist now; the database refuses comics, chains and mismatched formats, and a target
+    // that is not in the seed stops the import.
+    for (const raw of seed.works ?? []) {
+      if (!raw.remaster_of && !raw.remaster_kind) continue;
+      if (!raw.remaster_of || !raw.remaster_kind) {
+        throw new Error(`works: ${raw.id} needs both remaster_of and remaster_kind for a remaster`);
+      }
+      await query.query('update works set remaster_of = $1, remaster_kind = $2 where id = $3', [
+        ref(ids.works, raw.remaster_of, 'remaster original'),
+        raw.remaster_kind,
+        ref(ids.works, raw.id, 'work'),
+      ]);
     }
 
     // Adaptations: an editorial link between a text work and a video work. The

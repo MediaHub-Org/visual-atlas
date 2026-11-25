@@ -15,7 +15,8 @@ describe('franchise size rule (Watch)', () => {
   const worksById = new Map(seed.works.map(work => [work.id, work]));
   const score = id => {
     const members = new Set(seed.memberships.filter(m => m.franchise_id === id).map(m => m.work_id));
-    return [...members].reduce((sum, workId) => sum + (WEIGHT[worksById.get(workId)?.format] ?? 0), 0);
+    // a remaster re-releases a work already counted: it never adds to a franchise
+    return [...members].reduce((sum, workId) => sum + (worksById.get(workId)?.remaster_of ? 0 : (WEIGHT[worksById.get(workId)?.format] ?? 0)), 0);
   };
   it('holds the explicit inclusions: Game of Thrones with its sequels', () => {
     const titles = seed.memberships.filter(m => m.franchise_id === 'game-of-thrones').map(m => worksById.get(m.work_id)?.title).sort();

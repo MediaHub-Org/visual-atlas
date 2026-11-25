@@ -30145,6 +30145,467 @@
       "artwork": null,
       "episode_count": null,
       "setting": "earth"
+    },
+    {
+      "id": "film--untitled-bond-26",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Untitled Bond film (Bond 26)",
+      "original_title": null,
+      "release_year": null,
+      "release_date": null,
+      "release_precision": "unknown",
+      "release_calendar": null,
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": null,
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "release_status": "announced",
+      "setting": "earth"
+    },
+    {
+      "id": "film--casino-royale-climax--1954",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Casino Royale (Climax!)",
+      "original_title": null,
+      "release_year": 1954,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "film--everything-or-nothing-the-untold-story-of-007--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Everything or Nothing: The Untold Story of 007",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "film--being-james-bond-the-daniel-craig-story--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Being James Bond: The Daniel Craig Story",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "series--james-bond-road-to-a-million",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "James Bond: Road to a Million",
+      "original_title": null,
+      "release_year": 2023,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "film--harry-potter-20th-anniversary-return-to-hogwarts--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Harry Potter 20th Anniversary: Return to Hogwarts",
+      "original_title": null,
+      "release_year": 2022,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "series--harry-potter-hbo-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Harry Potter (HBO series)",
+      "original_title": null,
+      "release_year": 2027,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "release_status": "announced",
+      "setting": "earth"
+    },
+    {
+      "id": "film--toy-story-3d--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Toy Story 3D",
+      "original_title": null,
+      "release_year": 2009,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": null,
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth",
+      "remaster_of": "film--toy-story--1995",
+      "remaster_kind": "3d"
+    },
+    {
+      "id": "film--toy-story-2-3d--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Toy Story 2 3D",
+      "original_title": null,
+      "release_year": 2009,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": null,
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth",
+      "remaster_of": "film--toy-story-2--1999",
+      "remaster_kind": "3d"
+    },
+    {
+      "id": "film--the-lion-king-3d--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Lion King 3D",
+      "original_title": null,
+      "release_year": 2011,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "remaster_of": "film--the-lion-king--1994",
+      "remaster_kind": "3d"
+    },
+    {
+      "id": "film--beauty-and-the-beast-3d--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Beauty and the Beast 3D",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "remaster_of": "film--beauty-and-the-beast--1991",
+      "remaster_kind": "3d"
+    },
+    {
+      "id": "film--finding-nemo-3d--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Finding Nemo 3D",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "remaster_of": "film--finding-nemo--2003",
+      "remaster_kind": "3d"
+    },
+    {
+      "id": "film--monsters-inc-3d--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Monsters, Inc. 3D",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "remaster_of": "film--monsters-inc--2001",
+      "remaster_kind": "3d"
+    },
+    {
+      "id": "film--the-phantom-menace-3d--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Phantom Menace 3D",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": null,
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "fictional_world",
+      "remaster_of": "film--the-phantom-menace--1999",
+      "remaster_kind": "3d"
+    },
+    {
+      "id": "film--a-new-hope-special-edition--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "A New Hope: Special Edition",
+      "original_title": null,
+      "release_year": 1997,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": null,
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "fictional_world",
+      "remaster_of": "film--a-new-hope--1977",
+      "remaster_kind": "special_edition"
+    },
+    {
+      "id": "film--the-empire-strikes-back-special-edition--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Empire Strikes Back: Special Edition",
+      "original_title": null,
+      "release_year": 1997,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": null,
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "fictional_world",
+      "remaster_of": "film--the-empire-strikes-back--1980",
+      "remaster_kind": "special_edition"
+    },
+    {
+      "id": "film--return-of-the-jedi-special-edition--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Return of the Jedi: Special Edition",
+      "original_title": null,
+      "release_year": 1997,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": null,
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "fictional_world",
+      "remaster_of": "film--return-of-the-jedi--1983",
+      "remaster_kind": "special_edition"
+    },
+    {
+      "id": "series--dragon-ball-z-kai",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Dragon Ball Z Kai",
+      "original_title": null,
+      "release_year": 2009,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "remaster_of": "series--dragon-ball-z",
+      "remaster_kind": "restoration"
+    },
+    {
+      "id": "series--star-trek-the-original-series-remastered",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Star Trek: The Original Series - Remastered",
+      "original_title": null,
+      "release_year": 2006,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "remaster_of": "series--star-trek-the-original-series",
+      "remaster_kind": "restoration"
+    },
+    {
+      "id": "series--star-trek-the-next-generation-remastered",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Star Trek: The Next Generation - Remastered",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "remaster_of": "series--star-trek-the-next-generation",
+      "remaster_kind": "restoration"
     }
   ],
   "memberships": [
@@ -43795,6 +44256,246 @@
       "continuity_id": "independent-anime--standalone",
       "membership_type": "included",
       "notes": null
+    },
+    {
+      "id": "james-bond--next-era--film--untitled-bond-26",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--untitled-bond-26",
+      "franchise_id": "james-bond",
+      "continuity_id": "james-bond--next-era",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "james-bond--specials--film--casino-royale-climax--1954",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--casino-royale-climax--1954",
+      "franchise_id": "james-bond",
+      "continuity_id": "james-bond--specials",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "james-bond--specials--film--everything-or-nothing-the-untold-story-of-007--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--everything-or-nothing-the-untold-story-of-007--2012",
+      "franchise_id": "james-bond",
+      "continuity_id": "james-bond--specials",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "james-bond--specials--film--being-james-bond-the-daniel-craig-story--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--being-james-bond-the-daniel-craig-story--2021",
+      "franchise_id": "james-bond",
+      "continuity_id": "james-bond--specials",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "james-bond--specials--series--james-bond-road-to-a-million",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--james-bond-road-to-a-million",
+      "franchise_id": "james-bond",
+      "continuity_id": "james-bond--specials",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "wizarding-world--specials-and-announced--film--harry-potter-20th-anniversary-return-to-hogwarts--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--harry-potter-20th-anniversary-return-to-hogwarts--2022",
+      "franchise_id": "wizarding-world",
+      "continuity_id": "wizarding-world--specials-and-announced",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "wizarding-world--specials-and-announced--series--harry-potter-hbo-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--harry-potter-hbo-series",
+      "franchise_id": "wizarding-world",
+      "continuity_id": "wizarding-world--specials-and-announced",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "toy-story--film--toy-story-3d--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--toy-story-3d--2009",
+      "franchise_id": "toy-story",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "toy-story--film--toy-story-2-3d--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--toy-story-2-3d--2009",
+      "franchise_id": "toy-story",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--film--the-lion-king-3d--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-lion-king-3d--2011",
+      "franchise_id": "disney-animation",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--film--beauty-and-the-beast-3d--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--beauty-and-the-beast-3d--2012",
+      "franchise_id": "disney-animation",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--film--finding-nemo-3d--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--finding-nemo-3d--2012",
+      "franchise_id": "pixar",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--film--monsters-inc-3d--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--monsters-inc-3d--2012",
+      "franchise_id": "pixar",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "star-wars--film--the-phantom-menace-3d--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-phantom-menace-3d--2012",
+      "franchise_id": "star-wars",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "star-wars--film--a-new-hope-special-edition--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--a-new-hope-special-edition--1997",
+      "franchise_id": "star-wars",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "star-wars--film--the-empire-strikes-back-special-edition--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-empire-strikes-back-special-edition--1997",
+      "franchise_id": "star-wars",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "star-wars--film--return-of-the-jedi-special-edition--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--return-of-the-jedi-special-edition--1997",
+      "franchise_id": "star-wars",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dragon-ball--series--dragon-ball-z-kai",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--dragon-ball-z-kai",
+      "franchise_id": "dragon-ball",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "star-trek--series--star-trek-the-original-series-remastered",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--star-trek-the-original-series-remastered",
+      "franchise_id": "star-trek",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "star-trek--series--star-trek-the-next-generation-remastered",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--star-trek-the-next-generation-remastered",
+      "franchise_id": "star-trek",
+      "continuity_id": null,
+      "membership_type": "included",
+      "notes": null
     }
   ],
   "continuities": [
@@ -45663,6 +46364,39 @@
       "name": "Standalone titles",
       "canonical_status": "unreviewed",
       "notes": "Not a continuity: unrelated stories grouped only because they stand alone."
+    },
+    {
+      "id": "james-bond--next-era",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "james-bond",
+      "name": "Next era (announced)",
+      "canonical_status": "unreviewed",
+      "notes": "Bond 26 is announced with no title or release date; Denis Villeneuve is attached as director. A 2028 window is reported, not confirmed."
+    },
+    {
+      "id": "james-bond--specials",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "james-bond",
+      "name": "Specials and documentaries",
+      "canonical_status": "unreviewed",
+      "notes": "Not feature films of the series: a 1954 TV adaptation, documentaries and a reality series."
+    },
+    {
+      "id": "wizarding-world--specials-and-announced",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "wizarding-world",
+      "name": "Specials and announced",
+      "canonical_status": "unreviewed",
+      "notes": "A reunion special and the HBO series announced for 2027 (no premiere date yet)."
     }
   ],
   "sequences": [

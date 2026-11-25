@@ -218,3 +218,26 @@ export function facetLists(
   }
   return { formats, franchises: [...byFranchise.values()].sort((a, b) => a.name.localeCompare(b.name)) };
 }
+
+/**
+ * Remasters (3D conversions, restorations, special editions) are separate works that re-release
+ * another film or series. The user shows or hides them; the list keeps its order, and the same
+ * array comes back when nothing is hidden.
+ */
+export function withoutRemasters<T extends { remasterOf?: string }>(works: T[], show: boolean): T[] {
+  if (show) return works;
+  const kept = works.filter(work => !work.remasterOf);
+  return kept.length === works.length ? works : kept;
+}
+
+/**
+ * The people of a comic or manga: the curated seed's creators when it has any well-formed
+ * ones, otherwise the imported ones (the seed is the reviewed source, the cache is a guess).
+ */
+export function creatorsOf(seedCreators: unknown, imported: { name: string; role: string }[]): { name: string; role: string }[] {
+  if (!Array.isArray(seedCreators)) return imported;
+  const own = seedCreators
+    .filter((row): row is Record<string, unknown> => typeof row === 'object' && row !== null && typeof (row as Record<string, unknown>).name === 'string' && ((row as Record<string, unknown>).name as string).length > 0)
+    .map(row => ({ name: row.name as string, role: typeof row.role === 'string' ? row.role : '' }));
+  return own.length > 0 ? own : imported;
+}

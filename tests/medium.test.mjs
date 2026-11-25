@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { adaptationsFor, catalogueFranchises, clampFormat, clampView, franchiseWorkIds, mediumOfFormat, mergeTextSeed, matchesFormat, parseMedium, facetLists } from '../src/medium.ts';
+import { adaptationsFor, catalogueFranchises, clampFormat, clampView, franchiseWorkIds, mediumOfFormat, mergeTextSeed, matchesFormat, parseMedium, facetLists, withoutRemasters, creatorsOf } from '../src/medium.ts';
 
 describe('mediumOfFormat', () => {
   it('maps the four video formats and the three text formats', () => {
@@ -268,5 +268,30 @@ describe('the Cartoon format in Watch', () => {
     assert.deepEqual(facetLists(works, 'video', 'All', 'All').formats.map(e => e.id), ['Film', 'Series', 'Anime', 'Cartoon']);
     assert.deepEqual(facetLists(works.slice(0, 1), 'video', 'All', 'All').formats.map(e => e.id), ['Film']);
     assert.deepEqual(facetLists(works, 'video', 'Cartoon', 'All').franchises.length, 1);
+  });
+});
+
+describe('remasters in the app', () => {
+  const works = [{ id: 'a' }, { id: 'a3d', remasterOf: 'a' }, { id: 'b' }];
+  it('hides remasters unless the user shows them, and never changes the order', () => {
+    assert.deepEqual(withoutRemasters(works, false).map(w => w.id), ['a', 'b']);
+    assert.deepEqual(withoutRemasters(works, true).map(w => w.id), ['a', 'a3d', 'b']);
+  });
+  it('returns the same array when nothing is hidden', () => {
+    assert.equal(withoutRemasters(works, true), works);
+    const plain = [{ id: 'x' }];
+    assert.equal(withoutRemasters(plain, false), plain);
+  });
+});
+
+describe('creatorsOf (curated seed creators beat the imported ones)', () => {
+  const cached = [{ name: 'Imported Person', role: 'Story' }];
+  it('uses well-formed seed creators first', () => {
+    assert.deepEqual(creatorsOf([{ name: 'Stan Lee', role: 'Writer' }, { name: 'Jack Kirby' }], cached), [{ name: 'Stan Lee', role: 'Writer' }, { name: 'Jack Kirby', role: '' }]);
+  });
+  it('falls back to the imported creators when the seed has none or only junk', () => {
+    assert.deepEqual(creatorsOf(undefined, cached), cached);
+    assert.deepEqual(creatorsOf([{ role: 'x' }, 5, null], cached), cached);
+    assert.deepEqual(creatorsOf(undefined, []), []);
   });
 });

@@ -114,6 +114,12 @@ franchise (Dragon Ball's manga joins `dragon-ball`).
 other value stops the import. It is filled only for franchises whose setting is clear (about 750 works); the rest
 stays `unknown` for the owner to review.
 
+`works.remaster_of` and `works.remaster_kind` (migration `007_remasters_and_announced.sql`) make a film or series
+the re-release of another one: `3d`, `restoration` or `special_edition`. Only films and series, with the same
+format on both sides, never a chain, never a comic or manga (another edition of a comic is not a remaster here).
+The seed's `remaster_of` names the original; one that is not in the seed stops the import. A remaster never counts
+towards a franchise. `works.release_status` is `released` (default) or `announced` for a work with no release yet.
+
 `adaptations` (migration `005_text_media.sql`) link a source work to the work adapted
 from it, in either medium direction, by seed id. Rows import `needs_review`, certainty
 `unknown` (or `estimated` if a source states it); the import **throws on `confirmed`**,

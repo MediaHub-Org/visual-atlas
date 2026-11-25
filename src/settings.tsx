@@ -16,6 +16,8 @@ export type Preferences = {
   timelineScale: TimelineScale;
   cardStyle: CardStyle;
   density: Density;
+  /** Show remasters (3D re-releases, restorations, special editions) in Watch; hidden by default. */
+  remasters: boolean;
 };
 
 export const CALENDARS: {id: CalendarId; en: string; es: string}[] = [
@@ -26,7 +28,7 @@ export const CALENDARS: {id: CalendarId; en: string; es: string}[] = [
   {id: 'islamic-tbla', en: 'Islamic astronomical tabular', es: 'Islámico astronómico tabular'},
 ];
 
-const DEFAULTS: Preferences = {language: 'en', theme: 'dark', calendar: 'gregory', timelineScale: 'proportional', cardStyle: 'poster', density: 'comfortable'};
+const DEFAULTS: Preferences = {language: 'en', theme: 'dark', calendar: 'gregory', timelineScale: 'proportional', cardStyle: 'poster', density: 'comfortable', remasters: false};
 const STORAGE_KEY = 'atlas.preferences.v1';
 
 function readPreferences(): Preferences {
@@ -41,6 +43,7 @@ function readPreferences(): Preferences {
       timelineScale: parsed.timelineScale === 'equal' || parsed.timelineScale === 'log' ? parsed.timelineScale : 'proportional',
       cardStyle: parsed.cardStyle === 'text' ? 'text' : 'poster',
       density: parsed.density === 'compact' ? 'compact' : 'comfortable',
+      remasters: parsed.remasters === true,
     };
   } catch {
     return DEFAULTS;

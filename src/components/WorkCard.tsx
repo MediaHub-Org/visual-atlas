@@ -9,6 +9,15 @@ export function posterUrl(workId: string, posters: PosterLookup) {
   return posters.ids.has(workId) ? `/posters/${workId}.${posters.types?.[workId] ?? 'jpg'}?v=${posters.version}` : null;
 }
 
+/** A remaster (3D, restoration, special edition) or an announced work says so next to its title. */
+export function Marks({work, t}: {work: Work; t: TFn}) {
+  if (!work.remasterKind && !work.announced) return null;
+  return <>
+    {work.remasterKind && <span className="mark" title={t('remaster.hint')}>{t(`remaster.${work.remasterKind}`)}</span>}
+    {work.announced && <span className="mark" title={t('status.announcedHint')}>{t('status.announced')}</span>}
+  </>;
+}
+
 /** Icons and a people line for the text card style; a fact that is not known draws nothing. */
 function Facts({work, t}: {work: Work; t: TFn}) {
   const facts = factsOf(work);
@@ -32,7 +41,7 @@ export function WorkCard({work, t, posters, onSelect}: {work: Work; t: TFn; post
     return <button className="card text-card" onClick={() => onSelect(work.id)}>
       <span className="card-title">{work.title} <span>
         {work.year === null ? `(${t('detail.yearUnknown').toLowerCase()})` : <> ({work.year}{yearMark})</>}
-      </span></span>
+      </span> <Marks work={work} t={t}/></span>
       {franchise && <span className="text-franchise">{franchise}{!unspecified ? ` / ${work.memberships[0].continuity}` : ''}</span>}
       <Facts work={work} t={t}/>
     </button>;
@@ -46,7 +55,7 @@ export function WorkCard({work, t, posters, onSelect}: {work: Work; t: TFn; post
     </span>
     <span className="card-title">{work.title} <span>
       {work.year === null ? `(${t('detail.yearUnknown').toLowerCase()})` : <> ({work.year}{yearMark})</>}
-    </span></span>
+    </span> <Marks work={work} t={t}/></span>
     {continuity && <span className="badge">{continuity}</span>}
   </button>;
 }
@@ -67,6 +76,7 @@ export function MiniWork({work, t, posters, onSelect, id, focus = false, badge, 
     <span className="mini-text">
       <strong>{work.title}</strong>
       <small>{note ?? `${work.year ?? t('detail.yearUnknown')} · ${t(`format.${work.format}`)}`}</small>
+      {(work.remasterKind || work.announced) && <small><Marks work={work} t={t}/></small>}
       {textOnly && <Facts work={work} t={t}/>}
     </span>
   </button>;

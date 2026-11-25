@@ -1,6 +1,6 @@
 import type { Calendar, Period, Qualifier } from './chronology';
 import { parseFamilies, type Family } from './families';
-import { catalogueFranchises, franchiseWorkIds, mediumOfFormat, mergeTextSeed, textMetadataFor, type Adaptation, type Medium } from './medium';
+import { catalogueFranchises, creatorsOf, franchiseWorkIds, mediumOfFormat, mergeTextSeed, textMetadataFor, type Adaptation, type Medium } from './medium';
 
 export type Person = { id: number; name: string };
 export type Credits = {
@@ -40,6 +40,11 @@ export type Work = {
   cartoon: boolean;
   animated: boolean;
   creators: string;
+  /** Announced and not released yet (the year, when there is one, is the announced window). */
+  announced: boolean;
+  /** Id of the film or series this work re-releases; absent on every other work. */
+  remasterOf?: string;
+  remasterKind?: '3d' | 'restoration' | 'special_edition';
   /** In-world dates; absent when the chronology file has none for this work. */
   inWorld?: InWorld;
   /** Imported from TMDB, absent until `scripts/fetch-credits.mjs` has run or once expired. */
@@ -98,6 +103,13 @@ type SeedWork = {
   release_year: number | null;
   synopsis: string | null;
   animation_classification: string | null;
+  /** 'announced' for a work with no release yet; absent means released. */
+  release_status?: string;
+  /** Film or series this work re-releases (3D, restoration, special edition); never set on comics or manga. */
+  remaster_of?: string;
+  remaster_kind?: string;
+  /** Curated people of a comic or manga; they win over the imported ones. */
+  creators?: unknown;
 };
 type Seed = {
   works: SeedWork[];
@@ -272,7 +284,13 @@ export function buildDataset(videoSeed: Seed, metadata?: ImportedMetadata | null
       anime: work.animation_classification === 'anime',
       cartoon: work.animation_classification === 'animation',
       animated: work.animation_classification === 'anime' || work.animation_classification === 'animation',
-      creators: text?.creators.length ? text.creators.map(entry => entry.role ? `${entry.name} (${entry.role})` : entry.name).join(', ') : 'Not supplied in seed',
+      creators: (() => {
+        const people = mediumOfFormat(work.format) === 'text' ? creatorsOf(work.creators, text?.creators ?? []) : [];
+        return people.length ? people.map(entry => entry.role ? `${entry.name} (${entry.role})` : entry.name).join(', ') : 'Not supplied in seed';
+      })(),
+      announced: work.release_status === 'announced',
+      remasterOf: work.remaster_of,
+      remasterKind: work.remaster_kind === '3d' || work.remaster_kind === 'restoration' || work.remaster_kind === 'special_edition' ? work.remaster_kind : undefined,
       credits: freshCredits(credits?.entries?.[work.id]),
       inWorld: inWorldByWork.get(work.id),
       description: work.synopsis ?? 'Synopsis not supplied in seed.',
