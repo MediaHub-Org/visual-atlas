@@ -704,6 +704,266 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null
+    },
+    {
+      "id": "text--gintama-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Gintama",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--hajime-no-ippo-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Hajime no Ippo",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--dr-stone-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Dr. Stone",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--haikyu-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Haikyu!!",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--spy-x-family-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Spy x Family",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--vinland-saga-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Vinland Saga",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--tokyo-ghoul-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Tokyo Ghoul",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--black-jack-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Black Jack",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--city-hunter-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "City Hunter",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--initial-d-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Initial D",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--cardcaptor-sakura-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Cardcaptor Sakura",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--fruits-basket-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Fruits Basket",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--lone-wolf-and-cub-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Lone Wolf and Cub",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--ghost-in-the-shell-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Ghost in the Shell",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--black-panther-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Black Panther",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--ghost-rider-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Ghost Rider",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--silver-surfer-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Silver Surfer",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--shazam-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Shazam!",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--swamp-thing-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Swamp Thing",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--hellblazer-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Hellblazer",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--the-boys-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "The Boys",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--preacher-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Preacher",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--fables-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Fables",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--scott-pilgrim-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Scott Pilgrim",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--bone-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Bone",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--persepolis",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "graphic_novel",
+      "title": "Persepolis",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
     }
   ],
   "franchises": [
@@ -946,6 +1206,110 @@
     {
       "id": "v-for-vendetta",
       "name": "V for Vendetta"
+    },
+    {
+      "id": "gintama",
+      "name": "Gintama"
+    },
+    {
+      "id": "hajime-no-ippo",
+      "name": "Hajime no Ippo"
+    },
+    {
+      "id": "dr-stone",
+      "name": "Dr. Stone"
+    },
+    {
+      "id": "haikyu",
+      "name": "Haikyu!!"
+    },
+    {
+      "id": "spy-x-family",
+      "name": "Spy x Family"
+    },
+    {
+      "id": "vinland-saga",
+      "name": "Vinland Saga"
+    },
+    {
+      "id": "tokyo-ghoul",
+      "name": "Tokyo Ghoul"
+    },
+    {
+      "id": "black-jack",
+      "name": "Black Jack"
+    },
+    {
+      "id": "city-hunter",
+      "name": "City Hunter"
+    },
+    {
+      "id": "initial-d",
+      "name": "Initial D"
+    },
+    {
+      "id": "cardcaptor-sakura",
+      "name": "Cardcaptor Sakura"
+    },
+    {
+      "id": "fruits-basket",
+      "name": "Fruits Basket"
+    },
+    {
+      "id": "lone-wolf-and-cub",
+      "name": "Lone Wolf and Cub"
+    },
+    {
+      "id": "ghost-in-the-shell",
+      "name": "Ghost in the Shell"
+    },
+    {
+      "id": "black-panther",
+      "name": "Black Panther"
+    },
+    {
+      "id": "ghost-rider",
+      "name": "Ghost Rider"
+    },
+    {
+      "id": "silver-surfer",
+      "name": "Silver Surfer"
+    },
+    {
+      "id": "shazam",
+      "name": "Shazam!"
+    },
+    {
+      "id": "swamp-thing",
+      "name": "Swamp Thing"
+    },
+    {
+      "id": "hellblazer",
+      "name": "Hellblazer"
+    },
+    {
+      "id": "the-boys",
+      "name": "The Boys"
+    },
+    {
+      "id": "preacher",
+      "name": "Preacher"
+    },
+    {
+      "id": "fables",
+      "name": "Fables"
+    },
+    {
+      "id": "scott-pilgrim",
+      "name": "Scott Pilgrim"
+    },
+    {
+      "id": "bone",
+      "name": "Bone"
+    },
+    {
+      "id": "persepolis",
+      "name": "Persepolis"
     }
   ],
   "continuities": [],
@@ -1437,6 +1801,188 @@
       "id": "text-m-v-for-vendetta",
       "work_id": "text--v-for-vendetta",
       "franchise_id": "v-for-vendetta",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-gintama",
+      "work_id": "text--gintama-manga",
+      "franchise_id": "gintama",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-hajime-no-ippo",
+      "work_id": "text--hajime-no-ippo-manga",
+      "franchise_id": "hajime-no-ippo",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-dr-stone",
+      "work_id": "text--dr-stone-manga",
+      "franchise_id": "dr-stone",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-haikyu",
+      "work_id": "text--haikyu-manga",
+      "franchise_id": "haikyu",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-spy-x-family",
+      "work_id": "text--spy-x-family-manga",
+      "franchise_id": "spy-x-family",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-vinland-saga",
+      "work_id": "text--vinland-saga-manga",
+      "franchise_id": "vinland-saga",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-tokyo-ghoul",
+      "work_id": "text--tokyo-ghoul-manga",
+      "franchise_id": "tokyo-ghoul",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-black-jack",
+      "work_id": "text--black-jack-manga",
+      "franchise_id": "black-jack",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-city-hunter",
+      "work_id": "text--city-hunter-manga",
+      "franchise_id": "city-hunter",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-initial-d",
+      "work_id": "text--initial-d-manga",
+      "franchise_id": "initial-d",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-cardcaptor-sakura",
+      "work_id": "text--cardcaptor-sakura-manga",
+      "franchise_id": "cardcaptor-sakura",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-fruits-basket",
+      "work_id": "text--fruits-basket-manga",
+      "franchise_id": "fruits-basket",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-lone-wolf-and-cub",
+      "work_id": "text--lone-wolf-and-cub-manga",
+      "franchise_id": "lone-wolf-and-cub",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-ghost-in-the-shell",
+      "work_id": "text--ghost-in-the-shell-manga",
+      "franchise_id": "ghost-in-the-shell",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-black-panther",
+      "work_id": "text--black-panther-comic",
+      "franchise_id": "black-panther",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-ghost-rider",
+      "work_id": "text--ghost-rider-comic",
+      "franchise_id": "ghost-rider",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-silver-surfer",
+      "work_id": "text--silver-surfer-comic",
+      "franchise_id": "silver-surfer",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-shazam",
+      "work_id": "text--shazam-comic",
+      "franchise_id": "shazam",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-swamp-thing",
+      "work_id": "text--swamp-thing-comic",
+      "franchise_id": "swamp-thing",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-hellblazer",
+      "work_id": "text--hellblazer-comic",
+      "franchise_id": "hellblazer",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-the-boys",
+      "work_id": "text--the-boys-comic",
+      "franchise_id": "the-boys",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-preacher",
+      "work_id": "text--preacher-comic",
+      "franchise_id": "preacher",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-fables",
+      "work_id": "text--fables-comic",
+      "franchise_id": "fables",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-scott-pilgrim",
+      "work_id": "text--scott-pilgrim-comic",
+      "franchise_id": "scott-pilgrim",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-bone",
+      "work_id": "text--bone-comic",
+      "franchise_id": "bone",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-persepolis",
+      "work_id": "text--persepolis",
+      "franchise_id": "persepolis",
       "continuity_id": null,
       "source_ids": []
     }

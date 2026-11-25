@@ -21,7 +21,10 @@
         "deadpool",
         "wolverine",
         "guardians-of-the-galaxy",
-        "punisher"
+        "punisher",
+        "black-panther",
+        "ghost-rider",
+        "silver-surfer"
       ],
       "same_world": [
         {
@@ -45,7 +48,9 @@
         "green-lantern",
         "sandman",
         "aquaman",
-        "teen-titans"
+        "teen-titans",
+        "shazam",
+        "swamp-thing"
       ],
       "same_world": [
         {

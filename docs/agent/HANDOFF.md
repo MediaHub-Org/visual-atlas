@@ -108,3 +108,5 @@ corporate cycle and no ownership is inferred from `catalog_association`.
 - Collections (editorial tags) are pills above the results, not a sidebar list; the tag dropdown was removed. Toolbar buttons use the same chip look.
 
 - Third batch (2026-11-25): 26 more titles, 70 in total (14 manga, 10 comics, 2 graphic novels), 15 adaptations (Death Note and Monster to their anime). Marvel family gained doctor-strange, deadpool, wolverine, guardians-of-the-galaxy, punisher; DC gained aquaman, teen-titans. Comic Vine years are the earliest original-publisher volume of that title: a heuristic, so needs_review.
+
+- Fourth batch (2026-11-25): 26 more titles, 96 in total (45 manga, 46 comics, 5 graphic novels), no new adaptation links. Marvel family gained black-panther, ghost-rider, silver-surfer; DC gained shazam, swamp-thing.
