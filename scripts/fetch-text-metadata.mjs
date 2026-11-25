@@ -67,14 +67,18 @@ async function aniList(work) {
   return { source: 'anilist', sourceId: media.id, title: media.titles[0] ?? work.title, year: media.year, creators: media.creators, coverUrl: media.coverUrl, media };
 }
 
+// US original publishers (a year from any other publisher is a reprint's, so it is not kept). Comic Vine lists every foreign reprint as its own volume.
+// Publishers of the original editions: Comic Vine lists every foreign reprint as its own volume.
+const ORIGINAL_PUBLISHERS = ['Marvel', 'DC Comics', 'Image', 'Dark Horse Comics', 'Fantagraphics', 'Top Shelf Productions', 'Vertigo'];
+
 async function comicVine(work) {
   const url = new URL('https://comicvine.gamespot.com/api/search/');
   url.search = new URLSearchParams({ api_key: comicVineKey, format: 'json', resources: 'volume', query: work.title, limit: '20', field_list: 'id,name,start_year,publisher,image' });
   const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT }, signal: AbortSignal.timeout(15000) });
   if (!response.ok) throw new Error(`Comic Vine ${response.status}`);
-  const row = chooseTitle(parseComicVineSearch(await response.json()), work.title, work.release_year ?? null);
+  const row = chooseTitle(parseComicVineSearch(await response.json()), work.title, work.release_year ?? null, ORIGINAL_PUBLISHERS);
   if (!row) return null;
-  return { source: 'comicvine', sourceId: row.id, title: row.title, year: row.year, creators: [], coverUrl: row.coverUrl, publisher: row.publisher, media: null };
+  return { source: 'comicvine', sourceId: row.id, title: row.title, year: ORIGINAL_PUBLISHERS.includes(row.publisher) ? row.year : null, creators: [], coverUrl: row.coverUrl, publisher: row.publisher, media: null };
 }
 
 async function saveCover(work, coverUrl) {

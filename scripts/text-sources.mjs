@@ -63,9 +63,16 @@ export function parseComicVineSearch(json) {
  * The one candidate whose normalised title equals `wanted` (the year breaks a tie);
  * null when none or several remain. Nothing is matched by guesswork.
  */
-export function chooseTitle(candidates, wanted, year = null) {
+export function chooseTitle(candidates, wanted, year = null, originalPublishers = null) {
   let rows = candidates.filter((row) => normalise(row.title) === normalise(wanted));
   if (rows.length > 1 && year !== null) rows = rows.filter((row) => row.year === year);
+  if (rows.length > 1 && originalPublishers) {
+    // Many volumes share a title (reprints by foreign publishers, later relaunches): keep the
+    // original publishers' and take the earliest, unless two of them start in the same year.
+    const own = rows.filter((row) => row.year !== null && originalPublishers.includes(row.publisher));
+    const first = Math.min(...own.map((row) => row.year));
+    rows = own.filter((row) => row.year === first);
+  }
   return rows.length === 1 ? rows[0] : null;
 }
 

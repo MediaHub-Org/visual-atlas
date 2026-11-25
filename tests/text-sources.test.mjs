@@ -94,6 +94,27 @@ describe('chooseTitle', () => {
   });
 });
 
+describe('chooseTitle with original publishers', () => {
+  const rows = [
+    { id: 1, title: 'Superman', year: 1967, publisher: 'Egmont Ehapa Verlag' },
+    { id: 2, title: 'Superman', year: 1939, publisher: 'DC Comics' },
+    { id: 3, title: 'Superman', year: 1987, publisher: 'DC Comics' },
+    { id: 4, title: 'Superman', year: 2012, publisher: 'ECC Ediciones' },
+  ];
+  const original = ['DC Comics', 'Marvel'];
+  it('ignores reprints by other publishers and takes the earliest original volume', () => {
+    assert.equal(chooseTitle(rows, 'Superman', null, original).id, 2);
+  });
+  it('still refuses when two original volumes start the same year, or none is original', () => {
+    const tie = [{ id: 5, title: 'X', year: 1990, publisher: 'Marvel' }, { id: 6, title: 'X', year: 1990, publisher: 'Marvel' }];
+    assert.equal(chooseTitle(tie, 'X', null, original), null);
+    assert.equal(chooseTitle(rows.filter(r => r.publisher !== 'DC Comics'), 'Superman', null, original), null);
+  });
+  it('without a publisher list nothing changes', () => {
+    assert.equal(chooseTitle(rows, 'Superman', null), null);
+  });
+});
+
 describe('adaptationProposals', () => {
   it('turns ADAPTATION relations into proposals, never into seed-shaped rows', () => {
     const proposals = adaptationProposals('text--dragon-ball-manga', parseAniListMedia(aniList));
