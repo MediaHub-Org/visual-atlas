@@ -21,11 +21,11 @@ async function withDb(run) {
 }
 
 describe('works.setting', () => {
-  it('defaults to unknown and accepts earth and fictional_world', async () => {
+  it('defaults to unknown and accepts earth, earth_fantasy and fictional_world', async () => {
     await withDb(async (db) => {
       const id = (await db.query("insert into works (title, format) values ('A', 'film') returning id")).rows[0].id;
       assert.equal((await db.query('select setting from works where id = $1', [id])).rows[0].setting, 'unknown');
-      for (const value of ['earth', 'fictional_world']) {
+      for (const value of ['earth', 'earth_fantasy', 'fictional_world']) {
         await db.query('update works set setting = $1 where id = $2', [value, id]);
       }
     });
@@ -40,7 +40,9 @@ describe('works.setting', () => {
       await importSeed(db, seed, { text });
       const counts = (await db.query('select setting, count(*)::int as n from works group by setting')).rows;
       const byValue = Object.fromEntries(counts.map((row) => [row.setting, row.n]));
-      assert.ok(byValue.earth > 0 && byValue.fictional_world > 0, JSON.stringify(byValue));
+      assert.ok(byValue.earth > 0 && byValue.earth_fantasy > 0 && byValue.fictional_world > 0, JSON.stringify(byValue));
+      const hogwarts = await db.query("select setting from works where seed_key = 'film--harry-potter-and-the-philosopher-s-stone--2001'");
+      assert.equal(hogwarts.rows[0]?.setting, 'earth_fantasy');
       const starWars = await db.query("select setting from works where seed_key = 'film--a-new-hope--1977'");
       assert.equal(starWars.rows[0]?.setting, 'fictional_world');
     });
@@ -52,7 +54,7 @@ describe('works.setting', () => {
   });
   it('is only ever earth, fictional_world or absent in the committed seeds', () => {
     for (const work of [...seed.works, ...text.works]) {
-      assert.ok(work.setting === undefined || ['earth', 'fictional_world'].includes(work.setting), `${work.id}: ${work.setting}`);
+      assert.ok(work.setting === undefined || ['earth', 'earth_fantasy', 'fictional_world'].includes(work.setting), `${work.id}: ${work.setting}`);
     }
   });
 });

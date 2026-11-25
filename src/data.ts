@@ -41,7 +41,7 @@ export type Work = {
   animated: boolean;
   creators: string;
   /** Where the story is set; 'unknown' until the owner classifies it. */
-  setting: 'earth' | 'fictional_world' | 'unknown';
+  setting: 'earth' | 'earth_fantasy' | 'fictional_world' | 'unknown';
   /** Announced and not released yet (the year, when there is one, is the announced window). */
   announced: boolean;
   /** Id of the film or series this work re-releases; absent on every other work. */
@@ -112,7 +112,7 @@ type SeedWork = {
   remaster_kind?: string;
   /** Curated people of a comic or manga; they win over the imported ones. */
   creators?: unknown;
-  /** 'earth' or 'fictional_world'; absent means not classified yet. */
+  /** 'earth', 'earth_fantasy' or 'fictional_world'; absent means not classified yet. */
   setting?: string;
 };
 type Seed = {
@@ -292,7 +292,7 @@ export function buildDataset(videoSeed: Seed, metadata?: ImportedMetadata | null
         const people = mediumOfFormat(work.format) === 'text' ? creatorsOf(work.creators, text?.creators ?? []) : [];
         return people.length ? people.map(entry => entry.role ? `${entry.name} (${entry.role})` : entry.name).join(', ') : 'Not supplied in seed';
       })(),
-      setting: work.setting === 'earth' || work.setting === 'fictional_world' ? work.setting : 'unknown',
+      setting: work.setting === 'earth' || work.setting === 'earth_fantasy' || work.setting === 'fictional_world' ? work.setting : 'unknown',
       announced: work.release_status === 'announced',
       remasterOf: work.remaster_of,
       remasterKind: work.remaster_kind === '3d' || work.remaster_kind === 'restoration' || work.remaster_kind === 'special_edition' ? work.remaster_kind : undefined,

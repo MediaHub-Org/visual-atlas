@@ -243,23 +243,27 @@ export function creatorsOf(seedCreators: unknown, imported: { name: string; role
 }
 
 /** Where a story is set: on Earth, or in a completely fictional world (works.setting, migration 006). */
-export type Setting = 'earth' | 'fictional_world' | 'unknown';
+export type Setting = 'earth' | 'earth_fantasy' | 'fictional_world' | 'unknown';
 export type SettingFilter = 'All' | Setting;
+
+function settingOf(work: { setting?: string }): Setting {
+  return work.setting === 'earth' || work.setting === 'earth_fantasy' || work.setting === 'fictional_world' ? work.setting : 'unknown';
+}
 
 /** A URL or stored value becomes a known filter, or 'All'. */
 export function parseSetting(value: string | null | undefined): SettingFilter {
-  return value === 'earth' || value === 'fictional_world' || value === 'unknown' ? value : 'All';
+  return value === 'earth' || value === 'earth_fantasy' || value === 'fictional_world' || value === 'unknown' ? value : 'All';
 }
 
 /** Whether a work passes the setting filter; a work with no classification is 'unknown'. */
 export function matchesSetting(work: { setting?: string }, filter: SettingFilter): boolean {
   if (filter === 'All') return true;
-  return (work.setting === 'earth' || work.setting === 'fictional_world' ? work.setting : 'unknown') === filter;
+  return settingOf(work) === filter;
 }
 
 /** How many of the works fall under each setting (for the filter's labels). */
 export function settingCounts(works: { setting?: string }[]): Record<Setting, number> {
-  const counts: Record<Setting, number> = { earth: 0, fictional_world: 0, unknown: 0 };
-  for (const work of works) counts[work.setting === 'earth' || work.setting === 'fictional_world' ? work.setting : 'unknown'] += 1;
+  const counts: Record<Setting, number> = { earth: 0, earth_fantasy: 0, fictional_world: 0, unknown: 0 };
+  for (const work of works) counts[settingOf(work)] += 1;
   return counts;
 }

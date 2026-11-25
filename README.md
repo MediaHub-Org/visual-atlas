@@ -41,7 +41,7 @@ claims. Remasters (3D re-releases of Disney and Fox films, special editions, res
 re-release a film or series; the **Remasters** chip in Watch shows or hides them (hidden by default, saved) and
 they carry a mark next to the title. Announced works (Bond 26, the HBO Harry Potter series) carry an "Announced" mark.
 Comics and manga have no remasters. Curated `creators` and `release_year` in `media_text_seed.json` win over the
-imported ones. The **Setting** filter (Earth / Fictional world / Not classified, `?setting=`) comes from `works.setting`; a work
+imported ones. The **Setting** filter (Earth / Earth fantasy / Fictional world / Not classified, `?setting=`) comes from `works.setting`; a work
 nobody has classified stays "Not classified" rather than being guessed. Covers that TMDB, AniList and Comic Vine
 could not match are backfilled by `node scripts/fetch-wikipedia-covers.mjs` (the lead image of a hand-listed Wikipedia
 article, local-only cache like the others, never a logo), and `scripts/tmdb-ids.mjs` lists the TMDB ids of translated

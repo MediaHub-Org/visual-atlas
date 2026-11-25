@@ -90,7 +90,7 @@ function statusOf(work) {
   return work.release_status;
 }
 
-const SETTINGS = new Set(['earth', 'fictional_world']);
+const SETTINGS = new Set(['earth', 'earth_fantasy', 'fictional_world']);
 
 /** The seed's setting classification, 'unknown' when absent; anything else is refused. */
 function settingOf(work) {

@@ -109,8 +109,9 @@ continuities and memberships to the video seed's and runs the same passes; a tex
 that the video seed already uses is refused. A text work may join an existing
 franchise (Dragon Ball's manga joins `dragon-ball`).
 
-`works.setting` (migration `006_setting.sql`) says where a story is set: `earth`, `fictional_world` or
-`unknown` (the default). The seed's optional `setting` field is imported as is, `unknown` when absent, and any
+`works.setting` (migrations `006_setting.sql` and `008_setting_earth_fantasy.sql`) says where a story is set:
+`earth` (realistic), `earth_fantasy` (Earth with fantasy, supernatural or superpowered elements),
+`fictional_world` (a completely invented world) or `unknown` (the default). The seed's optional `setting` field is imported as is, `unknown` when absent, and any
 other value stops the import. It is filled only for franchises whose setting is clear (about 750 works); the rest
 stays `unknown` for the owner to review.
 

@@ -398,7 +398,7 @@ export default function App() {
                   <label><span className="sr">{t('filter.setting')}</span>
                     <select value={setting} onChange={event => setSetting(event.target.value as SettingFilter)}>
                       <option value="All">{t('filter.setting')}: {t('filter.all')}</option>
-                      {(['earth', 'fictional_world', 'unknown'] as const).map(option => <option key={option} value={option}>{t(`setting.${option}`)} ({settingTotals[option]})</option>)}
+                      {(['earth', 'earth_fantasy', 'fictional_world', 'unknown'] as const).map(option => <option key={option} value={option}>{t(`setting.${option}`)} ({settingTotals[option]})</option>)}
                     </select>
                   </label>
                   <label><span className="sr">{t('filter.sort')}</span>

@@ -298,7 +298,7 @@ describe('creatorsOf (curated seed creators beat the imported ones)', () => {
 
 describe('the setting filter (Earth or a fictional world)', () => {
   it('parseSetting accepts the four known values and falls back to All', () => {
-    for (const value of ['All', 'earth', 'fictional_world', 'unknown']) assert.equal(parseSetting(value), value);
+    for (const value of ['All', 'earth', 'earth_fantasy', 'fictional_world', 'unknown']) assert.equal(parseSetting(value), value);
     assert.equal(parseSetting('mars'), 'All');
     assert.equal(parseSetting(null), 'All');
     assert.equal(parseSetting(undefined), 'All');
@@ -313,7 +313,7 @@ describe('the setting filter (Earth or a fictional world)', () => {
   });
   it('settingCounts counts each value over the given works', () => {
     const works = [{ setting: 'earth' }, { setting: 'earth' }, { setting: 'fictional_world' }, {}, { setting: 'unknown' }];
-    assert.deepEqual(settingCounts(works), { earth: 2, fictional_world: 1, unknown: 2 });
-    assert.deepEqual(settingCounts([]), { earth: 0, fictional_world: 0, unknown: 0 });
+    assert.deepEqual(settingCounts([...works, { setting: 'earth_fantasy' }]), { earth: 2, earth_fantasy: 1, fictional_world: 1, unknown: 2 });
+    assert.deepEqual(settingCounts([]), { earth: 0, earth_fantasy: 0, fictional_world: 0, unknown: 0 });
   });
 });

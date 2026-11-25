@@ -46,7 +46,7 @@
       "original_title": null,
       "release_year": 1969,
       "release_precision": "year",
-      "setting": "earth"
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--pokemon-adventures-manga",
@@ -87,7 +87,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Stan Lee",
@@ -97,7 +96,8 @@
           "name": "Steve Ditko",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--batman-comic",
@@ -108,7 +108,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Bob Kane",
@@ -118,7 +117,8 @@
           "name": "Bill Finger",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--tmnt-mirage-comic",
@@ -138,7 +138,8 @@
           "name": "Peter Laird",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--maus",
@@ -149,13 +150,13 @@
       "original_title": null,
       "release_year": 1980,
       "release_precision": "year",
-      "setting": "earth",
       "creators": [
         {
           "name": "Art Spiegelman",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--saga-comic",
@@ -175,7 +176,8 @@
           "name": "Fiona Staples",
           "role": "Art"
         }
-      ]
+      ],
+      "setting": "fictional_world"
     },
     {
       "id": "text--blankets",
@@ -186,13 +188,13 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Craig Thompson",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--love-and-rockets",
@@ -216,7 +218,8 @@
           "name": "Mario Hernandez",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--naruto-manga",
@@ -237,7 +240,8 @@
       "title": "Bleach",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--jojo-manga",
@@ -253,7 +257,8 @@
           "name": "Hirohiko Araki",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--hunter-x-hunter-manga",
@@ -317,7 +322,8 @@
       "title": "Sailor Moon",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--astro-boy-manga",
@@ -348,7 +354,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Stan Lee",
@@ -358,7 +363,8 @@
           "name": "Jack Kirby",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--fantastic-four-comic",
@@ -369,7 +375,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Stan Lee",
@@ -379,7 +384,8 @@
           "name": "Jack Kirby",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--x-men-comic",
@@ -390,7 +396,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Stan Lee",
@@ -400,7 +405,8 @@
           "name": "Jack Kirby",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--captain-america-comic",
@@ -411,7 +417,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Joe Simon",
@@ -421,7 +426,8 @@
           "name": "Jack Kirby",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--iron-man-comic",
@@ -432,7 +438,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Stan Lee",
@@ -450,7 +455,8 @@
           "name": "Jack Kirby",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--thor-comic",
@@ -461,7 +467,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Stan Lee",
@@ -475,7 +480,8 @@
           "name": "Jack Kirby",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--daredevil-comic",
@@ -486,7 +492,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Stan Lee",
@@ -496,7 +501,8 @@
           "name": "Bill Everett",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--hulk-comic",
@@ -507,7 +513,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Stan Lee",
@@ -517,7 +522,8 @@
           "name": "Jack Kirby",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--superman-comic",
@@ -528,7 +534,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Jerry Siegel",
@@ -538,7 +543,8 @@
           "name": "Joe Shuster",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--wonder-woman-comic",
@@ -558,7 +564,8 @@
           "name": "H. G. Peter",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--justice-league-comic",
@@ -574,7 +581,8 @@
           "name": "Gardner Fox",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--flash-comic",
@@ -594,7 +602,8 @@
           "name": "Carmine Infantino",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--green-lantern-comic",
@@ -614,7 +623,8 @@
           "name": "Martin Nodell",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--sandman-comic",
@@ -630,7 +640,8 @@
           "name": "Neil Gaiman",
           "role": "Story"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--walking-dead-comic",
@@ -641,7 +652,6 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null,
-      "setting": "earth",
       "creators": [
         {
           "name": "Robert Kirkman",
@@ -655,7 +665,8 @@
           "name": "Charlie Adlard",
           "role": "Art"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--hellboy-comic",
@@ -671,7 +682,8 @@
           "name": "Mike Mignola",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--asterix-comic",
@@ -682,7 +694,6 @@
       "original_title": null,
       "release_year": 1959,
       "release_precision": "year",
-      "setting": "earth",
       "creators": [
         {
           "name": "René Goscinny",
@@ -692,7 +703,8 @@
           "name": "Albert Uderzo",
           "role": "Art"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--tintin-comic",
@@ -703,13 +715,13 @@
       "original_title": null,
       "release_year": 1929,
       "release_precision": "year",
-      "setting": "earth",
       "creators": [
         {
           "name": "Hergé",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--mortadelo-y-filemon-comic",
@@ -720,13 +732,13 @@
       "original_title": null,
       "release_year": 1958,
       "release_precision": "year",
-      "setting": "earth",
       "creators": [
         {
           "name": "Francisco Ibáñez",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--lucky-luke-comic",
@@ -737,7 +749,6 @@
       "original_title": null,
       "release_year": 1946,
       "release_precision": "year",
-      "setting": "earth",
       "creators": [
         {
           "name": "Morris",
@@ -747,7 +758,8 @@
           "name": "René Goscinny",
           "role": "Story"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--slam-dunk-manga",
@@ -757,7 +769,8 @@
       "title": "Slam Dunk",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--death-note-manga",
@@ -767,7 +780,8 @@
       "title": "Death Note",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--akira-manga",
@@ -787,7 +801,8 @@
       "title": "Rurouni Kenshin",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--yu-yu-hakusho-manga",
@@ -797,7 +812,8 @@
       "title": "Yu Yu Hakusho",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--ranma-manga",
@@ -817,7 +833,8 @@
       "title": "Captain Tsubasa",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--my-hero-academia-manga",
@@ -833,7 +850,8 @@
           "name": "Kōhei Horikoshi",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--demon-slayer-manga",
@@ -843,7 +861,8 @@
       "title": "Demon Slayer: Kimetsu no Yaiba",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--jujutsu-kaisen-manga",
@@ -853,7 +872,8 @@
       "title": "Jujutsu Kaisen",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--chainsaw-man-manga",
@@ -863,7 +883,8 @@
       "title": "Chainsaw Man",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--monster-manga",
@@ -883,7 +904,8 @@
       "title": "20th Century Boys",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--fairy-tail-manga",
@@ -893,7 +915,8 @@
       "title": "Fairy Tail",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "fictional_world"
     },
     {
       "id": "text--doctor-strange-comic",
@@ -913,7 +936,8 @@
           "name": "Stan Lee",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--deadpool-comic",
@@ -933,7 +957,8 @@
           "name": "Rob Liefeld",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--wolverine-comic",
@@ -957,7 +982,8 @@
           "name": "Herb Trimpe",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--guardians-of-the-galaxy-comic",
@@ -1001,7 +1027,8 @@
           "name": "Ross Andru",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--aquaman-comic",
@@ -1021,7 +1048,8 @@
           "name": "Mort Weisinger",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--teen-titans-comic",
@@ -1041,7 +1069,8 @@
           "name": "Bruno Premiani",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--spawn-comic",
@@ -1057,7 +1086,8 @@
           "name": "Todd McFarlane",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--invincible-comic",
@@ -1077,7 +1107,8 @@
           "name": "Cory Walker",
           "role": "Art"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--sin-city-comic",
@@ -1093,7 +1124,8 @@
           "name": "Frank Miller",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--watchmen",
@@ -1113,7 +1145,8 @@
           "name": "Dave Gibbons",
           "role": "Art"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--v-for-vendetta",
@@ -1133,7 +1166,8 @@
           "name": "David Lloyd",
           "role": "Art"
         }
-      ]
+      ],
+      "setting": "earth"
     },
     {
       "id": "text--gintama-manga",
@@ -1143,7 +1177,8 @@
       "title": "Gintama",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--hajime-no-ippo-manga",
@@ -1153,7 +1188,8 @@
       "title": "Hajime no Ippo",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--dr-stone-manga",
@@ -1163,7 +1199,8 @@
       "title": "Dr. Stone",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--haikyu-manga",
@@ -1173,7 +1210,8 @@
       "title": "Haikyu!!",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--spy-x-family-manga",
@@ -1193,7 +1231,8 @@
       "title": "Vinland Saga",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--tokyo-ghoul-manga",
@@ -1203,7 +1242,8 @@
       "title": "Tokyo Ghoul",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--black-jack-manga",
@@ -1213,7 +1253,8 @@
       "title": "Black Jack",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--city-hunter-manga",
@@ -1223,7 +1264,8 @@
       "title": "City Hunter",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--initial-d-manga",
@@ -1233,7 +1275,8 @@
       "title": "Initial D",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--cardcaptor-sakura-manga",
@@ -1243,7 +1286,8 @@
       "title": "Cardcaptor Sakura",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--fruits-basket-manga",
@@ -1253,7 +1297,8 @@
       "title": "Fruits Basket",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--lone-wolf-and-cub-manga",
@@ -1263,7 +1308,8 @@
       "title": "Lone Wolf and Cub",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--ghost-in-the-shell-manga",
@@ -1293,7 +1339,8 @@
           "name": "Jack Kirby",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--ghost-rider-comic",
@@ -1317,7 +1364,8 @@
           "name": "Roy Thomas",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--silver-surfer-comic",
@@ -1357,7 +1405,8 @@
           "name": "C. C. Beck",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--swamp-thing-comic",
@@ -1377,7 +1426,8 @@
           "name": "Bernie Wrightson",
           "role": "Creator"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--hellblazer-comic",
@@ -1397,7 +1447,8 @@
           "name": "John Ridgway",
           "role": "Art"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--the-boys-comic",
@@ -1417,7 +1468,8 @@
           "name": "Darick Robertson",
           "role": "Art"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--preacher-comic",
@@ -1437,7 +1489,8 @@
           "name": "Steve Dillon",
           "role": "Art"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--fables-comic",
@@ -1453,7 +1506,8 @@
           "name": "Bill Willingham",
           "role": "Story"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--scott-pilgrim-comic",
@@ -1469,7 +1523,8 @@
           "name": "Bryan Lee O'Malley",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "earth_fantasy"
     },
     {
       "id": "text--bone-comic",
@@ -1485,7 +1540,8 @@
           "name": "Jeff Smith",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "fictional_world"
     },
     {
       "id": "text--persepolis",
@@ -1496,13 +1552,13 @@
       "original_title": null,
       "release_year": 2000,
       "release_precision": "year",
-      "setting": "earth",
       "creators": [
         {
           "name": "Marjane Satrapi",
           "role": "Story & Art"
         }
-      ]
+      ],
+      "setting": "earth"
     }
   ],
   "franchises": [
