@@ -337,6 +337,8 @@ footer p { margin: 8px 0 14px; font-size: 8px; }
   .brand-dot, .sidebar-label, .side-section, .side-sub, .footer-note, .side-link > span, .side-link small { display: none; }
   .side-link { justify-content: center; }
   .side-company .chevron { display: none; }
+  /* The narrow rail has no room for labelled lists: Format and Franchise stay in the toolbar, the Watch/Read switch in the page. */
+  .side-filters, .sidebar .media-switch { display: none; }
   .hero-art { min-width: 180px; }
   .planet { width: 132px; height: 132px; }
   .orbit { width: 210px; } .orbit-two { width: 230px; }

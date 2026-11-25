@@ -58,6 +58,7 @@ export function Sidebar({dataset, t, franchise, universe, onUniverse, medium, on
       <button className="side-link" onClick={() => onView('sequence')}>↝ <span>{t('nav.sequences')}</span></button>
       <button className="side-link" onClick={() => onView('timeline')}>◷ <span>{t('nav.timeline')}</span></button>
 
+      <div className="side-filters">
       <div className="side-section">{t('nav.formats')}</div>
       <button className={`side-link ${format === 'All' ? 'current' : ''}`} aria-pressed={format === 'All'} onClick={() => onFormat('All')}>
         <span>{t('filter.all')}</span><small className="side-count">{total}</small>
@@ -80,6 +81,7 @@ export function Sidebar({dataset, t, franchise, universe, onUniverse, medium, on
         {single.map(item => row(item))}
       </div>
       {(franchise !== 'All' || universe) && <button className="side-link clear" onClick={() => { onUniverse(''); onFranchise('All'); }}>✕ <span>{franchise !== 'All' ? franchise : family?.name}</span></button>}
+      </div>
     </div>
 
     <div className="sidebar-footer">
