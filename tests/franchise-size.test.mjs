@@ -7,7 +7,7 @@ import { describe, it } from 'node:test';
 
 const seed = JSON.parse(readFileSync(new URL('../public/data/media_atlas_seed.json', import.meta.url), 'utf8'));
 const WEIGHT = { film: 1, series: 1, short: 0.5 };
-const FAMOUS = new Set(['lethal-weapon', 'how-to-train-dragon', 'kung-fu-panda', 'madagascar', 'men-in-black', 'bad-boys', 'expendables', 'mortadelo-y-filemon']);
+const FAMOUS = new Set(['lethal-weapon', 'how-to-train-dragon', 'kung-fu-panda', 'madagascar', 'men-in-black', 'bad-boys', 'expendables', 'mortadelo-y-filemon', 'avatar-airbender']);
 // Franchises the owner asked for by name, with only 2-3 titles of one world: judged by that link, not by size.
 const LINKS = new Set(['breaking-bad', 'doctor-who', 'game-of-thrones']);
 

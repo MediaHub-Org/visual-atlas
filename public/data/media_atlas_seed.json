@@ -2347,6 +2347,48 @@
       "description": null,
       "loaded_unique_film_count": null,
       "count_claim_matches_loaded": null
+    },
+    {
+      "id": "walking-dead",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "The Walking Dead",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-approved batch of 2026-11-25: series, films and spin-offs loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "dune",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Dune",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-approved batch of 2026-11-25: series, films and spin-offs loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "avatar-airbender",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Avatar: The Last Airbender",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-approved batch of 2026-11-25: series, films and spin-offs loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
     }
   ],
   "franchise_company_associations": [
@@ -22723,10 +22765,10 @@
       "format": "series",
       "title": "The Walking Dead",
       "original_title": null,
-      "release_year": null,
+      "release_year": 2010,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "live_action",
@@ -22870,10 +22912,10 @@
       "format": "series",
       "title": "Avatar: The Last Airbender",
       "original_title": null,
-      "release_year": null,
+      "release_year": 2005,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "animation",
@@ -24025,10 +24067,10 @@
       "format": "series",
       "title": "Dune: Prophecy",
       "original_title": null,
-      "release_year": null,
+      "release_year": 2024,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "live_action",
@@ -27770,6 +27812,321 @@
       "release_territory": null,
       "theatrical_eligibility": "claimed_theatrical_needs_review",
       "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--fear-the-walking-dead",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Fear the Walking Dead",
+      "original_title": null,
+      "release_year": 2015,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--the-walking-dead-world-beyond",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "The Walking Dead: World Beyond",
+      "original_title": null,
+      "release_year": 2020,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--tales-of-the-walking-dead",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Tales of the Walking Dead",
+      "original_title": null,
+      "release_year": 2022,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--the-walking-dead-daryl-dixon",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "The Walking Dead: Daryl Dixon",
+      "original_title": null,
+      "release_year": 2023,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--the-walking-dead-dead-city",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "The Walking Dead: Dead City",
+      "original_title": null,
+      "release_year": 2023,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--the-walking-dead-the-ones-who-live",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "The Walking Dead: The Ones Who Live",
+      "original_title": null,
+      "release_year": 2024,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--dune--1984",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Dune",
+      "original_title": null,
+      "release_year": 1984,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--frank-herbert-s-dune",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Frank Herbert's Dune",
+      "original_title": null,
+      "release_year": 2000,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--frank-herbert-s-children-of-dune",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Frank Herbert's Children of Dune",
+      "original_title": null,
+      "release_year": 2003,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--dune--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Dune",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--dune-part-two--2024",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Dune: Part Two",
+      "original_title": null,
+      "release_year": 2024,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--dune-part-three--2026",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Dune: Part Three",
+      "original_title": null,
+      "release_year": 2026,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--the-legend-of-korra",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "The Legend of Korra",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-last-airbender--2010",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Last Airbender",
+      "original_title": null,
+      "release_year": 2010,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--avatar-the-last-airbender--2024",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Avatar: The Last Airbender",
+      "original_title": null,
+      "release_year": 2024,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
@@ -40392,6 +40749,222 @@
       "continuity_id": "sailor-moon--anime-and-adaptations",
       "membership_type": "included",
       "notes": null
+    },
+    {
+      "id": "walking-dead--main--series--the-walking-dead",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-walking-dead",
+      "franchise_id": "walking-dead",
+      "continuity_id": "walking-dead--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "walking-dead--main--series--fear-the-walking-dead",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--fear-the-walking-dead",
+      "franchise_id": "walking-dead",
+      "continuity_id": "walking-dead--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "walking-dead--main--series--the-walking-dead-world-beyond",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-walking-dead-world-beyond",
+      "franchise_id": "walking-dead",
+      "continuity_id": "walking-dead--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "walking-dead--main--series--tales-of-the-walking-dead",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--tales-of-the-walking-dead",
+      "franchise_id": "walking-dead",
+      "continuity_id": "walking-dead--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "walking-dead--main--series--the-walking-dead-daryl-dixon",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-walking-dead-daryl-dixon",
+      "franchise_id": "walking-dead",
+      "continuity_id": "walking-dead--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "walking-dead--main--series--the-walking-dead-dead-city",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-walking-dead-dead-city",
+      "franchise_id": "walking-dead",
+      "continuity_id": "walking-dead--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "walking-dead--main--series--the-walking-dead-the-ones-who-live",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-walking-dead-the-ones-who-live",
+      "franchise_id": "walking-dead",
+      "continuity_id": "walking-dead--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dune--main--film--dune--1984",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--dune--1984",
+      "franchise_id": "dune",
+      "continuity_id": "dune--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dune--main--series--frank-herbert-s-dune",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--frank-herbert-s-dune",
+      "franchise_id": "dune",
+      "continuity_id": "dune--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dune--main--series--frank-herbert-s-children-of-dune",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--frank-herbert-s-children-of-dune",
+      "franchise_id": "dune",
+      "continuity_id": "dune--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dune--main--film--dune--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--dune--2021",
+      "franchise_id": "dune",
+      "continuity_id": "dune--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dune--main--series--dune-prophecy",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--dune-prophecy",
+      "franchise_id": "dune",
+      "continuity_id": "dune--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dune--main--film--dune-part-two--2024",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--dune-part-two--2024",
+      "franchise_id": "dune",
+      "continuity_id": "dune--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dune--main--film--dune-part-three--2026",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--dune-part-three--2026",
+      "franchise_id": "dune",
+      "continuity_id": "dune--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "avatar-airbender--main--series--avatar-the-last-airbender",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--avatar-the-last-airbender",
+      "franchise_id": "avatar-airbender",
+      "continuity_id": "avatar-airbender--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "avatar-airbender--main--film--the-last-airbender--2010",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-last-airbender--2010",
+      "franchise_id": "avatar-airbender",
+      "continuity_id": "avatar-airbender--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "avatar-airbender--main--series--the-legend-of-korra",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-legend-of-korra",
+      "franchise_id": "avatar-airbender",
+      "continuity_id": "avatar-airbender--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "avatar-airbender--main--series--avatar-the-last-airbender--2024",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--avatar-the-last-airbender--2024",
+      "franchise_id": "avatar-airbender",
+      "continuity_id": "avatar-airbender--main",
+      "membership_type": "included",
+      "notes": null
     }
   ],
   "continuities": [
@@ -42117,6 +42690,39 @@
       "name": "Anime, films and adaptations",
       "canonical_status": "unreviewed",
       "notes": "Floating continuity: remakes, recap films and live-action adaptations are not reviewed as canon."
+    },
+    {
+      "id": "walking-dead--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "walking-dead",
+      "name": "Television universe",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, spin-offs and adaptations are not reviewed as canon."
+    },
+    {
+      "id": "dune--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "dune",
+      "name": "Screen adaptations",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, spin-offs and adaptations are not reviewed as canon."
+    },
+    {
+      "id": "avatar-airbender--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "avatar-airbender",
+      "name": "Animated and live-action",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, spin-offs and adaptations are not reviewed as canon."
     }
   ],
   "sequences": [
@@ -45639,6 +46245,48 @@
       "franchise_id": "death-note",
       "continuity_id": "death-note--anime-and-adaptations",
       "name": "Anime, films and adaptations: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "walking-dead--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "walking-dead",
+      "continuity_id": "walking-dead--main",
+      "name": "Television universe: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "dune--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "dune",
+      "continuity_id": "dune--main",
+      "name": "Screen adaptations: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "avatar-airbender--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "avatar-airbender",
+      "continuity_id": "avatar-airbender--main",
+      "name": "Animated and live-action: release order",
       "sequence_type": "release",
       "ordering_basis": "release_year_with_editorial_ties",
       "certainty": "editorial_proposal",
@@ -56927,6 +57575,132 @@
       "sequence_id": "death-note--anime-and-adaptations--release",
       "work_id": "film--death-note--2017",
       "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "walking-dead--main--release",
+      "work_id": "series--the-walking-dead",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "walking-dead--main--release",
+      "work_id": "series--fear-the-walking-dead",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "walking-dead--main--release",
+      "work_id": "series--the-walking-dead-world-beyond",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "walking-dead--main--release",
+      "work_id": "series--tales-of-the-walking-dead",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "walking-dead--main--release",
+      "work_id": "series--the-walking-dead-daryl-dixon",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "walking-dead--main--release",
+      "work_id": "series--the-walking-dead-dead-city",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "walking-dead--main--release",
+      "work_id": "series--the-walking-dead-the-ones-who-live",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dune--main--release",
+      "work_id": "film--dune--1984",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dune--main--release",
+      "work_id": "series--frank-herbert-s-dune",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dune--main--release",
+      "work_id": "series--frank-herbert-s-children-of-dune",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dune--main--release",
+      "work_id": "film--dune--2021",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dune--main--release",
+      "work_id": "series--dune-prophecy",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dune--main--release",
+      "work_id": "film--dune-part-two--2024",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dune--main--release",
+      "work_id": "film--dune-part-three--2026",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "avatar-airbender--main--release",
+      "work_id": "series--avatar-the-last-airbender",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "avatar-airbender--main--release",
+      "work_id": "film--the-last-airbender--2010",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "avatar-airbender--main--release",
+      "work_id": "series--the-legend-of-korra",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "avatar-airbender--main--release",
+      "work_id": "series--avatar-the-last-airbender--2024",
+      "position": 4,
       "position_certainty": "needs_review",
       "simultaneous_group": null
     }
