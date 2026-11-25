@@ -54,6 +54,7 @@ export function parseComicVineSearch(json) {
       id: row.id,
       title: row.name,
       year: plausibleYear(row.start_year),
+      issues: Number.isInteger(row.count_of_issues) ? row.count_of_issues : null,
       publisher: isObject(row.publisher) && typeof row.publisher.name === 'string' ? row.publisher.name : null,
       coverUrl: isObject(row.image) && isHttps(row.image.original_url) ? row.image.original_url : null,
     }));
@@ -72,6 +73,11 @@ export function chooseTitle(candidates, wanted, year = null, originalPublishers 
     const own = rows.filter((row) => row.year !== null && originalPublishers.includes(row.publisher));
     const first = Math.min(...own.map((row) => row.year));
     rows = own.filter((row) => row.year === first);
+    if (rows.length > 1) {
+      const most = Math.max(...rows.map((row) => row.issues ?? 0));
+      const longest = rows.filter((row) => (row.issues ?? 0) === most);
+      if (most > 0) rows = longest;
+    }
   }
   return rows.length === 1 ? rows[0] : null;
 }

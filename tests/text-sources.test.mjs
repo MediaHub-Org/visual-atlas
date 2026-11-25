@@ -110,6 +110,11 @@ describe('chooseTitle with original publishers', () => {
     assert.equal(chooseTitle(tie, 'X', null, original), null);
     assert.equal(chooseTitle(rows.filter(r => r.publisher !== 'DC Comics'), 'Superman', null, original), null);
   });
+  it('breaks a same-year tie by the clearly longer run, never by guessing', () => {
+    const saga = [{ id: 1, title: 'Saga', year: 2012, publisher: 'Image', issues: 72 }, { id: 2, title: 'Saga', year: 2012, publisher: 'Image', issues: 12 }];
+    assert.equal(chooseTitle(saga, 'Saga', null, ['Image']).id, 1);
+    assert.equal(chooseTitle([saga[0], { ...saga[1], issues: 72 }], 'Saga', null, ['Image']), null);
+  });
   it('without a publisher list nothing changes', () => {
     assert.equal(chooseTitle(rows, 'Superman', null), null);
   });
