@@ -477,6 +477,7 @@ export default function App() {
               <footer>
                 <span>FRAME ✳</span>
                 <p>{t('footer.warning')}</p>
+                <p className="chronology-attribution"><a href="https://github.com/MediaHub-Org/visual-atlas" target="_blank" rel="noreferrer">{t('footer.source')}</a></p>
                 {medium === 'video' && dataset.chronologySources.length > 0 && <p className="chronology-attribution">
                   {t('inworld.footer')} {dataset.chronologySources.map(source =>
                     <a key={source.name} href={source.licenceUrl || undefined} target="_blank" rel="noreferrer">{source.name} · {source.licence}</a>)}

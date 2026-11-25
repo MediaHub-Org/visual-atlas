@@ -29,6 +29,14 @@ frontend does not yet use a database. Its invariants are tested against a real
 PostgreSQL engine with `npm run test:db` (no server needed). The development
 server is intended for local use only; do not expose it publicly.
 
+## Licence
+
+The code is **AGPL-3.0-or-later** (`LICENSE`): you can read, run, modify and share it, but a modified copy must stay
+open under the same licence, including when it is run as a website for others. The editorial data is
+**CC BY-NC-SA 4.0** (`LICENSE-DATA.md`): shareable with credit, not for commercial use, and under the same terms.
+The in-world dates keep Wookieepedia's CC BY-SA 3.0. See `NOTICE.md` for the third-party sources and why their
+images and credits are never published.
+
 ## Published site
 
 Live at **https://mediahub-org.github.io/visual-atlas/** (GitHub Pages). The data is demonstration data from an
