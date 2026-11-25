@@ -2277,6 +2277,76 @@
       "description": null,
       "loaded_unique_film_count": null,
       "count_claim_matches_loaded": null
+    },
+    {
+      "id": "evangelion",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Neon Genesis Evangelion",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-approved batch of 2026-11-25: series, films and adaptations loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "sailor-moon",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Sailor Moon",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-approved batch of 2026-11-25: series, films and adaptations loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "bleach",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Bleach",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-approved batch of 2026-11-25: series, films and adaptations loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "fullmetal-alchemist",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Fullmetal Alchemist",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-approved batch of 2026-11-25: series, films and adaptations loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "death-note",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Death Note",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-approved batch of 2026-11-25: series, films and adaptations loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
     }
   ],
   "franchise_company_associations": [
@@ -22968,10 +23038,10 @@
       "format": "series",
       "title": "Sailor Moon: original series",
       "original_title": null,
-      "release_year": null,
+      "release_year": 1992,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "anime",
@@ -22989,10 +23059,10 @@
       "format": "series",
       "title": "Neon Genesis Evangelion",
       "original_title": null,
-      "release_year": null,
+      "release_year": 1995,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "anime",
@@ -23073,10 +23143,10 @@
       "format": "series",
       "title": "Bleach",
       "original_title": null,
-      "release_year": null,
+      "release_year": 2004,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "anime",
@@ -23157,10 +23227,10 @@
       "format": "series",
       "title": "Death Note: anime",
       "original_title": null,
-      "release_year": null,
+      "release_year": 2006,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "anime",
@@ -23178,10 +23248,10 @@
       "format": "series",
       "title": "Fullmetal Alchemist: Brotherhood",
       "original_title": null,
-      "release_year": null,
+      "release_year": 2009,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "anime",
@@ -27020,6 +27090,678 @@
       ],
       "format": "film",
       "title": "The Boy and the Heron",
+      "original_title": null,
+      "release_year": 2023,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--neon-genesis-evangelion-death-rebirth--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Neon Genesis Evangelion: Death and Rebirth",
+      "original_title": null,
+      "release_year": 1997,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-end-of-evangelion--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Neon Genesis Evangelion: The End of Evangelion",
+      "original_title": null,
+      "release_year": 1997,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--evangelion-1-0-you-are-not-alone--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Evangelion: 1.0 You Are (Not) Alone",
+      "original_title": null,
+      "release_year": 2007,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--evangelion-2-0-you-can-not-advance--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Evangelion: 2.0 You Can (Not) Advance",
+      "original_title": null,
+      "release_year": 2009,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--evangelion-3-0-you-can-not-redo--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Evangelion: 3.0 You Can (Not) Redo",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--evangelion-3-0-1-0-thrice-upon-a-time--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Evangelion: 3.0+1.0 Thrice Upon a Time",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--pretty-guardian-sailor-moon",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Pretty Guardian Sailor Moon",
+      "original_title": null,
+      "release_year": 2003,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--sailor-moon-crystal",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Sailor Moon Crystal",
+      "original_title": null,
+      "release_year": 2014,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--sailor-moon-r-the-movie--1993",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Sailor Moon R: The Movie - The Promise of the Rose",
+      "original_title": null,
+      "release_year": 1993,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--sailor-moon-s-the-movie--1994",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Sailor Moon S the Movie: Hearts in Ice",
+      "original_title": null,
+      "release_year": 1994,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--sailor-moon-supers-the-movie--1995",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Sailor Moon SuperS: The Movie - Black Dream Hole",
+      "original_title": null,
+      "release_year": 1995,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--pretty-guardian-sailor-moon-eternal-the-movie--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Pretty Guardian Sailor Moon Eternal the Movie Part 1",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--pretty-guardian-sailor-moon-cosmos-the-movie--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Pretty Guardian Sailor Moon Cosmos the Movie Part 1",
+      "original_title": null,
+      "release_year": 2023,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--bleach-memories-of-nobody--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Bleach: Memories of Nobody",
+      "original_title": null,
+      "release_year": 2006,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--bleach-the-diamonddust-rebellion--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Bleach: The DiamondDust Rebellion",
+      "original_title": null,
+      "release_year": 2007,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--bleach-fade-to-black--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Bleach: Fade to Black",
+      "original_title": null,
+      "release_year": 2008,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--bleach-hell-verse--2010",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Bleach the Movie: Hell Verse",
+      "original_title": null,
+      "release_year": 2010,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--bleach--2018",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Bleach",
+      "original_title": null,
+      "release_year": 2018,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--fullmetal-alchemist",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Fullmetal Alchemist",
+      "original_title": null,
+      "release_year": 2003,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--fullmetal-alchemist-the-movie-conqueror-of-shamballa--2005",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Fullmetal Alchemist the Movie: Conqueror of Shamballa",
+      "original_title": null,
+      "release_year": 2005,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--fullmetal-alchemist-the-sacred-star-of-milos--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Fullmetal Alchemist: The Sacred Star of Milos",
+      "original_title": null,
+      "release_year": 2011,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--fullmetal-alchemist--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Fullmetal Alchemist",
+      "original_title": null,
+      "release_year": 2017,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--fullmetal-alchemist-revenge-of-scar--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Fullmetal Alchemist: The Revenge of Scar",
+      "original_title": null,
+      "release_year": 2022,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--fullmetal-alchemist-the-final-alchemy--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Fullmetal Alchemist: The Final Alchemy",
+      "original_title": null,
+      "release_year": 2022,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--death-note",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Death Note",
+      "original_title": null,
+      "release_year": 2015,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--death-note--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Death Note",
+      "original_title": null,
+      "release_year": 2006,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--death-note-the-last-name--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Death Note: The Last Name",
+      "original_title": null,
+      "release_year": 2006,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--l-change-the-world--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "L: Change the WORLD",
+      "original_title": null,
+      "release_year": 2008,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--death-note-light-up-the-new-world--2016",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Death Note: Light Up the New World",
+      "original_title": null,
+      "release_year": 2016,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--death-note--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Death Note",
+      "original_title": null,
+      "release_year": 2017,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--pretty-guardian-sailor-moon-eternal-the-movie-part-2--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Pretty Guardian Sailor Moon Eternal the Movie Part 2",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--pretty-guardian-sailor-moon-cosmos-the-movie-part-2--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Pretty Guardian Sailor Moon Cosmos the Movie Part 2",
       "original_title": null,
       "release_year": 2023,
       "release_date": null,
@@ -39206,6 +39948,450 @@
       "continuity_id": "studio-ghibli--features",
       "membership_type": "included",
       "notes": null
+    },
+    {
+      "id": "evangelion--anime-and-adaptations--film--neon-genesis-evangelion-death-rebirth--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--neon-genesis-evangelion-death-rebirth--1997",
+      "franchise_id": "evangelion",
+      "continuity_id": "evangelion--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "evangelion--anime-and-adaptations--film--the-end-of-evangelion--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-end-of-evangelion--1997",
+      "franchise_id": "evangelion",
+      "continuity_id": "evangelion--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "evangelion--anime-and-adaptations--film--evangelion-1-0-you-are-not-alone--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--evangelion-1-0-you-are-not-alone--2007",
+      "franchise_id": "evangelion",
+      "continuity_id": "evangelion--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "evangelion--anime-and-adaptations--film--evangelion-2-0-you-can-not-advance--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--evangelion-2-0-you-can-not-advance--2009",
+      "franchise_id": "evangelion",
+      "continuity_id": "evangelion--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "evangelion--anime-and-adaptations--film--evangelion-3-0-you-can-not-redo--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--evangelion-3-0-you-can-not-redo--2012",
+      "franchise_id": "evangelion",
+      "continuity_id": "evangelion--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "evangelion--anime-and-adaptations--film--evangelion-3-0-1-0-thrice-upon-a-time--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--evangelion-3-0-1-0-thrice-upon-a-time--2021",
+      "franchise_id": "evangelion",
+      "continuity_id": "evangelion--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "evangelion--anime-and-adaptations--series--neon-genesis-evangelion",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--neon-genesis-evangelion",
+      "franchise_id": "evangelion",
+      "continuity_id": "evangelion--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations--film--sailor-moon-r-the-movie--1993",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--sailor-moon-r-the-movie--1993",
+      "franchise_id": "sailor-moon",
+      "continuity_id": "sailor-moon--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations--film--sailor-moon-s-the-movie--1994",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--sailor-moon-s-the-movie--1994",
+      "franchise_id": "sailor-moon",
+      "continuity_id": "sailor-moon--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations--film--sailor-moon-supers-the-movie--1995",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--sailor-moon-supers-the-movie--1995",
+      "franchise_id": "sailor-moon",
+      "continuity_id": "sailor-moon--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations--series--pretty-guardian-sailor-moon",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--pretty-guardian-sailor-moon",
+      "franchise_id": "sailor-moon",
+      "continuity_id": "sailor-moon--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations--series--sailor-moon-crystal",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--sailor-moon-crystal",
+      "franchise_id": "sailor-moon",
+      "continuity_id": "sailor-moon--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations--film--pretty-guardian-sailor-moon-eternal-the-movie--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--pretty-guardian-sailor-moon-eternal-the-movie--2021",
+      "franchise_id": "sailor-moon",
+      "continuity_id": "sailor-moon--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations--film--pretty-guardian-sailor-moon-cosmos-the-movie--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--pretty-guardian-sailor-moon-cosmos-the-movie--2023",
+      "franchise_id": "sailor-moon",
+      "continuity_id": "sailor-moon--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations--series--sailor-moon-original-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--sailor-moon-original-series",
+      "franchise_id": "sailor-moon",
+      "continuity_id": "sailor-moon--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "bleach--anime-and-adaptations--film--bleach-memories-of-nobody--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--bleach-memories-of-nobody--2006",
+      "franchise_id": "bleach",
+      "continuity_id": "bleach--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "bleach--anime-and-adaptations--film--bleach-the-diamonddust-rebellion--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--bleach-the-diamonddust-rebellion--2007",
+      "franchise_id": "bleach",
+      "continuity_id": "bleach--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "bleach--anime-and-adaptations--film--bleach-fade-to-black--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--bleach-fade-to-black--2008",
+      "franchise_id": "bleach",
+      "continuity_id": "bleach--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "bleach--anime-and-adaptations--film--bleach-hell-verse--2010",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--bleach-hell-verse--2010",
+      "franchise_id": "bleach",
+      "continuity_id": "bleach--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "bleach--anime-and-adaptations--film--bleach--2018",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--bleach--2018",
+      "franchise_id": "bleach",
+      "continuity_id": "bleach--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "bleach--anime-and-adaptations--series--bleach",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--bleach",
+      "franchise_id": "bleach",
+      "continuity_id": "bleach--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "fullmetal-alchemist--anime-and-adaptations--series--fullmetal-alchemist",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--fullmetal-alchemist",
+      "franchise_id": "fullmetal-alchemist",
+      "continuity_id": "fullmetal-alchemist--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "fullmetal-alchemist--anime-and-adaptations--film--fullmetal-alchemist-the-movie-conqueror-of-shamballa--2005",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--fullmetal-alchemist-the-movie-conqueror-of-shamballa--2005",
+      "franchise_id": "fullmetal-alchemist",
+      "continuity_id": "fullmetal-alchemist--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "fullmetal-alchemist--anime-and-adaptations--film--fullmetal-alchemist-the-sacred-star-of-milos--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--fullmetal-alchemist-the-sacred-star-of-milos--2011",
+      "franchise_id": "fullmetal-alchemist",
+      "continuity_id": "fullmetal-alchemist--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "fullmetal-alchemist--anime-and-adaptations--film--fullmetal-alchemist--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--fullmetal-alchemist--2017",
+      "franchise_id": "fullmetal-alchemist",
+      "continuity_id": "fullmetal-alchemist--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "fullmetal-alchemist--anime-and-adaptations--film--fullmetal-alchemist-revenge-of-scar--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--fullmetal-alchemist-revenge-of-scar--2022",
+      "franchise_id": "fullmetal-alchemist",
+      "continuity_id": "fullmetal-alchemist--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "fullmetal-alchemist--anime-and-adaptations--film--fullmetal-alchemist-the-final-alchemy--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--fullmetal-alchemist-the-final-alchemy--2022",
+      "franchise_id": "fullmetal-alchemist",
+      "continuity_id": "fullmetal-alchemist--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "fullmetal-alchemist--anime-and-adaptations--series--fullmetal-alchemist-brotherhood",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--fullmetal-alchemist-brotherhood",
+      "franchise_id": "fullmetal-alchemist",
+      "continuity_id": "fullmetal-alchemist--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "death-note--anime-and-adaptations--film--death-note--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--death-note--2006",
+      "franchise_id": "death-note",
+      "continuity_id": "death-note--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "death-note--anime-and-adaptations--film--death-note-the-last-name--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--death-note-the-last-name--2006",
+      "franchise_id": "death-note",
+      "continuity_id": "death-note--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "death-note--anime-and-adaptations--film--l-change-the-world--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--l-change-the-world--2008",
+      "franchise_id": "death-note",
+      "continuity_id": "death-note--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "death-note--anime-and-adaptations--series--death-note",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--death-note",
+      "franchise_id": "death-note",
+      "continuity_id": "death-note--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "death-note--anime-and-adaptations--film--death-note-light-up-the-new-world--2016",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--death-note-light-up-the-new-world--2016",
+      "franchise_id": "death-note",
+      "continuity_id": "death-note--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "death-note--anime-and-adaptations--film--death-note--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--death-note--2017",
+      "franchise_id": "death-note",
+      "continuity_id": "death-note--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "death-note--anime-and-adaptations--series--death-note-anime",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--death-note-anime",
+      "franchise_id": "death-note",
+      "continuity_id": "death-note--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations--film--pretty-guardian-sailor-moon-eternal-the-movie-part-2--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--pretty-guardian-sailor-moon-eternal-the-movie-part-2--2021",
+      "franchise_id": "sailor-moon",
+      "continuity_id": "sailor-moon--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations--film--pretty-guardian-sailor-moon-cosmos-the-movie-part-2--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--pretty-guardian-sailor-moon-cosmos-the-movie-part-2--2023",
+      "franchise_id": "sailor-moon",
+      "continuity_id": "sailor-moon--anime-and-adaptations",
+      "membership_type": "included",
+      "notes": null
     }
   ],
   "continuities": [
@@ -40876,6 +42062,61 @@
       "name": "Feature films",
       "canonical_status": "unreviewed",
       "notes": "Floating continuity: separate stories, grouped by studio, not a shared world."
+    },
+    {
+      "id": "evangelion--anime-and-adaptations",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "evangelion",
+      "name": "Anime, films and adaptations",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, recap films and live-action adaptations are not reviewed as canon."
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "sailor-moon",
+      "name": "Anime, films and adaptations",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, recap films and live-action adaptations are not reviewed as canon."
+    },
+    {
+      "id": "bleach--anime-and-adaptations",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "bleach",
+      "name": "Anime, films and adaptations",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, recap films and live-action adaptations are not reviewed as canon."
+    },
+    {
+      "id": "fullmetal-alchemist--anime-and-adaptations",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "fullmetal-alchemist",
+      "name": "Anime, films and adaptations",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, recap films and live-action adaptations are not reviewed as canon."
+    },
+    {
+      "id": "death-note--anime-and-adaptations",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "death-note",
+      "name": "Anime, films and adaptations",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, recap films and live-action adaptations are not reviewed as canon."
     }
   ],
   "sequences": [
@@ -44328,6 +45569,76 @@
       "franchise_id": "studio-ghibli",
       "continuity_id": "studio-ghibli--features",
       "name": "Feature films: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "evangelion--anime-and-adaptations--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "evangelion",
+      "continuity_id": "evangelion--anime-and-adaptations",
+      "name": "Anime, films and adaptations: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "sailor-moon--anime-and-adaptations--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "sailor-moon",
+      "continuity_id": "sailor-moon--anime-and-adaptations",
+      "name": "Anime, films and adaptations: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "bleach--anime-and-adaptations--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "bleach",
+      "continuity_id": "bleach--anime-and-adaptations",
+      "name": "Anime, films and adaptations: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "fullmetal-alchemist--anime-and-adaptations--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "fullmetal-alchemist",
+      "continuity_id": "fullmetal-alchemist--anime-and-adaptations",
+      "name": "Anime, films and adaptations: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "death-note--anime-and-adaptations--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "death-note",
+      "continuity_id": "death-note--anime-and-adaptations",
+      "name": "Anime, films and adaptations: release order",
       "sequence_type": "release",
       "ordering_basis": "release_year_with_editorial_ties",
       "certainty": "editorial_proposal",
@@ -55357,6 +56668,265 @@
       "sequence_id": "studio-ghibli--features--release",
       "work_id": "film--the-boy-and-the-heron--2023",
       "position": 25,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "evangelion--anime-and-adaptations--release",
+      "work_id": "series--neon-genesis-evangelion",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "evangelion--anime-and-adaptations--release",
+      "work_id": "film--neon-genesis-evangelion-death-rebirth--1997",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "evangelion--anime-and-adaptations--release",
+      "work_id": "film--the-end-of-evangelion--1997",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "evangelion--anime-and-adaptations--release",
+      "work_id": "film--evangelion-1-0-you-are-not-alone--2007",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "evangelion--anime-and-adaptations--release",
+      "work_id": "film--evangelion-2-0-you-can-not-advance--2009",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "evangelion--anime-and-adaptations--release",
+      "work_id": "film--evangelion-3-0-you-can-not-redo--2012",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "evangelion--anime-and-adaptations--release",
+      "work_id": "film--evangelion-3-0-1-0-thrice-upon-a-time--2021",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "sailor-moon--anime-and-adaptations--release",
+      "work_id": "series--sailor-moon-original-series",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "sailor-moon--anime-and-adaptations--release",
+      "work_id": "film--sailor-moon-r-the-movie--1993",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "sailor-moon--anime-and-adaptations--release",
+      "work_id": "film--sailor-moon-s-the-movie--1994",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "sailor-moon--anime-and-adaptations--release",
+      "work_id": "film--sailor-moon-supers-the-movie--1995",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "sailor-moon--anime-and-adaptations--release",
+      "work_id": "series--pretty-guardian-sailor-moon",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "sailor-moon--anime-and-adaptations--release",
+      "work_id": "series--sailor-moon-crystal",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "sailor-moon--anime-and-adaptations--release",
+      "work_id": "film--pretty-guardian-sailor-moon-eternal-the-movie--2021",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "sailor-moon--anime-and-adaptations--release",
+      "work_id": "film--pretty-guardian-sailor-moon-eternal-the-movie-part-2--2021",
+      "position": 8,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "sailor-moon--anime-and-adaptations--release",
+      "work_id": "film--pretty-guardian-sailor-moon-cosmos-the-movie--2023",
+      "position": 9,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "sailor-moon--anime-and-adaptations--release",
+      "work_id": "film--pretty-guardian-sailor-moon-cosmos-the-movie-part-2--2023",
+      "position": 10,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "bleach--anime-and-adaptations--release",
+      "work_id": "series--bleach",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "bleach--anime-and-adaptations--release",
+      "work_id": "film--bleach-memories-of-nobody--2006",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "bleach--anime-and-adaptations--release",
+      "work_id": "film--bleach-the-diamonddust-rebellion--2007",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "bleach--anime-and-adaptations--release",
+      "work_id": "film--bleach-fade-to-black--2008",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "bleach--anime-and-adaptations--release",
+      "work_id": "film--bleach-hell-verse--2010",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "bleach--anime-and-adaptations--release",
+      "work_id": "film--bleach--2018",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "fullmetal-alchemist--anime-and-adaptations--release",
+      "work_id": "series--fullmetal-alchemist",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "fullmetal-alchemist--anime-and-adaptations--release",
+      "work_id": "film--fullmetal-alchemist-the-movie-conqueror-of-shamballa--2005",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "fullmetal-alchemist--anime-and-adaptations--release",
+      "work_id": "series--fullmetal-alchemist-brotherhood",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "fullmetal-alchemist--anime-and-adaptations--release",
+      "work_id": "film--fullmetal-alchemist-the-sacred-star-of-milos--2011",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "fullmetal-alchemist--anime-and-adaptations--release",
+      "work_id": "film--fullmetal-alchemist--2017",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "fullmetal-alchemist--anime-and-adaptations--release",
+      "work_id": "film--fullmetal-alchemist-revenge-of-scar--2022",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "fullmetal-alchemist--anime-and-adaptations--release",
+      "work_id": "film--fullmetal-alchemist-the-final-alchemy--2022",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "death-note--anime-and-adaptations--release",
+      "work_id": "film--death-note--2006",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "death-note--anime-and-adaptations--release",
+      "work_id": "film--death-note-the-last-name--2006",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "death-note--anime-and-adaptations--release",
+      "work_id": "series--death-note-anime",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "death-note--anime-and-adaptations--release",
+      "work_id": "film--l-change-the-world--2008",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "death-note--anime-and-adaptations--release",
+      "work_id": "series--death-note",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "death-note--anime-and-adaptations--release",
+      "work_id": "film--death-note-light-up-the-new-world--2016",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "death-note--anime-and-adaptations--release",
+      "work_id": "film--death-note--2017",
+      "position": 7,
       "position_certainty": "needs_review",
       "simultaneous_group": null
     }

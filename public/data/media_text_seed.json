@@ -988,10 +988,6 @@
       "name": "Love and Rockets"
     },
     {
-      "id": "bleach",
-      "name": "Bleach"
-    },
-    {
       "id": "jojo",
       "name": "JoJo's Bizarre Adventure"
     },
@@ -1004,16 +1000,8 @@
       "name": "Berserk"
     },
     {
-      "id": "fullmetal-alchemist",
-      "name": "Fullmetal Alchemist"
-    },
-    {
       "id": "saint-seiya",
       "name": "Saint Seiya"
-    },
-    {
-      "id": "sailor-moon",
-      "name": "Sailor Moon"
     },
     {
       "id": "astro-boy",
@@ -1094,10 +1082,6 @@
     {
       "id": "slam-dunk",
       "name": "Slam Dunk"
-    },
-    {
-      "id": "death-note",
-      "name": "Death Note"
     },
     {
       "id": "akira",
