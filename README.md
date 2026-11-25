@@ -32,11 +32,15 @@ server is intended for local use only; do not expose it publicly.
 ## Views, settings and grouping
 
 Five views share one toolbar and URL: cards, list/table, company hierarchy,
-narrative sequences and a vertical release timeline. Editorial collections
-(tags from the seed) appear in the sidebar and as a filter and in the detail
-panel; they are collections, not ownership or verified influence claims. The timeline can space
-years equally, proportionally or logarithmically and uses the full width for
-works released in the same year. Company groups come from the seed's unverified
+narrative sequences and a vertical release timeline. The sidebar offers Format and
+**Universes**: a family (Marvel, DC, Disney / Pixar) opens to its franchises, the rest
+stand alone, and the two lists narrow each other. **Companies** and editorial
+**collections** (tags from the seed) are pills above the results (on narrow screens the
+universes get a pill row too); they are collections, not ownership or verified influence
+claims. The **Density** chip opens a right-hand panel: card size (comfortable or compact)
+for Cards, In-universe order and Release timeline, and the spacing of years
+(equal, proportional or logarithmic) on the release timeline and the calendar axis; both are saved
+preferences. The timeline uses the full width for works released in the same year. Company groups come from the seed's unverified
 parent-company claims; they are labelled as claims, never as verified ownership.
 
 Settings (gear icon) store language (English/Spanish), theme (dark/light/system),
@@ -96,8 +100,8 @@ labels such as «Doctor Who: original series» or «Doraemon: 1979 series».
 ## Text media (comics & manga)
 
 A **Watch | Read** switch (sidebar and explore header, `?media=text`) swaps the whole
-catalogue (Watch: films, series and anime; Read: comics, manga and graphic novels). Read mode's sidebar lists formats and series/sagas instead of companies. Text media is its own catalogue with its own franchises and is linked to
-video adaptations. The catalogue (44 titles: the pilot plus a second batch of long-running
+catalogue (Watch: films, series and anime; Read: comics, manga and graphic novels). Read mode has the same sidebar minus Companies. Text media is its own catalogue with its own franchises and is linked to
+video adaptations. The catalogue (96 titles in four batches: long-running
 manga and Marvel, DC, independent and European comics that have several sagas) lives in `public/data/media_text_seed.json`, same row shapes as the
 video seed, all `needs_review`; titles and years are facts, no synopsis is copied.
 
@@ -105,7 +109,8 @@ video seed, all `needs_review`; titles and years are facts, no synopsis is copie
   to the work adapted from it, either direction. Seed links are certainty `unknown`
   (shown as "Editorial proposal · unverified"); the import refuses `confirmed`.
 - **Not in the pilot:** volumes, issues, arcs, reading order, publishers, regional
-  editions, in-world chronology. Text mode hides "In-universe order" and the company tree.
+  editions, in-world chronology. Read's "In-universe order" only groups works by series (Marvel and DC
+  as families), with no position; it never invents an order.
 - **Local enrichment:** `node --env-file-if-exists=.env scripts/fetch-text-metadata.mjs`
   (`--dry-run`, `--only <id>`, `--limit`) takes year, creators and a cover from AniList
   (manga, no key) and Comic Vine (`COMICVINE_API_KEY` in `.env`, never committed). Cache:
@@ -119,6 +124,19 @@ video seed, all `needs_review`; titles and years are facts, no synopsis is copie
 - **Add a title:** add the work, its franchise membership (an existing franchise id or a
   new franchise) and, if a video work really adapts it, an `unknown` adaptation to
   `media_text_seed.json`; run `npm test` and `npm run db:import -- --dry-run`.
+
+## Universe families and the franchise size rule
+
+`public/data/universe_families.json` holds the families the owner approved: Marvel and DC
+(comics included) and **Disney / Pixar**, flagged `theory: true` because the shared world is a
+fan theory the studios do not confirm (badge "Fan theory"). A family only groups blocks; it
+never merges continuities.
+
+A Watch franchise needs a score of **5** (film 1, series 1, seasons never add, short 0.5), or **4**
+when very famous. Breaking Bad, Doctor Who and Game of Thrones are explicit inclusions of 2-3
+titles. `tests/franchise-size.test.mjs` enforces the rule and holds the list of famous franchises.
+Many works were typed from knowledge and then compared with TMDB
+(`TMDB_API_KEY` in `.env`); all stay `needs_review`.
 
 ## In-world chronology
 

@@ -1,7 +1,8 @@
 # Universe families — proposal for owner review
 
-Status: **proposal, not applied.** Nothing in the app reads this file yet. Once you
-edit and approve it, it becomes `public/data/universe_families.json` and drives the
+Status: **superseded.** The families the owner approved are in
+`public/data/universe_families.json` (Marvel, DC, Disney / Pixar as a fan theory); this file is
+only the original proposal and is stale. Once approved, a family becomes `public/data/universe_families.json` and drives the
 "In-universe order" grouping. Source: franchise and continuity ids in
 `media_atlas_seed.json` (73 franchises). Shared-universe claims below are my own
 editorial reading, **not verified against a source**; you decide each row.
