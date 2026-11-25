@@ -1,6 +1,6 @@
 import type { Calendar, Period, Qualifier } from './chronology';
 import { parseFamilies, type Family } from './families';
-import { BASE } from './base';
+import { BASE, DEV } from './base';
 import { catalogueFranchises, creatorsOf, franchiseWorkIds, mediumOfFormat, mergeTextSeed, textMetadataFor, type Adaptation, type Medium } from './medium';
 
 export type Person = { id: number; name: string };
@@ -154,8 +154,8 @@ async function loadLocalJson<T>(url: string): Promise<T | null> {
   }
 }
 
-const loadImportedMetadata = () => loadLocalJson<ImportedMetadata>(`${BASE}data/tmdb_metadata.json`);
-const loadImportedCredits = () => loadLocalJson<ImportedCredits>(`${BASE}data/tmdb_credits.json`);
+const loadImportedMetadata = () => DEV ? loadLocalJson<ImportedMetadata>(`${BASE}data/tmdb_metadata.json`) : Promise.resolve(null);
+const loadImportedCredits = () => DEV ? loadLocalJson<ImportedCredits>(`${BASE}data/tmdb_credits.json`) : Promise.resolve(null);
 
 /** The shape of public/data/chronology/<franchise>.json (see scripts/fetch-wookieepedia-dates.mjs). */
 export type ChronologyFile = {
@@ -193,7 +193,7 @@ function validPeriod(raw: unknown): Period | null {
 }
 
 export async function loadAtlas(url = `${BASE}data/media_atlas_seed.json`): Promise<Dataset> {
-  const [seedResponse, metadata, credits, chronology, familiesFile, textSeed, textCache] = await Promise.all([fetch(url), loadImportedMetadata(), loadImportedCredits(), loadChronology(), loadLocalJson<unknown>(`${BASE}data/universe_families.json`), loadLocalJson<unknown>(`${BASE}data/media_text_seed.json`), loadLocalJson<unknown>(`${BASE}data/text_metadata.json`)]);
+  const [seedResponse, metadata, credits, chronology, familiesFile, textSeed, textCache] = await Promise.all([fetch(url), loadImportedMetadata(), loadImportedCredits(), loadChronology(), loadLocalJson<unknown>(`${BASE}data/universe_families.json`), loadLocalJson<unknown>(`${BASE}data/media_text_seed.json`), (DEV ? loadLocalJson<unknown>(`${BASE}data/text_metadata.json`) : Promise.resolve(null))]);
   if (!seedResponse.ok) throw new Error(`Unable to load the atlas dataset (${seedResponse.status}).`);
   return buildDataset(await seedResponse.json() as Seed, metadata, credits, chronology, parseFamilies(familiesFile), textSeed, textCache);
 }
