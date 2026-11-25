@@ -1868,7 +1868,7 @@
       "source_ids": [
         "conversation"
       ],
-      "name": "Batman: solo live-action films",
+      "name": "Batman",
       "editorial_count_claim": 9,
       "count_scope": "Theatrical feature films under the conversation-specific scope; not a verified or derived count",
       "coverage": "conversation_scope_loaded_not_independently_verified",
@@ -1882,7 +1882,7 @@
       "source_ids": [
         "conversation"
       ],
-      "name": "Superman: solo live-action films",
+      "name": "Superman",
       "editorial_count_claim": 7,
       "count_scope": "Theatrical feature films under the conversation-specific scope; not a verified or derived count",
       "coverage": "conversation_scope_loaded_not_independently_verified",
