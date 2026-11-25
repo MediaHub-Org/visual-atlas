@@ -322,12 +322,12 @@ export default function App() {
                   <div>
                     <div className="eyebrow"><span/>{t('hero.eyebrow')}</div>
                     <h1>{t('hero.title')}<br/><em>{t('hero.titleEm')}</em></h1>
-                    <p>{t('hero.body')}</p>
+                    <p>{t(medium === 'text' ? 'hero.bodyText' : 'hero.body')}</p>
                     <div className="stats">
                       {medium === 'text'
                         ? <>
                           <div><strong>{dataset.stats.textWorks}</strong><span>{t('stats.textWorks')}</span></div>
-                          <div><strong>{franchiseOptions.length}</strong><span>{t('stats.worlds')}</span></div>
+                          <div><strong>{franchiseOptions.length}</strong><span>{t('stats.sagas')}</span></div>
                         </>
                         : <>
                           <div><strong>{dataset.stats.films}</strong><span>{t('stats.films')}</span></div>
