@@ -2389,6 +2389,118 @@
       "description": null,
       "loaded_unique_film_count": null,
       "count_claim_matches_loaded": null
+    },
+    {
+      "id": "x-files",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "The X-Files",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-requested review of loose series, 2026-11-25: series, films and spin-offs loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "battlestar-galactica",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Battlestar Galactica",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-requested review of loose series, 2026-11-25: series, films and spin-offs loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "twilight-zone",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "The Twilight Zone",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-requested review of loose series, 2026-11-25: series, films and spin-offs loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "astro-boy",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Astro Boy",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-requested review of loose series, 2026-11-25: series, films and spin-offs loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "gundam",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Mobile Suit Gundam",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-requested review of loose series, 2026-11-25: series, films and spin-offs loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "ghost-in-the-shell",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Ghost in the Shell",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-requested review of loose series, 2026-11-25: series, films and spin-offs loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "dcau",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "DC Animated Universe",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-requested review of loose series, 2026-11-25: series, films and spin-offs loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "south-park",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "South Park",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-requested review of loose series, 2026-11-25: series, films and spin-offs loaded; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
     }
   ],
   "franchise_company_associations": [
@@ -22492,10 +22604,10 @@
       "format": "series",
       "title": "The X-Files",
       "original_title": null,
-      "release_year": null,
+      "release_year": 1993,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "live_action",
@@ -22597,10 +22709,10 @@
       "format": "series",
       "title": "Battlestar Galactica: reimagined series",
       "original_title": null,
-      "release_year": null,
+      "release_year": 2004,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "live_action",
@@ -22618,10 +22730,10 @@
       "format": "series",
       "title": "The Twilight Zone: original series",
       "original_title": null,
-      "release_year": null,
+      "release_year": 1959,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "live_action",
@@ -22891,10 +23003,10 @@
       "format": "series",
       "title": "South Park",
       "original_title": null,
-      "release_year": null,
+      "release_year": 1997,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "animation",
@@ -22933,10 +23045,10 @@
       "format": "series",
       "title": "Batman: The Animated Series",
       "original_title": null,
-      "release_year": null,
+      "release_year": 1992,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "animation",
@@ -23017,10 +23129,10 @@
       "format": "series",
       "title": "Astro Boy: original series",
       "original_title": null,
-      "release_year": null,
+      "release_year": 1963,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "anime",
@@ -23059,10 +23171,10 @@
       "format": "series",
       "title": "Mobile Suit Gundam",
       "original_title": null,
-      "release_year": null,
+      "release_year": 1979,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "anime",
@@ -23332,10 +23444,10 @@
       "format": "series",
       "title": "Ghost in the Shell: Stand Alone Complex",
       "original_title": null,
-      "release_year": null,
+      "release_year": 2002,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "anime",
@@ -23962,10 +24074,10 @@
       "format": "series",
       "title": "Batman Beyond",
       "original_title": null,
-      "release_year": null,
+      "release_year": 1999,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "animation",
@@ -23983,10 +24095,10 @@
       "format": "series",
       "title": "Justice League: animated series",
       "original_title": null,
-      "release_year": null,
+      "release_year": 2001,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "animation",
@@ -28127,6 +28239,1077 @@
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-x-files-fight-the-future--1998",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The X-Files: Fight the Future",
+      "original_title": null,
+      "release_year": 1998,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-x-files-i-want-to-believe--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The X-Files: I Want to Believe",
+      "original_title": null,
+      "release_year": 2008,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--millennium",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Millennium",
+      "original_title": null,
+      "release_year": 1996,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--the-lone-gunmen",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "The Lone Gunmen",
+      "original_title": null,
+      "release_year": 2001,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--battlestar-galactica",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Battlestar Galactica",
+      "original_title": null,
+      "release_year": 1978,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--galactica-1980",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Galactica 1980",
+      "original_title": null,
+      "release_year": 1980,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--caprica",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Caprica",
+      "original_title": null,
+      "release_year": 2010,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--battlestar-galactica-razor--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Battlestar Galactica: Razor",
+      "original_title": null,
+      "release_year": 2007,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--battlestar-galactica-the-plan--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Battlestar Galactica: The Plan",
+      "original_title": null,
+      "release_year": 2009,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--battlestar-galactica-blood-chrome--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Battlestar Galactica: Blood & Chrome",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--the-twilight-zone--1985",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "The Twilight Zone",
+      "original_title": null,
+      "release_year": 1985,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--the-twilight-zone--2002",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "The Twilight Zone",
+      "original_title": null,
+      "release_year": 2002,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--the-twilight-zone--2019",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "The Twilight Zone",
+      "original_title": null,
+      "release_year": 2019,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--twilight-zone-the-movie--1983",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Twilight Zone: The Movie",
+      "original_title": null,
+      "release_year": 1983,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--astro-boy--1980",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Astro Boy",
+      "original_title": null,
+      "release_year": 1980,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--astro-boy--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Astro Boy",
+      "original_title": null,
+      "release_year": 2003,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--astro-boy--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Astro Boy",
+      "original_title": null,
+      "release_year": 2009,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--pluto",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Pluto",
+      "original_title": null,
+      "release_year": 2023,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--mobile-suit-gundam-i--1981",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Mobile Suit Gundam I",
+      "original_title": null,
+      "release_year": 1981,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--mobile-suit-gundam-ii-soldiers-of-sorrow--1981",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Mobile Suit Gundam II: Soldiers of Sorrow",
+      "original_title": null,
+      "release_year": 1981,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--mobile-suit-gundam-iii-encounters-in-space--1982",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Mobile Suit Gundam III: Encounters in Space",
+      "original_title": null,
+      "release_year": 1982,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--mobile-suit-zeta-gundam",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Mobile Suit Zeta Gundam",
+      "original_title": null,
+      "release_year": 1985,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--mobile-suit-gundam-zz",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Mobile Suit Gundam ZZ",
+      "original_title": null,
+      "release_year": 1986,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--mobile-suit-gundam-char-s-counterattack--1988",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Mobile Suit Gundam: Char's Counterattack",
+      "original_title": null,
+      "release_year": 1988,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--mobile-suit-gundam-f91--1991",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Mobile Suit Gundam F91",
+      "original_title": null,
+      "release_year": 1991,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--mobile-suit-gundam-wing",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Mobile Suit Gundam Wing",
+      "original_title": null,
+      "release_year": 1995,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--mobile-suit-gundam-seed",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Mobile Suit Gundam SEED",
+      "original_title": null,
+      "release_year": 2002,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--mobile-suit-gundam-00",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Mobile Suit Gundam 00",
+      "original_title": null,
+      "release_year": 2007,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--mobile-suit-gundam-iron-blooded-orphans",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Mobile Suit Gundam: Iron-Blooded Orphans",
+      "original_title": null,
+      "release_year": 2015,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--mobile-suit-gundam-hathaway--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Mobile Suit Gundam Hathaway",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--mobile-suit-gundam-the-witch-from-mercury",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Mobile Suit Gundam: The Witch from Mercury",
+      "original_title": null,
+      "release_year": 2022,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--ghost-in-the-shell--1995",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Ghost in the Shell",
+      "original_title": null,
+      "release_year": 1995,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--ghost-in-the-shell-2-innocence--2004",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Ghost in the Shell 2: Innocence",
+      "original_title": null,
+      "release_year": 2004,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--ghost-in-the-shell-stand-alone-complex-solid-state-society--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Ghost in the Shell: Stand Alone Complex - Solid State Society",
+      "original_title": null,
+      "release_year": 2007,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--ghost-in-the-shell-the-new-movie--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Ghost in the Shell: The New Movie",
+      "original_title": null,
+      "release_year": 2015,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--ghost-in-the-shell--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Ghost in the Shell",
+      "original_title": null,
+      "release_year": 2017,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--ghost-in-the-shell-sac-2045",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Ghost in the Shell: SAC_2045",
+      "original_title": null,
+      "release_year": 2020,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--batman-mask-of-the-phantasm--1993",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Batman: Mask of the Phantasm",
+      "original_title": null,
+      "release_year": 1993,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--superman-the-animated-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Superman: The Animated Series",
+      "original_title": null,
+      "release_year": 1996,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--the-new-batman-adventures",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "The New Batman Adventures",
+      "original_title": null,
+      "release_year": 1997,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--batman-mr-freeze-subzero--1998",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Batman & Mr. Freeze: SubZero",
+      "original_title": null,
+      "release_year": 1998,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--batman-beyond-return-of-the-joker--2000",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Batman Beyond: Return of the Joker",
+      "original_title": null,
+      "release_year": 2000,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--static-shock",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Static Shock",
+      "original_title": null,
+      "release_year": 2000,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--batman-mystery-of-the-batwoman--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Batman: Mystery of the Batwoman",
+      "original_title": null,
+      "release_year": 2003,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--justice-league-unlimited",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Justice League Unlimited",
+      "original_title": null,
+      "release_year": 2004,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--south-park-bigger-longer-uncut--1999",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "South Park: Bigger, Longer & Uncut",
+      "original_title": null,
+      "release_year": 1999,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--south-park-post-covid--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "South Park: Post COVID",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--south-park-post-covid-the-return-of-covid--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "South Park: Post COVID: The Return of COVID",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--south-park-the-streaming-wars--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "South Park: The Streaming Wars",
+      "original_title": null,
+      "release_year": 2022,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--south-park-the-streaming-wars-part-2--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "South Park: The Streaming Wars Part 2",
+      "original_title": null,
+      "release_year": 2022,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--south-park-joining-the-panderverse--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "South Park: Joining the Panderverse",
+      "original_title": null,
+      "release_year": 2023,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
@@ -40965,6 +42148,738 @@
       "continuity_id": "avatar-airbender--main",
       "membership_type": "included",
       "notes": null
+    },
+    {
+      "id": "x-files--main--series--the-x-files",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-x-files",
+      "franchise_id": "x-files",
+      "continuity_id": "x-files--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "x-files--main--series--millennium",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--millennium",
+      "franchise_id": "x-files",
+      "continuity_id": "x-files--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "x-files--main--film--the-x-files-fight-the-future--1998",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-x-files-fight-the-future--1998",
+      "franchise_id": "x-files",
+      "continuity_id": "x-files--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "x-files--main--series--the-lone-gunmen",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-lone-gunmen",
+      "franchise_id": "x-files",
+      "continuity_id": "x-files--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "x-files--main--film--the-x-files-i-want-to-believe--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-x-files-i-want-to-believe--2008",
+      "franchise_id": "x-files",
+      "continuity_id": "x-files--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "battlestar-galactica--main--series--battlestar-galactica",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--battlestar-galactica",
+      "franchise_id": "battlestar-galactica",
+      "continuity_id": "battlestar-galactica--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "battlestar-galactica--main--series--galactica-1980",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--galactica-1980",
+      "franchise_id": "battlestar-galactica",
+      "continuity_id": "battlestar-galactica--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "battlestar-galactica--main--series--battlestar-galactica-reimagined-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--battlestar-galactica-reimagined-series",
+      "franchise_id": "battlestar-galactica",
+      "continuity_id": "battlestar-galactica--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "battlestar-galactica--main--film--battlestar-galactica-razor--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--battlestar-galactica-razor--2007",
+      "franchise_id": "battlestar-galactica",
+      "continuity_id": "battlestar-galactica--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "battlestar-galactica--main--film--battlestar-galactica-the-plan--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--battlestar-galactica-the-plan--2009",
+      "franchise_id": "battlestar-galactica",
+      "continuity_id": "battlestar-galactica--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "battlestar-galactica--main--series--caprica",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--caprica",
+      "franchise_id": "battlestar-galactica",
+      "continuity_id": "battlestar-galactica--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "battlestar-galactica--main--film--battlestar-galactica-blood-chrome--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--battlestar-galactica-blood-chrome--2012",
+      "franchise_id": "battlestar-galactica",
+      "continuity_id": "battlestar-galactica--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "twilight-zone--main--series--the-twilight-zone-original-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-twilight-zone-original-series",
+      "franchise_id": "twilight-zone",
+      "continuity_id": "twilight-zone--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "twilight-zone--main--film--twilight-zone-the-movie--1983",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--twilight-zone-the-movie--1983",
+      "franchise_id": "twilight-zone",
+      "continuity_id": "twilight-zone--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "twilight-zone--main--series--the-twilight-zone--1985",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-twilight-zone--1985",
+      "franchise_id": "twilight-zone",
+      "continuity_id": "twilight-zone--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "twilight-zone--main--series--the-twilight-zone--2002",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-twilight-zone--2002",
+      "franchise_id": "twilight-zone",
+      "continuity_id": "twilight-zone--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "twilight-zone--main--series--the-twilight-zone--2019",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-twilight-zone--2019",
+      "franchise_id": "twilight-zone",
+      "continuity_id": "twilight-zone--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "astro-boy--main--series--astro-boy-original-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--astro-boy-original-series",
+      "franchise_id": "astro-boy",
+      "continuity_id": "astro-boy--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "astro-boy--main--series--astro-boy--1980",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--astro-boy--1980",
+      "franchise_id": "astro-boy",
+      "continuity_id": "astro-boy--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "astro-boy--main--series--astro-boy--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--astro-boy--2003",
+      "franchise_id": "astro-boy",
+      "continuity_id": "astro-boy--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "astro-boy--main--film--astro-boy--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--astro-boy--2009",
+      "franchise_id": "astro-boy",
+      "continuity_id": "astro-boy--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "astro-boy--main--series--pluto",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--pluto",
+      "franchise_id": "astro-boy",
+      "continuity_id": "astro-boy--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--series--mobile-suit-gundam",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--mobile-suit-gundam",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--film--mobile-suit-gundam-i--1981",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--mobile-suit-gundam-i--1981",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--film--mobile-suit-gundam-ii-soldiers-of-sorrow--1981",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--mobile-suit-gundam-ii-soldiers-of-sorrow--1981",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--film--mobile-suit-gundam-iii-encounters-in-space--1982",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--mobile-suit-gundam-iii-encounters-in-space--1982",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--series--mobile-suit-zeta-gundam",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--mobile-suit-zeta-gundam",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--series--mobile-suit-gundam-zz",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--mobile-suit-gundam-zz",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--film--mobile-suit-gundam-char-s-counterattack--1988",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--mobile-suit-gundam-char-s-counterattack--1988",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--film--mobile-suit-gundam-f91--1991",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--mobile-suit-gundam-f91--1991",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--series--mobile-suit-gundam-wing",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--mobile-suit-gundam-wing",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--series--mobile-suit-gundam-seed",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--mobile-suit-gundam-seed",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--series--mobile-suit-gundam-00",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--mobile-suit-gundam-00",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--series--mobile-suit-gundam-iron-blooded-orphans",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--mobile-suit-gundam-iron-blooded-orphans",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--film--mobile-suit-gundam-hathaway--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--mobile-suit-gundam-hathaway--2021",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--series--mobile-suit-gundam-the-witch-from-mercury",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--mobile-suit-gundam-the-witch-from-mercury",
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "ghost-in-the-shell--main--film--ghost-in-the-shell--1995",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--ghost-in-the-shell--1995",
+      "franchise_id": "ghost-in-the-shell",
+      "continuity_id": "ghost-in-the-shell--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "ghost-in-the-shell--main--series--ghost-in-the-shell-stand-alone-complex",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--ghost-in-the-shell-stand-alone-complex",
+      "franchise_id": "ghost-in-the-shell",
+      "continuity_id": "ghost-in-the-shell--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "ghost-in-the-shell--main--film--ghost-in-the-shell-2-innocence--2004",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--ghost-in-the-shell-2-innocence--2004",
+      "franchise_id": "ghost-in-the-shell",
+      "continuity_id": "ghost-in-the-shell--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "ghost-in-the-shell--main--film--ghost-in-the-shell-stand-alone-complex-solid-state-society--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--ghost-in-the-shell-stand-alone-complex-solid-state-society--2006",
+      "franchise_id": "ghost-in-the-shell",
+      "continuity_id": "ghost-in-the-shell--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "ghost-in-the-shell--main--film--ghost-in-the-shell-the-new-movie--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--ghost-in-the-shell-the-new-movie--2015",
+      "franchise_id": "ghost-in-the-shell",
+      "continuity_id": "ghost-in-the-shell--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "ghost-in-the-shell--main--film--ghost-in-the-shell--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--ghost-in-the-shell--2017",
+      "franchise_id": "ghost-in-the-shell",
+      "continuity_id": "ghost-in-the-shell--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "ghost-in-the-shell--main--series--ghost-in-the-shell-sac-2045",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--ghost-in-the-shell-sac-2045",
+      "franchise_id": "ghost-in-the-shell",
+      "continuity_id": "ghost-in-the-shell--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--film--batman-mask-of-the-phantasm--1993",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--batman-mask-of-the-phantasm--1993",
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--series--superman-the-animated-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--superman-the-animated-series",
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--series--the-new-batman-adventures",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--the-new-batman-adventures",
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--film--batman-mr-freeze-subzero--1998",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--batman-mr-freeze-subzero--1998",
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--film--batman-beyond-return-of-the-joker--2000",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--batman-beyond-return-of-the-joker--2000",
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--series--static-shock",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--static-shock",
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--series--justice-league-animated-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--justice-league-animated-series",
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--film--batman-mystery-of-the-batwoman--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--batman-mystery-of-the-batwoman--2003",
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--series--justice-league-unlimited",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--justice-league-unlimited",
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--series--batman-the-animated-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--batman-the-animated-series",
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--series--batman-beyond",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--batman-beyond",
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "south-park--main--series--south-park",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--south-park",
+      "franchise_id": "south-park",
+      "continuity_id": "south-park--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "south-park--main--film--south-park-bigger-longer-uncut--1999",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--south-park-bigger-longer-uncut--1999",
+      "franchise_id": "south-park",
+      "continuity_id": "south-park--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "south-park--main--film--south-park-post-covid--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--south-park-post-covid--2021",
+      "franchise_id": "south-park",
+      "continuity_id": "south-park--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "south-park--main--film--south-park-post-covid-the-return-of-covid--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--south-park-post-covid-the-return-of-covid--2021",
+      "franchise_id": "south-park",
+      "continuity_id": "south-park--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "south-park--main--film--south-park-the-streaming-wars--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--south-park-the-streaming-wars--2022",
+      "franchise_id": "south-park",
+      "continuity_id": "south-park--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "south-park--main--film--south-park-the-streaming-wars-part-2--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--south-park-the-streaming-wars-part-2--2022",
+      "franchise_id": "south-park",
+      "continuity_id": "south-park--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "south-park--main--film--south-park-joining-the-panderverse--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--south-park-joining-the-panderverse--2023",
+      "franchise_id": "south-park",
+      "continuity_id": "south-park--main",
+      "membership_type": "included",
+      "notes": null
     }
   ],
   "continuities": [
@@ -42723,6 +44638,94 @@
       "name": "Animated and live-action",
       "canonical_status": "unreviewed",
       "notes": "Floating continuity: remakes, spin-offs and adaptations are not reviewed as canon."
+    },
+    {
+      "id": "x-files--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "x-files",
+      "name": "Series and films",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, spin-offs and revivals are not reviewed as canon."
+    },
+    {
+      "id": "battlestar-galactica--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "battlestar-galactica",
+      "name": "Series and films",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, spin-offs and revivals are not reviewed as canon."
+    },
+    {
+      "id": "twilight-zone--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "twilight-zone",
+      "name": "Series and film",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, spin-offs and revivals are not reviewed as canon."
+    },
+    {
+      "id": "astro-boy--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "astro-boy",
+      "name": "Anime and adaptations",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, spin-offs and revivals are not reviewed as canon."
+    },
+    {
+      "id": "gundam--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "gundam",
+      "name": "Anime and films",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, spin-offs and revivals are not reviewed as canon."
+    },
+    {
+      "id": "ghost-in-the-shell--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "ghost-in-the-shell",
+      "name": "Anime, films and adaptations",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, spin-offs and revivals are not reviewed as canon."
+    },
+    {
+      "id": "dcau--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "dcau",
+      "name": "DC Animated Universe",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, spin-offs and revivals are not reviewed as canon."
+    },
+    {
+      "id": "south-park--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "south-park",
+      "name": "Series and films",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: remakes, spin-offs and revivals are not reviewed as canon."
     }
   ],
   "sequences": [
@@ -46287,6 +48290,118 @@
       "franchise_id": "avatar-airbender",
       "continuity_id": "avatar-airbender--main",
       "name": "Animated and live-action: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "x-files--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "x-files",
+      "continuity_id": "x-files--main",
+      "name": "Series and films: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "battlestar-galactica--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "battlestar-galactica",
+      "continuity_id": "battlestar-galactica--main",
+      "name": "Series and films: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "twilight-zone--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "twilight-zone",
+      "continuity_id": "twilight-zone--main",
+      "name": "Series and film: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "astro-boy--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "astro-boy",
+      "continuity_id": "astro-boy--main",
+      "name": "Anime and adaptations: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "gundam--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "gundam",
+      "continuity_id": "gundam--main",
+      "name": "Anime and films: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "ghost-in-the-shell--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "ghost-in-the-shell",
+      "continuity_id": "ghost-in-the-shell--main",
+      "name": "Anime, films and adaptations: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "dcau--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "dcau",
+      "continuity_id": "dcau--main",
+      "name": "DC Animated Universe: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "south-park--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "south-park",
+      "continuity_id": "south-park--main",
+      "name": "Series and films: release order",
       "sequence_type": "release",
       "ordering_basis": "release_year_with_editorial_ties",
       "certainty": "editorial_proposal",
@@ -57701,6 +59816,433 @@
       "sequence_id": "avatar-airbender--main--release",
       "work_id": "series--avatar-the-last-airbender--2024",
       "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "x-files--main--release",
+      "work_id": "series--the-x-files",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "x-files--main--release",
+      "work_id": "series--millennium",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "x-files--main--release",
+      "work_id": "film--the-x-files-fight-the-future--1998",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "x-files--main--release",
+      "work_id": "series--the-lone-gunmen",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "x-files--main--release",
+      "work_id": "film--the-x-files-i-want-to-believe--2008",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "battlestar-galactica--main--release",
+      "work_id": "series--battlestar-galactica",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "battlestar-galactica--main--release",
+      "work_id": "series--galactica-1980",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "battlestar-galactica--main--release",
+      "work_id": "series--battlestar-galactica-reimagined-series",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "battlestar-galactica--main--release",
+      "work_id": "film--battlestar-galactica-razor--2007",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "battlestar-galactica--main--release",
+      "work_id": "film--battlestar-galactica-the-plan--2009",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "battlestar-galactica--main--release",
+      "work_id": "series--caprica",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "battlestar-galactica--main--release",
+      "work_id": "film--battlestar-galactica-blood-chrome--2012",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "twilight-zone--main--release",
+      "work_id": "series--the-twilight-zone-original-series",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "twilight-zone--main--release",
+      "work_id": "film--twilight-zone-the-movie--1983",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "twilight-zone--main--release",
+      "work_id": "series--the-twilight-zone--1985",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "twilight-zone--main--release",
+      "work_id": "series--the-twilight-zone--2002",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "twilight-zone--main--release",
+      "work_id": "series--the-twilight-zone--2019",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "astro-boy--main--release",
+      "work_id": "series--astro-boy-original-series",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "astro-boy--main--release",
+      "work_id": "series--astro-boy--1980",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "astro-boy--main--release",
+      "work_id": "series--astro-boy--2003",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "astro-boy--main--release",
+      "work_id": "film--astro-boy--2009",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "astro-boy--main--release",
+      "work_id": "series--pluto",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "series--mobile-suit-gundam",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "film--mobile-suit-gundam-i--1981",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "film--mobile-suit-gundam-ii-soldiers-of-sorrow--1981",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "film--mobile-suit-gundam-iii-encounters-in-space--1982",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "series--mobile-suit-zeta-gundam",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "series--mobile-suit-gundam-zz",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "film--mobile-suit-gundam-char-s-counterattack--1988",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "film--mobile-suit-gundam-f91--1991",
+      "position": 8,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "series--mobile-suit-gundam-wing",
+      "position": 9,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "series--mobile-suit-gundam-seed",
+      "position": 10,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "series--mobile-suit-gundam-00",
+      "position": 11,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "series--mobile-suit-gundam-iron-blooded-orphans",
+      "position": 12,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "film--mobile-suit-gundam-hathaway--2021",
+      "position": 13,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "gundam--main--release",
+      "work_id": "series--mobile-suit-gundam-the-witch-from-mercury",
+      "position": 14,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "ghost-in-the-shell--main--release",
+      "work_id": "film--ghost-in-the-shell--1995",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "ghost-in-the-shell--main--release",
+      "work_id": "series--ghost-in-the-shell-stand-alone-complex",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "ghost-in-the-shell--main--release",
+      "work_id": "film--ghost-in-the-shell-2-innocence--2004",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "ghost-in-the-shell--main--release",
+      "work_id": "film--ghost-in-the-shell-stand-alone-complex-solid-state-society--2006",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "ghost-in-the-shell--main--release",
+      "work_id": "film--ghost-in-the-shell-the-new-movie--2015",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "ghost-in-the-shell--main--release",
+      "work_id": "film--ghost-in-the-shell--2017",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "ghost-in-the-shell--main--release",
+      "work_id": "series--ghost-in-the-shell-sac-2045",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dcau--main--release",
+      "work_id": "film--batman-mask-of-the-phantasm--1993",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dcau--main--release",
+      "work_id": "series--superman-the-animated-series",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dcau--main--release",
+      "work_id": "series--the-new-batman-adventures",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dcau--main--release",
+      "work_id": "film--batman-mr-freeze-subzero--1998",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dcau--main--release",
+      "work_id": "film--batman-beyond-return-of-the-joker--2000",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dcau--main--release",
+      "work_id": "series--static-shock",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dcau--main--release",
+      "work_id": "series--justice-league-animated-series",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dcau--main--release",
+      "work_id": "film--batman-mystery-of-the-batwoman--2003",
+      "position": 8,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dcau--main--release",
+      "work_id": "series--justice-league-unlimited",
+      "position": 9,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dcau--main--release",
+      "work_id": "series--batman-the-animated-series",
+      "position": 10,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "dcau--main--release",
+      "work_id": "series--batman-beyond",
+      "position": 11,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "south-park--main--release",
+      "work_id": "series--south-park",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "south-park--main--release",
+      "work_id": "film--south-park-bigger-longer-uncut--1999",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "south-park--main--release",
+      "work_id": "film--south-park-post-covid--2021",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "south-park--main--release",
+      "work_id": "film--south-park-post-covid-the-return-of-covid--2021",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "south-park--main--release",
+      "work_id": "film--south-park-the-streaming-wars--2022",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "south-park--main--release",
+      "work_id": "film--south-park-the-streaming-wars-part-2--2022",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "south-park--main--release",
+      "work_id": "film--south-park-joining-the-panderverse--2023",
+      "position": 7,
       "position_certainty": "needs_review",
       "simultaneous_group": null
     }

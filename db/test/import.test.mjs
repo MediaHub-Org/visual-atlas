@@ -250,14 +250,17 @@ describe('seed import', () => {
       await importSeed(db, seed);
       const withoutContinuity = seed.memberships.filter((row) => !row.continuity_id);
       assert.equal(withoutContinuity.length, 32);
+      // a work in no continuity at all (Batman: The Animated Series also sits in the DC Animated Universe's)
+      const target = withoutContinuity.find((row) => !seed.memberships.some((other) => other.work_id === row.work_id && other.continuity_id));
       const work = (
-        await db.query('select id from works where seed_key = $1', [withoutContinuity[0].work_id])
+        await db.query('select id from works where seed_key = $1', [target.work_id])
       ).rows[0].id;
       assert.equal(
         (
           await db.query('select count(*)::int as n from franchise_memberships where work_id = $1', [work])
         ).rows[0].n,
-        1
+        // a work can sit in several franchises (Batman: The Animated Series is in Batman and in the DC Animated Universe)
+        new Set(seed.memberships.filter((row) => row.work_id === target.work_id).map((row) => row.franchise_id)).size
       );
       assert.equal(
         (
