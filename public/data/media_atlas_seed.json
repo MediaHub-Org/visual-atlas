@@ -2263,6 +2263,20 @@
       "description": null,
       "loaded_unique_film_count": null,
       "count_claim_matches_loaded": null
+    },
+    {
+      "id": "studio-ghibli",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Studio Ghibli",
+      "editorial_count_claim": null,
+      "count_scope": "Feature films (Studio Ghibli and its direct co-productions); not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
     }
   ],
   "franchise_company_associations": [
@@ -26493,6 +26507,531 @@
       "synopsis": null,
       "artwork": null,
       "episode_count": null
+    },
+    {
+      "id": "film--nausica-of-the-valley-of-the-wind--1984",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Nausicaä of the Valley of the Wind",
+      "original_title": null,
+      "release_year": 1984,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--castle-in-the-sky--1986",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Castle in the Sky",
+      "original_title": null,
+      "release_year": 1986,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--grave-of-the-fireflies--1988",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Grave of the Fireflies",
+      "original_title": null,
+      "release_year": 1988,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--my-neighbor-totoro--1988",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "My Neighbor Totoro",
+      "original_title": null,
+      "release_year": 1988,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--kiki-s-delivery-service--1989",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Kiki's Delivery Service",
+      "original_title": null,
+      "release_year": 1989,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--only-yesterday--1991",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Only Yesterday",
+      "original_title": null,
+      "release_year": 1991,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--porco-rosso--1992",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Porco Rosso",
+      "original_title": null,
+      "release_year": 1992,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--ocean-waves--1993",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Ocean Waves",
+      "original_title": null,
+      "release_year": 1993,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--pom-poko--1994",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Pom Poko",
+      "original_title": null,
+      "release_year": 1994,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--whisper-of-the-heart--1995",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Whisper of the Heart",
+      "original_title": null,
+      "release_year": 1995,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--princess-mononoke--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Princess Mononoke",
+      "original_title": null,
+      "release_year": 1997,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--my-neighbors-the-yamadas--1999",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "My Neighbors the Yamadas",
+      "original_title": null,
+      "release_year": 1999,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--spirited-away--2001",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Spirited Away",
+      "original_title": null,
+      "release_year": 2001,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-cat-returns--2002",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Cat Returns",
+      "original_title": null,
+      "release_year": 2002,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--howl-s-moving-castle--2004",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Howl's Moving Castle",
+      "original_title": null,
+      "release_year": 2004,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--tales-from-earthsea--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Tales from Earthsea",
+      "original_title": null,
+      "release_year": 2006,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--ponyo--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Ponyo",
+      "original_title": null,
+      "release_year": 2008,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--arrietty--2010",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Arrietty",
+      "original_title": null,
+      "release_year": 2010,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--from-up-on-poppy-hill--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "From Up on Poppy Hill",
+      "original_title": null,
+      "release_year": 2011,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-wind-rises--2013",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Wind Rises",
+      "original_title": null,
+      "release_year": 2013,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-tale-of-the-princess-kaguya--2013",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Tale of the Princess Kaguya",
+      "original_title": null,
+      "release_year": 2013,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--when-marnie-was-there--2014",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "When Marnie Was There",
+      "original_title": null,
+      "release_year": 2014,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-red-turtle--2016",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Red Turtle",
+      "original_title": null,
+      "release_year": 2016,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--earwig-and-the-witch--2020",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Earwig and the Witch",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-boy-and-the-heron--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Boy and the Heron",
+      "original_title": null,
+      "release_year": 2023,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
     }
   ],
   "memberships": [
@@ -38367,6 +38906,306 @@
       "continuity_id": "game-of-thrones--westeros",
       "membership_type": "included",
       "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--nausica-of-the-valley-of-the-wind--1984",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--nausica-of-the-valley-of-the-wind--1984",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--castle-in-the-sky--1986",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--castle-in-the-sky--1986",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--grave-of-the-fireflies--1988",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--grave-of-the-fireflies--1988",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--my-neighbor-totoro--1988",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--my-neighbor-totoro--1988",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--kiki-s-delivery-service--1989",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--kiki-s-delivery-service--1989",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--only-yesterday--1991",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--only-yesterday--1991",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--porco-rosso--1992",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--porco-rosso--1992",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--ocean-waves--1993",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--ocean-waves--1993",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--pom-poko--1994",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--pom-poko--1994",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--whisper-of-the-heart--1995",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--whisper-of-the-heart--1995",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--princess-mononoke--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--princess-mononoke--1997",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--my-neighbors-the-yamadas--1999",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--my-neighbors-the-yamadas--1999",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--spirited-away--2001",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--spirited-away--2001",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--the-cat-returns--2002",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-cat-returns--2002",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--howl-s-moving-castle--2004",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--howl-s-moving-castle--2004",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--tales-from-earthsea--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--tales-from-earthsea--2006",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--ponyo--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--ponyo--2008",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--arrietty--2010",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--arrietty--2010",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--from-up-on-poppy-hill--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--from-up-on-poppy-hill--2011",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--the-wind-rises--2013",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-wind-rises--2013",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--the-tale-of-the-princess-kaguya--2013",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-tale-of-the-princess-kaguya--2013",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--when-marnie-was-there--2014",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--when-marnie-was-there--2014",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--the-red-turtle--2016",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-red-turtle--2016",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--earwig-and-the-witch--2020",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--earwig-and-the-witch--2020",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "studio-ghibli--features--film--the-boy-and-the-heron--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-boy-and-the-heron--2023",
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "membership_type": "included",
+      "notes": null
     }
   ],
   "continuities": [
@@ -40026,6 +40865,17 @@
       "name": "Westeros",
       "canonical_status": "unreviewed",
       "notes": null
+    },
+    {
+      "id": "studio-ghibli--features",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "studio-ghibli",
+      "name": "Feature films",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: separate stories, grouped by studio, not a shared world."
     }
   ],
   "sequences": [
@@ -43468,6 +44318,20 @@
       "ordering_basis": "editorial_proposal_title_level",
       "certainty": "editorial_proposal",
       "notes": "House of the Dragon and A Knight of the Seven Kingdoms are set before Game of Thrones. Editorial proposal, unverified."
+    },
+    {
+      "id": "studio-ghibli--features--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "studio-ghibli",
+      "continuity_id": "studio-ghibli--features",
+      "name": "Feature films: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
     }
   ],
   "sequence_items": [
@@ -54318,6 +55182,181 @@
       "sequence_id": "game-of-thrones--westeros--narrative",
       "work_id": "series--game-of-thrones",
       "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--nausica-of-the-valley-of-the-wind--1984",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--castle-in-the-sky--1986",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--grave-of-the-fireflies--1988",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--my-neighbor-totoro--1988",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--kiki-s-delivery-service--1989",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--only-yesterday--1991",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--porco-rosso--1992",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--ocean-waves--1993",
+      "position": 8,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--pom-poko--1994",
+      "position": 9,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--whisper-of-the-heart--1995",
+      "position": 10,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--princess-mononoke--1997",
+      "position": 11,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--my-neighbors-the-yamadas--1999",
+      "position": 12,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--spirited-away--2001",
+      "position": 13,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--the-cat-returns--2002",
+      "position": 14,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--howl-s-moving-castle--2004",
+      "position": 15,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--tales-from-earthsea--2006",
+      "position": 16,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--ponyo--2008",
+      "position": 17,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--arrietty--2010",
+      "position": 18,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--from-up-on-poppy-hill--2011",
+      "position": 19,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--the-wind-rises--2013",
+      "position": 20,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--the-tale-of-the-princess-kaguya--2013",
+      "position": 21,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--when-marnie-was-there--2014",
+      "position": 22,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--the-red-turtle--2016",
+      "position": 23,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--earwig-and-the-witch--2020",
+      "position": 24,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "studio-ghibli--features--release",
+      "work_id": "film--the-boy-and-the-heron--2023",
+      "position": 25,
       "position_certainty": "needs_review",
       "simultaneous_group": null
     }
