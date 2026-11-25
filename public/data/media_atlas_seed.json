@@ -2249,6 +2249,20 @@
       "description": null,
       "loaded_unique_film_count": null,
       "count_claim_matches_loaded": null
+    },
+    {
+      "id": "game-of-thrones",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Game of Thrones",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-requested inclusion: Game of Thrones and its sequels (prequels in story time); not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
     }
   ],
   "franchise_company_associations": [
@@ -4977,6 +4991,19 @@
       ],
       "franchise_id": "disney-animation",
       "company_id": "walt-disney-pictures",
+      "relationship_type": "catalog_association",
+      "ownership_asserted": false,
+      "valid_from": null,
+      "valid_to": null
+    },
+    {
+      "id": "game-of-thrones--hbo",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "game-of-thrones",
+      "company_id": "warner-bros",
       "relationship_type": "catalog_association",
       "ownership_asserted": false,
       "valid_from": null,
@@ -22549,10 +22576,10 @@
       "format": "series",
       "title": "Game of Thrones",
       "original_title": null,
-      "release_year": null,
+      "release_year": 2011,
       "release_date": null,
-      "release_precision": "unknown",
-      "release_calendar": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
       "release_territory": null,
       "theatrical_eligibility": "not_applicable",
       "animation_classification": "live_action",
@@ -26420,6 +26447,48 @@
       "release_territory": null,
       "theatrical_eligibility": "claimed_theatrical_needs_review",
       "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--house-of-the-dragon",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "House of the Dragon",
+      "original_title": null,
+      "release_year": 2022,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--a-knight-of-the-seven-kingdoms",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "A Knight of the Seven Kingdoms",
+      "original_title": null,
+      "release_year": 2026,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
@@ -38262,6 +38331,42 @@
       "continuity_id": "disney-animation--canon",
       "membership_type": "included",
       "notes": null
+    },
+    {
+      "id": "game-of-thrones--westeros--series--game-of-thrones",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--game-of-thrones",
+      "franchise_id": "game-of-thrones",
+      "continuity_id": "game-of-thrones--westeros",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "game-of-thrones--westeros--series--house-of-the-dragon",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--house-of-the-dragon",
+      "franchise_id": "game-of-thrones",
+      "continuity_id": "game-of-thrones--westeros",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "game-of-thrones--westeros--series--a-knight-of-the-seven-kingdoms",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--a-knight-of-the-seven-kingdoms",
+      "franchise_id": "game-of-thrones",
+      "continuity_id": "game-of-thrones--westeros",
+      "membership_type": "included",
+      "notes": null
     }
   ],
   "continuities": [
@@ -39910,6 +40015,17 @@
       "name": "Animated feature canon",
       "canonical_status": "unreviewed",
       "notes": "Floating continuity: the studio's numbered animated features, package films included."
+    },
+    {
+      "id": "game-of-thrones--westeros",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "game-of-thrones",
+      "name": "Westeros",
+      "canonical_status": "unreviewed",
+      "notes": null
     }
   ],
   "sequences": [
@@ -43324,6 +43440,34 @@
       "ordering_basis": "release_year_with_editorial_ties",
       "certainty": "editorial_proposal",
       "notes": null
+    },
+    {
+      "id": "game-of-thrones--westeros--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "game-of-thrones",
+      "continuity_id": "game-of-thrones--westeros",
+      "name": "Westeros: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "game-of-thrones--westeros--narrative",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "game-of-thrones",
+      "continuity_id": "game-of-thrones--westeros",
+      "name": "Westeros: narrative order",
+      "sequence_type": "narrative",
+      "ordering_basis": "editorial_proposal_title_level",
+      "certainty": "editorial_proposal",
+      "notes": "House of the Dragon and A Knight of the Seven Kingdoms are set before Game of Thrones. Editorial proposal, unverified."
     }
   ],
   "sequence_items": [
@@ -54132,6 +54276,48 @@
       "sequence_id": "disney-animation--canon--release",
       "work_id": "film--zootopia-2--2025",
       "position": 64,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "game-of-thrones--westeros--release",
+      "work_id": "series--game-of-thrones",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "game-of-thrones--westeros--release",
+      "work_id": "series--house-of-the-dragon",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "game-of-thrones--westeros--release",
+      "work_id": "series--a-knight-of-the-seven-kingdoms",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "game-of-thrones--westeros--narrative",
+      "work_id": "series--house-of-the-dragon",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "game-of-thrones--westeros--narrative",
+      "work_id": "series--a-knight-of-the-seven-kingdoms",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "game-of-thrones--westeros--narrative",
+      "work_id": "series--game-of-thrones",
+      "position": 3,
       "position_certainty": "needs_review",
       "simultaneous_group": null
     }

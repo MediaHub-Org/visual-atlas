@@ -8,8 +8,8 @@ import { describe, it } from 'node:test';
 const seed = JSON.parse(readFileSync(new URL('../public/data/media_atlas_seed.json', import.meta.url), 'utf8'));
 const WEIGHT = { film: 1, series: 1, short: 0.5 };
 const FAMOUS = new Set(['lethal-weapon', 'how-to-train-dragon', 'kung-fu-panda', 'madagascar', 'men-in-black', 'bad-boys', 'expendables', 'mortadelo-y-filemon']);
-// Franchises that exist only to link two series of one world (owner request), so they are judged by that link.
-const LINKS = new Set(['breaking-bad', 'doctor-who']);
+// Franchises the owner asked for by name, with only 2-3 titles of one world: judged by that link, not by size.
+const LINKS = new Set(['breaking-bad', 'doctor-who', 'game-of-thrones']);
 
 describe('franchise size rule (Watch)', () => {
   const worksById = new Map(seed.works.map(work => [work.id, work]));
@@ -17,6 +17,10 @@ describe('franchise size rule (Watch)', () => {
     const members = new Set(seed.memberships.filter(m => m.franchise_id === id).map(m => m.work_id));
     return [...members].reduce((sum, workId) => sum + (WEIGHT[worksById.get(workId)?.format] ?? 0), 0);
   };
+  it('holds the explicit inclusions: Game of Thrones with its sequels', () => {
+    const titles = seed.memberships.filter(m => m.franchise_id === 'game-of-thrones').map(m => worksById.get(m.work_id)?.title).sort();
+    assert.deepEqual(titles, ['A Knight of the Seven Kingdoms', 'Game of Thrones', 'House of the Dragon']);
+  });
   it('every franchise scores 5, or 4 when listed as very famous', () => {
     for (const franchise of seed.franchises) {
       if (LINKS.has(franchise.id)) continue;
