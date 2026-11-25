@@ -4,10 +4,9 @@ import type {TFn} from '../i18n';
 import {posterUrl, type PosterLookup} from './WorkCard';
 import {formatSpan, type Calendar} from '../chronology';
 
-type Candidate = {id: number; title: string; date?: string; poster: string};
 export type AdaptationLink = {workId: string; title: string; year: number | null; kind: string; certainty: 'unknown' | 'estimated' | 'confirmed'};
 
-export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpenOrder, onWork, links, onAdaptation, posters, tmdbConfigured, onPosterSaved, onClose}: {
+export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpenOrder, onWork, links, onAdaptation, posters, onPosterSaved, onClose}: {
   work: Work;
   t: TFn;
   tags: {id: string; name: string}[];
@@ -19,7 +18,6 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
   links: {asSource: AdaptationLink[]; asAdapted: AdaptationLink[]};
   onAdaptation: (id: string) => void;
   posters: PosterLookup;
-  tmdbConfigured: boolean;
   onPosterSaved: () => void;
   onClose: () => void;
 }) {
@@ -57,17 +55,12 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
         <span>FRAME / {work.format.toUpperCase()}</span>
         <strong>{work.title}</strong>
         {work.medium === 'text' && <CoverUpload work={work} t={t} onSaved={onPosterSaved}/>}
-        {work.medium === 'video' && <button className="poster-jump" onClick={() => {
-          const editor = document.getElementById('poster-editor');
-          editor?.scrollIntoView({behavior: 'smooth', block: 'center'});
-          editor?.querySelector('input')?.focus({preventScroll: true});
-        }}>{t('poster.change')}</button>}
       </div>
       <div className="detail-body">
         <span className="eyebrow">{t('detail.collection')} / {t('detail.seed')}</span>
         <h2 id="detail-title">{work.title}</h2>
         <p className="detail-meta">
-          {work.year ?? t('detail.yearUnknown')} · {t(`format.${work.format}`)}{work.anime && ` · ${t('format.Anime')}`}
+          {work.year ?? t('detail.yearUnknown')} · {t(`format.${work.format}`)}{work.anime && ` · ${t('format.Anime')}`}{work.cartoon && ` · ${t('format.Cartoon')}`}
         </p>
         {work.yearImported && <p className="muted">{t(work.medium === 'text' ? 'detail.yearImportedText' : 'detail.yearImported')}</p>}
         {work.medium === 'text' && !work.creators.startsWith('Not supplied') && <p className="muted">{t('detail.creators')}: {work.creators}</p>}
@@ -97,7 +90,6 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
           <div className="franchise-chips">{tags.map(entry => <span className="chip" key={entry.id}>{entry.name}</span>)}</div>
           <p className="muted">{t('detail.tagsNote')}</p>
         </>}
-        {work.medium === 'video' && <PosterEditor work={work} t={t} configured={tmdbConfigured} onSaved={onPosterSaved}/>}
         <h3>{t('detail.note')}</h3>
         <p>{t('detail.noteBody')}</p>
       </div>
@@ -185,71 +177,4 @@ function Credits({work, t, onPerson}: {work: Work; t: TFn; onPerson: (id: number
     </dl>
     <p className="muted">{t('credits.source')} <a href={`https://www.themoviedb.org/${credits.kind}/${credits.tmdbId}`} target="_blank" rel="noreferrer">TMDB #{credits.tmdbId}</a></p>
   </>;
-}
-
-function PosterEditor({work, t, configured, onSaved}: {work: Work; t: TFn; configured: boolean; onSaved: (id: string) => void}) {
-  const [query, setQuery] = useState(work.title);
-  const [results, setResults] = useState<Candidate[]>([]);
-  const [message, setMessage] = useState('');
-  const [busy, setBusy] = useState(false);
-
-  async function search() {
-    setBusy(true);
-    setMessage(t('poster.searching'));
-    setResults([]);
-    try {
-      const params = new URLSearchParams({q: query, kind: work.format === 'Film' ? 'movie' : 'tv'});
-      const response = await fetch(`/api/posters/search?${params}`);
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error);
-      setResults(data.results);
-      setMessage(data.results.length ? t('poster.choose') : t('poster.none'));
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : t('poster.none'));
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  async function save(candidate: Candidate) {
-    if (!window.confirm(t('poster.confirm', {
-      title: candidate.title,
-      date: candidate.date || t('poster.dateUnknown'),
-      work: work.title,
-    }))) return;
-    setBusy(true);
-    setMessage(t('poster.saving'));
-    try {
-      const response = await fetch('/api/posters/save', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({workId: work.id, poster: candidate.poster}),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error);
-      onSaved(work.id);
-      setMessage(t('poster.saved'));
-      setResults([]);
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : t('poster.none'));
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  return <section className="poster-editor" id="poster-editor">
-    <h3>{t('poster.title')}</h3>
-    <p>{t('poster.note')}</p>
-    {!configured && <p>{t('poster.noKey')}</p>}
-    <div className="poster-search">
-      <input aria-label={t('poster.search')} value={query} onChange={event => setQuery(event.target.value)}/>
-      <button disabled={!configured || busy || !query.trim()} onClick={search}>{t('poster.search')}</button>
-    </div>
-    <p aria-live="polite">{message}</p>
-    <div className="poster-results">{results.map(result => <button key={result.id} onClick={() => save(result)} disabled={busy}>
-      <img src={`https://image.tmdb.org/t/p/w92${result.poster}`} alt="" loading="lazy"/>
-      <span>{result.title}<small>{result.date || t('poster.dateUnknown')} · TMDB #{result.id}</small></span>
-    </button>)}</div>
-    <p className="poster-attribution"><a href="https://www.themoviedb.org/" target="_blank" rel="noreferrer">TMDB</a> · {t('poster.attribution')}</p>
-  </section>;
 }

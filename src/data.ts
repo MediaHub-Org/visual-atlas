@@ -36,6 +36,8 @@ export type Work = {
   links: number;
   memberships: Membership[];
   anime: boolean;
+  /** Western or other non-anime animation. */
+  cartoon: boolean;
   animated: boolean;
   creators: string;
   /** In-world dates; absent when the chronology file has none for this work. */
@@ -268,6 +270,7 @@ export function buildDataset(videoSeed: Seed, metadata?: ImportedMetadata | null
       links: linkCount.get(work.id) ?? 0,
       memberships: byWork.get(work.id) ?? [],
       anime: work.animation_classification === 'anime',
+      cartoon: work.animation_classification === 'animation',
       animated: work.animation_classification === 'anime' || work.animation_classification === 'animation',
       creators: text?.creators.length ? text.creators.map(entry => entry.role ? `${entry.name} (${entry.role})` : entry.name).join(', ') : 'Not supplied in seed',
       credits: freshCredits(credits?.entries?.[work.id]),

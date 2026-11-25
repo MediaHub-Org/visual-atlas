@@ -255,3 +255,18 @@ describe('facetLists with a chosen universe', () => {
     assert.deepEqual(facetLists(works, 'video', 'All', 'All', null).formats, [{ id: 'Film', count: 1 }, { id: 'Series', count: 2 }]);
   });
 });
+
+describe('the Cartoon format in Watch', () => {
+  const v = (id, format, flags) => ({ id, medium: 'video', format, anime: false, cartoon: false, ...flags, memberships: [{ franchiseId: 'x', franchise: 'X' }] });
+  const works = [v('a', 'Film', {}), v('b', 'Series', { anime: true }), v('c', 'Series', { cartoon: true }), v('d', 'Film', { cartoon: true })];
+  it('is a flag across Film and Series, apart from Anime', () => {
+    assert.equal(matchesFormat({ format: 'Series', cartoon: true }, 'Cartoon'), true);
+    assert.equal(matchesFormat({ format: 'Series', anime: true }, 'Cartoon'), false);
+    assert.equal(matchesFormat({ format: 'Series', cartoon: true }, 'Anime'), false);
+  });
+  it('lists Film, Series, Anime and Cartoon, the last two only when present', () => {
+    assert.deepEqual(facetLists(works, 'video', 'All', 'All').formats.map(e => e.id), ['Film', 'Series', 'Anime', 'Cartoon']);
+    assert.deepEqual(facetLists(works.slice(0, 1), 'video', 'All', 'All').formats.map(e => e.id), ['Film']);
+    assert.deepEqual(facetLists(works, 'video', 'Cartoon', 'All').franchises.length, 1);
+  });
+});

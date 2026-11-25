@@ -13,7 +13,7 @@ import {DensityPanel} from './components/DensityPanel';
 
 type View = 'cards' | 'hierarchy' | 'sequence' | 'timeline';
 type Sort = 'releaseAsc' | 'releaseDesc' | 'title';
-type Format = 'All' | 'Film' | 'Series' | 'Anime' | 'Comic' | 'Manga' | 'Graphic novel';
+type Format = 'All' | 'Film' | 'Series' | 'Anime' | 'Cartoon' | 'Comic' | 'Manga' | 'Graphic novel';
 const FORMATS = FORMATS_BY_MEDIUM as Record<Medium, Exclude<Format, 'All'>[]>;
 /** Tabs per catalogue: text media has no in-world order yet. */
 const VIEWS_BY_MEDIUM: Record<Medium, View[]> = {video: ['cards', 'sequence', 'timeline'], text: ['cards', 'sequence', 'timeline']};
@@ -83,6 +83,7 @@ export default function App() {
   const [view, setView] = useState<View>(initial.view);
   const density = settings.density;
   const [densityOpen, setDensityOpen] = useState(false);
+  const [allCompanies, setAllCompanies] = useState(false);
   const [selected, setSelected] = useState(initial.work);
   const [needsPoster, setNeedsPoster] = useState(initial.needsPoster);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -409,9 +410,10 @@ export default function App() {
 
                 {medium === 'video' && companyPills.length > 0 && <div className="pill-row" role="group" aria-label={t('nav.companies')}>
                   <span className="pill-label">{t('nav.companies')}</span>
-                  {companyPills.map(entry => <button key={entry.id} className={`chip ${company === entry.id ? 'active' : ''}`} aria-pressed={company === entry.id} onClick={() => pickCompany(entry.id)}>
+                  {(allCompanies ? companyPills : companyPills.filter((entry, index) => index < 12 || entry.id === company)).map(entry => <button key={entry.id} className={`chip ${company === entry.id ? 'active' : ''}`} aria-pressed={company === entry.id} onClick={() => pickCompany(entry.id)}>
                     {entry.name} <span>{entry.count}</span>
                   </button>)}
+                  {companyPills.length > 12 && <button className="chip" aria-expanded={allCompanies} onClick={() => setAllCompanies(value => !value)}>{allCompanies ? t('pills.fewer') : t('pills.more', {n: companyPills.length - 12})}</button>}
                 </div>}
 
                 {tagOptions.length > 0 && <div className="pill-row" role="group" aria-label={t('nav.collections')}>
@@ -480,7 +482,6 @@ export default function App() {
       links={links}
       onAdaptation={openAdaptation}
       posters={posters}
-      tmdbConfigured={tmdbConfigured}
       onPosterSaved={refreshPosters}
       onClose={closeDetail}
     />}

@@ -23,7 +23,8 @@
       "title": "One Piece",
       "original_title": null,
       "release_year": 1997,
-      "release_precision": "year"
+      "release_precision": "year",
+      "setting": "fictional_world"
     },
     {
       "id": "text--detective-conan-manga",
@@ -33,7 +34,8 @@
       "title": "Detective Conan",
       "original_title": null,
       "release_year": 1994,
-      "release_precision": "year"
+      "release_precision": "year",
+      "setting": "earth"
     },
     {
       "id": "text--doraemon-manga",
@@ -43,7 +45,8 @@
       "title": "Doraemon",
       "original_title": null,
       "release_year": 1969,
-      "release_precision": "year"
+      "release_precision": "year",
+      "setting": "earth"
     },
     {
       "id": "text--pokemon-adventures-manga",
@@ -73,7 +76,8 @@
       "title": "The Amazing Spider-Man",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--batman-comic",
@@ -83,7 +87,8 @@
       "title": "Batman",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--tmnt-mirage-comic",
@@ -103,7 +108,8 @@
       "title": "Maus",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--saga-comic",
@@ -123,7 +129,8 @@
       "title": "Blankets",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--love-and-rockets",
@@ -143,7 +150,8 @@
       "title": "Naruto",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "fictional_world"
     },
     {
       "id": "text--bleach-manga",
@@ -173,7 +181,8 @@
       "title": "Hunter x Hunter",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "fictional_world"
     },
     {
       "id": "text--berserk-manga",
@@ -183,7 +192,8 @@
       "title": "Berserk",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "fictional_world"
     },
     {
       "id": "text--fullmetal-alchemist-manga",
@@ -193,7 +203,8 @@
       "title": "Fullmetal Alchemist",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "fictional_world"
     },
     {
       "id": "text--attack-on-titan-manga",
@@ -203,7 +214,8 @@
       "title": "Attack on Titan",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "fictional_world"
     },
     {
       "id": "text--saint-seiya-manga",
@@ -253,7 +265,8 @@
       "title": "The Avengers",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--fantastic-four-comic",
@@ -263,7 +276,8 @@
       "title": "Fantastic Four",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--x-men-comic",
@@ -273,7 +287,8 @@
       "title": "X-Men",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--captain-america-comic",
@@ -283,7 +298,8 @@
       "title": "Captain America",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--iron-man-comic",
@@ -293,7 +309,8 @@
       "title": "Iron Man",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--thor-comic",
@@ -303,7 +320,8 @@
       "title": "Thor",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--daredevil-comic",
@@ -313,7 +331,8 @@
       "title": "Daredevil",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--hulk-comic",
@@ -323,7 +342,8 @@
       "title": "The Incredible Hulk",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--superman-comic",
@@ -333,7 +353,8 @@
       "title": "Superman",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--wonder-woman-comic",
@@ -393,7 +414,8 @@
       "title": "The Walking Dead",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--hellboy-comic",
@@ -413,7 +435,8 @@
       "title": "Asterix",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--tintin-comic",
@@ -423,7 +446,8 @@
       "title": "The Adventures of Tintin",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--mortadelo-y-filemon-comic",
@@ -433,7 +457,8 @@
       "title": "Mortadelo y Filemón",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--lucky-luke-comic",
@@ -443,7 +468,8 @@
       "title": "Lucky Luke",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     },
     {
       "id": "text--slam-dunk-manga",
@@ -963,7 +989,8 @@
       "title": "Persepolis",
       "original_title": null,
       "release_year": null,
-      "release_precision": null
+      "release_precision": null,
+      "setting": "earth"
     }
   ],
   "franchises": [

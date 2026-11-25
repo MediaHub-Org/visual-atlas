@@ -161,7 +161,7 @@ const VIEWS_BY_MEDIUM: Record<Medium, string[]> = {
 };
 /** Format filter values of each catalogue. */
 export const FORMATS_BY_MEDIUM: Record<Medium, string[]> = {
-  video: ['Film', 'Series', 'Anime'],
+  video: ['Film', 'Series', 'Anime', 'Cartoon'],
   text: ['Manga', 'Comic', 'Graphic novel'],
 };
 
@@ -175,10 +175,12 @@ export function clampFormat(format: string, medium: Medium): string {
   return FORMATS_BY_MEDIUM[medium].includes(format) ? format : 'All';
 }
 
-/** Whether a work passes a format filter: 'All' always, 'Anime' is a flag, the rest compare the format. */
-export function matchesFormat(work: { format: string; anime?: boolean }, format: string): boolean {
+/** Whether a work passes a format filter: 'All' always, 'Anime' and 'Cartoon' are flags across Film and Series, the rest compare the format. */
+export function matchesFormat(work: { format: string; anime?: boolean; cartoon?: boolean }, format: string): boolean {
   if (format === 'All') return true;
-  return format === 'Anime' ? work.anime === true : work.format === format;
+  if (format === 'Anime') return work.anime === true;
+  if (format === 'Cartoon') return work.cartoon === true;
+  return work.format === format;
 }
 
 /**
@@ -188,7 +190,7 @@ export function matchesFormat(work: { format: string; anime?: boolean }, format:
  * it can always be cleared.
  */
 export function facetLists(
-  works: { medium: Medium; format: string; anime?: boolean; memberships: { franchiseId: string; franchise: string }[] }[],
+  works: { medium: Medium; format: string; anime?: boolean; cartoon?: boolean; memberships: { franchiseId: string; franchise: string }[] }[],
   medium: Medium,
   format: string,
   franchise: string,

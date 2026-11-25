@@ -57,22 +57,6 @@ function localPosters(): Plugin {
             statusCache = {at: Date.now(), body: {configured: !!process.env.TMDB_API_KEY, posters, types}};
             return send(200, statusCache.body);
           }
-          if (req.method === 'GET' && url.pathname === '/search') {
-            const query = (url.searchParams.get('q') ?? '').trim();
-            const kind = url.searchParams.get('kind');
-            if (!query || query.length > 200 || (kind !== 'movie' && kind !== 'tv')) return send(400, {error: 'Invalid search'});
-            if (!process.env.TMDB_API_KEY) return send(503, {error: 'TMDB_API_KEY is not configured on this computer.'});
-            const endpoint = new URL(`https://api.themoviedb.org/3/search/${kind}`);
-            endpoint.searchParams.set('query', query);
-            endpoint.searchParams.set('api_key', process.env.TMDB_API_KEY);
-            const response = await fetch(endpoint, {signal: AbortSignal.timeout(15000)});
-            if (!response.ok) return send(502, {error: `TMDB search failed (${response.status}).`});
-            const body = await response.json() as {results: Array<{id: number; title?: string; name?: string; release_date?: string; first_air_date?: string; poster_path: string | null}>};
-            return send(200, {results: body.results.filter(r => r.poster_path).slice(0, 12).map(r => ({
-              id: r.id, title: r.title ?? r.name, date: r.release_date ?? r.first_air_date,
-              poster: r.poster_path
-            }))});
-          }
           // A cover the owner supplies for a comic or manga: raw image bytes, validated by magic number.
           if (req.method === 'POST' && url.pathname === '/upload') {
             const type = String(req.headers['content-type'] ?? '').split(';')[0].trim();
@@ -95,26 +79,6 @@ function localPosters(): Plugin {
             await writeFile(`${target}.json`, JSON.stringify({source: 'uploaded by the owner', cachedAt: new Date().toISOString(), sha256: createHash('sha256').update(data).digest('hex')}, null, 2));
             statusCache = null;
             return send(200, {url: `/posters/${workId}.${ext}`});
-          }
-          if (req.method === 'POST' && url.pathname === '/save') {
-            if (!origin || req.headers['content-type'] !== 'application/json') return send(403, {error: 'Same-origin JSON required'});
-            let raw = '';
-            for await (const chunk of req) { raw += chunk; if (raw.length > 4096) return send(413, {error: 'Request too large'}); }
-            const {workId, poster} = JSON.parse(raw) as {workId: string; poster: string};
-            if (!/^(film|series)--[a-z0-9-]+$/.test(workId) || !/^\/[a-zA-Z0-9_-]+\.jpg$/.test(poster)) return send(400, {error: 'Invalid poster or work'});
-            const response = await fetch(`https://image.tmdb.org/t/p/w500${poster}`, {signal: AbortSignal.timeout(20000)});
-            if (!response.ok || !response.headers.get('content-type')?.startsWith('image/jpeg')) return send(502, {error: 'Unable to retrieve JPEG poster from TMDB.'});
-            const data = new Uint8Array(await response.arrayBuffer());
-            if (data.length > 5_000_000) return send(413, {error: 'Poster too large'});
-            const dir = join(process.cwd(), 'public', 'posters');
-            await mkdir(dir, {recursive: true});
-            const target = join(dir, `${workId}.jpg`);
-            const temp = join(dir, `${randomUUID()}.tmp`);
-            await writeFile(temp, data, {flag: 'wx'});
-            await rename(temp, target);
-            await writeFile(`${target}.json`, JSON.stringify({source: 'TMDB', poster, cachedAt: new Date().toISOString(), expires: tmdbExpiry(), sha256: createHash('sha256').update(data).digest('hex')}, null, 2));
-            statusCache = null;
-            return send(200, {url: `/posters/${workId}.jpg`});
           }
           return send(404, {error: 'Not found'});
         } catch {

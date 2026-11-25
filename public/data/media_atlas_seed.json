@@ -2501,6 +2501,34 @@
       "description": null,
       "loaded_unique_film_count": null,
       "count_claim_matches_loaded": null
+    },
+    {
+      "id": "mr-bean",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Mr. Bean",
+      "editorial_count_claim": null,
+      "count_scope": "Owner request 2026-11-25: the series, the animated series and the films; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "independent-anime",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Independent anime",
+      "editorial_count_claim": null,
+      "count_scope": "Owner request 2026-11-25: anime that belong to no franchise; an umbrella, not a shared world",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
     }
   ],
   "franchise_company_associations": [
@@ -5268,7 +5296,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--attack-of-the-clones--2002",
@@ -5289,7 +5318,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--star-wars-the-clone-wars--2008",
@@ -5310,7 +5340,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--revenge-of-the-sith--2005",
@@ -5331,7 +5362,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--solo-a-star-wars-story--2018",
@@ -5352,7 +5384,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--rogue-one-a-star-wars-story--2016",
@@ -5373,7 +5406,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--a-new-hope--1977",
@@ -5394,7 +5428,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-empire-strikes-back--1980",
@@ -5415,7 +5450,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--return-of-the-jedi--1983",
@@ -5436,7 +5472,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-mandalorian-and-grogu--2026",
@@ -5457,7 +5494,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-force-awakens--2015",
@@ -5478,7 +5516,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-last-jedi--2017",
@@ -5499,7 +5538,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-rise-of-skywalker--2019",
@@ -5520,7 +5560,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--captain-america-the-first-avenger--2011",
@@ -5541,7 +5582,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--captain-marvel--2019",
@@ -5562,7 +5604,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--iron-man--2008",
@@ -5583,7 +5626,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--iron-man-2--2010",
@@ -5604,7 +5648,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-incredible-hulk--2008",
@@ -5625,7 +5670,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--thor--2011",
@@ -5646,7 +5692,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-avengers--2012",
@@ -5667,7 +5714,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--thor-the-dark-world--2013",
@@ -5688,7 +5736,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--iron-man-3--2013",
@@ -5709,7 +5758,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--captain-america-the-winter-soldier--2014",
@@ -5730,7 +5780,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--guardians-of-the-galaxy--2014",
@@ -5751,7 +5802,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--guardians-of-the-galaxy-vol-2--2017",
@@ -5772,7 +5824,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--avengers-age-of-ultron--2015",
@@ -5793,7 +5846,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ant-man--2015",
@@ -5814,7 +5868,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--captain-america-civil-war--2016",
@@ -5835,7 +5890,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--black-widow--2021",
@@ -5856,7 +5912,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--black-panther--2018",
@@ -5877,7 +5934,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--spider-man-homecoming--2017",
@@ -5898,7 +5956,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doctor-strange--2016",
@@ -5919,7 +5978,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--thor-ragnarok--2017",
@@ -5940,7 +6000,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ant-man-and-the-wasp--2018",
@@ -5961,7 +6022,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--avengers-infinity-war--2018",
@@ -5982,7 +6044,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--avengers-endgame--2019",
@@ -6003,7 +6066,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--shang-chi-and-the-legend-of-the-ten-rings--2021",
@@ -6024,7 +6088,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--eternals--2021",
@@ -6045,7 +6110,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--spider-man-far-from-home--2019",
@@ -6066,7 +6132,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--spider-man-no-way-home--2021",
@@ -6087,7 +6154,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doctor-strange-in-the-multiverse-of-madness--2022",
@@ -6108,7 +6176,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--black-panther-wakanda-forever--2022",
@@ -6129,7 +6198,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--thor-love-and-thunder--2022",
@@ -6150,7 +6220,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ant-man-and-the-wasp-quantumania--2023",
@@ -6171,7 +6242,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--guardians-of-the-galaxy-vol-3--2023",
@@ -6192,7 +6264,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-marvels--2023",
@@ -6213,7 +6286,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--captain-america-brave-new-world--2025",
@@ -6234,7 +6308,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--thunderbolts--2025",
@@ -6255,7 +6330,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--spider-man-brand-new-day--2026",
@@ -6276,7 +6352,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-fantastic-four-first-steps--2025",
@@ -6297,7 +6374,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--deadpool-wolverine--2024",
@@ -6318,7 +6396,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--x-men-first-class--2011",
@@ -6339,7 +6418,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--x-men-origins-wolverine--2009",
@@ -6360,7 +6440,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--x-men--2000",
@@ -6381,7 +6462,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--x2--2003",
@@ -6402,7 +6484,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--x-men-the-last-stand--2006",
@@ -6423,7 +6506,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-wolverine--2013",
@@ -6444,7 +6528,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--x-men-days-of-future-past--2014",
@@ -6465,7 +6550,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--x-men-apocalypse--2016",
@@ -6486,7 +6572,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--dark-phoenix--2019",
@@ -6507,7 +6594,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--deadpool--2016",
@@ -6528,7 +6616,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--deadpool-2--2018",
@@ -6549,7 +6638,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-new-mutants--2020",
@@ -6570,7 +6660,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--logan--2017",
@@ -6591,7 +6682,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--planet-of-the-apes--1968",
@@ -7137,7 +7229,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--toy-story-2--1999",
@@ -7158,7 +7251,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--toy-story-3--2010",
@@ -7179,7 +7273,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--toy-story-4--2019",
@@ -7200,7 +7295,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--toy-story-5--2026",
@@ -7221,7 +7317,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--lightyear--2022",
@@ -7242,7 +7339,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--pirates-of-the-caribbean-the-curse-of-the-black-pearl--2003",
@@ -7263,7 +7361,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--pirates-of-the-caribbean-dead-man-s-chest--2006",
@@ -7284,7 +7383,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--pirates-of-the-caribbean-at-world-s-end--2007",
@@ -7305,7 +7405,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--pirates-of-the-caribbean-on-stranger-tides--2011",
@@ -7326,7 +7427,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--pirates-of-the-caribbean-dead-men-tell-no-tales--2017",
@@ -7347,7 +7449,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--indiana-jones-and-the-temple-of-doom--1984",
@@ -7368,7 +7471,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--raiders-of-the-lost-ark--1981",
@@ -7389,7 +7493,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--indiana-jones-and-the-last-crusade--1989",
@@ -7410,7 +7515,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--indiana-jones-and-the-kingdom-of-the-crystal-skull--2008",
@@ -7431,7 +7537,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--indiana-jones-and-the-dial-of-destiny--2023",
@@ -7452,7 +7559,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--die-hard--1988",
@@ -7473,7 +7581,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--die-hard-2--1990",
@@ -7494,7 +7603,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--die-hard-with-a-vengeance--1995",
@@ -7515,7 +7625,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--live-free-or-die-hard--2007",
@@ -7536,7 +7647,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--a-good-day-to-die-hard--2013",
@@ -7557,7 +7669,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--wonder-woman--2017",
@@ -7578,7 +7691,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--wonder-woman-1984--2020",
@@ -7599,7 +7713,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--man-of-steel--2013",
@@ -7620,7 +7735,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--batman-v-superman-dawn-of-justice--2016",
@@ -7641,7 +7757,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--suicide-squad--2016",
@@ -7662,7 +7779,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--justice-league--2017",
@@ -7683,7 +7801,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--aquaman--2018",
@@ -7704,7 +7823,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--shazam--2019",
@@ -7725,7 +7845,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--birds-of-prey--2020",
@@ -7746,7 +7867,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-suicide-squad--2021",
@@ -7767,7 +7889,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--black-adam--2022",
@@ -7788,7 +7911,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--shazam-fury-of-the-gods--2023",
@@ -7809,7 +7933,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-flash--2023",
@@ -7830,7 +7955,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--blue-beetle--2023",
@@ -7851,7 +7977,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--aquaman-and-the-lost-kingdom--2023",
@@ -7872,7 +7999,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--star-trek-the-motion-picture--1979",
@@ -8166,7 +8294,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--friday-the-13th-part-2--1981",
@@ -8187,7 +8316,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--friday-the-13th-part-iii--1982",
@@ -8208,7 +8338,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--friday-the-13th-the-final-chapter--1984",
@@ -8229,7 +8360,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--friday-the-13th-a-new-beginning--1985",
@@ -8250,7 +8382,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--friday-the-13th-part-vi-jason-lives--1986",
@@ -8271,7 +8404,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--friday-the-13th-part-vii-the-new-blood--1988",
@@ -8292,7 +8426,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--friday-the-13th-part-viii-jason-takes-manhattan--1989",
@@ -8313,7 +8448,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--jason-goes-to-hell-the-final-friday--1993",
@@ -8334,7 +8470,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--freddy-vs-jason--2003",
@@ -8355,7 +8492,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--jason-x--2001",
@@ -8376,7 +8514,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--friday-the-13th--2009",
@@ -8397,7 +8536,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--fantastic-beasts-and-where-to-find-them--2016",
@@ -8418,7 +8558,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--fantastic-beasts-the-crimes-of-grindelwald--2018",
@@ -8439,7 +8580,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--fantastic-beasts-the-secrets-of-dumbledore--2022",
@@ -8460,7 +8602,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--harry-potter-and-the-philosopher-s-stone--2001",
@@ -8481,7 +8624,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--harry-potter-and-the-chamber-of-secrets--2002",
@@ -8502,7 +8646,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--harry-potter-and-the-prisoner-of-azkaban--2004",
@@ -8523,7 +8668,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--harry-potter-and-the-goblet-of-fire--2005",
@@ -8544,7 +8690,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--harry-potter-and-the-order-of-the-phoenix--2007",
@@ -8565,7 +8712,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--harry-potter-and-the-half-blood-prince--2009",
@@ -8586,7 +8734,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--harry-potter-and-the-deathly-hallows-part-1--2010",
@@ -8607,7 +8756,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--harry-potter-and-the-deathly-hallows-part-2--2011",
@@ -8628,7 +8778,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-nun--2018",
@@ -8649,7 +8800,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--annabelle-creation--2017",
@@ -8670,7 +8822,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-nun-ii--2023",
@@ -8691,7 +8844,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--annabelle--2014",
@@ -8712,7 +8866,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-conjuring--2013",
@@ -8733,7 +8888,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--annabelle-comes-home--2019",
@@ -8754,7 +8910,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-curse-of-la-llorona--2019",
@@ -8775,7 +8932,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-conjuring-2--2016",
@@ -8796,7 +8954,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-conjuring-the-devil-made-me-do-it--2021",
@@ -8817,7 +8976,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-conjuring-last-rites--2025",
@@ -8838,7 +8998,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--transformers--2007",
@@ -9048,7 +9209,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--a-nightmare-on-elm-street-2-freddy-s-revenge--1985",
@@ -9069,7 +9231,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--a-nightmare-on-elm-street-3-dream-warriors--1987",
@@ -9090,7 +9253,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--a-nightmare-on-elm-street-4-the-dream-master--1988",
@@ -9111,7 +9275,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--a-nightmare-on-elm-street-5-the-dream-child--1989",
@@ -9132,7 +9297,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--freddy-s-dead-the-final-nightmare--1991",
@@ -9153,7 +9319,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--wes-craven-s-new-nightmare--1994",
@@ -9174,7 +9341,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--a-nightmare-on-elm-street--2010",
@@ -9195,7 +9363,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--mission-impossible--1996",
@@ -9216,7 +9385,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--mission-impossible-2--2000",
@@ -9237,7 +9407,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--mission-impossible-iii--2006",
@@ -9258,7 +9429,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--mission-impossible-ghost-protocol--2011",
@@ -9279,7 +9451,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--mission-impossible-rogue-nation--2015",
@@ -9300,7 +9473,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--mission-impossible-fallout--2018",
@@ -9321,7 +9495,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--mission-impossible-dead-reckoning-part-one--2023",
@@ -9342,7 +9517,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--mission-impossible-the-final-reckoning--2025",
@@ -9363,7 +9539,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-lord-of-the-rings-the-war-of-the-rohirrim--2024",
@@ -9384,7 +9561,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-hobbit-an-unexpected-journey--2012",
@@ -9405,7 +9583,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-hobbit-the-desolation-of-smaug--2013",
@@ -9426,7 +9605,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-hobbit-the-battle-of-the-five-armies--2014",
@@ -9447,7 +9627,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-lord-of-the-rings-the-fellowship-of-the-ring--2001",
@@ -9468,7 +9649,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-lord-of-the-rings-the-two-towers--2002",
@@ -9489,7 +9671,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-lord-of-the-rings-the-return-of-the-king--2003",
@@ -9510,7 +9693,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-lord-of-the-rings--1978",
@@ -9531,7 +9715,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--scream--1996",
@@ -9552,7 +9737,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scream-2--1997",
@@ -9573,7 +9759,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scream-3--2000",
@@ -9594,7 +9781,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scream-4--2011",
@@ -9615,7 +9803,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scream--2022",
@@ -9636,7 +9825,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scream-vi--2023",
@@ -9657,7 +9847,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scream-7--2026",
@@ -9678,7 +9869,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--police-academy--1984",
@@ -9699,7 +9891,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--police-academy-2-their-first-assignment--1985",
@@ -9720,7 +9913,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--police-academy-3-back-in-training--1986",
@@ -9741,7 +9935,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--police-academy-4-citizens-on-patrol--1987",
@@ -9762,7 +9957,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--police-academy-5-assignment-miami-beach--1988",
@@ -9783,7 +9979,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--police-academy-6-city-under-siege--1989",
@@ -9804,7 +10001,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--police-academy-mission-to-moscow--1994",
@@ -9825,7 +10023,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--paranormal-activity-3--2011",
@@ -9846,7 +10045,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--paranormal-activity-2--2010",
@@ -9867,7 +10067,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--paranormal-activity--2007",
@@ -9888,7 +10089,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--paranormal-activity-4--2012",
@@ -9909,7 +10111,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--paranormal-activity-the-marked-ones--2014",
@@ -9930,7 +10133,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--paranormal-activity-the-ghost-dimension--2015",
@@ -9951,7 +10155,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--paranormal-activity-tokyo-night--2010",
@@ -9972,7 +10177,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--final-destination-5--2011",
@@ -9993,7 +10199,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--final-destination--2000",
@@ -10014,7 +10221,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--final-destination-2--2003",
@@ -10035,7 +10243,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--final-destination-3--2006",
@@ -10056,7 +10265,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-final-destination--2009",
@@ -10077,7 +10287,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--final-destination-bloodlines--2025",
@@ -10098,7 +10309,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scary-movie--2000",
@@ -10119,7 +10331,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scary-movie-2--2001",
@@ -10140,7 +10353,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scary-movie-3--2003",
@@ -10161,7 +10375,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scary-movie-4--2006",
@@ -10182,7 +10397,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scary-movie-5--2013",
@@ -10203,7 +10419,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--scary-movie--2026",
@@ -10224,7 +10441,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-fast-and-the-furious--2001",
@@ -10245,7 +10463,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--2-fast-2-furious--2003",
@@ -10266,7 +10485,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--fast-furious--2009",
@@ -10287,7 +10507,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--fast-five--2011",
@@ -10308,7 +10529,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--fast-furious-6--2013",
@@ -10329,7 +10551,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-fast-and-the-furious-tokyo-drift--2006",
@@ -10350,7 +10573,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--furious-7--2015",
@@ -10371,7 +10595,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-fate-of-the-furious--2017",
@@ -10392,7 +10617,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--fast-furious-presents-hobbs-shaw--2019",
@@ -10413,7 +10639,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--f9--2021",
@@ -10434,7 +10661,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--fast-x--2023",
@@ -10455,7 +10683,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--jurassic-park--1993",
@@ -10476,7 +10705,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-lost-world-jurassic-park--1997",
@@ -10497,7 +10727,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--jurassic-park-iii--2001",
@@ -10518,7 +10749,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--jurassic-world--2015",
@@ -10539,7 +10771,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--jurassic-world-fallen-kingdom--2018",
@@ -10560,7 +10793,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--jurassic-world-dominion--2022",
@@ -10581,7 +10815,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--jurassic-world-rebirth--2025",
@@ -10602,7 +10837,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--minions-monsters--2026",
@@ -10770,7 +11006,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--shrek--2001",
@@ -10791,7 +11028,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--shrek-2--2004",
@@ -10812,7 +11050,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--shrek-the-third--2007",
@@ -10833,7 +11072,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--shrek-forever-after--2010",
@@ -10854,7 +11094,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--puss-in-boots-the-last-wish--2022",
@@ -10875,7 +11116,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--dr-no--1962",
@@ -10896,7 +11138,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--from-russia-with-love--1963",
@@ -10917,7 +11160,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--goldfinger--1964",
@@ -10938,7 +11182,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--thunderball--1965",
@@ -10959,7 +11204,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--you-only-live-twice--1967",
@@ -10980,7 +11226,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--on-her-majesty-s-secret-service--1969",
@@ -11001,7 +11248,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--diamonds-are-forever--1971",
@@ -11022,7 +11270,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--live-and-let-die--1973",
@@ -11043,7 +11292,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-man-with-the-golden-gun--1974",
@@ -11064,7 +11314,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-spy-who-loved-me--1977",
@@ -11085,7 +11336,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--moonraker--1979",
@@ -11106,7 +11358,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--for-your-eyes-only--1981",
@@ -11127,7 +11380,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--octopussy--1983",
@@ -11148,7 +11402,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--a-view-to-a-kill--1985",
@@ -11169,7 +11424,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-living-daylights--1987",
@@ -11190,7 +11446,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--licence-to-kill--1989",
@@ -11211,7 +11468,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--goldeneye--1995",
@@ -11232,7 +11490,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tomorrow-never-dies--1997",
@@ -11253,7 +11512,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-world-is-not-enough--1999",
@@ -11274,7 +11534,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--die-another-day--2002",
@@ -11295,7 +11556,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--casino-royale--2006",
@@ -11316,7 +11578,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--quantum-of-solace--2008",
@@ -11337,7 +11600,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--skyfall--2012",
@@ -11358,7 +11622,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--spectre--2015",
@@ -11379,7 +11644,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--no-time-to-die--2021",
@@ -11400,7 +11666,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--casino-royale--1967",
@@ -11421,7 +11688,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--never-say-never-again--1983",
@@ -11442,7 +11710,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-pink-panther--1963",
@@ -11463,7 +11732,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--a-shot-in-the-dark--1964",
@@ -11484,7 +11754,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--inspector-clouseau--1968",
@@ -11505,7 +11776,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-return-of-the-pink-panther--1975",
@@ -11526,7 +11798,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-pink-panther-strikes-again--1976",
@@ -11547,7 +11820,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--revenge-of-the-pink-panther--1978",
@@ -11568,7 +11842,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--trail-of-the-pink-panther--1982",
@@ -11589,7 +11864,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--curse-of-the-pink-panther--1983",
@@ -11610,7 +11886,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--son-of-the-pink-panther--1993",
@@ -11631,7 +11908,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-pink-panther--2006",
@@ -11652,7 +11930,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-pink-panther-2--2009",
@@ -11673,7 +11952,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--rocky--1976",
@@ -11694,7 +11974,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--rocky-ii--1979",
@@ -11715,7 +11996,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--rocky-iii--1982",
@@ -11736,7 +12018,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--rocky-iv--1985",
@@ -11757,7 +12040,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--rocky-v--1990",
@@ -11778,7 +12062,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--rocky-balboa--2006",
@@ -11799,7 +12084,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--creed--2015",
@@ -11820,7 +12106,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--creed-ii--2018",
@@ -11841,7 +12128,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--creed-iii--2023",
@@ -11862,7 +12150,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--insidious-chapter-3--2015",
@@ -11883,7 +12172,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--insidious-the-last-key--2018",
@@ -11904,7 +12194,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--insidious--2010",
@@ -11925,7 +12216,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--insidious-chapter-2--2013",
@@ -11946,7 +12238,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--insidious-the-red-door--2023",
@@ -11967,7 +12260,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--insidious-out-of-the-further--2026",
@@ -11988,7 +12282,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-karate-kid--1984",
@@ -12009,7 +12304,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-karate-kid-part-ii--1986",
@@ -12030,7 +12326,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-karate-kid-part-iii--1989",
@@ -12051,7 +12348,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-next-karate-kid--1994",
@@ -12072,7 +12370,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-karate-kid--2010",
@@ -12093,7 +12392,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--karate-kid-legends--2025",
@@ -12114,7 +12414,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--saw--2004",
@@ -12135,7 +12436,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--saw-x--2023",
@@ -12156,7 +12458,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--saw-ii--2005",
@@ -12177,7 +12480,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--saw-iii--2006",
@@ -12198,7 +12502,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--saw-iv--2007",
@@ -12219,7 +12524,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--saw-v--2008",
@@ -12240,7 +12546,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--saw-vi--2009",
@@ -12261,7 +12568,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--saw-3d--2010",
@@ -12282,7 +12590,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--jigsaw--2017",
@@ -12303,7 +12612,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--spiral--2021",
@@ -12324,7 +12634,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween--1978",
@@ -12345,7 +12656,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween-ii--1981",
@@ -12366,7 +12678,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween-4-the-return-of-michael-myers--1988",
@@ -12387,7 +12700,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween-5-the-revenge-of-michael-myers--1989",
@@ -12408,7 +12722,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween-the-curse-of-michael-myers--1995",
@@ -12429,7 +12744,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween-h20-20-years-later--1998",
@@ -12450,7 +12766,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween-resurrection--2002",
@@ -12471,7 +12788,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween--2018",
@@ -12492,7 +12810,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween-kills--2021",
@@ -12513,7 +12832,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween-ends--2022",
@@ -12534,7 +12854,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween--2007",
@@ -12555,7 +12876,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween-ii--2009",
@@ -12576,7 +12898,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--halloween-iii-season-of-the-witch--1982",
@@ -12597,7 +12920,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--resident-evil--2002",
@@ -12870,7 +13194,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--terminator-2-judgment-day--1991",
@@ -12891,7 +13216,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--terminator-3-rise-of-the-machines--2003",
@@ -12912,7 +13238,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--terminator-salvation--2009",
@@ -12933,7 +13260,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--terminator-dark-fate--2019",
@@ -12954,7 +13282,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--terminator-genisys--2015",
@@ -12975,7 +13304,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-evil-dead--1981",
@@ -12996,7 +13326,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--evil-dead-ii--1987",
@@ -13017,7 +13348,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--army-of-darkness--1992",
@@ -13038,7 +13370,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--evil-dead--2013",
@@ -13059,7 +13392,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--evil-dead-rise--2023",
@@ -13080,7 +13414,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--evil-dead-burn--2026",
@@ -13101,7 +13436,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-exorcist--1973",
@@ -13122,7 +13458,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--exorcist-ii-the-heretic--1977",
@@ -13143,7 +13480,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-exorcist-iii--1990",
@@ -13164,7 +13502,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-exorcist-believer--2023",
@@ -13185,7 +13524,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--exorcist-the-beginning--2004",
@@ -13206,7 +13546,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--dominion-prequel-to-the-exorcist--2005",
@@ -13227,7 +13568,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--first-blood--1982",
@@ -13248,7 +13590,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--rambo-first-blood-part-ii--1985",
@@ -13269,7 +13612,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--rambo-iii--1988",
@@ -13290,7 +13634,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--rambo--2008",
@@ -13311,7 +13656,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--rambo-last-blood--2019",
@@ -13332,7 +13678,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ice-age--2002",
@@ -13458,7 +13805,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--predator-2--1990",
@@ -13479,7 +13827,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-predator--2018",
@@ -13500,7 +13849,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--predators--2010",
@@ -13521,7 +13871,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--predator-badlands--2025",
@@ -13542,7 +13893,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--batman--1966",
@@ -13563,7 +13915,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--batman--1989",
@@ -13584,7 +13937,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--batman-returns--1992",
@@ -13605,7 +13959,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--batman-forever--1995",
@@ -13626,7 +13981,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--batman-robin--1997",
@@ -13647,7 +14003,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--batman-begins--2005",
@@ -13668,7 +14025,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-dark-knight--2008",
@@ -13689,7 +14047,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-dark-knight-rises--2012",
@@ -13710,7 +14069,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-batman--2022",
@@ -13731,7 +14091,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--superman--1978",
@@ -13752,7 +14113,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--superman-ii--1980",
@@ -13773,7 +14135,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--superman-iii--1983",
@@ -13794,7 +14157,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--superman-iv-the-quest-for-peace--1987",
@@ -13815,7 +14179,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--superman-returns--2006",
@@ -13836,7 +14201,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--superman--2025",
@@ -13857,7 +14223,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--teenage-mutant-ninja-turtles--1990",
@@ -14130,7 +14497,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ocean-s-eleven--2001",
@@ -14151,7 +14519,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ocean-s-twelve--2004",
@@ -14172,7 +14541,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ocean-s-thirteen--2007",
@@ -14193,7 +14563,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ocean-s-8--2018",
@@ -14214,7 +14585,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-matrix--1999",
@@ -14319,7 +14691,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--lethal-weapon-2--1989",
@@ -14340,7 +14713,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--lethal-weapon-3--1992",
@@ -14361,7 +14735,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--lethal-weapon-4--1998",
@@ -14382,7 +14757,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-bourne-identity--2002",
@@ -14403,7 +14779,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-bourne-supremacy--2004",
@@ -14424,7 +14801,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-bourne-ultimatum--2007",
@@ -14445,7 +14823,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-bourne-legacy--2012",
@@ -14466,7 +14845,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--jason-bourne--2016",
@@ -14487,7 +14867,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-first-purge--2018",
@@ -14508,7 +14889,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-purge--2013",
@@ -14529,7 +14911,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-purge-anarchy--2014",
@@ -14550,7 +14933,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-purge-election-year--2016",
@@ -14571,7 +14955,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-forever-purge--2021",
@@ -14592,7 +14977,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--how-to-train-your-dragon--2010",
@@ -14613,7 +14999,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--how-to-train-your-dragon-2--2014",
@@ -14634,7 +15021,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--how-to-train-your-dragon-the-hidden-world--2019",
@@ -14655,7 +15043,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--how-to-train-your-dragon--2025",
@@ -14676,7 +15065,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--kung-fu-panda--2008",
@@ -14697,7 +15087,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--kung-fu-panda-2--2011",
@@ -14718,7 +15109,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--kung-fu-panda-3--2016",
@@ -14739,7 +15131,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--kung-fu-panda-4--2024",
@@ -14760,7 +15153,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--madagascar--2005",
@@ -14865,7 +15259,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--spider-man-2--2004",
@@ -14886,7 +15281,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--spider-man-3--2007",
@@ -14907,7 +15303,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-amazing-spider-man--2012",
@@ -14928,7 +15325,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-amazing-spider-man-2--2014",
@@ -14949,7 +15347,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--spider-man-into-the-spider-verse--2018",
@@ -14970,7 +15369,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--spider-man-across-the-spider-verse--2023",
@@ -14991,7 +15391,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--underworld-rise-of-the-lycans--2009",
@@ -15117,7 +15518,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--men-in-black-ii--2002",
@@ -15138,7 +15540,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--men-in-black-3--2012",
@@ -15159,7 +15562,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--men-in-black-international--2019",
@@ -15180,7 +15584,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ghostbusters--1984",
@@ -15201,7 +15606,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ghostbusters-ii--1989",
@@ -15222,7 +15628,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ghostbusters-afterlife--2021",
@@ -15243,7 +15650,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ghostbusters-frozen-empire--2024",
@@ -15264,7 +15672,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ghostbusters--2016",
@@ -15285,7 +15694,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--bad-boys--1995",
@@ -15306,7 +15716,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--bad-boys-ii--2003",
@@ -15327,7 +15738,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--bad-boys-for-life--2020",
@@ -15348,7 +15760,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--bad-boys-ride-or-die--2024",
@@ -15369,7 +15782,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--john-wick--2014",
@@ -15390,7 +15804,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--john-wick-chapter-2--2017",
@@ -15411,7 +15826,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--john-wick-chapter-3-parabellum--2019",
@@ -15432,7 +15848,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--ballerina--2025",
@@ -15453,7 +15870,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--john-wick-chapter-4--2023",
@@ -15474,7 +15892,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-hunger-games-the-ballad-of-songbirds-snakes--2023",
@@ -15495,7 +15914,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-hunger-games--2012",
@@ -15516,7 +15936,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-hunger-games-catching-fire--2013",
@@ -15537,7 +15958,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-hunger-games-mockingjay-part-1--2014",
@@ -15558,7 +15980,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-hunger-games-mockingjay-part-2--2015",
@@ -15579,7 +16002,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--twilight--2008",
@@ -15705,7 +16129,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-expendables-2--2012",
@@ -15726,7 +16151,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-expendables-3--2014",
@@ -15747,7 +16173,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--expend4bles--2023",
@@ -15768,7 +16195,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--it-s-tough-being-a-man--1969",
@@ -15789,7 +16217,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-cherished-mother--1969",
@@ -15810,7 +16239,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-his-tender-love--1970",
@@ -15831,7 +16261,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-grand-scheme--1970",
@@ -15852,7 +16283,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-runaway--1970",
@@ -15873,7 +16305,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-shattered-romance--1971",
@@ -15894,7 +16327,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-the-good-samaritan--1971",
@@ -15915,7 +16349,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-love-call--1971",
@@ -15936,7 +16371,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-dear-old-home--1972",
@@ -15957,7 +16393,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-dream-come-true--1972",
@@ -15978,7 +16415,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-forget-me-not--1973",
@@ -15999,7 +16437,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-loves-an-artist--1973",
@@ -16020,7 +16459,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-lovesick--1974",
@@ -16041,7 +16481,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-lullaby--1974",
@@ -16062,7 +16503,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-rise-and-fall--1975",
@@ -16083,7 +16525,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-the-intellectual--1975",
@@ -16104,7 +16547,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-sunrise-and-sunset--1976",
@@ -16125,7 +16569,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-s-pure-love--1976",
@@ -16146,7 +16591,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-meets-his-lordship--1977",
@@ -16167,7 +16613,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-plays-cupid--1977",
@@ -16188,7 +16635,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--stage-struck-tora-san--1978",
@@ -16209,7 +16657,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--talk-of-the-town-tora-san--1978",
@@ -16230,7 +16679,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-the-matchmaker--1979",
@@ -16251,7 +16701,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-dream-of-spring--1979",
@@ -16272,7 +16723,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-tropical-fever--1980",
@@ -16293,7 +16745,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--foster-daddy-tora--1980",
@@ -16314,7 +16767,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-love-in-osaka--1981",
@@ -16335,7 +16789,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-promise--1981",
@@ -16356,7 +16811,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--hearts-and-flowers-for-tora-san--1982",
@@ -16377,7 +16833,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-the-expert--1982",
@@ -16398,7 +16855,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-song-of-love--1983",
@@ -16419,7 +16877,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-goes-religious--1983",
@@ -16440,7 +16899,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--marriage-counselor-tora-san--1984",
@@ -16461,7 +16921,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-forbidden-love--1984",
@@ -16482,7 +16943,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-the-go-between--1985",
@@ -16503,7 +16965,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-island-encounter--1985",
@@ -16524,7 +16987,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-bluebird-fantasy--1986",
@@ -16545,7 +17009,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-goes-north--1987",
@@ -16566,7 +17031,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-plays-daddy--1987",
@@ -16587,7 +17053,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-salad-day-memorial--1988",
@@ -16608,7 +17075,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-goes-to-vienna--1989",
@@ -16629,7 +17097,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-my-uncle--1989",
@@ -16650,7 +17119,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-takes-a-vacation--1990",
@@ -16671,7 +17141,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-confesses--1991",
@@ -16692,7 +17163,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-makes-excuses--1992",
@@ -16713,7 +17185,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-matchmaker--1993",
@@ -16734,7 +17207,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-s-easy-advice--1994",
@@ -16755,7 +17229,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-to-the-rescue--1995",
@@ -16776,7 +17251,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--tora-san-wish-you-were-here--2019",
@@ -16797,7 +17273,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-dinosaur--1980",
@@ -16818,7 +17295,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-the-record-of-nobita-spaceblazer--1981",
@@ -16839,7 +17317,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-haunts-of-evil--1982",
@@ -16860,7 +17339,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-castle-of-the-undersea-devil--1983",
@@ -16881,7 +17361,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-great-adventure-into-the-underworld--1984",
@@ -16902,7 +17383,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-little-star-wars--1985",
@@ -16923,7 +17405,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-steel-troops--1986",
@@ -16944,7 +17427,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-knights-on-dinosaurs--1987",
@@ -16965,7 +17449,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-parallel-visit-to-the-west--1988",
@@ -16986,7 +17471,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-birth-of-japan--1989",
@@ -17007,7 +17493,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-animal-planet--1990",
@@ -17028,7 +17515,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-dorabian-nights--1991",
@@ -17049,7 +17537,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-kingdom-of-clouds--1992",
@@ -17070,7 +17559,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-tin-labyrinth--1993",
@@ -17091,7 +17581,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-three-visionary-swordsmen--1994",
@@ -17112,7 +17603,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-diary-on-the-creation-of-the-world--1995",
@@ -17133,7 +17625,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-galaxy-super-express--1996",
@@ -17154,7 +17647,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-spiral-city--1997",
@@ -17175,7 +17669,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-great-adventure-in-the-south-seas--1998",
@@ -17196,7 +17691,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-drifts-in-the-universe--1999",
@@ -17217,7 +17713,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-legend-of-the-sun-king--2000",
@@ -17238,7 +17735,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-winged-braves--2001",
@@ -17259,7 +17757,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-in-the-robot-kingdom--2002",
@@ -17280,7 +17779,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-windmasters--2003",
@@ -17301,7 +17801,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-in-the-wan-nyan-spacetime-odyssey--2004",
@@ -17322,7 +17823,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-dinosaur-2006--2006",
@@ -17343,7 +17845,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-new-great-adventure-into-the-underworld--2007",
@@ -17364,7 +17867,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-green-giant-legend--2008",
@@ -17385,7 +17889,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-the-new-record-of-nobita-s-spaceblazer--2009",
@@ -17406,7 +17911,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-great-battle-of-the-mermaid-king--2010",
@@ -17427,7 +17933,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-new-steel-troops--2011",
@@ -17448,7 +17955,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-island-of-miracles--2012",
@@ -17469,7 +17977,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-secret-gadget-museum--2013",
@@ -17490,7 +17999,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-in-the-new-haunts-of-evil--2014",
@@ -17511,7 +18021,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-space-heroes--2015",
@@ -17532,7 +18043,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-and-the-birth-of-japan-2016--2016",
@@ -17553,7 +18065,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-great-adventure-in-the-antarctic-kachi-kochi--2017",
@@ -17574,7 +18087,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-treasure-island--2018",
@@ -17595,7 +18109,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-chronicle-of-the-moon-exploration--2019",
@@ -17616,7 +18131,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-new-dinosaur--2020",
@@ -17637,7 +18153,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-little-star-wars-2021--2022",
@@ -17658,7 +18175,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-sky-utopia--2023",
@@ -17679,7 +18197,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-earth-symphony--2024",
@@ -17700,7 +18219,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-nobita-s-art-world-tales--2025",
@@ -17721,7 +18241,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--doraemon-new-nobita-and-the-castle-of-the-undersea-devil--2026",
@@ -17742,7 +18263,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--stand-by-me-doraemon--2014",
@@ -17763,7 +18285,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--stand-by-me-doraemon-2--2020",
@@ -17784,7 +18307,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-action-mask-vs-leotard-devil--1993",
@@ -17805,7 +18329,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-the-hidden-treasure-of-the-buri-buri-kingdom--1994",
@@ -17826,7 +18351,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-unkokusai-s-ambition--1995",
@@ -17847,7 +18373,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-great-adventure-in-henderland--1996",
@@ -17868,7 +18395,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-pursuit-of-the-balls-of-darkness--1997",
@@ -17889,7 +18417,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-blitzkrieg-pig-s-hoof-s-secret-mission--1998",
@@ -17910,7 +18439,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-explosion-the-hot-spring-s-feel-good-final-battle--1999",
@@ -17931,7 +18461,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-jungle-that-invites-storm--2000",
@@ -17952,7 +18483,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-the-adult-empire-strikes-back--2001",
@@ -17973,7 +18505,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-the-battle-of-the-warring-states--2002",
@@ -17994,7 +18527,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-yakiniku-road-of-honor--2003",
@@ -18015,7 +18549,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-the-kasukabe-boys-of-the-evening-sun--2004",
@@ -18036,7 +18571,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-the-legend-called-buri-buri-3-minutes-charge--2005",
@@ -18057,7 +18593,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-dance-amigo--2006",
@@ -18078,7 +18615,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-the-singing-buttocks-bomb--2007",
@@ -18099,7 +18637,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-the-hero-of-kinpoko--2008",
@@ -18120,7 +18659,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-roar-kasukabe-animal-kingdom--2009",
@@ -18141,7 +18681,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-super-dimension-the-storm-called-my-bride--2010",
@@ -18162,7 +18703,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-operation-golden-spy--2011",
@@ -18183,7 +18725,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-me-and-the-space-princess--2012",
@@ -18204,7 +18747,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-very-tasty-b-class-gourmet-survival--2013",
@@ -18225,7 +18769,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-robo-dad-strikes-back--2014",
@@ -18246,7 +18791,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-my-moving-story-cactus-large-attack--2015",
@@ -18267,7 +18813,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-the-great-assault-on-dreamy-world--2016",
@@ -18288,7 +18835,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-invasion-alien-shiriri--2017",
@@ -18309,7 +18857,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-kung-fu-boys-ramen-rebellion--2018",
@@ -18330,7 +18879,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-honeymoon-hurricane-the-lost-hiroshi--2019",
@@ -18351,7 +18901,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-crash-graffiti-kingdom-and-almost-four-heroes--2020",
@@ -18372,7 +18923,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-the-flowers-of-tenkazu-academy--2021",
@@ -18393,7 +18945,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-the-tornado-legend-of-ninja-mononoke--2022",
@@ -18414,7 +18967,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-battle-of-supernatural-powers-flying-sushi--2023",
@@ -18435,7 +18989,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-our-dinosaur-diary--2024",
@@ -18456,7 +19011,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-super-hot-the-spicy-kasukabe-dancers--2025",
@@ -18477,7 +19033,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--crayon-shin-chan-spooky-my-yokai-vacation--2026",
@@ -18498,7 +19055,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--godzilla--1954",
@@ -19338,7 +19896,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-fourteenth-target--1998",
@@ -19359,7 +19918,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-last-wizard-of-the-century--1999",
@@ -19380,7 +19940,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-captured-in-her-eyes--2000",
@@ -19401,7 +19962,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-countdown-to-heaven--2001",
@@ -19422,7 +19984,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-phantom-of-baker-street--2002",
@@ -19443,7 +20006,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-crossroad-in-the-ancient-capital--2003",
@@ -19464,7 +20028,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-magician-of-the-silver-sky--2004",
@@ -19485,7 +20050,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-strategy-above-the-depths--2005",
@@ -19506,7 +20072,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-private-eyes-requiem--2006",
@@ -19527,7 +20094,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-jolly-roger-in-the-deep-azure--2007",
@@ -19548,7 +20116,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-full-score-of-fear--2008",
@@ -19569,7 +20138,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-raven-chaser--2009",
@@ -19590,7 +20160,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-lost-ship-in-the-sky--2010",
@@ -19611,7 +20182,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-quarter-of-silence--2011",
@@ -19632,7 +20204,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-eleventh-striker--2012",
@@ -19653,7 +20226,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-private-eye-in-the-distant-sea--2013",
@@ -19674,7 +20248,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--lupin-the-3rd-vs-detective-conan-the-movie--2013",
@@ -19695,7 +20270,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-dimensional-sniper--2014",
@@ -19716,7 +20292,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-sunflowers-of-inferno--2015",
@@ -19737,7 +20314,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-darkest-nightmare--2016",
@@ -19758,7 +20336,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-crimson-love-letter--2017",
@@ -19779,7 +20358,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-zero-the-enforcer--2018",
@@ -19800,7 +20380,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-fist-of-blue-sapphire--2019",
@@ -19821,7 +20402,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-scarlet-bullet--2021",
@@ -19842,7 +20424,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-bride-of-halloween--2022",
@@ -19863,7 +20446,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-black-iron-submarine--2023",
@@ -19884,7 +20468,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-the-million-dollar-pentagram--2024",
@@ -19905,7 +20490,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-one-eyed-flashback--2025",
@@ -19926,7 +20512,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--detective-conan-fallen-angel-of-the-highway--2026",
@@ -19947,7 +20534,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--dragon-ball-curse-of-the-blood-rubies--1986",
@@ -20430,7 +21018,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-clockwork-island-adventure--2001",
@@ -20451,7 +21040,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-chopper-s-kingdom-on-the-island-of-strange-animals--2002",
@@ -20472,7 +21062,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-dead-end-adventure--2003",
@@ -20493,7 +21084,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-the-cursed-holy-sword--2004",
@@ -20514,7 +21106,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-baron-omatsuri-and-the-secret-island--2005",
@@ -20535,7 +21128,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-the-giant-mechanical-soldier-of-karakuri-castle--2006",
@@ -20556,7 +21150,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-film-strong-world--2009",
@@ -20577,7 +21172,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-film-z--2012",
@@ -20598,7 +21194,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-film-gold--2016",
@@ -20619,7 +21216,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-stampede--2019",
@@ -20640,7 +21238,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-film-red--2022",
@@ -20661,7 +21260,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-episode-of-arabasta--2007",
@@ -20682,7 +21282,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--one-piece-episode-of-chopper-plus--2008",
@@ -20703,7 +21304,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--carry-on-sergeant--1958",
@@ -20724,7 +21326,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-nurse--1959",
@@ -20745,7 +21348,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-teacher--1959",
@@ -20766,7 +21370,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-constable--1960",
@@ -20787,7 +21392,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-regardless--1961",
@@ -20808,7 +21414,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-cruising--1962",
@@ -20829,7 +21436,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-cabby--1963",
@@ -20850,7 +21458,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-jack--1964",
@@ -20871,7 +21480,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-spying--1964",
@@ -20892,7 +21502,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-cleo--1964",
@@ -20913,7 +21524,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-cowboy--1965",
@@ -20934,7 +21546,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-screaming--1966",
@@ -20955,7 +21568,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--don-t-lose-your-head--1967",
@@ -20976,7 +21590,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--follow-that-camel--1967",
@@ -20997,7 +21612,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-doctor--1967",
@@ -21018,7 +21634,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-up-the-khyber--1968",
@@ -21039,7 +21656,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-camping--1969",
@@ -21060,7 +21678,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-again-doctor--1969",
@@ -21081,7 +21700,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-up-the-jungle--1970",
@@ -21102,7 +21722,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-loving--1970",
@@ -21123,7 +21744,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-henry--1971",
@@ -21144,7 +21766,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-at-your-convenience--1971",
@@ -21165,7 +21788,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-matron--1972",
@@ -21186,7 +21810,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-abroad--1972",
@@ -21207,7 +21832,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-girls--1973",
@@ -21228,7 +21854,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-dick--1974",
@@ -21249,7 +21876,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-behind--1975",
@@ -21270,7 +21898,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-england--1976",
@@ -21291,7 +21920,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-emmannuelle--1978",
@@ -21312,7 +21942,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--carry-on-columbus--1992",
@@ -21333,7 +21964,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-tale-of-zatoichi--1962",
@@ -21354,7 +21986,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-tale-of-zatoichi-continues--1962",
@@ -21375,7 +22008,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-new-tale-of-zatoichi--1963",
@@ -21396,7 +22030,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-the-fugitive--1963",
@@ -21417,7 +22052,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-on-the-road--1963",
@@ -21438,7 +22074,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-and-the-chest-of-gold--1964",
@@ -21459,7 +22096,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-s-flashing-sword--1964",
@@ -21480,7 +22118,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--fight-zatoichi-fight--1964",
@@ -21501,7 +22140,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--adventures-of-zatoichi--1964",
@@ -21522,7 +22162,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-s-revenge--1965",
@@ -21543,7 +22184,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-and-the-doomed-man--1965",
@@ -21564,7 +22206,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-and-the-chess-expert--1965",
@@ -21585,7 +22228,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-s-vengeance--1966",
@@ -21606,7 +22250,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-s-pilgrimage--1966",
@@ -21627,7 +22272,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-s-cane-sword--1967",
@@ -21648,7 +22294,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-the-outlaw--1967",
@@ -21669,7 +22316,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-challenged--1967",
@@ -21690,7 +22338,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-and-the-fugitives--1968",
@@ -21711,7 +22360,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--samaritan-zatoichi--1968",
@@ -21732,7 +22382,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-meets-yojimbo--1970",
@@ -21753,7 +22404,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-goes-to-the-fire-festival--1970",
@@ -21774,7 +22426,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-meets-the-one-armed-swordsman--1971",
@@ -21795,7 +22448,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-at-large--1972",
@@ -21816,7 +22470,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-in-desperation--1972",
@@ -21837,7 +22492,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-s-conspiracy--1973",
@@ -21858,7 +22514,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--zatoichi-darkness-is-his-ally--1989",
@@ -21879,7 +22536,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--pokemon-the-first-movie--1998",
@@ -22467,7 +23125,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--better-call-saul",
@@ -22488,7 +23147,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--mad-men",
@@ -22614,7 +23274,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--true-detective",
@@ -22740,7 +23401,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--black-mirror",
@@ -22824,7 +23486,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--buffy-the-vampire-slayer",
@@ -22887,7 +23550,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--friends",
@@ -23034,7 +23698,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--batman-the-animated-series",
@@ -23055,7 +23720,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--bojack-horseman",
@@ -23265,7 +23931,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--naruto",
@@ -23286,7 +23953,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--bleach",
@@ -23349,7 +24017,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--attack-on-titan",
@@ -23370,7 +24039,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--death-note-anime",
@@ -23412,7 +24082,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--monster-anime",
@@ -23748,7 +24419,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--star-wars-rebels",
@@ -23769,7 +24441,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--the-mandalorian",
@@ -23790,7 +24463,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--andor",
@@ -23811,7 +24485,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--ahsoka",
@@ -23832,7 +24507,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--star-trek-the-original-series",
@@ -23979,7 +24655,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--wandavision",
@@ -24000,7 +24677,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--loki",
@@ -24021,7 +24699,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--x-men-the-animated-series",
@@ -24042,7 +24721,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--x-men-97",
@@ -24063,7 +24743,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--batman-beyond",
@@ -24084,7 +24765,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--justice-league-animated-series",
@@ -24126,7 +24808,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--the-lord-of-the-rings-the-rings-of-power",
@@ -24147,7 +24830,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--alien-earth",
@@ -24189,7 +24873,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--cobra-kai",
@@ -24210,7 +24895,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--dragon-ball-z",
@@ -24294,7 +24980,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--doraemon-1979-series",
@@ -24315,7 +25002,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--doraemon-2005-series",
@@ -24336,7 +25024,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-animatrix--2003",
@@ -24378,7 +25067,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--boruto-naruto-next-generations",
@@ -24399,7 +25089,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--naruto-the-movie-ninja-clash-in-the-land-of-snow--2004",
@@ -24420,7 +25111,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--naruto-the-movie-2-legend-of-the-stone-of-gelel--2005",
@@ -24441,7 +25133,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--naruto-the-movie-3-guardians-of-the-crescent-moon-kingdom--2006",
@@ -24462,7 +25155,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--naruto-shippuden-the-movie--2007",
@@ -24483,7 +25177,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--naruto-shippuden-the-movie-bonds--2008",
@@ -24504,7 +25199,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--naruto-shippuden-the-movie-the-will-of-fire--2009",
@@ -24525,7 +25221,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--naruto-shippuden-the-movie-the-lost-tower--2010",
@@ -24546,7 +25243,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--naruto-shippuden-the-movie-blood-prison--2011",
@@ -24567,7 +25265,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--road-to-ninja-naruto-the-movie--2012",
@@ -24588,7 +25287,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-last-naruto-the-movie--2014",
@@ -24609,7 +25309,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--boruto-naruto-the-movie--2015",
@@ -24630,7 +25331,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--attack-on-titan-crimson-bow-and-arrow--2014",
@@ -24651,7 +25353,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--attack-on-titan-wings-of-freedom--2015",
@@ -24672,7 +25375,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--attack-on-titan--2015",
@@ -24693,7 +25397,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--attack-on-titan-end-of-the-world--2015",
@@ -24714,7 +25419,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--attack-on-titan-chronicle--2020",
@@ -24735,7 +25441,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--attack-on-titan-the-last-attack--2024",
@@ -24756,7 +25463,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--mortadelo-y-filem-n",
@@ -24777,7 +25485,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--la-gran-aventura-de-mortadelo-y-filem-n--2003",
@@ -24798,7 +25507,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--mortadelo-y-filem-n-misi-n-salvar-la-tierra--2008",
@@ -24819,7 +25529,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--mortadelo-y-filem-n-contra-jimmy-el-cachondo--2014",
@@ -24840,7 +25551,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--a-bug-s-life--1998",
@@ -26709,7 +27421,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--a-knight-of-the-seven-kingdoms",
@@ -26730,7 +27443,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--nausica-of-the-valley-of-the-wind--1984",
@@ -27654,7 +28368,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--fullmetal-alchemist-the-movie-conqueror-of-shamballa--2005",
@@ -27675,7 +28390,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--fullmetal-alchemist-the-sacred-star-of-milos--2011",
@@ -27696,7 +28412,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--fullmetal-alchemist--2017",
@@ -27717,7 +28434,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--fullmetal-alchemist-revenge-of-scar--2022",
@@ -27738,7 +28456,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--fullmetal-alchemist-the-final-alchemy--2022",
@@ -27759,7 +28478,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--death-note",
@@ -27948,7 +28668,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--the-walking-dead-world-beyond",
@@ -27969,7 +28690,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--tales-of-the-walking-dead",
@@ -27990,7 +28712,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--the-walking-dead-daryl-dixon",
@@ -28011,7 +28734,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--the-walking-dead-dead-city",
@@ -28032,7 +28756,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--the-walking-dead-the-ones-who-live",
@@ -28053,7 +28778,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--dune--1984",
@@ -28074,7 +28800,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--frank-herbert-s-dune",
@@ -28095,7 +28822,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--frank-herbert-s-children-of-dune",
@@ -28116,7 +28844,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--dune--2021",
@@ -28137,7 +28866,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--dune-part-two--2024",
@@ -28158,7 +28888,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--dune-part-three--2026",
@@ -28179,7 +28910,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--the-legend-of-korra",
@@ -28200,7 +28932,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-last-airbender--2010",
@@ -28221,7 +28954,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "series--avatar-the-last-airbender--2024",
@@ -28242,7 +28976,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "fictional_world"
     },
     {
       "id": "film--the-x-files-fight-the-future--1998",
@@ -28263,7 +28998,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--the-x-files-i-want-to-believe--2008",
@@ -28284,7 +29020,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--millennium",
@@ -28305,7 +29042,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--the-lone-gunmen",
@@ -28326,7 +29064,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--battlestar-galactica",
@@ -28473,7 +29212,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--the-twilight-zone--2002",
@@ -28494,7 +29234,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--the-twilight-zone--2019",
@@ -28515,7 +29256,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "film--twilight-zone-the-movie--1983",
@@ -28536,7 +29278,8 @@
       "external_ids": {},
       "synopsis": null,
       "artwork": null,
-      "episode_count": null
+      "episode_count": null,
+      "setting": "earth"
     },
     {
       "id": "series--astro-boy--1980",
@@ -29314,6 +30057,94 @@
       "synopsis": null,
       "artwork": null,
       "episode_count": null
+    },
+    {
+      "id": "series--mr-bean",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Mr. Bean",
+      "original_title": null,
+      "release_year": 1990,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "film--bean--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Bean",
+      "original_title": null,
+      "release_year": 1997,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "series--mr-bean-the-animated-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Mr. Bean: The Animated Series",
+      "original_title": null,
+      "release_year": 2002,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "film--mr-bean-s-holiday--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Mr. Bean's Holiday",
+      "original_title": null,
+      "release_year": 2007,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
     }
   ],
   "memberships": [
@@ -42880,6 +43711,90 @@
       "continuity_id": "south-park--main",
       "membership_type": "included",
       "notes": null
+    },
+    {
+      "id": "mr-bean--main--series--mr-bean",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--mr-bean",
+      "franchise_id": "mr-bean",
+      "continuity_id": "mr-bean--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "mr-bean--main--film--bean--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--bean--1997",
+      "franchise_id": "mr-bean",
+      "continuity_id": "mr-bean--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "mr-bean--main--series--mr-bean-the-animated-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--mr-bean-the-animated-series",
+      "franchise_id": "mr-bean",
+      "continuity_id": "mr-bean--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "mr-bean--main--film--mr-bean-s-holiday--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--mr-bean-s-holiday--2007",
+      "franchise_id": "mr-bean",
+      "continuity_id": "mr-bean--main",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "independent-anime--standalone--series--cowboy-bebop-anime",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--cowboy-bebop-anime",
+      "franchise_id": "independent-anime",
+      "continuity_id": "independent-anime--standalone",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "independent-anime--standalone--series--monster-anime",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--monster-anime",
+      "franchise_id": "independent-anime",
+      "continuity_id": "independent-anime--standalone",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "independent-anime--standalone--series--steins-gate",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--steins-gate",
+      "franchise_id": "independent-anime",
+      "continuity_id": "independent-anime--standalone",
+      "membership_type": "included",
+      "notes": null
     }
   ],
   "continuities": [
@@ -44726,6 +45641,28 @@
       "name": "Series and films",
       "canonical_status": "unreviewed",
       "notes": "Floating continuity: remakes, spin-offs and revivals are not reviewed as canon."
+    },
+    {
+      "id": "mr-bean--main",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "mr-bean",
+      "name": "Series, cartoon and films",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: the animated series is a reimagining, not a continuation."
+    },
+    {
+      "id": "independent-anime--standalone",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "independent-anime",
+      "name": "Standalone titles",
+      "canonical_status": "unreviewed",
+      "notes": "Not a continuity: unrelated stories grouped only because they stand alone."
     }
   ],
   "sequences": [
@@ -48402,6 +49339,20 @@
       "franchise_id": "south-park",
       "continuity_id": "south-park--main",
       "name": "Series and films: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "mr-bean--main--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "mr-bean",
+      "continuity_id": "mr-bean--main",
+      "name": "Series, cartoon and films: release order",
       "sequence_type": "release",
       "ordering_basis": "release_year_with_editorial_ties",
       "certainty": "editorial_proposal",
@@ -60243,6 +61194,34 @@
       "sequence_id": "south-park--main--release",
       "work_id": "film--south-park-joining-the-panderverse--2023",
       "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "mr-bean--main--release",
+      "work_id": "series--mr-bean",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "mr-bean--main--release",
+      "work_id": "film--bean--1997",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "mr-bean--main--release",
+      "work_id": "series--mr-bean-the-animated-series",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "mr-bean--main--release",
+      "work_id": "film--mr-bean-s-holiday--2007",
+      "position": 4,
       "position_certainty": "needs_review",
       "simultaneous_group": null
     }

@@ -62,6 +62,8 @@ const PLAN = [
       // stays needs_review; the verbatim payload keeps the original null.
       is_animation: work.animation_classification === 'animation' || work.animation_classification === 'anime',
       is_anime: work.animation_classification === 'anime',
+      // Earth or a fictional world; absent means not classified yet (migration 006).
+      setting: settingOf(work),
       episode_count: work.format === 'series' ? (work.episode_count ?? null) : null,
       synopsis: work.synopsis ?? null,
     }),
@@ -77,6 +79,15 @@ const PLAN = [
     }),
   },
 ];
+
+const SETTINGS = new Set(['earth', 'fictional_world']);
+
+/** The seed's setting classification, 'unknown' when absent; anything else is refused. */
+function settingOf(work) {
+  if (work.setting === undefined || work.setting === null) return 'unknown';
+  if (!SETTINGS.has(work.setting)) throw new Error(`works: ${work.id} has an invalid setting ${JSON.stringify(work.setting)}`);
+  return work.setting;
+}
 
 /** Seed arrays handled by the relation pass below. */
 const RELATION_ARRAYS = [
