@@ -2,13 +2,14 @@ import type {Work} from '../data';
 import type {TFn} from '../i18n';
 import {factsOf} from '../facts';
 import {useSettings} from '../settings';
+import {BASE} from '../base';
 
 export type PosterLookup = { ids: Set<string>; version: number; /** File type of a cover that is not a JPEG (png, webp). */ types?: Record<string, string> };
 
 /** The work's own poster; a remaster without one shows the poster of the film or series it re-releases. */
 export function posterUrl(work: {id: string; remasterOf?: string}, posters: PosterLookup) {
   const id = posters.ids.has(work.id) ? work.id : work.remasterOf && posters.ids.has(work.remasterOf) ? work.remasterOf : null;
-  return id ? `/posters/${id}.${posters.types?.[id] ?? 'jpg'}?v=${posters.version}` : null;
+  return id ? `${BASE}posters/${id}.${posters.types?.[id] ?? 'jpg'}?v=${posters.version}` : null;
 }
 
 /** A remaster (3D, restoration, special edition) or an announced work says so next to its title. */

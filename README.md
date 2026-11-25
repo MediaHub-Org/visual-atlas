@@ -29,6 +29,21 @@ frontend does not yet use a database. Its invariants are tested against a real
 PostgreSQL engine with `npm run test:db` (no server needed). The development
 server is intended for local use only; do not expose it publicly.
 
+## Published site
+
+Live at **https://mediahub-org.github.io/visual-atlas/** (GitHub Pages). The data is demonstration data from an
+unverified editorial seed; it is marked as such in the page footer.
+
+The site is **static and prebuilt**: `npm run site:build` builds the app with relative paths, copies it into `site/`
+(committed), and refuses to finish if anything that may not be redistributed is in it (posters, covers, the TMDB,
+AniList and Comic Vine caches, `.env`; the rules are in `scripts/publish-guard.mjs` and tested). The workflow
+`.github/workflows/pages.yml` only uploads `site/`: it installs nothing and builds nothing, so no npm runs on
+GitHub and what is published is exactly what was built and checked here. `npm run site:check` re-checks the
+committed `site/`. The published site has no posters or credits (their terms forbid redistribution), so its cards
+default to the text style; run the app locally with `npm run dev` to see them.
+
+To publish a change: `npm run test`, `npm run site:build`, commit `site/` with the change, push to `main`.
+
 ## Views, settings and grouping
 
 Five views share one toolbar and URL: cards, list/table, company hierarchy,

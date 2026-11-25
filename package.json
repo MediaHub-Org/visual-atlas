@@ -10,6 +10,8 @@
     "test": "npm run test:db && node --test tests/*.test.mjs",
     "posters:fetch": "node --env-file-if-exists=.env scripts/fetch-posters.mjs",
     "metadata:fetch": "node --env-file-if-exists=.env scripts/fetch-metadata.mjs",
+    "site:build": "node scripts/publish-site.mjs",
+    "site:check": "node scripts/publish-site.mjs --check",
     "db:migrate": "node db/migrate.mjs",
     "db:import": "node db/import.mjs"
   },

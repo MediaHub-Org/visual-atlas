@@ -3,6 +3,7 @@ import type {Work} from '../data';
 import type {TFn} from '../i18n';
 import {posterUrl, type PosterLookup} from './WorkCard';
 import {formatSpan, type Calendar} from '../chronology';
+import {DEV} from '../base';
 
 export type AdaptationLink = {workId: string; title: string; year: number | null; kind: string; certainty: 'unknown' | 'estimated' | 'confirmed'};
 
@@ -56,7 +57,7 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
         {poster && <img className="detail-poster" src={poster} alt=""/>}
         <span>FRAME / {work.format.toUpperCase()}</span>
         <strong>{work.title}</strong>
-        {work.medium === 'text' && <CoverUpload work={work} t={t} onSaved={onPosterSaved}/>}
+        {DEV && work.medium === 'text' && <CoverUpload work={work} t={t} onSaved={onPosterSaved}/>}
       </div>
       <div className="detail-body">
         <span className="eyebrow">{t('detail.collection')} / {t('detail.seed')}</span>

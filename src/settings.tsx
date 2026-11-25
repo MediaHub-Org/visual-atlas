@@ -1,5 +1,6 @@
 import {createContext, useContext, useEffect, useMemo, useState, type ReactNode} from 'react';
 import {translate, type Language, type MessageKey} from './i18n';
+import {DEV} from './base';
 
 export type Theme = 'dark' | 'light' | 'system';
 export type CalendarId = 'gregory' | 'hebrew' | 'islamic-civil' | 'islamic-umalqura' | 'islamic-tbla';
@@ -28,7 +29,7 @@ export const CALENDARS: {id: CalendarId; en: string; es: string}[] = [
   {id: 'islamic-tbla', en: 'Islamic astronomical tabular', es: 'Islámico astronómico tabular'},
 ];
 
-const DEFAULTS: Preferences = {language: 'en', theme: 'dark', calendar: 'gregory', timelineScale: 'proportional', cardStyle: 'poster', density: 'comfortable', remasters: false};
+const DEFAULTS: Preferences = {language: 'en', theme: 'dark', calendar: 'gregory', timelineScale: 'proportional', cardStyle: DEV ? 'poster' : 'text', density: 'comfortable', remasters: false};
 const STORAGE_KEY = 'atlas.preferences.v1';
 
 function readPreferences(): Preferences {
@@ -41,7 +42,8 @@ function readPreferences(): Preferences {
       theme: parsed.theme === 'light' || parsed.theme === 'system' ? parsed.theme : 'dark',
       calendar: CALENDARS.some(entry => entry.id === parsed.calendar) ? parsed.calendar! : DEFAULTS.calendar,
       timelineScale: parsed.timelineScale === 'equal' || parsed.timelineScale === 'log' ? parsed.timelineScale : 'proportional',
-      cardStyle: parsed.cardStyle === 'text' ? 'text' : 'poster',
+      // The published site has no posters, so its default card is the text one; a saved choice wins.
+      cardStyle: parsed.cardStyle === 'text' ? 'text' : parsed.cardStyle === 'poster' ? 'poster' : DEFAULTS.cardStyle,
       density: parsed.density === 'compact' ? 'compact' : 'comfortable',
       remasters: parsed.remasters === true,
     };

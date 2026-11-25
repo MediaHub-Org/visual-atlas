@@ -8,6 +8,7 @@ import {WorkCard, type PosterLookup} from './components/WorkCard';
 import {TimelineView} from './components/TimelineView';
 import {HierarchyView, SequenceView} from './components/Views';
 import {DetailPanel} from './components/DetailPanel';
+import {BASE, DEV} from './base';
 import {SettingsPanel} from './components/SettingsPanel';
 import {DensityPanel} from './components/DensityPanel';
 
@@ -103,7 +104,9 @@ export default function App() {
   }, [attempt]);
 
   const refreshPosters = useCallback(() => {
-    fetch('/api/posters/status')
+    // The poster endpoints exist only under `npm run dev`; the published site has no local covers.
+    if (!DEV) return;
+    fetch(`${BASE}api/posters/status`)
       .then(response => response.ok ? response.json() : null)
       .then(data => {
         if (!data) return;
@@ -406,9 +409,9 @@ export default function App() {
                       {SORTS.map(option => <option key={option} value={option}>{t(`sort.${option}`)}</option>)}
                     </select>
                   </label>
-                  <button className={`chip ${needsPoster ? 'active' : ''}`} aria-pressed={needsPoster} onClick={() => setNeedsPoster(value => !value)}>
+                  {(DEV || needsPoster) && <button className={`chip ${needsPoster ? 'active' : ''}`} aria-pressed={needsPoster} onClick={() => setNeedsPoster(value => !value)}>
                     {t('filter.noPoster')}
-                  </button>
+                  </button>}
                   {medium === 'video' && remasterCount > 0 && <button className={`chip ${settings.remasters ? 'active' : ''}`} aria-pressed={settings.remasters} title={t('remaster.hint')} onClick={() => settings.set({remasters: !settings.remasters})}>
                     {t('remaster.label')}: {t(settings.remasters ? 'remaster.on' : 'remaster.off')} ({remasterCount})
                   </button>}
@@ -482,7 +485,7 @@ export default function App() {
                   {dataset.textSources.map(source => <a key={source} href={source === 'anilist' ? 'https://anilist.co/' : 'https://comicvine.gamespot.com/'} target="_blank" rel="noreferrer">{t(`textSource.${source}`)} </a>)}
                 </p>}
                 <div className="tmdb-attribution">
-                  <a href="https://www.themoviedb.org/"><img src="/tmdb-logo.svg" alt="TMDB" width="60"/></a><br/>
+                  <a href="https://www.themoviedb.org/"><img src={`${BASE}tmdb-logo.svg`} alt="TMDB" width="60"/></a><br/>
                   {t('poster.attribution')}
                 </div>
               </footer>

@@ -106,4 +106,5 @@ function stripTmdbCache(): Plugin {
   };
 }
 
-export default defineConfig({plugins: [localPosters(), stripTmdbCache()], server: {host: '127.0.0.1'}});
+// Relative base: the build works at a site root and under a project path (GitHub Pages).
+export default defineConfig({base: './', plugins: [localPosters(), stripTmdbCache()], server: {host: '127.0.0.1'}});

@@ -1,4 +1,5 @@
 import type {Dataset} from '../data';
+import {BASE} from '../base';
 import type {TFn} from '../i18n';
 import {facetLists, matchesFormat, type Medium} from '../medium';
 
@@ -48,7 +49,7 @@ export function Sidebar({dataset, t, franchise, universe, onUniverse, medium, on
       <span>{item.name}</span><small className="side-count">{item.count}</small>
     </button>;
   return <aside className="sidebar">
-    <a className="brand" href="/" aria-label={t('nav.home')} onClick={event => { event.preventDefault(); onHome(); }}><span className="brand-icon">✳</span> FRAME<span className="brand-dot">.</span></a>
+    <a className="brand" href={BASE} aria-label={t('nav.home')} onClick={event => { event.preventDefault(); onHome(); }}><span className="brand-icon">✳</span> FRAME<span className="brand-dot">.</span></a>
     <div className="sidebar-label">{t('brand.sub')}</div>
 
     <div className="side-scroll">
