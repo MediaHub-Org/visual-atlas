@@ -210,6 +210,12 @@ export default function App() {
       });
   }, [dataset, medium, query, franchise, family, allowedFranchises, format, tag, person, needsPoster, posters, sort]);
 
+  // Universe families as pills: the sidebar list is hidden on narrow screens (see .narrow-only).
+  const universePills = useMemo(() => {
+    if (!dataset) return [];
+    return dataset.families.map(entry => ({id: entry.id, name: entry.name, count: dataset.works.filter(work => work.medium === medium && work.memberships.some(m => entry.franchiseIds.includes(m.franchiseId))).length})).filter(entry => entry.count > 0);
+  }, [dataset, medium]);
+
   // Companies: the top-level owners, each with the number of works under it (Watch only).
   const companyPills = useMemo(() => {
     if (!dataset) return [];
@@ -393,6 +399,13 @@ export default function App() {
                     {t('density.label')}: {t(`density.${density}`)} · {t(`timeline.${settings.timelineScale}`)}
                   </button>
                 </div>
+
+                {universePills.length > 0 && <div className="pill-row narrow-only" role="group" aria-label={t('nav.universes')}>
+                  <span className="pill-label">{t('nav.universes')}</span>
+                  {universePills.map(entry => <button key={entry.id} className={`chip ${universe === entry.id ? 'active' : ''}`} aria-pressed={universe === entry.id} onClick={() => { setUniverse(universe === entry.id ? '' : entry.id); setFranchise('All'); setCompany(''); }}>
+                    {entry.name} <span>{entry.count}</span>
+                  </button>)}
+                </div>}
 
                 {medium === 'video' && companyPills.length > 0 && <div className="pill-row" role="group" aria-label={t('nav.companies')}>
                   <span className="pill-label">{t('nav.companies')}</span>
