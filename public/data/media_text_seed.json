@@ -988,10 +988,6 @@
       "name": "Love and Rockets"
     },
     {
-      "id": "naruto",
-      "name": "Naruto"
-    },
-    {
       "id": "bleach",
       "name": "Bleach"
     },
@@ -1010,10 +1006,6 @@
     {
       "id": "fullmetal-alchemist",
       "name": "Fullmetal Alchemist"
-    },
-    {
-      "id": "attack-on-titan",
-      "name": "Attack on Titan"
     },
     {
       "id": "saint-seiya",
@@ -1094,10 +1086,6 @@
     {
       "id": "tintin",
       "name": "The Adventures of Tintin"
-    },
-    {
-      "id": "mortadelo-y-filemon",
-      "name": "Mortadelo y Filemón"
     },
     {
       "id": "lucky-luke",

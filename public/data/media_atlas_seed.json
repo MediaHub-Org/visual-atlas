@@ -2179,6 +2179,48 @@
       "description": null,
       "loaded_unique_film_count": 0,
       "count_claim_matches_loaded": null
+    },
+    {
+      "id": "naruto",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Naruto",
+      "editorial_count_claim": null,
+      "count_scope": "Loaded works under the owner's 2026-11-25 request; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "attack-on-titan",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Attack on Titan",
+      "editorial_count_claim": null,
+      "count_scope": "Loaded works under the owner's 2026-11-25 request; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "mortadelo-y-filemon",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Mortadelo y Filemón",
+      "editorial_count_claim": null,
+      "count_scope": "Loaded works under the owner's 2026-11-25 request; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
     }
   ],
   "franchise_company_associations": [
@@ -23950,6 +23992,510 @@
       "synopsis": null,
       "artwork": null,
       "episode_count": null
+    },
+    {
+      "id": "film--the-animatrix--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Animatrix",
+      "original_title": null,
+      "release_year": 2003,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--naruto-shippuden",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Naruto Shippuden",
+      "original_title": null,
+      "release_year": 2007,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--boruto-naruto-next-generations",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Boruto: Naruto Next Generations",
+      "original_title": null,
+      "release_year": 2017,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--naruto-the-movie-ninja-clash-in-the-land-of-snow--2004",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Naruto the Movie: Ninja Clash in the Land of Snow",
+      "original_title": null,
+      "release_year": 2004,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--naruto-the-movie-2-legend-of-the-stone-of-gelel--2005",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Naruto the Movie 2: Legend of the Stone of Gelel",
+      "original_title": null,
+      "release_year": 2005,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--naruto-the-movie-3-guardians-of-the-crescent-moon-kingdom--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Naruto the Movie 3: Guardians of the Crescent Moon Kingdom",
+      "original_title": null,
+      "release_year": 2006,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--naruto-shippuden-the-movie--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Naruto Shippuden the Movie",
+      "original_title": null,
+      "release_year": 2007,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--naruto-shippuden-the-movie-bonds--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Naruto Shippuden the Movie: Bonds",
+      "original_title": null,
+      "release_year": 2008,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--naruto-shippuden-the-movie-the-will-of-fire--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Naruto Shippuden the Movie: The Will of Fire",
+      "original_title": null,
+      "release_year": 2009,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--naruto-shippuden-the-movie-the-lost-tower--2010",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Naruto Shippuden the Movie: The Lost Tower",
+      "original_title": null,
+      "release_year": 2010,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--naruto-shippuden-the-movie-blood-prison--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Naruto Shippuden the Movie: Blood Prison",
+      "original_title": null,
+      "release_year": 2011,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--road-to-ninja-naruto-the-movie--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Road to Ninja: Naruto the Movie",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-last-naruto-the-movie--2014",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Last: Naruto the Movie",
+      "original_title": null,
+      "release_year": 2014,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--boruto-naruto-the-movie--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Boruto: Naruto the Movie",
+      "original_title": null,
+      "release_year": 2015,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--attack-on-titan-crimson-bow-and-arrow--2014",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Attack on Titan: Crimson Bow and Arrow",
+      "original_title": null,
+      "release_year": 2014,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--attack-on-titan-wings-of-freedom--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Attack on Titan: Wings of Freedom",
+      "original_title": null,
+      "release_year": 2015,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--attack-on-titan--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Attack on Titan",
+      "original_title": null,
+      "release_year": 2015,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--attack-on-titan-end-of-the-world--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Attack on Titan: End of the World",
+      "original_title": null,
+      "release_year": 2015,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--attack-on-titan-chronicle--2020",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Attack on Titan: Chronicle",
+      "original_title": null,
+      "release_year": 2020,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--attack-on-titan-the-last-attack--2024",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Attack on Titan: The Last Attack",
+      "original_title": null,
+      "release_year": 2024,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "series--mortadelo-y-filem-n",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Mortadelo y Filemón",
+      "original_title": null,
+      "release_year": 1994,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--la-gran-aventura-de-mortadelo-y-filem-n--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "La gran aventura de Mortadelo y Filemón",
+      "original_title": null,
+      "release_year": 2003,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--mortadelo-y-filem-n-misi-n-salvar-la-tierra--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Mortadelo y Filemón. Misión: salvar la Tierra",
+      "original_title": null,
+      "release_year": 2008,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--mortadelo-y-filem-n-contra-jimmy-el-cachondo--2014",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Mortadelo y Filemón contra Jimmy el Cachondo",
+      "original_title": null,
+      "release_year": 2014,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
     }
   ],
   "memberships": [
@@ -34408,6 +34954,330 @@
       "continuity_id": "doctor-who--main-continuity",
       "membership_type": "included",
       "notes": null
+    },
+    {
+      "id": "matrix--animation--film--the-animatrix--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-animatrix--2003",
+      "franchise_id": "matrix",
+      "continuity_id": "matrix--animation",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "shin-chan--tv-series--series--crayon-shin-chan",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--crayon-shin-chan",
+      "franchise_id": "shin-chan",
+      "continuity_id": "shin-chan--tv-series",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--series--naruto",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--naruto",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--series--naruto-shippuden",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--naruto-shippuden",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--series--boruto-naruto-next-generations",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--boruto-naruto-next-generations",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--film--naruto-the-movie-ninja-clash-in-the-land-of-snow--2004",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--naruto-the-movie-ninja-clash-in-the-land-of-snow--2004",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--film--naruto-the-movie-2-legend-of-the-stone-of-gelel--2005",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--naruto-the-movie-2-legend-of-the-stone-of-gelel--2005",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--film--naruto-the-movie-3-guardians-of-the-crescent-moon-kingdom--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--naruto-the-movie-3-guardians-of-the-crescent-moon-kingdom--2006",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--film--naruto-shippuden-the-movie--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--naruto-shippuden-the-movie--2007",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--film--naruto-shippuden-the-movie-bonds--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--naruto-shippuden-the-movie-bonds--2008",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--film--naruto-shippuden-the-movie-the-will-of-fire--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--naruto-shippuden-the-movie-the-will-of-fire--2009",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--film--naruto-shippuden-the-movie-the-lost-tower--2010",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--naruto-shippuden-the-movie-the-lost-tower--2010",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--film--naruto-shippuden-the-movie-blood-prison--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--naruto-shippuden-the-movie-blood-prison--2011",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--film--road-to-ninja-naruto-the-movie--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--road-to-ninja-naruto-the-movie--2012",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--film--the-last-naruto-the-movie--2014",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-last-naruto-the-movie--2014",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--film--boruto-naruto-the-movie--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--boruto-naruto-the-movie--2015",
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "attack-on-titan--anime-and-films--series--attack-on-titan",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--attack-on-titan",
+      "franchise_id": "attack-on-titan",
+      "continuity_id": "attack-on-titan--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "attack-on-titan--anime-and-films--film--attack-on-titan-crimson-bow-and-arrow--2014",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--attack-on-titan-crimson-bow-and-arrow--2014",
+      "franchise_id": "attack-on-titan",
+      "continuity_id": "attack-on-titan--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "attack-on-titan--anime-and-films--film--attack-on-titan-wings-of-freedom--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--attack-on-titan-wings-of-freedom--2015",
+      "franchise_id": "attack-on-titan",
+      "continuity_id": "attack-on-titan--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "attack-on-titan--anime-and-films--film--attack-on-titan--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--attack-on-titan--2015",
+      "franchise_id": "attack-on-titan",
+      "continuity_id": "attack-on-titan--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "attack-on-titan--anime-and-films--film--attack-on-titan-end-of-the-world--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--attack-on-titan-end-of-the-world--2015",
+      "franchise_id": "attack-on-titan",
+      "continuity_id": "attack-on-titan--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "attack-on-titan--anime-and-films--film--attack-on-titan-chronicle--2020",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--attack-on-titan-chronicle--2020",
+      "franchise_id": "attack-on-titan",
+      "continuity_id": "attack-on-titan--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "attack-on-titan--anime-and-films--film--attack-on-titan-the-last-attack--2024",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--attack-on-titan-the-last-attack--2024",
+      "franchise_id": "attack-on-titan",
+      "continuity_id": "attack-on-titan--anime-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "mortadelo-y-filemon--series-and-films--series--mortadelo-y-filem-n",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--mortadelo-y-filem-n",
+      "franchise_id": "mortadelo-y-filemon",
+      "continuity_id": "mortadelo-y-filemon--series-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "mortadelo-y-filemon--series-and-films--film--la-gran-aventura-de-mortadelo-y-filem-n--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--la-gran-aventura-de-mortadelo-y-filem-n--2003",
+      "franchise_id": "mortadelo-y-filemon",
+      "continuity_id": "mortadelo-y-filemon--series-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "mortadelo-y-filemon--series-and-films--film--mortadelo-y-filem-n-misi-n-salvar-la-tierra--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--mortadelo-y-filem-n-misi-n-salvar-la-tierra--2008",
+      "franchise_id": "mortadelo-y-filemon",
+      "continuity_id": "mortadelo-y-filemon--series-and-films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "mortadelo-y-filemon--series-and-films--film--mortadelo-y-filem-n-contra-jimmy-el-cachondo--2014",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--mortadelo-y-filem-n-contra-jimmy-el-cachondo--2014",
+      "franchise_id": "mortadelo-y-filemon",
+      "continuity_id": "mortadelo-y-filemon--series-and-films",
+      "membership_type": "included",
+      "notes": null
     }
   ],
   "continuities": [
@@ -35979,6 +36849,61 @@
       "name": "Main continuity",
       "canonical_status": "unreviewed",
       "notes": null
+    },
+    {
+      "id": "matrix--animation",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "matrix",
+      "name": "Animation",
+      "canonical_status": "unreviewed",
+      "notes": "The anthology of animated shorts counts as one item."
+    },
+    {
+      "id": "shin-chan--tv-series",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "shin-chan",
+      "name": "TV series",
+      "canonical_status": "unreviewed",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "naruto",
+      "name": "Anime and films",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: spin-off and film canon not reviewed."
+    },
+    {
+      "id": "attack-on-titan--anime-and-films",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "attack-on-titan",
+      "name": "Anime and films",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: recap films and live-action adaptations are not reviewed as canon."
+    },
+    {
+      "id": "mortadelo-y-filemon--series-and-films",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "mortadelo-y-filemon",
+      "name": "Series and films",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity."
     }
   ],
   "sequences": [
@@ -39295,6 +40220,76 @@
       "ordering_basis": "editorial_proposal_title_level",
       "certainty": "editorial_proposal",
       "notes": "The revived series continues the original series story. Editorial proposal, unverified."
+    },
+    {
+      "id": "matrix--animation--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "matrix",
+      "continuity_id": "matrix--animation",
+      "name": "Animation: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "shin-chan--tv-series--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "shin-chan",
+      "continuity_id": "shin-chan--tv-series",
+      "name": "TV series: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "naruto--anime-and-films--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "naruto",
+      "continuity_id": "naruto--anime-and-films",
+      "name": "Anime and films: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "attack-on-titan--anime-and-films--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "attack-on-titan",
+      "continuity_id": "attack-on-titan--anime-and-films",
+      "name": "Anime and films: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "mortadelo-y-filemon--series-and-films--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "mortadelo-y-filemon",
+      "continuity_id": "mortadelo-y-filemon--series-and-films",
+      "name": "Series and films: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
     }
   ],
   "sequence_items": [
@@ -49298,6 +50293,195 @@
       "sequence_id": "doctor-who--main-continuity--narrative",
       "work_id": "series--doctor-who-revived-series",
       "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "matrix--animation--release",
+      "work_id": "film--the-animatrix--2003",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "shin-chan--tv-series--release",
+      "work_id": "series--crayon-shin-chan",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "series--naruto",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "series--naruto-shippuden",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "series--boruto-naruto-next-generations",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "film--naruto-the-movie-ninja-clash-in-the-land-of-snow--2004",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "film--naruto-the-movie-2-legend-of-the-stone-of-gelel--2005",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "film--naruto-the-movie-3-guardians-of-the-crescent-moon-kingdom--2006",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "film--naruto-shippuden-the-movie--2007",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "film--naruto-shippuden-the-movie-bonds--2008",
+      "position": 8,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "film--naruto-shippuden-the-movie-the-will-of-fire--2009",
+      "position": 9,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "film--naruto-shippuden-the-movie-the-lost-tower--2010",
+      "position": 10,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "film--naruto-shippuden-the-movie-blood-prison--2011",
+      "position": 11,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "film--road-to-ninja-naruto-the-movie--2012",
+      "position": 12,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "film--the-last-naruto-the-movie--2014",
+      "position": 13,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "naruto--anime-and-films--release",
+      "work_id": "film--boruto-naruto-the-movie--2015",
+      "position": 14,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "attack-on-titan--anime-and-films--release",
+      "work_id": "series--attack-on-titan",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "attack-on-titan--anime-and-films--release",
+      "work_id": "film--attack-on-titan-crimson-bow-and-arrow--2014",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "attack-on-titan--anime-and-films--release",
+      "work_id": "film--attack-on-titan-wings-of-freedom--2015",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "attack-on-titan--anime-and-films--release",
+      "work_id": "film--attack-on-titan--2015",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "attack-on-titan--anime-and-films--release",
+      "work_id": "film--attack-on-titan-end-of-the-world--2015",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "attack-on-titan--anime-and-films--release",
+      "work_id": "film--attack-on-titan-chronicle--2020",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "attack-on-titan--anime-and-films--release",
+      "work_id": "film--attack-on-titan-the-last-attack--2024",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "mortadelo-y-filemon--series-and-films--release",
+      "work_id": "series--mortadelo-y-filem-n",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "mortadelo-y-filemon--series-and-films--release",
+      "work_id": "film--la-gran-aventura-de-mortadelo-y-filem-n--2003",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "mortadelo-y-filemon--series-and-films--release",
+      "work_id": "film--mortadelo-y-filem-n-misi-n-salvar-la-tierra--2008",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "mortadelo-y-filemon--series-and-films--release",
+      "work_id": "film--mortadelo-y-filem-n-contra-jimmy-el-cachondo--2014",
+      "position": 4,
       "position_certainty": "needs_review",
       "simultaneous_group": null
     }
