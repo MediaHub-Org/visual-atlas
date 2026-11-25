@@ -1,7 +1,7 @@
 {
   "approved_by_owner": true,
   "approved_on": "2026-11-24",
-  "note": "A family groups franchises the owner says share one fictional world. It never merges continuities: each keeps its own lane. same_world only labels a lane as the same world as another; it does not move works. Source: docs/proposals/universe-families.md. 2026-11-24: the comics franchises of Marvel and DC were added to the approved families (owner: \"muchos otros de Marvel\"); DC is no longer labelled live action.",
+  "note": "A family groups franchises the owner says share one fictional world. It never merges continuities: each keeps its own lane. same_world only labels a lane as the same world as another; it does not move works. Source: docs/proposals/universe-families.md. 2026-11-24: the comics franchises of Marvel and DC were added to the approved families (owner: \"muchos otros de Marvel\"); DC is no longer labelled live action. 2026-11-25: Disney / Pixar added at the owner's request as a FAN THEORY (the Pixar Theory and similar), not something the studios confirm. Marvel and Star Wars are Disney-owned but keep their own worlds; The Muppets, Pirates and Indiana Jones are not part of the theory.",
   "families": [
     {
       "id": "marvel",
@@ -60,6 +60,17 @@
           "as_continuity": "dceu--dceu"
         }
       ]
+    },
+    {
+      "id": "disney-pixar",
+      "name": "Disney / Pixar",
+      "theory": true,
+      "franchises": [
+        "toy-story",
+        "pixar",
+        "disney-animation"
+      ],
+      "same_world": []
     }
   ]
 }

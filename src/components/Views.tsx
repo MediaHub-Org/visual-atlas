@@ -75,7 +75,9 @@ export function SequenceView({dataset, works, t, posters, medium = 'video', onSe
         <summary>
           <strong>{block.name}</strong>
           <small className="basis">{read ? '' : `${block.lanes.length} ${t('universe.lanesCount')} · `}{qty(t, block.members.length, 'noun.work', 'noun.works')}</small>
-          {block.family && <span className="badge" title={t('universe.familyHint')}>{t('universe.family')}</span>}
+          {block.family && (dataset.families.find(family => family.id === block.id)?.theory
+            ? <span className="badge proposal" title={t('universe.theoryHint')}>{t('universe.theory')}</span>
+            : <span className="badge" title={t('universe.familyHint')}>{t('universe.family')}</span>)}
           {!read && <span className="badge proposal" title={t('sequence.badgeHint')}>{t('sequence.badge')}</span>}
         </summary>
         {onAxisNow && block.calendar && <AxisView dataset={dataset} works={works} calendarId={block.calendar.id} posters={posters} t={t} onSelect={onSelect}/>}

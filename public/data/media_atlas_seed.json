@@ -2221,6 +2221,34 @@
       "description": null,
       "loaded_unique_film_count": null,
       "count_claim_matches_loaded": null
+    },
+    {
+      "id": "pixar",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Pixar",
+      "editorial_count_claim": null,
+      "count_scope": "Loaded works under the owner's 2026-11-25 request; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "disney-animation",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Walt Disney Animation Studios",
+      "editorial_count_claim": null,
+      "count_scope": "Loaded works under the owner's 2026-11-25 request; not a verified or derived count",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
     }
   ],
   "franchise_company_associations": [
@@ -4897,6 +4925,58 @@
       ],
       "franchise_id": "expendables",
       "company_id": "millennium-media",
+      "relationship_type": "catalog_association",
+      "ownership_asserted": false,
+      "valid_from": null,
+      "valid_to": null
+    },
+    {
+      "id": "pixar--disney",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "pixar",
+      "company_id": "disney",
+      "relationship_type": "catalog_association",
+      "ownership_asserted": false,
+      "valid_from": null,
+      "valid_to": null
+    },
+    {
+      "id": "pixar--pixar",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "pixar",
+      "company_id": "pixar",
+      "relationship_type": "catalog_association",
+      "ownership_asserted": false,
+      "valid_from": null,
+      "valid_to": null
+    },
+    {
+      "id": "disney-animation--disney",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "disney-animation",
+      "company_id": "disney",
+      "relationship_type": "catalog_association",
+      "ownership_asserted": false,
+      "valid_from": null,
+      "valid_to": null
+    },
+    {
+      "id": "disney-animation--walt-disney-pictures",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "disney-animation",
+      "company_id": "walt-disney-pictures",
       "relationship_type": "catalog_association",
       "ownership_asserted": false,
       "valid_from": null,
@@ -24496,6 +24576,1854 @@
       "synopsis": null,
       "artwork": null,
       "episode_count": null
+    },
+    {
+      "id": "film--a-bug-s-life--1998",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "A Bug's Life",
+      "original_title": null,
+      "release_year": 1998,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--monsters-inc--2001",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Monsters, Inc.",
+      "original_title": null,
+      "release_year": 2001,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--finding-nemo--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Finding Nemo",
+      "original_title": null,
+      "release_year": 2003,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-incredibles--2004",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Incredibles",
+      "original_title": null,
+      "release_year": 2004,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--cars--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Cars",
+      "original_title": null,
+      "release_year": 2006,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--ratatouille--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Ratatouille",
+      "original_title": null,
+      "release_year": 2007,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--wall-e--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "WALL-E",
+      "original_title": null,
+      "release_year": 2008,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--up--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Up",
+      "original_title": null,
+      "release_year": 2009,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--cars-2--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Cars 2",
+      "original_title": null,
+      "release_year": 2011,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--brave--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Brave",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--monsters-university--2013",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Monsters University",
+      "original_title": null,
+      "release_year": 2013,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--inside-out--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Inside Out",
+      "original_title": null,
+      "release_year": 2015,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-good-dinosaur--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Good Dinosaur",
+      "original_title": null,
+      "release_year": 2015,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--finding-dory--2016",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Finding Dory",
+      "original_title": null,
+      "release_year": 2016,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--cars-3--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Cars 3",
+      "original_title": null,
+      "release_year": 2017,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--coco--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Coco",
+      "original_title": null,
+      "release_year": 2017,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--incredibles-2--2018",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Incredibles 2",
+      "original_title": null,
+      "release_year": 2018,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--onward--2020",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Onward",
+      "original_title": null,
+      "release_year": 2020,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--soul--2020",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Soul",
+      "original_title": null,
+      "release_year": 2020,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--luca--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Luca",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--turning-red--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Turning Red",
+      "original_title": null,
+      "release_year": 2022,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--elemental--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Elemental",
+      "original_title": null,
+      "release_year": 2023,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--inside-out-2--2024",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Inside Out 2",
+      "original_title": null,
+      "release_year": 2024,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--elio--2025",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Elio",
+      "original_title": null,
+      "release_year": 2025,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--snow-white-and-the-seven-dwarfs--1937",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Snow White and the Seven Dwarfs",
+      "original_title": null,
+      "release_year": 1937,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--pinocchio--1940",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Pinocchio",
+      "original_title": null,
+      "release_year": 1940,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--fantasia--1940",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Fantasia",
+      "original_title": null,
+      "release_year": 1940,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--dumbo--1941",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Dumbo",
+      "original_title": null,
+      "release_year": 1941,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--bambi--1942",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Bambi",
+      "original_title": null,
+      "release_year": 1942,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--saludos-amigos--1942",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Saludos Amigos",
+      "original_title": null,
+      "release_year": 1942,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-three-caballeros--1944",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Three Caballeros",
+      "original_title": null,
+      "release_year": 1944,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--make-mine-music--1946",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Make Mine Music",
+      "original_title": null,
+      "release_year": 1946,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--fun-and-fancy-free--1947",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Fun and Fancy Free",
+      "original_title": null,
+      "release_year": 1947,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--melody-time--1948",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Melody Time",
+      "original_title": null,
+      "release_year": 1948,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-adventures-of-ichabod-and-mr-toad--1949",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Adventures of Ichabod and Mr. Toad",
+      "original_title": null,
+      "release_year": 1949,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--cinderella--1950",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Cinderella",
+      "original_title": null,
+      "release_year": 1950,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--alice-in-wonderland--1951",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Alice in Wonderland",
+      "original_title": null,
+      "release_year": 1951,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--peter-pan--1953",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Peter Pan",
+      "original_title": null,
+      "release_year": 1953,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--lady-and-the-tramp--1955",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Lady and the Tramp",
+      "original_title": null,
+      "release_year": 1955,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--sleeping-beauty--1959",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Sleeping Beauty",
+      "original_title": null,
+      "release_year": 1959,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--one-hundred-and-one-dalmatians--1961",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "One Hundred and One Dalmatians",
+      "original_title": null,
+      "release_year": 1961,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-sword-in-the-stone--1963",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Sword in the Stone",
+      "original_title": null,
+      "release_year": 1963,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-jungle-book--1967",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Jungle Book",
+      "original_title": null,
+      "release_year": 1967,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-aristocats--1970",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Aristocats",
+      "original_title": null,
+      "release_year": 1970,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--robin-hood--1973",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Robin Hood",
+      "original_title": null,
+      "release_year": 1973,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-many-adventures-of-winnie-the-pooh--1977",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Many Adventures of Winnie the Pooh",
+      "original_title": null,
+      "release_year": 1977,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-rescuers--1977",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Rescuers",
+      "original_title": null,
+      "release_year": 1977,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-fox-and-the-hound--1981",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Fox and the Hound",
+      "original_title": null,
+      "release_year": 1981,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-black-cauldron--1985",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Black Cauldron",
+      "original_title": null,
+      "release_year": 1985,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-great-mouse-detective--1986",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Great Mouse Detective",
+      "original_title": null,
+      "release_year": 1986,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--oliver-company--1988",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Oliver & Company",
+      "original_title": null,
+      "release_year": 1988,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-little-mermaid--1989",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Little Mermaid",
+      "original_title": null,
+      "release_year": 1989,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-rescuers-down-under--1990",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Rescuers Down Under",
+      "original_title": null,
+      "release_year": 1990,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--beauty-and-the-beast--1991",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Beauty and the Beast",
+      "original_title": null,
+      "release_year": 1991,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--aladdin--1992",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Aladdin",
+      "original_title": null,
+      "release_year": 1992,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-lion-king--1994",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Lion King",
+      "original_title": null,
+      "release_year": 1994,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--pocahontas--1995",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Pocahontas",
+      "original_title": null,
+      "release_year": 1995,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-hunchback-of-notre-dame--1996",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Hunchback of Notre Dame",
+      "original_title": null,
+      "release_year": 1996,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--hercules--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Hercules",
+      "original_title": null,
+      "release_year": 1997,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--mulan--1998",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Mulan",
+      "original_title": null,
+      "release_year": 1998,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--tarzan--1999",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Tarzan",
+      "original_title": null,
+      "release_year": 1999,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--fantasia-2000--1999",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Fantasia 2000",
+      "original_title": null,
+      "release_year": 1999,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--dinosaur--2000",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Dinosaur",
+      "original_title": null,
+      "release_year": 2000,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-emperor-s-new-groove--2000",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Emperor's New Groove",
+      "original_title": null,
+      "release_year": 2000,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--atlantis-the-lost-empire--2001",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Atlantis: The Lost Empire",
+      "original_title": null,
+      "release_year": 2001,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--lilo-stitch--2002",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Lilo & Stitch",
+      "original_title": null,
+      "release_year": 2002,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--treasure-planet--2002",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Treasure Planet",
+      "original_title": null,
+      "release_year": 2002,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--brother-bear--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Brother Bear",
+      "original_title": null,
+      "release_year": 2003,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--home-on-the-range--2004",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Home on the Range",
+      "original_title": null,
+      "release_year": 2004,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--chicken-little--2005",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Chicken Little",
+      "original_title": null,
+      "release_year": 2005,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--meet-the-robinsons--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Meet the Robinsons",
+      "original_title": null,
+      "release_year": 2007,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--bolt--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Bolt",
+      "original_title": null,
+      "release_year": 2008,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--the-princess-and-the-frog--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "The Princess and the Frog",
+      "original_title": null,
+      "release_year": 2009,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--tangled--2010",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Tangled",
+      "original_title": null,
+      "release_year": 2010,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--winnie-the-pooh--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Winnie the Pooh",
+      "original_title": null,
+      "release_year": 2011,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--wreck-it-ralph--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Wreck-It Ralph",
+      "original_title": null,
+      "release_year": 2012,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--frozen--2013",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Frozen",
+      "original_title": null,
+      "release_year": 2013,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--big-hero-6--2014",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Big Hero 6",
+      "original_title": null,
+      "release_year": 2014,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--zootopia--2016",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Zootopia",
+      "original_title": null,
+      "release_year": 2016,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--moana--2016",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Moana",
+      "original_title": null,
+      "release_year": 2016,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--ralph-breaks-the-internet--2018",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Ralph Breaks the Internet",
+      "original_title": null,
+      "release_year": 2018,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--frozen-ii--2019",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Frozen II",
+      "original_title": null,
+      "release_year": 2019,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--raya-and-the-last-dragon--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Raya and the Last Dragon",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--encanto--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Encanto",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--strange-world--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Strange World",
+      "original_title": null,
+      "release_year": 2022,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--wish--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Wish",
+      "original_title": null,
+      "release_year": 2023,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--moana-2--2024",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Moana 2",
+      "original_title": null,
+      "release_year": 2024,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
+    },
+    {
+      "id": "film--zootopia-2--2025",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Zootopia 2",
+      "original_title": null,
+      "release_year": 2025,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null
     }
   ],
   "memberships": [
@@ -35278,6 +37206,1062 @@
       "continuity_id": "mortadelo-y-filemon--series-and-films",
       "membership_type": "included",
       "notes": null
+    },
+    {
+      "id": "pixar--films--film--a-bug-s-life--1998",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--a-bug-s-life--1998",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--monsters-inc--2001",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--monsters-inc--2001",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--finding-nemo--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--finding-nemo--2003",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--the-incredibles--2004",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-incredibles--2004",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--cars--2006",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--cars--2006",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--ratatouille--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--ratatouille--2007",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--wall-e--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--wall-e--2008",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--up--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--up--2009",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--cars-2--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--cars-2--2011",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--brave--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--brave--2012",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--monsters-university--2013",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--monsters-university--2013",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--inside-out--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--inside-out--2015",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--the-good-dinosaur--2015",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-good-dinosaur--2015",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--finding-dory--2016",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--finding-dory--2016",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--cars-3--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--cars-3--2017",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--coco--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--coco--2017",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--incredibles-2--2018",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--incredibles-2--2018",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--onward--2020",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--onward--2020",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--soul--2020",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--soul--2020",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--luca--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--luca--2021",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--turning-red--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--turning-red--2022",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--elemental--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--elemental--2023",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--inside-out-2--2024",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--inside-out-2--2024",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--elio--2025",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--elio--2025",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--snow-white-and-the-seven-dwarfs--1937",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--snow-white-and-the-seven-dwarfs--1937",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--pinocchio--1940",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--pinocchio--1940",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--fantasia--1940",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--fantasia--1940",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--dumbo--1941",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--dumbo--1941",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--bambi--1942",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--bambi--1942",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--saludos-amigos--1942",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--saludos-amigos--1942",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-three-caballeros--1944",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-three-caballeros--1944",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--make-mine-music--1946",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--make-mine-music--1946",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--fun-and-fancy-free--1947",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--fun-and-fancy-free--1947",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--melody-time--1948",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--melody-time--1948",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-adventures-of-ichabod-and-mr-toad--1949",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-adventures-of-ichabod-and-mr-toad--1949",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--cinderella--1950",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--cinderella--1950",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--alice-in-wonderland--1951",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--alice-in-wonderland--1951",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--peter-pan--1953",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--peter-pan--1953",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--lady-and-the-tramp--1955",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--lady-and-the-tramp--1955",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--sleeping-beauty--1959",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--sleeping-beauty--1959",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--one-hundred-and-one-dalmatians--1961",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--one-hundred-and-one-dalmatians--1961",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-sword-in-the-stone--1963",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-sword-in-the-stone--1963",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-jungle-book--1967",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-jungle-book--1967",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-aristocats--1970",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-aristocats--1970",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--robin-hood--1973",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--robin-hood--1973",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-many-adventures-of-winnie-the-pooh--1977",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-many-adventures-of-winnie-the-pooh--1977",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-rescuers--1977",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-rescuers--1977",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-fox-and-the-hound--1981",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-fox-and-the-hound--1981",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-black-cauldron--1985",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-black-cauldron--1985",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-great-mouse-detective--1986",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-great-mouse-detective--1986",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--oliver-company--1988",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--oliver-company--1988",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-little-mermaid--1989",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-little-mermaid--1989",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-rescuers-down-under--1990",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-rescuers-down-under--1990",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--beauty-and-the-beast--1991",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--beauty-and-the-beast--1991",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--aladdin--1992",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--aladdin--1992",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-lion-king--1994",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-lion-king--1994",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--pocahontas--1995",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--pocahontas--1995",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-hunchback-of-notre-dame--1996",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-hunchback-of-notre-dame--1996",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--hercules--1997",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--hercules--1997",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--mulan--1998",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--mulan--1998",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--tarzan--1999",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--tarzan--1999",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--fantasia-2000--1999",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--fantasia-2000--1999",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--dinosaur--2000",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--dinosaur--2000",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-emperor-s-new-groove--2000",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-emperor-s-new-groove--2000",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--atlantis-the-lost-empire--2001",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--atlantis-the-lost-empire--2001",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--lilo-stitch--2002",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--lilo-stitch--2002",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--treasure-planet--2002",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--treasure-planet--2002",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--brother-bear--2003",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--brother-bear--2003",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--home-on-the-range--2004",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--home-on-the-range--2004",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--chicken-little--2005",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--chicken-little--2005",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--meet-the-robinsons--2007",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--meet-the-robinsons--2007",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--bolt--2008",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--bolt--2008",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--the-princess-and-the-frog--2009",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--the-princess-and-the-frog--2009",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--tangled--2010",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--tangled--2010",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--winnie-the-pooh--2011",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--winnie-the-pooh--2011",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--wreck-it-ralph--2012",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--wreck-it-ralph--2012",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--frozen--2013",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--frozen--2013",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--big-hero-6--2014",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--big-hero-6--2014",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--zootopia--2016",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--zootopia--2016",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--moana--2016",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--moana--2016",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--ralph-breaks-the-internet--2018",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--ralph-breaks-the-internet--2018",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--frozen-ii--2019",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--frozen-ii--2019",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--raya-and-the-last-dragon--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--raya-and-the-last-dragon--2021",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--encanto--2021",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--encanto--2021",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--strange-world--2022",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--strange-world--2022",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--wish--2023",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--wish--2023",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--moana-2--2024",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--moana-2--2024",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--zootopia-2--2025",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--zootopia-2--2025",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
     }
   ],
   "continuities": [
@@ -36904,6 +39888,28 @@
       "name": "Series and films",
       "canonical_status": "unreviewed",
       "notes": "Floating continuity."
+    },
+    {
+      "id": "pixar--films",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "pixar",
+      "name": "Pixar films (besides Toy Story)",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity; Toy Story and Lightyear sit in their own franchise."
+    },
+    {
+      "id": "disney-animation--canon",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "disney-animation",
+      "name": "Animated feature canon",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: the studio's numbered animated features, package films included."
     }
   ],
   "sequences": [
@@ -40286,6 +43292,34 @@
       "franchise_id": "mortadelo-y-filemon",
       "continuity_id": "mortadelo-y-filemon--series-and-films",
       "name": "Series and films: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "name": "Pixar films (besides Toy Story): release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "name": "Animated feature canon: release order",
       "sequence_type": "release",
       "ordering_basis": "release_year_with_editorial_ties",
       "certainty": "editorial_proposal",
@@ -50482,6 +53516,622 @@
       "sequence_id": "mortadelo-y-filemon--series-and-films--release",
       "work_id": "film--mortadelo-y-filem-n-contra-jimmy-el-cachondo--2014",
       "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--a-bug-s-life--1998",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--monsters-inc--2001",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--finding-nemo--2003",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--the-incredibles--2004",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--cars--2006",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--ratatouille--2007",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--wall-e--2008",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--up--2009",
+      "position": 8,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--cars-2--2011",
+      "position": 9,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--brave--2012",
+      "position": 10,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--monsters-university--2013",
+      "position": 11,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--inside-out--2015",
+      "position": 12,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--the-good-dinosaur--2015",
+      "position": 13,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--finding-dory--2016",
+      "position": 14,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--cars-3--2017",
+      "position": 15,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--coco--2017",
+      "position": 16,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--incredibles-2--2018",
+      "position": 17,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--onward--2020",
+      "position": 18,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--soul--2020",
+      "position": 19,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--luca--2021",
+      "position": 20,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--turning-red--2022",
+      "position": 21,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--elemental--2023",
+      "position": 22,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--inside-out-2--2024",
+      "position": 23,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--elio--2025",
+      "position": 24,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--snow-white-and-the-seven-dwarfs--1937",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--pinocchio--1940",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--fantasia--1940",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--dumbo--1941",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--bambi--1942",
+      "position": 5,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--saludos-amigos--1942",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-three-caballeros--1944",
+      "position": 7,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--make-mine-music--1946",
+      "position": 8,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--fun-and-fancy-free--1947",
+      "position": 9,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--melody-time--1948",
+      "position": 10,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-adventures-of-ichabod-and-mr-toad--1949",
+      "position": 11,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--cinderella--1950",
+      "position": 12,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--alice-in-wonderland--1951",
+      "position": 13,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--peter-pan--1953",
+      "position": 14,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--lady-and-the-tramp--1955",
+      "position": 15,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--sleeping-beauty--1959",
+      "position": 16,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--one-hundred-and-one-dalmatians--1961",
+      "position": 17,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-sword-in-the-stone--1963",
+      "position": 18,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-jungle-book--1967",
+      "position": 19,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-aristocats--1970",
+      "position": 20,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--robin-hood--1973",
+      "position": 21,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-many-adventures-of-winnie-the-pooh--1977",
+      "position": 22,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-rescuers--1977",
+      "position": 23,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-fox-and-the-hound--1981",
+      "position": 24,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-black-cauldron--1985",
+      "position": 25,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-great-mouse-detective--1986",
+      "position": 26,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--oliver-company--1988",
+      "position": 27,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-little-mermaid--1989",
+      "position": 28,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-rescuers-down-under--1990",
+      "position": 29,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--beauty-and-the-beast--1991",
+      "position": 30,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--aladdin--1992",
+      "position": 31,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-lion-king--1994",
+      "position": 32,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--pocahontas--1995",
+      "position": 33,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-hunchback-of-notre-dame--1996",
+      "position": 34,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--hercules--1997",
+      "position": 35,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--mulan--1998",
+      "position": 36,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--tarzan--1999",
+      "position": 37,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--fantasia-2000--1999",
+      "position": 38,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--dinosaur--2000",
+      "position": 39,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-emperor-s-new-groove--2000",
+      "position": 40,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--atlantis-the-lost-empire--2001",
+      "position": 41,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--lilo-stitch--2002",
+      "position": 42,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--treasure-planet--2002",
+      "position": 43,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--brother-bear--2003",
+      "position": 44,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--home-on-the-range--2004",
+      "position": 45,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--chicken-little--2005",
+      "position": 46,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--meet-the-robinsons--2007",
+      "position": 47,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--bolt--2008",
+      "position": 48,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--the-princess-and-the-frog--2009",
+      "position": 49,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--tangled--2010",
+      "position": 50,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--winnie-the-pooh--2011",
+      "position": 51,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--wreck-it-ralph--2012",
+      "position": 52,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--frozen--2013",
+      "position": 53,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--big-hero-6--2014",
+      "position": 54,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--zootopia--2016",
+      "position": 55,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--moana--2016",
+      "position": 56,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--ralph-breaks-the-internet--2018",
+      "position": 57,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--frozen-ii--2019",
+      "position": 58,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--raya-and-the-last-dragon--2021",
+      "position": 59,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--encanto--2021",
+      "position": 60,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--strange-world--2022",
+      "position": 61,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--wish--2023",
+      "position": 62,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--moana-2--2024",
+      "position": 63,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--zootopia-2--2025",
+      "position": 64,
       "position_certainty": "needs_review",
       "simultaneous_group": null
     }

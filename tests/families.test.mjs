@@ -22,6 +22,10 @@ describe('parseFamilies', () => {
     assert.deepEqual(family.franchiseIds, ['marvel', 'x-men', 'spider-man']);
     assert.deepEqual(family.sameWorld, [{ continuityId: 'spider-man--mcu-solo-films', asContinuityId: 'marvel--main-universe' }]);
   });
+  it('keeps a fan-theory flag, false unless the file says so', () => {
+    const families = parseFamilies({ families: [{ ...marvel, theory: true }, { id: 'dc', name: 'DC', franchises: ['batman'] }] });
+    assert.deepEqual(families.map(f => f.theory), [true, false]);
+  });
   it('drops malformed rows instead of throwing', () => {
     assert.deepEqual(parseFamilies(null), []);
     assert.deepEqual(parseFamilies({ families: [{ id: 3 }, { id: 'a', name: 'A', franchises: 'x' }, { id: 'b', name: 'B', franchises: [] }] }), []);
@@ -65,9 +69,10 @@ describe('the committed families file', () => {
       }
     }
   });
-  it('holds exactly the families the owner approved (Marvel, DC) and not Insidious', () => {
+  it('holds exactly the families the owner approved (Marvel, DC, Disney/Pixar as a fan theory) and not Insidious', () => {
     const families = parseFamilies(file);
-    assert.deepEqual(families.map(f => f.id), ['marvel', 'dc']);
+    assert.deepEqual(families.map(f => f.id), ['marvel', 'dc', 'disney-pixar']);
+    assert.deepEqual(families.map(f => f.theory), [false, false, true]);
     assert.ok(!families.some(f => f.franchiseIds.includes('insidious')));
     assert.ok(file.approved_by_owner === true);
   });

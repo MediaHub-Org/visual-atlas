@@ -4,7 +4,8 @@
 // `node --test` can run it directly (tests/families.test.mjs).
 
 export type SameWorld = { continuityId: string; asContinuityId: string };
-export type Family = { id: string; name: string; franchiseIds: string[]; sameWorld: SameWorld[] };
+/** `theory`: the shared world is a fan theory, not something the studios confirm. */
+export type Family = { id: string; name: string; franchiseIds: string[]; sameWorld: SameWorld[]; theory: boolean };
 export type Block = { id: string; name: string; franchiseIds: string[]; family: boolean };
 
 const isText = (value: unknown): value is string => typeof value === 'string' && value.length > 0;
@@ -24,7 +25,7 @@ export function parseFamilies(raw: unknown): Family[] {
     const sameWorld = notes
       .filter(note => note && isText(note.continuity) && isText(note.as_continuity))
       .map(note => ({ continuityId: note.continuity as string, asContinuityId: note.as_continuity as string }));
-    families.push({ id: row.id, name: row.name, franchiseIds, sameWorld });
+    families.push({ id: row.id, name: row.name, franchiseIds, sameWorld, theory: row.theory === true });
   }
   return families;
 }
