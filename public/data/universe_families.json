@@ -16,7 +16,12 @@
         "iron-man",
         "thor",
         "daredevil",
-        "hulk"
+        "hulk",
+        "doctor-strange",
+        "deadpool",
+        "wolverine",
+        "guardians-of-the-galaxy",
+        "punisher"
       ],
       "same_world": [
         {
@@ -38,7 +43,9 @@
         "justice-league",
         "flash",
         "green-lantern",
-        "sandman"
+        "sandman",
+        "aquaman",
+        "teen-titans"
       ],
       "same_world": [
         {

@@ -444,6 +444,266 @@
       "original_title": null,
       "release_year": null,
       "release_precision": null
+    },
+    {
+      "id": "text--slam-dunk-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Slam Dunk",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--death-note-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Death Note",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--akira-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Akira",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--rurouni-kenshin-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Rurouni Kenshin",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--yu-yu-hakusho-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Yu Yu Hakusho",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--ranma-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Ranma ½",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--captain-tsubasa-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Captain Tsubasa",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--my-hero-academia-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "My Hero Academia",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--demon-slayer-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Demon Slayer: Kimetsu no Yaiba",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--jujutsu-kaisen-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Jujutsu Kaisen",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--chainsaw-man-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Chainsaw Man",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--monster-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Monster",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--20th-century-boys-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "20th Century Boys",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--fairy-tail-manga",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "manga_series",
+      "title": "Fairy Tail",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--doctor-strange-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Doctor Strange",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--deadpool-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Deadpool",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--wolverine-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Wolverine",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--guardians-of-the-galaxy-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Guardians of the Galaxy",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--punisher-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "The Punisher",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--aquaman-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Aquaman",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--teen-titans-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Teen Titans",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--spawn-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Spawn",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--invincible-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Invincible",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--sin-city-comic",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "comic_series",
+      "title": "Sin City",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--watchmen",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "graphic_novel",
+      "title": "Watchmen",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
+    },
+    {
+      "id": "text--v-for-vendetta",
+      "review_status": "needs_review",
+      "source_ids": [],
+      "format": "graphic_novel",
+      "title": "V for Vendetta",
+      "original_title": null,
+      "release_year": null,
+      "release_precision": null
     }
   ],
   "franchises": [
@@ -582,6 +842,110 @@
     {
       "id": "lucky-luke",
       "name": "Lucky Luke"
+    },
+    {
+      "id": "slam-dunk",
+      "name": "Slam Dunk"
+    },
+    {
+      "id": "death-note",
+      "name": "Death Note"
+    },
+    {
+      "id": "akira",
+      "name": "Akira"
+    },
+    {
+      "id": "rurouni-kenshin",
+      "name": "Rurouni Kenshin"
+    },
+    {
+      "id": "yu-yu-hakusho",
+      "name": "Yu Yu Hakusho"
+    },
+    {
+      "id": "ranma",
+      "name": "Ranma ½"
+    },
+    {
+      "id": "captain-tsubasa",
+      "name": "Captain Tsubasa"
+    },
+    {
+      "id": "my-hero-academia",
+      "name": "My Hero Academia"
+    },
+    {
+      "id": "demon-slayer",
+      "name": "Demon Slayer: Kimetsu no Yaiba"
+    },
+    {
+      "id": "jujutsu-kaisen",
+      "name": "Jujutsu Kaisen"
+    },
+    {
+      "id": "chainsaw-man",
+      "name": "Chainsaw Man"
+    },
+    {
+      "id": "monster",
+      "name": "Monster"
+    },
+    {
+      "id": "20th-century-boys",
+      "name": "20th Century Boys"
+    },
+    {
+      "id": "fairy-tail",
+      "name": "Fairy Tail"
+    },
+    {
+      "id": "doctor-strange",
+      "name": "Doctor Strange"
+    },
+    {
+      "id": "deadpool",
+      "name": "Deadpool"
+    },
+    {
+      "id": "wolverine",
+      "name": "Wolverine"
+    },
+    {
+      "id": "guardians-of-the-galaxy",
+      "name": "Guardians of the Galaxy"
+    },
+    {
+      "id": "punisher",
+      "name": "The Punisher"
+    },
+    {
+      "id": "aquaman",
+      "name": "Aquaman"
+    },
+    {
+      "id": "teen-titans",
+      "name": "Teen Titans"
+    },
+    {
+      "id": "spawn",
+      "name": "Spawn"
+    },
+    {
+      "id": "invincible",
+      "name": "Invincible"
+    },
+    {
+      "id": "sin-city",
+      "name": "Sin City"
+    },
+    {
+      "id": "watchmen",
+      "name": "Watchmen"
+    },
+    {
+      "id": "v-for-vendetta",
+      "name": "V for Vendetta"
     }
   ],
   "continuities": [],
@@ -893,6 +1257,188 @@
       "franchise_id": "lucky-luke",
       "continuity_id": null,
       "source_ids": []
+    },
+    {
+      "id": "text-m-slam-dunk",
+      "work_id": "text--slam-dunk-manga",
+      "franchise_id": "slam-dunk",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-death-note",
+      "work_id": "text--death-note-manga",
+      "franchise_id": "death-note",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-akira",
+      "work_id": "text--akira-manga",
+      "franchise_id": "akira",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-rurouni-kenshin",
+      "work_id": "text--rurouni-kenshin-manga",
+      "franchise_id": "rurouni-kenshin",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-yu-yu-hakusho",
+      "work_id": "text--yu-yu-hakusho-manga",
+      "franchise_id": "yu-yu-hakusho",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-ranma",
+      "work_id": "text--ranma-manga",
+      "franchise_id": "ranma",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-captain-tsubasa",
+      "work_id": "text--captain-tsubasa-manga",
+      "franchise_id": "captain-tsubasa",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-my-hero-academia",
+      "work_id": "text--my-hero-academia-manga",
+      "franchise_id": "my-hero-academia",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-demon-slayer",
+      "work_id": "text--demon-slayer-manga",
+      "franchise_id": "demon-slayer",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-jujutsu-kaisen",
+      "work_id": "text--jujutsu-kaisen-manga",
+      "franchise_id": "jujutsu-kaisen",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-chainsaw-man",
+      "work_id": "text--chainsaw-man-manga",
+      "franchise_id": "chainsaw-man",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-monster",
+      "work_id": "text--monster-manga",
+      "franchise_id": "monster",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-20th-century-boys",
+      "work_id": "text--20th-century-boys-manga",
+      "franchise_id": "20th-century-boys",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-fairy-tail",
+      "work_id": "text--fairy-tail-manga",
+      "franchise_id": "fairy-tail",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-doctor-strange",
+      "work_id": "text--doctor-strange-comic",
+      "franchise_id": "doctor-strange",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-deadpool",
+      "work_id": "text--deadpool-comic",
+      "franchise_id": "deadpool",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-wolverine",
+      "work_id": "text--wolverine-comic",
+      "franchise_id": "wolverine",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-guardians-of-the-galaxy",
+      "work_id": "text--guardians-of-the-galaxy-comic",
+      "franchise_id": "guardians-of-the-galaxy",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-punisher",
+      "work_id": "text--punisher-comic",
+      "franchise_id": "punisher",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-aquaman",
+      "work_id": "text--aquaman-comic",
+      "franchise_id": "aquaman",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-teen-titans",
+      "work_id": "text--teen-titans-comic",
+      "franchise_id": "teen-titans",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-spawn",
+      "work_id": "text--spawn-comic",
+      "franchise_id": "spawn",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-invincible",
+      "work_id": "text--invincible-comic",
+      "franchise_id": "invincible",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-sin-city",
+      "work_id": "text--sin-city-comic",
+      "franchise_id": "sin-city",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-watchmen",
+      "work_id": "text--watchmen",
+      "franchise_id": "watchmen",
+      "continuity_id": null,
+      "source_ids": []
+    },
+    {
+      "id": "text-m-v-for-vendetta",
+      "work_id": "text--v-for-vendetta",
+      "franchise_id": "v-for-vendetta",
+      "continuity_id": null,
+      "source_ids": []
     }
   ],
   "adaptations": [
@@ -997,6 +1543,22 @@
       "source_work_id": "text--walking-dead-comic",
       "adapted_work_id": "series--the-walking-dead",
       "kind": "series",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-death-note-anime",
+      "source_work_id": "text--death-note-manga",
+      "adapted_work_id": "series--death-note-anime",
+      "kind": "anime",
+      "certainty": "unknown",
+      "notes": "editorial proposal, unverified"
+    },
+    {
+      "id": "text-ad-monster-anime",
+      "source_work_id": "text--monster-manga",
+      "adapted_work_id": "series--monster-anime",
+      "kind": "anime",
       "certainty": "unknown",
       "notes": "editorial proposal, unverified"
     }
