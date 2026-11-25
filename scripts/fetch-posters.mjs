@@ -16,6 +16,7 @@ import {join} from 'node:path';
 import {chooseMatches, dateOf, normalise, relaxedMatches} from './match.mjs';
 import {TMDB_CACHE_DAYS, tmdbExpiry} from './tmdb-cache.mjs';
 import {titleRules} from './title-rules.mjs';
+import {tmdbIds} from './tmdb-ids.mjs';
 
 const args = process.argv.slice(2);
 const flag = name => args.includes(`--${name}`);
@@ -87,6 +88,35 @@ async function persistManifest() {
   await writeFile(manifestPath, JSON.stringify(manifest, null, 2));
 }
 
+/** Downloads the JPEG poster of a matched TMDB record and writes it with its provenance sidecar. */
+async function savePoster(work, match) {
+  try {
+    const image = await fetch(`https://image.tmdb.org/t/p/w500${match.poster_path}`, {signal: AbortSignal.timeout(20000)});
+    if (!image.ok || !image.headers.get('content-type')?.startsWith('image/jpeg')) throw new Error('poster is not a JPEG');
+    const bytes = new Uint8Array(await image.arrayBuffer());
+    if (bytes.length > 5_000_000) throw new Error('poster too large');
+    await writeFile(join(posterDir, `${work.id}.jpg`), bytes);
+    const cachedAt = new Date();
+    await writeFile(join(posterDir, `${work.id}.jpg.json`), JSON.stringify({
+      source: 'TMDB',
+      poster: match.poster_path,
+      tmdbId: match.id,
+      matchedTitle: match.title ?? match.name,
+      releaseDate: match.release_date ?? match.first_air_date ?? null,
+      cachedAt: cachedAt.toISOString(),
+      expires: tmdbExpiry(cachedAt),
+      sha256: createHash('sha256').update(bytes).digest('hex'),
+    }, null, 2));
+    manifest.entries[work.id] = {status: 'saved', tmdbId: match.id, poster: match.poster_path};
+    saved += 1;
+    console.log(`${work.title} -> saved (TMDB #${match.id})`);
+  } catch (error) {
+    manifest.entries[work.id] = {status: 'error', message: String(error)};
+    missing += 1;
+    console.error(`${work.title}: ${error.message}`);
+  }
+}
+
 for (const work of works.slice(0, limit)) {
   const entry = manifest.entries[work.id];
   // The file is the source of truth: a manifest entry can outlive a deleted
@@ -95,6 +125,15 @@ for (const work of works.slice(0, limit)) {
   if (existing && !force) continue;
 
   const kind = work.format === 'film' ? 'movie' : 'tv';
+  // A known TMDB id (translated or renamed films): no title search, the record is fetched directly.
+  if (tmdbIds[work.id]) {
+    const detail = await api(`/${kind}/${tmdbIds[work.id]}`).catch(() => null);
+    if (!detail?.poster_path) { console.log(`${work.title}: TMDB #${tmdbIds[work.id]} has no poster — skipped`); skipped += 1; continue; }
+    if (dryRun) console.log(`${work.title} (${work.release_year}) -> TMDB #${detail.id} ${detail.title ?? detail.name} (known id)`);
+    else await savePoster(work, detail);
+    await new Promise(resolve => setTimeout(resolve, delayMs));
+    continue;
+  }
   const rule = titleRules[work.id];
   const query = rule?.query ?? work.title;
   const expectedYear = work.release_year ?? rule?.year;
@@ -168,31 +207,7 @@ for (const work of works.slice(0, limit)) {
     continue;
   }
 
-  try {
-    const image = await fetch(`https://image.tmdb.org/t/p/w500${match.poster_path}`, {signal: AbortSignal.timeout(20000)});
-    if (!image.ok || !image.headers.get('content-type')?.startsWith('image/jpeg')) throw new Error('poster is not a JPEG');
-    const bytes = new Uint8Array(await image.arrayBuffer());
-    if (bytes.length > 5_000_000) throw new Error('poster too large');
-    await writeFile(join(posterDir, `${work.id}.jpg`), bytes);
-    const cachedAt = new Date();
-    await writeFile(join(posterDir, `${work.id}.jpg.json`), JSON.stringify({
-      source: 'TMDB',
-      poster: match.poster_path,
-      tmdbId: match.id,
-      matchedTitle: match.title ?? match.name,
-      releaseDate: match.release_date ?? match.first_air_date ?? null,
-      cachedAt: cachedAt.toISOString(),
-      expires: tmdbExpiry(cachedAt),
-      sha256: createHash('sha256').update(bytes).digest('hex'),
-    }, null, 2));
-    manifest.entries[work.id] = {status: 'saved', tmdbId: match.id, poster: match.poster_path};
-    saved += 1;
-    console.log(`${work.title} -> saved (TMDB #${match.id})`);
-  } catch (error) {
-    manifest.entries[work.id] = {status: 'error', message: String(error)};
-    missing += 1;
-    console.error(`${work.title}: ${error.message}`);
-  }
+  await savePoster(work, match);
   await new Promise(resolve => setTimeout(resolve, delayMs));
   // Checkpoint so an interrupted long run does not lose its review notes.
   if ((saved + skipped + missing) % 25 === 0) await persistManifest();

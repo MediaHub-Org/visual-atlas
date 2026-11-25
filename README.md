@@ -41,7 +41,12 @@ claims. Remasters (3D re-releases of Disney and Fox films, special editions, res
 re-release a film or series; the **Remasters** chip in Watch shows or hides them (hidden by default, saved) and
 they carry a mark next to the title. Announced works (Bond 26, the HBO Harry Potter series) carry an "Announced" mark.
 Comics and manga have no remasters. Curated `creators` and `release_year` in `media_text_seed.json` win over the
-imported ones. The Watch format filter is Film, Series, Anime and Cartoon (Anime and Cartoon are flags across film and series). The **Density** chip opens a right-hand panel: card size (comfortable or compact)
+imported ones. The **Setting** filter (Earth / Fictional world / Not classified, `?setting=`) comes from `works.setting`; a work
+nobody has classified stays "Not classified" rather than being guessed. Covers that TMDB, AniList and Comic Vine
+could not match are backfilled by `node scripts/fetch-wikipedia-covers.mjs` (the lead image of a hand-listed Wikipedia
+article, local-only cache like the others, never a logo), and `scripts/tmdb-ids.mjs` lists the TMDB ids of translated
+or renamed films so `fetch-posters.mjs` reads them directly; a remaster without its own poster or credits shows those
+of the work it re-releases. The Watch format filter is Film, Series, Anime and Cartoon (Anime and Cartoon are flags across film and series). The **Density** chip opens a right-hand panel: card size (comfortable or compact)
 for Cards, In-universe order and Release timeline, and the spacing of years
 (equal, proportional or logarithmic) on the release timeline and the calendar axis; both are saved
 preferences. The timeline uses the full width for works released in the same year. Company groups come from the seed's unverified

@@ -48,7 +48,7 @@ export function DetailPanel({work, t, tags, onPerson, calendar, universe, onOpen
     };
   }, [onClose]);
 
-  const poster = posterUrl(work.id, posters);
+  const poster = posterUrl(work, posters);
   return <div className="overlay" onClick={onClose}>
     <aside className="detail" role="dialog" aria-modal="true" aria-labelledby="detail-title" onClick={event => event.stopPropagation()}>
       <button ref={closeRef} className="close" aria-label={t('detail.close')} onClick={onClose}>✕</button>

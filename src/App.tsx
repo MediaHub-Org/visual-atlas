@@ -2,7 +2,7 @@ import {useCallback, useEffect, useMemo, useState} from 'react';
 import {loadAtlas, type Dataset, type Work} from './data';
 import {useSettings} from './settings';
 import {qty} from './i18n';
-import {adaptationsFor, catalogueFranchises, clampFormat, clampView, FORMATS_BY_MEDIUM, matchesFormat, parseMedium, withoutRemasters, type Medium} from './medium';
+import {adaptationsFor, catalogueFranchises, clampFormat, clampView, FORMATS_BY_MEDIUM, matchesFormat, matchesSetting, parseMedium, parseSetting, settingCounts, withoutRemasters, type Medium, type SettingFilter} from './medium';
 import {MediaSwitch, Sidebar} from './components/Sidebar';
 import {WorkCard, type PosterLookup} from './components/WorkCard';
 import {TimelineView} from './components/TimelineView';
@@ -35,6 +35,7 @@ function readUrl() {
     franchise: params.get('franchise') ?? 'All',
     company: params.get('company') ?? '',
     universe: params.get('universe') ?? '',
+    setting: parseSetting(params.get('setting')),
     tag: params.get('tag') ?? '',
     person: params.get('person') ?? '',
     seq: params.get('seq') ?? '',
@@ -75,6 +76,7 @@ export default function App() {
   const [franchise, setFranchise] = useState(initial.franchise);
   const [company, setCompany] = useState(initial.company);
   const [universe, setUniverse] = useState(initial.universe);
+  const [setting, setSetting] = useState<SettingFilter>(initial.setting);
   const [tag, setTag] = useState(initial.tag);
   const [person, setPerson] = useState(initial.person);
   const [seq, setSeq] = useState(initial.seq);
@@ -118,6 +120,7 @@ export default function App() {
     if (franchise !== 'All') params.set('franchise', franchise);
     if (company) params.set('company', company);
     if (universe) params.set('universe', universe);
+    if (setting !== 'All') params.set('setting', setting);
     if (tag) params.set('tag', tag);
     if (person) params.set('person', person);
     if (seq) params.set('seq', seq);
@@ -131,12 +134,12 @@ export default function App() {
     if (needsPoster) params.set('noposter', '1');
     const next = `${location.pathname}${params.size ? `?${params}` : ''}`;
     if (next !== `${location.pathname}${location.search}`) history.replaceState(null, '', next);
-  }, [query, franchise, company, universe, tag, person, seq, at, axis, medium, format, sort, view, selected, needsPoster]);
+  }, [query, franchise, company, universe, setting, tag, person, seq, at, axis, medium, format, sort, view, selected, needsPoster]);
 
   useEffect(() => {
     const onPop = () => {
       const next = readUrl();
-      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setUniverse(next.universe); setTag(next.tag); setPerson(next.person); setSeq(next.seq); setAt(next.at); setAxis(next.axis);
+      setQuery(next.query); setFranchise(next.franchise); setCompany(next.company); setUniverse(next.universe); setSetting(next.setting); setTag(next.tag); setPerson(next.person); setSeq(next.seq); setAt(next.at); setAxis(next.axis);
       setMedium(next.media); setFormat(next.format); setSort(next.sort); setView(next.view);
       setSelected(next.work); setNeedsPoster(next.needsPoster);
     };
@@ -149,7 +152,7 @@ export default function App() {
   /** Open one universe's in-world order at a work, clearing filters that would hide part of it. */
   function openOrder(sequenceId: string, workId: string) {
     setMedium('video'); setSeq(sequenceId); setAt(workId); setAxis(false); setView('sequence'); setSelected('');
-    setQuery(''); setFranchise('All'); setCompany(''); setUniverse(''); setTag(''); setPerson(''); setFormat('All'); setNeedsPoster(false);
+    setQuery(''); setFranchise('All'); setCompany(''); setUniverse(''); setSetting('All'); setTag(''); setPerson(''); setFormat('All'); setNeedsPoster(false);
   }
   // A link or reload can name a work or franchise of the other catalogue: follow the work's medium
   // and drop a franchise this catalogue does not have, once the data is known.
@@ -164,7 +167,7 @@ export default function App() {
 
   /** The brand link: back to the root index, as a fresh visit (Watch, no filters). */
   function goHome() {
-    setMedium('video'); setQuery(''); setFranchise('All'); setCompany(''); setUniverse(''); setTag(''); setPerson(''); setFormat('All');
+    setMedium('video'); setQuery(''); setFranchise('All'); setCompany(''); setUniverse(''); setSetting('All'); setTag(''); setPerson(''); setFormat('All');
     setSeq(''); setAt(''); setAxis(false); setSort('releaseAsc'); setView('cards'); setSelected(''); setNeedsPoster(false);
     setSettingsOpen(false);
     window.scrollTo({top: 0});
@@ -201,6 +204,7 @@ export default function App() {
         (!family || work.memberships.some(m => family.franchiseIds.includes(m.franchiseId))) &&
         (!allowedFranchises || work.memberships.some(m => allowedFranchises.has(m.franchiseId))) &&
         matchesFormat(work, format) &&
+        matchesSetting(work, setting) &&
         (!tag || dataset.workTags.get(work.id)?.includes(tag)) &&
         (!person || hasPerson(work, Number(person))) &&
         (!needsPoster || !posters.ids.has(work.id)) &&
@@ -212,13 +216,16 @@ export default function App() {
         if (b.year === null) return -1;
         return sort === 'releaseDesc' ? b.year - a.year : a.year - b.year;
       });
-  }, [dataset, medium, query, franchise, family, allowedFranchises, format, tag, person, needsPoster, posters, sort]);
+  }, [dataset, medium, query, franchise, family, allowedFranchises, format, setting, tag, person, needsPoster, posters, sort]);
 
   // Universe families as pills: the sidebar list is hidden on narrow screens (see .narrow-only).
   const universePills = useMemo(() => {
     if (!dataset) return [];
     return dataset.families.map(entry => ({id: entry.id, name: entry.name, count: dataset.works.filter(work => work.medium === medium && work.memberships.some(m => entry.franchiseIds.includes(m.franchiseId))).length})).filter(entry => entry.count > 0);
   }, [dataset, medium]);
+
+  // How many works of this catalogue fall under each setting (labels of the filter).
+  const settingTotals = useMemo(() => settingCounts((dataset?.works ?? []).filter(work => work.medium === medium)), [dataset, medium]);
 
   // Companies: the top-level owners, each with the number of works under it (Watch only).
   const companyPills = useMemo(() => {
@@ -388,6 +395,12 @@ export default function App() {
                       {FORMATS[medium].map(option => <option key={option} value={option}>{t(`format.${option}`)}</option>)}
                     </select>
                   </label>
+                  <label><span className="sr">{t('filter.setting')}</span>
+                    <select value={setting} onChange={event => setSetting(event.target.value as SettingFilter)}>
+                      <option value="All">{t('filter.setting')}: {t('filter.all')}</option>
+                      {(['earth', 'fictional_world', 'unknown'] as const).map(option => <option key={option} value={option}>{t(`setting.${option}`)} ({settingTotals[option]})</option>)}
+                    </select>
+                  </label>
                   <label><span className="sr">{t('filter.sort')}</span>
                     <select value={sort} onChange={event => setSort(event.target.value as Sort)}>
                       {SORTS.map(option => <option key={option} value={option}>{t(`sort.${option}`)}</option>)}
@@ -429,7 +442,8 @@ export default function App() {
                   </button>)}
                 </div>}
 
-                {(companyNode || family || franchise !== 'All' || tag || person) && <div className="active-filters">
+                {(companyNode || family || franchise !== 'All' || tag || person || setting !== 'All') && <div className="active-filters">
+                  {setting !== 'All' && <button className="chip active" onClick={() => setSetting('All')}>{t(`setting.${setting}`)} ✕</button>}
                   {family && <button className="chip active" onClick={() => setUniverse('')}>{family.name} ✕</button>}
                   {companyNode && <button className="chip active" onClick={() => setCompany('')}>{companyNode.name} ✕</button>}
                   {franchise !== 'All' && <button className="chip active" onClick={() => setFranchise('All')}>{franchise} ✕</button>}

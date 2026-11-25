@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { adaptationsFor, catalogueFranchises, clampFormat, clampView, franchiseWorkIds, mediumOfFormat, mergeTextSeed, matchesFormat, parseMedium, facetLists, withoutRemasters, creatorsOf } from '../src/medium.ts';
+import { adaptationsFor, catalogueFranchises, clampFormat, clampView, franchiseWorkIds, mediumOfFormat, mergeTextSeed, matchesFormat, parseMedium, facetLists, withoutRemasters, creatorsOf, matchesSetting, parseSetting, settingCounts } from '../src/medium.ts';
 
 describe('mediumOfFormat', () => {
   it('maps the four video formats and the three text formats', () => {
@@ -293,5 +293,27 @@ describe('creatorsOf (curated seed creators beat the imported ones)', () => {
     assert.deepEqual(creatorsOf(undefined, cached), cached);
     assert.deepEqual(creatorsOf([{ role: 'x' }, 5, null], cached), cached);
     assert.deepEqual(creatorsOf(undefined, []), []);
+  });
+});
+
+describe('the setting filter (Earth or a fictional world)', () => {
+  it('parseSetting accepts the four known values and falls back to All', () => {
+    for (const value of ['All', 'earth', 'fictional_world', 'unknown']) assert.equal(parseSetting(value), value);
+    assert.equal(parseSetting('mars'), 'All');
+    assert.equal(parseSetting(null), 'All');
+    assert.equal(parseSetting(undefined), 'All');
+  });
+  it('matchesSetting: All matches everything, the rest compare the work, a missing value is unknown', () => {
+    assert.equal(matchesSetting({ setting: 'earth' }, 'All'), true);
+    assert.equal(matchesSetting({ setting: 'earth' }, 'earth'), true);
+    assert.equal(matchesSetting({ setting: 'earth' }, 'fictional_world'), false);
+    assert.equal(matchesSetting({}, 'unknown'), true);
+    assert.equal(matchesSetting({ setting: 'unknown' }, 'unknown'), true);
+    assert.equal(matchesSetting({ setting: 'earth' }, 'unknown'), false);
+  });
+  it('settingCounts counts each value over the given works', () => {
+    const works = [{ setting: 'earth' }, { setting: 'earth' }, { setting: 'fictional_world' }, {}, { setting: 'unknown' }];
+    assert.deepEqual(settingCounts(works), { earth: 2, fictional_world: 1, unknown: 2 });
+    assert.deepEqual(settingCounts([]), { earth: 0, fictional_world: 0, unknown: 0 });
   });
 });

@@ -5,8 +5,10 @@ import {useSettings} from '../settings';
 
 export type PosterLookup = { ids: Set<string>; version: number; /** File type of a cover that is not a JPEG (png, webp). */ types?: Record<string, string> };
 
-export function posterUrl(workId: string, posters: PosterLookup) {
-  return posters.ids.has(workId) ? `/posters/${workId}.${posters.types?.[workId] ?? 'jpg'}?v=${posters.version}` : null;
+/** The work's own poster; a remaster without one shows the poster of the film or series it re-releases. */
+export function posterUrl(work: {id: string; remasterOf?: string}, posters: PosterLookup) {
+  const id = posters.ids.has(work.id) ? work.id : work.remasterOf && posters.ids.has(work.remasterOf) ? work.remasterOf : null;
+  return id ? `/posters/${id}.${posters.types?.[id] ?? 'jpg'}?v=${posters.version}` : null;
 }
 
 /** A remaster (3D, restoration, special edition) or an announced work says so next to its title. */
@@ -32,7 +34,7 @@ function Facts({work, t}: {work: Work; t: TFn}) {
 
 export function WorkCard({work, t, posters, onSelect}: {work: Work; t: TFn; posters: PosterLookup; onSelect: (id: string) => void}) {
   const {cardStyle} = useSettings();
-  const poster = posterUrl(work.id, posters);
+  const poster = posterUrl(work, posters);
   const unspecified = work.memberships[0]?.continuity === 'Continuity not specified';
   const continuity = work.medium === 'text' && unspecified ? undefined : work.memberships[0]?.continuity;
   const yearMark = work.yearImported && <span className="imported-mark" title={t(work.medium === 'text' ? 'detail.yearImportedText' : 'detail.yearImported')}>*</span>;
@@ -66,7 +68,7 @@ export function MiniWork({work, t, posters, onSelect, id, focus = false, badge, 
   id?: string; focus?: boolean; badge?: React.ReactNode; note?: string;
 }) {
   const {cardStyle} = useSettings();
-  const poster = posterUrl(work.id, posters);
+  const poster = posterUrl(work, posters);
   const textOnly = cardStyle === 'text';
   return <button id={id} className={`mini-work ${focus ? 'focus' : ''} ${textOnly ? 'text-only' : ''}`} onClick={() => onSelect(work.id)}>
     {badge !== undefined && <span className="mini-badge">{badge}</span>}
