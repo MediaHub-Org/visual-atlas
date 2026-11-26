@@ -192,7 +192,7 @@
 ### Task 7: Docs, handoff, final check
 
 **Files:**
-- Modify: `docs/agent/HANDOFF.md`, `README.md`, `docs/agent/JOURNAL.md`, `../../AgenticHub/projects/working/ROADMAP.md` (path from the repo root: `D:\Workspaces\AgenticHub\projects\working\ROADMAP.md`)
+- Modify: `docs/agent/HANDOFF.md`, `README.md`, `docs/agent/JOURNAL.md`, `../../AgenticHub/workspace-panel/working/ROADMAP.md` (path from the repo root: `D:\Workspaces\AgenticHub\workspace-panel\working\ROADMAP.md`)
 
 - [ ] **Step 1:** README: add "In-world chronology" (what the data is, source and licence, how to refresh with `node scripts/fetch-wookieepedia-dates.mjs`, how to add a franchise: a calendar block + page map + run). HANDOFF: state, the two decisions taken, what is unverified (Wookieepedia's canon dates are its claim), and next steps (Legends, second franchise, reviewing periods). JOURNAL: dated entry. ROADMAP: Visual Atlas line updated.
 - [ ] **Step 2: Final verification:** `npm test` (all suites), `npm run build`, and in the browser the three checks from Tasks 5–6. Report the actual counts.
