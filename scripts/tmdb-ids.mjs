@@ -46,6 +46,7 @@ export const tmdbIds = {
   'film--doraemon-nobita-s-great-adventure-into-the-underworld--1984': 161699,
   'film--doraemon-nobita-s-little-star-wars-2021--2022': 782054,
   'film--doraemon-nobita-s-parallel-visit-to-the-west--1988': 136241,
+  'film--frozen-3--2027': 1024604,
   'film--mortadelo-y-filem-n-contra-jimmy-el-cachondo--2014': 227738,
   'film--mortadelo-y-filem-n-misi-n-salvar-la-tierra--2008': 80446,
   'film--one-piece-the-giant-mechanical-soldier-of-karakuri-castle--2006': 44730,

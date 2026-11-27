@@ -1841,11 +1841,11 @@
         "conversation"
       ],
       "name": "Ice Age",
-      "editorial_count_claim": 5,
+      "editorial_count_claim": 6,
       "count_scope": "Theatrical feature films under the conversation-specific scope; not a verified or derived count",
       "coverage": "conversation_scope_loaded_not_independently_verified",
       "description": null,
-      "loaded_unique_film_count": 5,
+      "loaded_unique_film_count": 6,
       "count_claim_matches_loaded": true
     },
     {
@@ -2525,6 +2525,20 @@
       "name": "Independent anime",
       "editorial_count_claim": null,
       "count_scope": "Owner request 2026-11-25: anime that belong to no franchise; an umbrella, not a shared world",
+      "coverage": "conversation_scope_loaded_not_independently_verified",
+      "description": null,
+      "loaded_unique_film_count": null,
+      "count_claim_matches_loaded": null
+    },
+    {
+      "id": "blade-runner",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "name": "Blade Runner",
+      "editorial_count_claim": null,
+      "count_scope": "Owner-approved batch of 2026-11-27: two films, the anime series and the 2099 series; not a verified or derived count",
       "coverage": "conversation_scope_loaded_not_independently_verified",
       "description": null,
       "loaded_unique_film_count": null,
@@ -5270,6 +5284,58 @@
       ],
       "franchise_id": "game-of-thrones",
       "company_id": "warner-bros",
+      "relationship_type": "catalog_association",
+      "ownership_asserted": false,
+      "valid_from": null,
+      "valid_to": null
+    },
+    {
+      "id": "blade-runner--warner-bros",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "blade-runner",
+      "company_id": "warner-bros",
+      "relationship_type": "catalog_association",
+      "ownership_asserted": false,
+      "valid_from": null,
+      "valid_to": null
+    },
+    {
+      "id": "blade-runner--alcon",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "blade-runner",
+      "company_id": "alcon",
+      "relationship_type": "catalog_association",
+      "ownership_asserted": false,
+      "valid_from": null,
+      "valid_to": null
+    },
+    {
+      "id": "blade-runner--columbia-pictures",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "blade-runner",
+      "company_id": "columbia-pictures",
+      "relationship_type": "catalog_association",
+      "ownership_asserted": false,
+      "valid_from": null,
+      "valid_to": null
+    },
+    {
+      "id": "blade-runner--amazon-mgm-studios",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "blade-runner",
+      "company_id": "amazon-mgm-studios",
       "relationship_type": "catalog_association",
       "ownership_asserted": false,
       "valid_from": null,
@@ -30723,6 +30789,207 @@
       "episode_count": null,
       "remaster_of": "series--star-trek-the-next-generation",
       "remaster_kind": "restoration"
+    },
+    {
+      "id": "film--blade-runner--1982",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Blade Runner",
+      "original_title": null,
+      "release_year": 1982,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": null,
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "film--blade-runner-2049--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Blade Runner 2049",
+      "original_title": null,
+      "release_year": 2017,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": null,
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "series--blade-runner-black-lotus",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Blade Runner: Black Lotus",
+      "original_title": null,
+      "release_year": 2021,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "anime",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "series--blade-runner-2099",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "series",
+      "title": "Blade Runner 2099",
+      "original_title": null,
+      "release_year": 2026,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "not_applicable",
+      "animation_classification": "live_action",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth"
+    },
+    {
+      "id": "film--hoppers--2026",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Hoppers",
+      "original_title": null,
+      "release_year": 2026,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth_fantasy"
+    },
+    {
+      "id": "film--hexed--2026",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Hexed",
+      "original_title": null,
+      "release_year": 2026,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "setting": "earth_fantasy"
+    },
+    {
+      "id": "film--gatto--2027",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Gatto",
+      "original_title": null,
+      "release_year": 2027,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "release_status": "announced",
+      "setting": "earth_fantasy"
+    },
+    {
+      "id": "film--frozen-3--2027",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Frozen 3",
+      "original_title": null,
+      "release_year": 2027,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "release_status": "announced",
+      "setting": "earth_fantasy"
+    },
+    {
+      "id": "film--ice-age-boiling-point--2027",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "format": "film",
+      "title": "Ice Age: Boiling Point",
+      "original_title": null,
+      "release_year": 2027,
+      "release_date": null,
+      "release_precision": "year",
+      "release_calendar": "gregory",
+      "release_territory": null,
+      "theatrical_eligibility": "claimed_theatrical_needs_review",
+      "animation_classification": "animation",
+      "external_ids": {},
+      "synopsis": null,
+      "artwork": null,
+      "episode_count": null,
+      "release_status": "announced",
+      "setting": "earth_fantasy"
     }
   ],
   "memberships": [
@@ -44613,6 +44880,114 @@
       "continuity_id": null,
       "membership_type": "included",
       "notes": null
+    },
+    {
+      "id": "blade-runner--screen-continuity--film--blade-runner--1982",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--blade-runner--1982",
+      "franchise_id": "blade-runner",
+      "continuity_id": "blade-runner--screen-continuity",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "blade-runner--screen-continuity--film--blade-runner-2049--2017",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--blade-runner-2049--2017",
+      "franchise_id": "blade-runner",
+      "continuity_id": "blade-runner--screen-continuity",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "blade-runner--screen-continuity--series--blade-runner-black-lotus",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--blade-runner-black-lotus",
+      "franchise_id": "blade-runner",
+      "continuity_id": "blade-runner--screen-continuity",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "blade-runner--screen-continuity--series--blade-runner-2099",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "series--blade-runner-2099",
+      "franchise_id": "blade-runner",
+      "continuity_id": "blade-runner--screen-continuity",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--hoppers--2026",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--hoppers--2026",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "pixar--films--film--gatto--2027",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--gatto--2027",
+      "franchise_id": "pixar",
+      "continuity_id": "pixar--films",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--hexed--2026",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--hexed--2026",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "disney-animation--canon--film--frozen-3--2027",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--frozen-3--2027",
+      "franchise_id": "disney-animation",
+      "continuity_id": "disney-animation--canon",
+      "membership_type": "included",
+      "notes": null
+    },
+    {
+      "id": "ice-age--theatrical-animated-cycle--film--ice-age-boiling-point--2027",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "work_id": "film--ice-age-boiling-point--2027",
+      "franchise_id": "ice-age",
+      "continuity_id": "ice-age--theatrical-animated-cycle",
+      "membership_type": "included",
+      "notes": null
     }
   ],
   "continuities": [
@@ -46514,6 +46889,17 @@
       "name": "Specials and announced",
       "canonical_status": "unreviewed",
       "notes": "A reunion special and the HBO series announced for 2027 (no premiere date yet)."
+    },
+    {
+      "id": "blade-runner--screen-continuity",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "blade-runner",
+      "name": "Screen continuity",
+      "canonical_status": "unreviewed",
+      "notes": "Floating continuity: the 1982 film, the anime series, the 2049 film and the 2099 series are grouped as one screen timeline at title level; not reviewed."
     }
   ],
   "sequences": [
@@ -50208,6 +50594,34 @@
       "ordering_basis": "release_year_with_editorial_ties",
       "certainty": "editorial_proposal",
       "notes": null
+    },
+    {
+      "id": "blade-runner--screen-continuity--release",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "blade-runner",
+      "continuity_id": "blade-runner--screen-continuity",
+      "name": "Screen continuity: release order",
+      "sequence_type": "release",
+      "ordering_basis": "release_year_with_editorial_ties",
+      "certainty": "editorial_proposal",
+      "notes": null
+    },
+    {
+      "id": "blade-runner--screen-continuity--narrative",
+      "review_status": "needs_review",
+      "source_ids": [
+        "conversation"
+      ],
+      "franchise_id": "blade-runner",
+      "continuity_id": "blade-runner--screen-continuity",
+      "name": "Screen continuity: in-universe order (proposed)",
+      "sequence_type": "narrative",
+      "ordering_basis": "editorial_proposal_title_level",
+      "certainty": "editorial_proposal",
+      "notes": "Proposed from the settings of the works (2019, 2032, 2049, 2099); no in-world dates are asserted."
     }
   ],
   "sequence_items": [
@@ -62073,6 +62487,104 @@
       "sequence_id": "mr-bean--main--release",
       "work_id": "film--mr-bean-s-holiday--2007",
       "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "blade-runner--screen-continuity--release",
+      "work_id": "film--blade-runner--1982",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "blade-runner--screen-continuity--release",
+      "work_id": "film--blade-runner-2049--2017",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "blade-runner--screen-continuity--release",
+      "work_id": "series--blade-runner-black-lotus",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "blade-runner--screen-continuity--release",
+      "work_id": "series--blade-runner-2099",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "blade-runner--screen-continuity--narrative",
+      "work_id": "film--blade-runner--1982",
+      "position": 1,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "blade-runner--screen-continuity--narrative",
+      "work_id": "series--blade-runner-black-lotus",
+      "position": 2,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "blade-runner--screen-continuity--narrative",
+      "work_id": "film--blade-runner-2049--2017",
+      "position": 3,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "blade-runner--screen-continuity--narrative",
+      "work_id": "series--blade-runner-2099",
+      "position": 4,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--hoppers--2026",
+      "position": 25,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "pixar--films--release",
+      "work_id": "film--gatto--2027",
+      "position": 26,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--hexed--2026",
+      "position": 65,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "disney-animation--canon--release",
+      "work_id": "film--frozen-3--2027",
+      "position": 66,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "ice-age--theatrical-animated-cycle--release",
+      "work_id": "film--ice-age-boiling-point--2027",
+      "position": 6,
+      "position_certainty": "needs_review",
+      "simultaneous_group": null
+    },
+    {
+      "sequence_id": "ice-age--theatrical-animated-cycle--narrative",
+      "work_id": "film--ice-age-boiling-point--2027",
+      "position": 6,
       "position_certainty": "needs_review",
       "simultaneous_group": null
     }
